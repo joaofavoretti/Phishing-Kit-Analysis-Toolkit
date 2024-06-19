@@ -4,12 +4,19 @@ import shutil
 import re
 import logging
 import numpy as np
+from urllib.parse import urlparse
 from tempfile import mkdtemp
 from enum import Enum
 from typing import Union
 
-
 BLACKLIST_URLS = ["chrome\\://headless/headless_command.html", "about\\:blank"]
+
+def get_domain(url):
+    if url == None:
+        return ''
+
+    parsed = urlparse(url)
+    return parsed.netloc
 
 class InstructionType(Enum):
     GET = 'GET'
@@ -18,6 +25,8 @@ class InstructionType(Enum):
     CALL = 'CALL'
     EXECUTE = 'EXECUTE'
     LOAD = 'LOAD'
+    
+OPERATIONS_SET = set([InstructionType.GET, InstructionType.SET, InstructionType.CALL])
 
 INSTRUCTION_INITIAL_MAP = {
     'g': InstructionType.GET,
@@ -45,17 +54,6 @@ class LogParser:
         if not self._valid_filename(filename):
             raise Exception(f"File {self.filename} does not exist")
 
-    def _valid_filename(self, filename):
-        return filename.endswith('.log') and os.path.exists(filename)
-
-    def _instruction_type(self, instruction) -> Union[InstructionType, None]:
-        inst_type_letter = instruction[0]
-
-        if inst_type_letter in INSTRUCTION_INITIAL_MAP:
-            return INSTRUCTION_INITIAL_MAP[inst_type_letter]
-
-        return None
-
     def __str__(self):
         res = f"LogParser({self.filename})\n"
 
@@ -78,115 +76,16 @@ class LogParser:
     
         return res
 
-    # def extract_code_segments(self, get_instructions=False):
-    #     code_segments = {}
-    #     code_urls = {}
-    #     current_ident = None
-    #     with open(self.filename, 'r') as f:
-    #         lines = f.readlines()
-    #         for line in lines:
-    #             line_type = self._line_type(line)
-    #
-    #             if line_type == LINE_TYPES['UPLOAD']:
-    #                 ret = self._parse_upload(line.strip())
-    #
-    #                 if ret is None:
-    #                     print("Something really bad happened")
-    #                     print(line, flush=True)
-    #
-    #                 ident = ret['ident']
-    #
-    #                 if ident not in code_urls:
-    #                     code_urls[ident] = ret['url']
-    #                 else:
-    #                     print("extract_code_segments: Error 1. Load two codes with the same identifier")
-    #
-    #                 if ident not in code_segments:
-    #                     code_segments[ident] = []
-    #                 else:
-    #                     print("extract_code_segments: Error 2 - Load two codes with the same identifier")
-    #
-    #                 continue 
-    #             elif line_type == LINE_TYPES['EXECUTE']:
-    #                 ret = self._parse_execute(line.strip())
-    #
-    #                 if ret is None:
-    #                     print("Something really bad happened")
-    #
-    #                 ident = ret['ident']
-    #
-    #                 if ident not in code_segments:
-    #                     # print(f"extract_code_segments: Error 3 - Execute without upload ({ident})")
-    #                     code_segments[ident] = [[]]
-    #                 else:
-    #                     code_segments[ident].append([])
-    #
-    #                 if current_ident is not None:
-    #                     code_segments[current_ident][-1].append(f"{line.strip()}[{len(code_segments[ident]) - 1}]")
-    #
-    #                 current_ident = ident
-    #             elif line_type in OPERATIONS:
-    #                 if get_instructions:
-    #                     if self._line_type(line) == LINE_TYPES['GET']:
-    #                         ret = self._parse_get(line.strip())
-    #                         if ret is not None:
-    #                             code_segments[current_ident][-1].append(f"{ret['obj']}.{ret['key']}")
-    #                 else:
-    #                     code_segments[current_ident][-1].append(line.strip())
-    #
-    #     return code_segments, code_urls
-    # 
-    # def extract_window_origins(self):
-    #     window_origins = []
-    #     with open(self.filename, 'r') as f:
-    #         lines = f.readlines()
-    #         for line in lines:
-    #             if self._line_type(line) == LINE_TYPES['DOMAIN']:
-    #                 ret = self._parse_domain(line.strip())
-    #                 if ret is not None:
-    #                     window_origins.append(ret['domain'])
-    #     return window_origins
-    #
-    # def extract_code_segments_list(self, get_instructions=True, consider_wordlist=True, inwordlist=True):
-    #     code_segments, _ = self.extract_code_segments(get_instructions=get_instructions)
-    #     code_segments_list = []
-    #     for code_list in code_segments.values():
-    #         for code in code_list:
-    #
-    #             if len(code) == 0:
-    #                 continue
-    #
-    #             if code[-1].startswith("!"):
-    #                 code.pop()
-    #
-    #             ok = True
-    #             if self.wordlist is not None and consider_wordlist:
-    #                 ok = False
-    #                 for inst in code:
-    #                     if get_instructions:
-    #                         for word in self.wordlist:
-    #                             if word in inst:
-    #                                 ok = True
-    #                     else:
-    #                         inst_type = self._line_type(inst)
-    #                         if inst_type != LINE_TYPES['GET']:
-    #                             continue
-    #
-    #                         ret = self._parse_get(inst)
-    #
-    #                         if ret is None:
-    #                             continue
-    #
-    #                         _inst = ret['key']
-    #
-    #                         for word in self.wordlist:
-    #                             if word in _inst:
-    #                                 ok = True
-    #
-    #             if not (ok ^ inwordlist) and len(code) > 0:
-    #                 code_segments_list.append(code)
-    #
-    #     return code_segments_list
+    def _valid_filename(self, filename):
+        return filename.endswith('.log') and os.path.exists(filename)
+
+    def _instruction_type(self, instruction) -> Union[InstructionType, None]:
+        inst_type_letter = instruction[0]
+
+        if inst_type_letter in INSTRUCTION_INITIAL_MAP:
+            return INSTRUCTION_INITIAL_MAP[inst_type_letter]
+
+        return None
 
     def _parse_get(self, instruction):
         try:
@@ -227,7 +126,7 @@ class LogParser:
 
     def _parse_call(self, line):
         try:
-            match = re.match(r'c(\d+):%(.*):\{(\d+),(\w+)\}(.*)', line)
+            match = re.match(r'c(\d+):%(.*?):\{(\d+),(\w+)\}(.*)', line)
 
             if match is None:
                 raise Exception("(PARSE_CALL) No regex match")
@@ -267,19 +166,23 @@ class LogParser:
 
     def _parse_load(self, line):
         try:
-            match = re.match(r'\$(\d+):"(.*?)":(.*?)$', line)
+            match = re.match(r'\$(\d+):(\d+|".*?"):(.*)', line)
 
             if match is None:
                 raise Exception("(PARSE_LOAD) No regex match")
 
-            [ident, url, code] = match.groups()
-
-            if url.startswith('"') and url.endswith('"'):
-                url = url[1:-1]
+            [ident, source, code] = match.groups()
+            
+            domain = None
+            if source.startswith('"') and source.endswith('"'):
+                source = source[1:-1]
+                source = source.replace("\\", "" , 1)
+                domain = get_domain(source)
 
             return {
                 'ident': ident,
-                'url': url,
+                'source': source,
+                'domain': domain,
                 'code': code
             }
         except Exception as e:
@@ -294,15 +197,66 @@ class LogParser:
             if match is None:
                 raise Exception("(PARSE_DOMAIN) No regex match")
                 
-            [domain, secret] = match.groups()
+            [url, secret] = match.groups()
+            
+            url = url.replace("\\", "" , 1)
+
             return {
-                'domain': domain,
+                'url': url,
+                'domain': get_domain(url),
                 'secret': secret
             }
         except Exception as e:
             logging.info(f"(PARSE_DOMAIN) Error parsing line: {line}")
             logging.info(e)
             return None
+
+    def extract_instruction_blocks(self):
+        domains = dict()
+        domains['?'] = '?'
+
+        blocks = dict()
+
+        last_executed_domain = None
+
+        with open(self.filename, 'r') as f:
+            instructions = f.readlines()
+
+            for instruction in instructions:
+                inst_type = self._instruction_type(instruction)
+                if inst_type is None:
+                    continue
+
+                inst_parser = getattr(self, self.INSTRUCTION_PARSER_MAP[inst_type])
+                ret = inst_parser(instruction)
+
+                if ret is None:
+                    continue
+
+                ret['type'] = inst_type.name
+
+                if inst_type == InstructionType.LOAD:
+                    # TODO: Choose the way of getting the instruction sequences
+                    # domains[ret['ident']] = ret['domain']
+                    domains[ret['ident']] = ret['source']
+                    continue
+
+                if inst_type == InstructionType.EXECUTE:
+                    last_executed_domain = domains[ret['ident']]
+                    
+                    if last_executed_domain not in blocks:
+                        blocks[last_executed_domain] = [[]]
+                    else:
+                        if len(blocks[last_executed_domain][-1]) > 0:
+                            blocks[last_executed_domain].append([])
+
+                    continue
+
+                if inst_type in OPERATIONS_SET:
+                    blocks[last_executed_domain][-1].append(ret)
+                    
+        return blocks
+
 
 def get_wordlist_paths(wordlist_dir):
     wordlist_paths = []
@@ -355,42 +309,16 @@ def for_each_log_file(logs_dir, func, debug=True):
 
 if __name__ == "__main__":
     sample_filename = "./samples/sample-1.log" 
-    # sample_filename = "/archive/files/eval-phishing-pages/out/phishtank/b68bac73e4e88409/files/vv8-1713318285915-424-424-chrome.0.log" 
-    # sample_filename = "/archive/files/eval-phishing-pages/out/phishtank/be99e3e9f5e22bed/files/vv8-1713318128978-68-68-chrome.0.log"
+    # sample_filename = "./samples/sample-2.log" 
+    # sample_filename = "./samples/sample-3.log" 
 
-    # parser = LogParser(sample_filename, wordlist="/home/joao/my/ita/mestrado/eval-phishing-pages/wordlists/all.txt")
     parser = LogParser(sample_filename)
-    # parser = LogParser(sample_filename, wordlist="/home/joao/my/ita/mestrado/eval-phishing-pages/wordlists/fingerprints/visiblev8/bot-visiblev8.txt")
 
-    print(parser)
+    # print(parser)
 
-    # First way of viewing the block instructions
-    # Maybe it is nice to use this to reconstruct a graph of some sort
-    # with open('output.json', 'w') as f:
-    #     code_segments, code_urls = parser.extract_code_segments()
-    #     json.dump({"code_segments": code_segments, "code_urls": code_urls}, f, indent=4)
-    
-    # Getting the window_origins
-    # with open('output.json', 'w') as f:
-        # window_origins = parser.extract_window_origins()
-        # json.dump({"window_origins": window_origins}, f, indent=4)
+    instruction_blocks = parser.extract_instruction_blocks()
 
-    # Second way of viewing the block instructions
-    # with open('output.json', 'w') as f:
-    #     json.dump({"codesTrueegments": parser.extract_code_segments(get_instructions=False)}, f, indent=4)
+    with open('output.json', 'w') as f:
+        json.dump(instruction_blocks, f, indent=4)
 
-    # with open('output3.json', 'w') as f:
-    #     json.dump({"codesTrueegments": parser.extract_code_segments_list(get_instructions=False, inwordlist=False)}, f, indent=4)
-
-    # Test with wordcount
-    # with open('output1.json', 'w') as f:
-    #     json.dump({"wordcount": parser.extract_word_count(from_code_segments=True).tolist()}, f, indent=4)
-
-    # with open('output2.json', 'w') as f:
-    #     json.dump({"opcount": parser.extract_op_count(from_code_segments=True).tolist()}, f, indent=4)
-
-
-    # Test with opcount
-    # with open('output_list.json', 'w') as f:
-    #     json.dump({"result": parser.extract_features(from_code_segments=True, inwordlist=True).tolist()}, f, indent=4)
 
