@@ -1,0 +1,21 @@
+Experiments
+===========
+[-] First: This is supposed to be good. But has a problem with one-instruction blocks
+Embedding Technique: One Document Per Instruction Block
+Clustering Technique: Calculate MANY coordinates per file, then calculate the distance matrix with the most similar coordinates
+
+[ ] Second: This should be better. But how do we handle simple log files?
+Embedding Technique: One Document Per File in Log file
+Clustering Technique: Calculate many coordinates per file, then calculate the distance matrix with the most similar coordinates
+
+[ ] Third: Idk about this. I guess that the important parts are gonna be to insignificant
+Embedding Technique: One Document Per File in Log file
+Clustering Technique: Calculate one coordinates per file, then calculate the distance matrix with coordinates
+
+
+Tasks
+=====
+[ ] Create a framework to make the embedding experiments
+[ ] Create a tool to analyse the results
+
+

@@ -48,6 +48,15 @@ class LogParser:
         InstructionType.DOMAIN: '_parse_domain'
     }
 
+    INSTRUCTION_FORMATTER_MAP = {
+        InstructionType.GET: '_format_get',
+        InstructionType.SET: '_format_set',
+        InstructionType.CALL: '_format_call',
+        InstructionType.EXECUTE: '_format_execute',
+        InstructionType.LOAD: '_format_load',
+        InstructionType.DOMAIN: '_format_domain'
+    }
+
     def __init__(self, filename):
         self.filename = filename
         
@@ -105,6 +114,9 @@ class LogParser:
             logging.info(e)
             return None
 
+    def _format_get(self, ident, obj, key):
+        return f"GET-{obj}.{key}"
+
     def _parse_set(self, line):
         try:
             match = re.match(r's(\d+):\{(\d+),(\w+)\}:"(\w+)":(.*?)$', line)
@@ -123,6 +135,9 @@ class LogParser:
             logging.info(f"(PARSE_SET) Error parsing line: {line}")
             logging.info(e)
             return None
+
+    def _format_set(self, ident, obj, key, value):
+        return f"SET-{obj}.{key}"
 
     def _parse_call(self, line):
         try:
@@ -148,6 +163,9 @@ class LogParser:
             logging.info(e)
             return None
 
+    def _format_call(self, ident, method, obj, params):
+        return f"CALL-{obj}.{method}"
+
     def _parse_execute(self, line):
         try:
             match = re.match(r'!(.+)', line)
@@ -163,6 +181,9 @@ class LogParser:
             logging.info(f"(PARSE_EXECUTE) Error parsing line: {line}")
             logging.info(e)
             return None
+
+    def _format_execute(self, ident):
+        return None
 
     def _parse_load(self, line):
         try:
@@ -190,6 +211,9 @@ class LogParser:
             logging.info(e)
             return None
 
+    def _format_load(self, ident, source, domain, code):
+        return None
+
     def _parse_domain(self, line):
         try:
             match = re.match(r'@"(.*?)":"(.*?)"', line) 
@@ -210,6 +234,9 @@ class LogParser:
             logging.info(f"(PARSE_DOMAIN) Error parsing line: {line}")
             logging.info(e)
             return None
+
+    def _format_domain(self, url, domain, secret):
+        return None
 
     def extract_instruction_blocks(self):
         domains = dict()
@@ -255,8 +282,25 @@ class LogParser:
                 if inst_type in OPERATIONS_SET:
                     blocks[last_executed_domain][-1].append(ret)
                     
+
         return blocks
 
+    def format_instruction_block(self, instruction_block):
+        res_list = []
+
+        for block in instruction_block:
+            res = ""
+            for instruction in block:
+                inst_type = instruction['type']
+                inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
+
+                ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
+                if ret is not None:
+                    res += f"{ret} "
+
+            res_list.append(res)
+
+        return res_list
 
 def get_wordlist_paths(wordlist_dir):
     wordlist_paths = []
@@ -307,18 +351,49 @@ def for_each_log_file(logs_dir, func, debug=True):
             os.chdir("..")
     return wrapper
 
+MALICIOUS_LOGFILES_DIR = [
+    "/archive/files/eval-phishing-pages/out/phishtank"
+]
+
 if __name__ == "__main__":
-    sample_filename = "./samples/sample-1.log" 
+
+    # sample_filename = "./samples/sample-1.log" 
     # sample_filename = "./samples/sample-2.log" 
     # sample_filename = "./samples/sample-3.log" 
 
-    parser = LogParser(sample_filename)
-
+    # parser = LogParser(sample_filename)
     # print(parser)
+    
+    # instruction_blocks = parser.extract_instruction_blocks()
+    # with open('output.json', 'w') as f:
+    #     json.dump(instruction_blocks, f, indent=4)
+    #
+    # res = {}
+    # for domain, blocks in instruction_blocks.items():
+    #     res[domain] = parser.format_instruction_block(blocks)
+    #
+    # with open('output.txt', 'w') as f:
+    #     for domain, blocks in res.items():
+    #         for block in blocks:
+    #             f.write(f"{block}\n")
+                
+    res = []
 
-    instruction_blocks = parser.extract_instruction_blocks()
+    def parse_properties(filepaths, filehash, label):
+        for filepath in filepaths:
+            parser = LogParser(filepath)
+            instruction_blocks = parser.extract_instruction_blocks()
+            for domain, blocks in instruction_blocks.items():
+                res.append(f"DOMAIN-{domain}")
+                formatted_blocks = parser.format_instruction_block(blocks)
+                for block in formatted_blocks:
+                    res.append(block)
 
-    with open('output.json', 'w') as f:
-        json.dump(instruction_blocks, f, indent=4)
+    for logfiles_dir in MALICIOUS_LOGFILES_DIR:
+        for_each_log_file(logfiles_dir, parse_properties, debug=True)(label=1)
+
+    with open('output1.txt', 'w') as f:
+        for block in res:
+            f.write(f"{block}\n")
 
 
