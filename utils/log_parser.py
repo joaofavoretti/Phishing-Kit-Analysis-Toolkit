@@ -285,22 +285,59 @@ class LogParser:
 
         return blocks
 
-    def format_instruction_block(self, instruction_block):
-        res_list = []
+    def serialize_instruction_blocks(self, instruction_blocks, filehash, output_filename):
+        with open(output_filename, 'a') as f:
+            f.write(f"<<FILEHASH>> {filehash}\n")
+            for domain, blocks in instruction_blocks.items():
+                f.write(f"<<DOMAIN>> {domain if len(domain) > 0 else 'EMPTY'}\n")
+                for block in blocks:
+                    res = ""
+                    for instruction in block:
+                        inst_type = instruction['type']
+                        inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
 
-        for block in instruction_block:
+                        ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
+                        if ret is not None:
+                            res += f"{ret} "
+
+                    if len(res) > 0:
+                        f.write(f"{res}\n")
+
+    def serialize_instruction_blocks_by_domain(self, instruction_blocks, filehash, output_filename):
+        with open(output_filename, 'a') as f:
+            f.write(f"<<FILEHASH>> {filehash}\n")
+            for domain, blocks in instruction_blocks.items():
+                f.write(f"<<DOMAIN>> {domain if len(domain) > 0 else 'EMPTY'}\n")
+                res = ""
+                for block in blocks:
+                    for instruction in block:
+                        inst_type = instruction['type']
+                        inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
+
+                        ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
+                        if ret is not None:
+                            res += f"{ret} "
+
+                if len(res) > 0:
+                    f.write(f"{res}\n")
+
+    def serialize_instruction_blocks_by_file(self, instruction_blocks, filehash, output_filename):
+        with open(output_filename, 'a') as f:
+            f.write(f"<<FILEHASH>> {filehash}\n")
             res = ""
-            for instruction in block:
-                inst_type = instruction['type']
-                inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
+            for blocks in instruction_blocks.values():
+                for block in blocks:
+                    for instruction in block:
+                        inst_type = instruction['type']
+                        inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
 
-                ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
-                if ret is not None:
-                    res += f"{ret} "
+                        ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
+                        if ret is not None:
+                            res += f"{ret} "
 
-            res_list.append(res)
-
-        return res_list
+            if len(res) > 0:
+                f.write(f"{res}\n")
+    
 
 def get_wordlist_paths(wordlist_dir):
     wordlist_paths = []
@@ -376,24 +413,14 @@ if __name__ == "__main__":
     #     for domain, blocks in res.items():
     #         for block in blocks:
     #             f.write(f"{block}\n")
-                
-    res = []
 
-    def parse_properties(filepaths, filehash, label):
+    def parse_properties(filepaths, filehash):
         for filepath in filepaths:
             parser = LogParser(filepath)
             instruction_blocks = parser.extract_instruction_blocks()
-            for domain, blocks in instruction_blocks.items():
-                res.append(f"DOMAIN-{domain}")
-                formatted_blocks = parser.format_instruction_block(blocks)
-                for block in formatted_blocks:
-                    res.append(block)
+            parser.serialize_instruction_blocks(instruction_blocks, filehash, '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output1.txt')
+            parser.serialize_instruction_blocks_by_domain(instruction_blocks, filehash, '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output2.txt')
+            parser.serialize_instruction_blocks_by_file(instruction_blocks, filehash, '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output3.txt')
 
-    for logfiles_dir in MALICIOUS_LOGFILES_DIR:
-        for_each_log_file(logfiles_dir, parse_properties, debug=True)(label=1)
-
-    with open('output1.txt', 'w') as f:
-        for block in res:
-            f.write(f"{block}\n")
-
+    for_each_log_file(MALICIOUS_LOGFILES_DIR[0], parse_properties, debug=True)()
 
