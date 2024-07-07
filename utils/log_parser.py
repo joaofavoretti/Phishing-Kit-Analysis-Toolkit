@@ -1,13 +1,15 @@
-import json
-import os
-import shutil
-import re
-import logging
-import numpy as np
+from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from urllib.parse import urlparse
 from tempfile import mkdtemp
-from enum import Enum
 from typing import Union
+from enum import Enum
+import numpy as np
+import logging
+import pickle
+import shutil
+import json
+import os
+import re
 
 BLACKLIST_URLS = ["chrome\\://headless/headless_command.html", "about\\:blank"]
 
@@ -285,59 +287,47 @@ class LogParser:
 
         return blocks
 
-    def serialize_instruction_blocks(self, instruction_blocks, filehash, output_filename):
-        with open(output_filename, 'a') as f:
-            f.write(f"<<FILEHASH>> {filehash}\n")
-            for domain, blocks in instruction_blocks.items():
-                f.write(f"<<DOMAIN>> {domain if len(domain) > 0 else 'EMPTY'}\n")
-                for block in blocks:
-                    res = ""
-                    for instruction in block:
-                        inst_type = instruction['type']
-                        inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
+    # category: FILE, DOMAIN, DEFAULT
+    def stringify_instruction_blocks(self, instruction_blocks, filehash, category="DEFAULT", output_filename=None):
+        output = ""
+        res = ""
 
-                        ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
-                        if ret is not None:
-                            res += f"{ret} "
+        output += f"<<FILEHASH>> {filehash}\n"
+        for domain, blocks in instruction_blocks.items():
 
-                    if len(res) > 0:
-                        f.write(f"{res}\n")
-
-    def serialize_instruction_blocks_by_domain(self, instruction_blocks, filehash, output_filename):
-        with open(output_filename, 'a') as f:
-            f.write(f"<<FILEHASH>> {filehash}\n")
-            for domain, blocks in instruction_blocks.items():
-                f.write(f"<<DOMAIN>> {domain if len(domain) > 0 else 'EMPTY'}\n")
+            if category != "FILE":
+                output += f"<<DOMAIN>> {domain if len(domain) > 0 else 'EMPTY'}\n"
+            
+            if category == "DOMAIN":
                 res = ""
-                for block in blocks:
-                    for instruction in block:
-                        inst_type = instruction['type']
-                        inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
 
-                        ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
-                        if ret is not None:
-                            res += f"{ret} "
+            for block in blocks:
 
-                if len(res) > 0:
-                    f.write(f"{res}\n")
+                if category == "DEFAULT":
+                    res = ""
 
-    def serialize_instruction_blocks_by_file(self, instruction_blocks, filehash, output_filename):
+                for instruction in block:
+                    inst_type = instruction['type']
+                    inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
+
+                    ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
+                    if ret is not None:
+                        res += f"{ret} "
+
+                if category == "DEFAULT" and len(res) > 0:
+                    output += f"{res}\n"
+
+            if category == "DOMAIN" and len(res) > 0:
+                output += f"{res}\n"
+
+        if category == "FILE" and len(res) > 0:
+            output += f"{res}\n"
+        
+        if output_filename is None:
+            return output
+        
         with open(output_filename, 'a') as f:
-            f.write(f"<<FILEHASH>> {filehash}\n")
-            res = ""
-            for blocks in instruction_blocks.values():
-                for block in blocks:
-                    for instruction in block:
-                        inst_type = instruction['type']
-                        inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
-
-                        ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
-                        if ret is not None:
-                            res += f"{ret} "
-
-            if len(res) > 0:
-                f.write(f"{res}\n")
-    
+            f.write(output)
 
 def get_wordlist_paths(wordlist_dir):
     wordlist_paths = []
@@ -386,7 +376,65 @@ def for_each_log_file(logs_dir, func, debug=True):
             shutil.rmtree(tmp_dir)
 
             os.chdir("..")
+
+        print()
+
     return wrapper
+
+def vectorize_instruction_blocks(input_filename):
+    data = set()
+    labeled_data = []
+    filehash = None
+    count = 0
+    with open(input_filename, 'r') as f:
+        for line in f:
+            if line.strip() == '':
+                continue
+
+            if line.startswith('<<FILEHASH>>'):
+                filehash_t = line.strip().split('<<FILEHASH>>')[1]
+                
+                if filehash != filehash_t:
+                    filehash = filehash_t
+                    count = 0
+                
+                continue
+                
+            if line.startswith('<<DOMAIN>>'):
+                continue
+                
+            data.add(line.strip())
+            labeled_data.append(TaggedDocument(words=line.split(), tags=[f'{filehash}_{count}']))
+            count += 1
+
+    model = Doc2Vec(vector_size=128, window=32, min_count=1, workers=4, epochs=40, dm=0, dbow_words=1)
+    model.build_vocab(labeled_data)
+    model.train(labeled_data, total_examples=model.corpus_count, epochs=model.epochs)
+
+    X = np.array([model.dv[tagged_doc.tags[0]] for tagged_doc in labeled_data])
+    # y = np.array([tagged_doc.tags[0] for tagged_doc in labeled_data])
+    
+    return X, labeled_data
+
+def save_vectors(X, tags, output_dir=None, labels=None):
+    if output_dir is None:
+        # output_dir is the current directory
+        output_dir = os.getcwd()
+        
+    if labels is None:
+        labels = np.array([0 for _ in range(X.shape[0])])
+
+    if len(labels) != X.shape[0] and len(labels) != len(tags):
+        raise Exception(f"All vectors must have the same length. Got {X.shape[0]} vectors, {len(tags)} tags and {len(labels)} labels")
+
+    with open(os.path.join(output_dir, 'vectors.tsv'), 'w') as f:
+        for i in range(X.shape[0]):
+            f.write('\t'.join([str(x) for x in X[i]]) + '\n')
+    
+    with open(os.path.join(output_dir, 'metadata.tsv'), 'w') as f:
+        f.write('TAG\tLabel\n')
+        for i in range(len(tags)):
+            f.write(f'{tags[i]}\t{labels[i]}\n')
 
 MALICIOUS_LOGFILES_DIR = [
     "/archive/files/eval-phishing-pages/out/phishtank"
@@ -394,33 +442,21 @@ MALICIOUS_LOGFILES_DIR = [
 
 if __name__ == "__main__":
 
-    # sample_filename = "./samples/sample-1.log" 
-    # sample_filename = "./samples/sample-2.log" 
-    # sample_filename = "./samples/sample-3.log" 
-
-    # parser = LogParser(sample_filename)
-    # print(parser)
-    
-    # instruction_blocks = parser.extract_instruction_blocks()
-    # with open('output.json', 'w') as f:
-    #     json.dump(instruction_blocks, f, indent=4)
+    # def parse_properties(filepaths, filehash):
+    #     for filepath in filepaths:
+    #         parser = LogParser(filepath)
+    #         instruction_blocks = parser.extract_instruction_blocks()
+    #         parser.stringify_instruction_blocks(instruction_blocks, filehash, category="DEFAULT", output_filename='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output1.txt')
+    #         parser.stringify_instruction_blocks(instruction_blocks, filehash, category="DOMAIN", output_filename='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output2.txt')
+    #         parser.stringify_instruction_blocks(instruction_blocks, filehash, category="FILE", output_filename='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output3.txt')
     #
-    # res = {}
-    # for domain, blocks in instruction_blocks.items():
-    #     res[domain] = parser.format_instruction_block(blocks)
-    #
-    # with open('output.txt', 'w') as f:
-    #     for domain, blocks in res.items():
-    #         for block in blocks:
-    #             f.write(f"{block}\n")
+    # for_each_log_file(MALICIOUS_LOGFILES_DIR[0], parse_properties, debug=True)()
 
-    def parse_properties(filepaths, filehash):
-        for filepath in filepaths:
-            parser = LogParser(filepath)
-            instruction_blocks = parser.extract_instruction_blocks()
-            parser.serialize_instruction_blocks(instruction_blocks, filehash, '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output1.txt')
-            parser.serialize_instruction_blocks_by_domain(instruction_blocks, filehash, '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output2.txt')
-            parser.serialize_instruction_blocks_by_file(instruction_blocks, filehash, '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output3.txt')
+    print("Vectorizing data...")
+    X, labeled_data = vectorize_instruction_blocks('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output2.txt')
+    tags = np.array([tagged_doc.tags[0] for tagged_doc in labeled_data])
+    labels = np.array([1 if 'GET-Window.webdriver' in doc.words else 0 for doc in labeled_data])
 
-    for_each_log_file(MALICIOUS_LOGFILES_DIR[0], parse_properties, debug=True)()
+    print("Saving vectors...")
+    save_vectors(X, tags, output_dir='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/', labels=labels)
 
