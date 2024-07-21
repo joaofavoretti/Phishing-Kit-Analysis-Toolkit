@@ -1,0 +1,2 @@
+[app.Test]
+command = "textual run test.py"

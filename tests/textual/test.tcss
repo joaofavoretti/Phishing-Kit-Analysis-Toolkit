@@ -1,0 +1,6 @@
+FileBrowser {
+	height: 1fr;
+	dock: left;
+	width: 30;
+}
+
