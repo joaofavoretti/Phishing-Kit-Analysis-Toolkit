@@ -31,17 +31,9 @@ Tasks
 
 Programs
 ========
-Understand if similar samples are close together in the plot
-[ ] 1. I need a program to select which samples are to be labeled differently
-	Input: Stringified txt file from all the logs
-	Output: Labels array with specific labels for the manually selected samples
+[ ] 1. Manually Label Samples
+	Based on an output file
 
-	There a lot of things I would have to analyse to understand if they are the same phishing kit
-	- If the domains are similar
-	- 
-
-Try to observe the results from a clustering algorithm
-[ ] 2. I need a program to analyse the results from the closest ones
-	Input: The resulting clusters a clustering algorithm
-	Output: A way to visualize the log sequences from the members of the cluster to manually compare them
+[ ] 2. Manually Compare Samples
+	Compare members of a same cluster
 
