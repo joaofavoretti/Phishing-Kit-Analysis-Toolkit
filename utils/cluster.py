@@ -14,7 +14,8 @@ import json
 import os
 import re
 
-DATA_FILE = '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/data.json'
+# DATA_FILE = '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/data.json'
+DATA_FILE = '/archive/Downloads/data.json'
 
 def import_data(file):
     import copy
@@ -22,7 +23,7 @@ def import_data(file):
     with open(file, 'r') as f:
         data = json.load(f)
 
-    data_cp = copy.deepcopy(data)
+    # data_cp = copy.deepcopy(data)
 
     for filehash, segments in data.items():
         for idx, info in segments.items():
@@ -32,8 +33,8 @@ def import_data(file):
     segmented_data = [[info['vector'] for info in segment.values()] for segment in data.values()]
     flat_data = np.array([info['vector'] for segment in data.values() for info in segment.values()], dtype=np.float32)
 
-    dm = cosine_similarity(flat_data, flat_data)
-    np.fill_diagonal(dm, 0.0)  # Replace diagonal values with 0.0
+    # dm = cosine_similarity(flat_data, flat_data)
+    # np.fill_diagonal(dm, 0.0)  # Replace diagonal values with 0.0
 
     choosen_hashes = []
     choosen_segments = []
@@ -41,14 +42,19 @@ def import_data(file):
     num_samples = len(segmented_data)
     total_segments_count = 0
     for i in range(num_samples):
+        print(f"Processing {i+1}/{num_samples}", end="                  \r")
         num_segments = len(segmented_data[i])
         current_segments = flat_data[total_segments_count:total_segments_count+num_segments]
-        total_segments_count += num_segments
 
-        current_segments_distances = dm[total_segments_count:total_segments_count+num_segments, :]
-
-        if current_segments_distances.shape[0] == 0:
+        if num_segments == 0:
             continue
+
+        # current_segments_distances = dm[total_segments_count:total_segments_count+num_segments, :]
+        current_segments_distances = cosine_similarity(flat_data[total_segments_count:total_segments_count+num_segments], flat_data)
+       
+        diag_indices = np.diag_indices(num_segments)
+        diag_indices = (diag_indices[0], diag_indices[1] + total_segments_count)
+        current_segments_distances[diag_indices] = 0.0
 
         max_similarity_indices = np.unravel_index(np.argmax(current_segments_distances), current_segments_distances.shape)
         most_similar_vector_x = current_segments[max_similarity_indices[0]]
@@ -56,13 +62,15 @@ def import_data(file):
         choosen_hashes.append(hashes[i])
         choosen_segments.append(most_similar_vector_x)
 
-    # return segments
-    return data_cp, np.array(choosen_segments, dtype=np.float32), np.array(choosen_hashes)
+        total_segments_count += num_segments
+    print()
+
+    return np.array(choosen_segments, dtype=np.float32), np.array(choosen_hashes)
 
 print("Running cluster.py")
 
 print("Getting Data")
-data, X, y = import_data(DATA_FILE)
+X, y = import_data(DATA_FILE)
 
 with open('vectors2.tsv', 'w') as f:
     for i in range(X.shape[0]):
@@ -85,9 +93,9 @@ with open('metadata2.tsv', 'w') as f:
     for i in range(y.shape[0]):
         f.write(y[i] + '\t' + str(labels[i]) + '\n')
 
-for i in range(y.shape[0]):
-    data[y[i]]['label'] = str(labels[i])
-
-with open('data.json', 'w') as f:
-    json.dump(data, f)
+# for i in range(y.shape[0]):
+#     data[y[i]]['label'] = str(labels[i])
+#
+# with open('data.json', 'w') as f:
+#     json.dump(data, f)
 
