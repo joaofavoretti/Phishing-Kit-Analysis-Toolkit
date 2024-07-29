@@ -17,8 +17,12 @@ import re
 DATA_FILE = '/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/data.json'
 
 def import_data(file):
+    import copy
+
     with open(file, 'r') as f:
         data = json.load(f)
+
+    data_cp = copy.deepcopy(data)
 
     for filehash, segments in data.items():
         for idx, info in segments.items():
@@ -53,12 +57,12 @@ def import_data(file):
         choosen_segments.append(most_similar_vector_x)
 
     # return segments
-    return np.array(choosen_segments, dtype=np.float32), np.array(choosen_hashes)
+    return data_cp, np.array(choosen_segments, dtype=np.float32), np.array(choosen_hashes)
 
 print("Running cluster.py")
 
 print("Getting Data")
-X, y = import_data(DATA_FILE)
+data, X, y = import_data(DATA_FILE)
 
 with open('vectors2.tsv', 'w') as f:
     for i in range(X.shape[0]):
@@ -70,7 +74,6 @@ print("Clustering samples")
 # Create an instance of DBSCAN
 dbscan = DBSCAN(eps=0.05, min_samples=1, metric='cosine')
 
-# Fit the data to DBSCAN
 dbscan.fit(X)
 
 # Get the labels assigned by DBSCAN
@@ -81,3 +84,10 @@ with open('metadata2.tsv', 'w') as f:
     f.write('hash\tlabel\n')
     for i in range(y.shape[0]):
         f.write(y[i] + '\t' + str(labels[i]) + '\n')
+
+for i in range(y.shape[0]):
+    data[y[i]]['label'] = str(labels[i])
+
+with open('data.json', 'w') as f:
+    json.dump(data, f)
+
