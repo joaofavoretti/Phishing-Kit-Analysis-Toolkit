@@ -95,6 +95,10 @@ def main():
     return
 
 if __name__ == '__main__': 
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='(%(asctime)s) [%(levelname)s] %(message)s',
+        filename="analiser.log"
+    )
 
     main()
