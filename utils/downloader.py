@@ -68,6 +68,7 @@ class PhishTankDownloader(Downloader):
         reader = csv.reader(content)
         next(reader)
 
+        hasNewEntries = False
         # Parse the rows
         with open(filePath, "w") as f:
             for row in reader:
@@ -80,9 +81,13 @@ class PhishTankDownloader(Downloader):
                     break
 
                 f.write(url + "\n")
+                hasNewEntries = True
 
         # Clean the old file
-        self._clean(oldFilePath)
+        if not hasNewEntries:
+            os.remove(filePath)
+        else:
+            self._clean(oldFilePath)
 
 class OpenPhishDownloader(Downloader):
     URL = "https://openphish.com/feed.txt"
@@ -96,6 +101,7 @@ class OpenPhishDownloader(Downloader):
         content = content.decode("utf-8")
         content = content.split("\n")
 
+        hasNewEntries = False
         # Parse the rows
         with open(filePath, "w") as f:
             for url in content:
@@ -103,9 +109,12 @@ class OpenPhishDownloader(Downloader):
                     break
 
                 f.write(url + "\n")
+                hasNewEntries = True
 
-        # Clean the old file
-        self._clean(oldFilePath)
+        if not hasNewEntries:
+            os.remove(filePath)
+        else:
+            self._clean(oldFilePath)
 
 
 class PhishStatsDownloader(Downloader):
@@ -127,6 +136,7 @@ class PhishStatsDownloader(Downloader):
             if not line[0].startswith("#"):
                 break
 
+        hasNewEntries = False
         # Parse the rows
         with open(filePath, "w") as f:
             for row in reader:
@@ -139,9 +149,12 @@ class PhishStatsDownloader(Downloader):
                     break
 
                 f.write(url + "\n")
+                hasNewEntries = True
 
-        # Clean the old file
-        self._clean(oldFilePath)
+        if not hasNewEntries:
+            os.remove(filePath)
+        else:
+            self._clean(oldFilePath)
 
 
 def main():
