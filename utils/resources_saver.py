@@ -119,7 +119,7 @@ def addAnnotation(soup, url):
     soup.html.insert_before(comment)
     return soup
 
-def savePage(url, pagefilename='page'):
+def savePage(url, pagefilename='page', output_dir=""):
     """
     save the page
     """
@@ -129,22 +129,23 @@ def savePage(url, pagefilename='page'):
     response = session.get(url)
     # soup = BeautifulSoup(response.text, features="lxml")
     soup = BeautifulSoup(response.text, features="html.parser")
-    if not os.path.exists(pagefilename):
-        os.mkdir(pagefilename)
-    pagefolder = pagefilename+'/'+pagefilename+'_files' 
+    store_folder = os.path.join(output_dir, pagefilename)
+    if not os.path.exists(store_folder):
+        os.mkdir(store_folder)
+    pagefolder = os.path.join(store_folder, pagefilename+'_files') 
     soup = saveFileInTag(soup, pagefolder, url, session, tag2find='img', inner='src')
     soup = saveFileInTag(soup, pagefolder, url, session, tag2find='link', inner='href')
     soup = saveFileInTag(soup, pagefolder, url, session, tag2find='script', inner='src')
     soup = saveFileInStyle(soup, pagefolder, url, session)
     soup = updateLink(soup, url, session)
     soup = addAnnotation(soup, url)
-    with open(pagefilename+'/'+pagefilename+'.html', 'wb') as file:
+    with open(os.path.join(store_folder, f'{pagefilename}.html'), 'wb') as file:
         file.write(soup.prettify('utf-8'))
     print(f"savePage({url}) finish.")
     print("===================")
     return soup
 
-def savePageRequests(url, pagefilename='page'):
+def savePageRequests(url, pagefilename='page', output_dir=""):
     """
     save the page using seleniumwire
     """
@@ -162,13 +163,19 @@ def savePageRequests(url, pagefilename='page'):
         if request.response:
             resources.append(request)
 
-    requests_folder = os.path.join(pagefilename,pagefilename+'_requests')
+    # Write the requests in a requests.txt file
+    with open(os.path.join(output_dir, pagefilename, "requests.txt"), 'w') as file:
+        for resource in resources:
+            file.write(str(resource) + "\n")
+
+    # Make the folder if it does not exist
+    requests_folder = os.path.join(output_dir, pagefilename,pagefilename+'_requests')
     if resources and not os.path.exists(requests_folder):
         os.mkdir(requests_folder)
 
     for idx,resource in enumerate(resources):
+        filename = os.path.basename(resource.path)
         try:
-            filename = os.path.basename(resource.path)
             if not filename:
                 filename = f"resource_{idx}"
             filename = filename.split('?')[0]
@@ -191,13 +198,15 @@ def main():
     # Adding optional argument
     parser.add_argument("-u", "--url", help = "target url")
     parser.add_argument("-l", "--urllist", help = "target urls list")
+    parser.add_argument("-o", "--output", help = "output folder")
     # Read arguments from command line
     args = parser.parse_args()
     outputPath = []
     targetUrls = []
     if args.url:
         targetUrls.append(args.url)
-        outputPath.append(re.sub(r'[^a-zA-Z0-9]','',args.url))  # That is nice idea 
+        dir_name = re.sub(r'[^a-zA-Z0-9]','',args.url)
+        outputPath.append(dir_name)  # That is nice idea 
     if args.urllist:
         url_file = open(args.urllist, "r")
         targetUrls = url_file.read().splitlines()
@@ -205,8 +214,8 @@ def main():
             print(targetUrl)
             outputPath.append(re.sub(r'[^a-zA-Z0-9]','',targetUrl))
     for idx,url in enumerate(targetUrls):
-        savePage(url, outputPath[idx])
-        savePageRequests(url, outputPath[idx])
+        savePage(url, outputPath[idx], args.output)
+        savePageRequests(url, outputPath[idx], args.output)
     
 
 

@@ -53,6 +53,20 @@ def analyze_urls(urls: list, output_dir: str):
 
         docker.copy((p, f"/home/node/{directory_name}.tar.gz"), f"{output_dir}/{directory_name}.tar.gz")
 
+        # Save the sources of the webpage
+        if not os.path.exists(f"{output_dir}/{directory_name}"):
+            os.makedirs(f"{output_dir}/{directory_name}")
+
+        os.system(f"tar -xzf {output_dir}/{directory_name}.tar.gz -C {output_dir}/{directory_name}")
+
+        os.system(f"python3 resources_saver.py -u \"{url}\" -o {output_dir}/{directory_name}")
+
+        os.remove(f"{output_dir}/{directory_name}.tar.gz")
+
+        os.system(f"tar -czf {output_dir}/{directory_name}.tar.gz -C {output_dir} {directory_name}")
+
+        os.system(f"rm -rf {output_dir}/{directory_name}")
+
         logging.info(f"Finished scanning URL: \"{url}\"")
 
     docker.kill(p)
