@@ -1,4 +1,5 @@
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
+from sentence_transformers import SentenceTransformer
 from urllib.parse import urlparse
 from tempfile import mkdtemp
 from typing import Union
@@ -337,6 +338,7 @@ class LogParser:
         with open(output_filename, 'a') as f:
             f.write(output)
 
+
 def get_wordlist_paths(wordlist_dir):
     wordlist_paths = []
     for root, _, files in os.walk(wordlist_dir):
@@ -344,6 +346,7 @@ def get_wordlist_paths(wordlist_dir):
             if file.endswith('.txt'):
                 wordlist_paths.append(os.path.join(root, file))
     return wordlist_paths
+
 
 def for_each_log_file(logs_dir, func, debug=True):
     def wrapper(*args, **kwargs):
@@ -389,7 +392,55 @@ def for_each_log_file(logs_dir, func, debug=True):
 
     return wrapper
 
-def vectorize_instruction_blocks(input_filename):
+class Dataset:
+    
+    def __init__(self):
+        self.sample_hashes = set()
+        
+        """
+        samples = [{
+            hash: hash
+            segments: [{
+                domain: domain
+                instructions: instructions
+                label: None
+                vector: None
+            }]
+            label: None
+        }]
+        """
+        self.samples = []
+
+    def _find_sample(self, hash):
+        for sample in self.samples:
+            if sample.hash == hash:
+                return sample
+        
+        return None
+
+    def add_segment(self, hash, seg_idx, domain, instructions):
+        if hash not in self.sample_hashes:
+            self.sample_hashes.add(hash)
+            self.samples.append({
+                'hash': hash,
+                'segments': {},
+                'label': None
+            })
+
+        sample = self._find_sample(hash)
+
+        if sample == None:
+            raise Exception(f"Sample {hash} not found in the dataset but was added to the set somehow")
+
+        sample.segments[seg_idx] = {
+            'domain': domain,
+            'instructions': instructions,
+            'label': None,
+            'vector': None
+        }
+
+
+def _vectorize_instruction_blocks_doc2vec(input_filename):
     labeled_data = []
     filehash = None
     domain = None
@@ -440,6 +491,66 @@ def vectorize_instruction_blocks(input_filename):
     
     return X, labeled_data, data
 
+def _vectorize_instruction_blocks_sbert(input_filename):
+    labeled_data = []
+    filehash = None
+    domain = None
+    data = {}
+    count = 0
+    with open(input_filename, 'r') as f:
+        for line in f:
+            if line.strip() == '':
+                continue
+
+            if line.startswith('<<FILEHASH>>'):
+                filehash_t = line.strip().split('<<FILEHASH>>')[1]
+                
+                if filehash != filehash_t:
+                    filehash = filehash_t
+                    count = 0
+                
+                continue
+                
+            if line.startswith('<<DOMAIN>>'):
+                domain = line.strip().split('<<DOMAIN>>')[1].strip()
+                continue
+                
+            labeled_data.append(TaggedDocument(words=line.split(), tags=[f'{filehash}_{count}']))
+            
+            if filehash not in data:
+                data[filehash] = {}
+
+            data[filehash][count] = {
+                "domain": domain,
+                "instruction": line,
+                "vector": None,
+                "label": 0,
+            }
+
+            count += 1
+
+    model = SentenceTransformer('stsb-roberta-large')
+    X = model.encode([' '.join(tagged_doc.words) for tagged_doc in labeled_data])
+
+    y = np.array([tagged_doc.tags[0] for tagged_doc in labeled_data])
+    for i, tag in enumerate(y):
+        [hash, count] = tag.split('_')
+        data[hash][int(count)]['vector'] = [str(x) for x in X[i]]
+    
+    return X, labeled_data, data
+
+def vectorize_instruction_blocks(input_filename, mode="doc2vec"):
+    """
+        mode: [doc2vec, sbert" 
+    """
+
+    if mode == "doc2vec":
+        return _vectorize_instruction_blocks_doc2vec(input_filename)
+    elif mode == "sbert":
+        return _vectorize_instruction_blocks_sbert(input_filename)
+
+    raise Exception(f"Mode {mode} not supported")
+
 def save_vectors(X, tags, output_dir=None, labels=None):
     if output_dir is None:
         output_dir = os.getcwd()
@@ -481,6 +592,7 @@ def save_dict_data(data, output_file=None):
                 del data_cp[filehash][count]
                 continue
 
+            # Uncomment here if you want to apply the blacklist based stuff to remove the libraries and shortened urls
             for start in BLACKLISTED_STARTS_RE:
                 if re.search(start, info['domain']):
                     del data_cp[filehash][count]
@@ -500,8 +612,9 @@ MALICIOUS_LOGFILES_DIR = [
     "/archive/files/eval-phishing-pages/out/phishtank"
 ]
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
 
+    # Uncomment this part if you want to extract the data from the log files
     # def parse_properties(filepaths, filehash):
     #     for filepath in filepaths:
     #         parser = LogParser(filepath)
@@ -512,13 +625,13 @@ MALICIOUS_LOGFILES_DIR = [
     #
     # for_each_log_file(MALICIOUS_LOGFILES_DIR[0], parse_properties, debug=True)()
 
-print("Vectorizing data...")
-X, labeled_data, dict_data = vectorize_instruction_blocks('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/output2.txt')
-tags = np.array([tagged_doc.tags[0] for tagged_doc in labeled_data])
-labels = np.array([1 if 'GET-Window.webdriver' in doc.words else 0 for doc in labeled_data])
+    print("Vectorizing data...")
+    X, labeled_data, dict_data = vectorize_instruction_blocks('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/output2.txt', mode="sbert")
+    tags = np.array([tagged_doc.tags[0] for tagged_doc in labeled_data])
+    labels = np.array([1 if 'GET-Window.webdriver' in doc.words else 0 for doc in labeled_data])
 
-save_dict_data(dict_data)
+    save_dict_data(dict_data)
 
-print("Saving vectors...")
-save_vectors(X, tags, output_dir='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/', labels=labels)
+    print("Saving vectors...")
+    save_vectors(X, tags, output_dir='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/', labels=labels)
 
