@@ -1,8 +1,7 @@
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from sentence_transformers import SentenceTransformer
 from urllib.parse import urlparse
-from tempfile import mkdtemp
-from typing import Union
+from typing import Union, List
 from enum import Enum
 import numpy as np
 import logging
@@ -39,6 +38,13 @@ INSTRUCTION_INITIAL_MAP = {
     '!': InstructionType.EXECUTE,
     '$': InstructionType.LOAD
 }
+
+
+class DomainInstructionBlock:
+    def __init__(self, domain, instructions):
+        self.domain = domain
+        self.instructions = instructions
+
 
 class LogParser:
 
@@ -242,6 +248,11 @@ class LogParser:
         return None
 
     def extract_instruction_blocks(self):
+        """
+            Each domain in the log file loads a piece of code.
+            That code can be execute in different times throughout the program lifecycle.
+            This function extracts list of instructions that are executed at different times, for each domain
+        """
         domains = dict()
         domains['?'] = '?'
 
@@ -338,106 +349,24 @@ class LogParser:
         with open(output_filename, 'a') as f:
             f.write(output)
 
+    # Only implementation: Category=DOMAIN
+    def parse_instruction_blocks(self, instruction_blocks) -> List[DomainInstructionBlock]:
+        parsed_instruction_blocks: List[DomainInstructionBlock] = []
 
-def get_wordlist_paths(wordlist_dir):
-    wordlist_paths = []
-    for root, _, files in os.walk(wordlist_dir):
-        for file in files:
-            if file.endswith('.txt'):
-                wordlist_paths.append(os.path.join(root, file))
-    return wordlist_paths
+        for domain, blocks in instruction_blocks.items():
+            for block in blocks:
+                instructions = []
+                for instruction in block:
+                    inst_type = instruction['type']
+                    inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
 
+                    ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
+                    if ret is not None:
+                        instructions.append(ret)
+                
+                parsed_instruction_blocks.append(DomainInstructionBlock(domain, instructions))
 
-def for_each_log_file(logs_dir, func, debug=True):
-    def wrapper(*args, **kwargs):
-
-        for i, log in enumerate(os.listdir(logs_dir)):
-            log_path = os.path.join(logs_dir)
-            if debug:
-                print(f"({i + 1}) Extracting {log_path}", end="                                               \r")
-            os.chdir(logs_dir)
-            filehash = log[:-7] # To account for the .tar.gz extension
-
-            # Extract
-            tmp_dir = mkdtemp()
-            os.system(f"tar -xzf {log} -C {tmp_dir}")
-
-            filepaths = []
-
-            nof_logs = 0
-            for root, _, files in os.walk(tmp_dir):
-                for file in files:
-                    if not file.endswith(".log"):
-                        continue
-
-                    nof_logs += 1
-
-                    # If the second line starts with @"about\:blank", it is not wanted then skip
-                    with open(os.path.join(root, file), 'r') as f:
-                        lines = f.readlines()
-                        if len(lines) > 1 and lines[1].startswith('@\"about:blank\"'):
-                            continue
-
-                    filepath = os.path.join(root, file)
-                    filepaths.append(filepath)
-            if nof_logs > 1:
-                func(filepaths, filehash, *args, **kwargs)
-
-            # Deconstruct
-            shutil.rmtree(tmp_dir)
-
-            os.chdir("..")
-
-        print()
-
-    return wrapper
-
-class Dataset:
-    
-    def __init__(self):
-        self.sample_hashes = set()
-        
-        """
-        samples = [{
-            hash: hash
-            segments: [{
-                domain: domain
-                instructions: instructions
-                label: None
-                vector: None
-            }]
-            label: None
-        }]
-        """
-        self.samples = []
-
-    def _find_sample(self, hash):
-        for sample in self.samples:
-            if sample.hash == hash:
-                return sample
-        
-        return None
-
-    def add_segment(self, hash, seg_idx, domain, instructions):
-        if hash not in self.sample_hashes:
-            self.sample_hashes.add(hash)
-            self.samples.append({
-                'hash': hash,
-                'segments': {},
-                'label': None
-            })
-
-        sample = self._find_sample(hash)
-
-        if sample == None:
-            raise Exception(f"Sample {hash} not found in the dataset but was added to the set somehow")
-
-        sample.segments[seg_idx] = {
-            'domain': domain,
-            'instructions': instructions,
-            'label': None,
-            'vector': None
-        }
+        return parsed_instruction_blocks
 
 
 def _vectorize_instruction_blocks_doc2vec(input_filename):
@@ -491,6 +420,7 @@ def _vectorize_instruction_blocks_doc2vec(input_filename):
     
     return X, labeled_data, data
 
+
 def _vectorize_instruction_blocks_sbert(input_filename):
     labeled_data = []
     filehash = None
@@ -539,9 +469,10 @@ def _vectorize_instruction_blocks_sbert(input_filename):
     
     return X, labeled_data, data
 
+
 def vectorize_instruction_blocks(input_filename, mode="doc2vec"):
     """
-        mode: [doc2vec, sbert" 
+        mode: [doc2vec, sbert] 
     """
 
     if mode == "doc2vec":
@@ -550,6 +481,7 @@ def vectorize_instruction_blocks(input_filename, mode="doc2vec"):
         return _vectorize_instruction_blocks_sbert(input_filename)
 
     raise Exception(f"Mode {mode} not supported")
+
 
 def save_vectors(X, tags, output_dir=None, labels=None):
     if output_dir is None:
@@ -602,7 +534,6 @@ def save_dict_data(data, output_file=None):
                 if re.search(file_re, info['domain']):
                     del data_cp[filehash][count]
                     continue
-            
 
     with open(output_file, 'w') as f:
         json.dump(data_cp, f)
@@ -612,18 +543,10 @@ MALICIOUS_LOGFILES_DIR = [
     "/archive/files/eval-phishing-pages/out/phishtank"
 ]
 
-if __name__ == "__main__":
+BENIGN_LOGFILES_DIR = []
 
-    # Uncomment this part if you want to extract the data from the log files
-    # def parse_properties(filepaths, filehash):
-    #     for filepath in filepaths:
-    #         parser = LogParser(filepath)
-    #         instruction_blocks = parser.extract_instruction_blocks()
-    #         parser.stringify_instruction_blocks(instruction_blocks, filehash, category="DEFAULT", output_filename='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output1.txt')
-    #         parser.stringify_instruction_blocks(instruction_blocks, filehash, category="DOMAIN", output_filename='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output2.txt')
-    #         parser.stringify_instruction_blocks(instruction_blocks, filehash, category="FILE", output_filename='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/output3.txt')
-    #
-    # for_each_log_file(MALICIOUS_LOGFILES_DIR[0], parse_properties, debug=True)()
+
+if __name__ == "__main__":
 
     print("Vectorizing data...")
     X, labeled_data, dict_data = vectorize_instruction_blocks('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/output2.txt', mode="sbert")
