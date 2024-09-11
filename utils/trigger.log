@@ -1,6 +1,0 @@
-(2024-08-04 12:06:40,927) [DEBUG] Deleting all jobs tagged "daily_parse_urls"
-(2024-08-04 12:06:40,928) [INFO] Job scheduled at 12:07:11
-(2024-08-04 12:07:11,957) [DEBUG] Running job Job(interval=1, unit=days, do=parse_urls, args=(), kwargs={})
-(2024-08-04 12:07:11,958) [INFO] Started downloading the URLs
-(2024-08-04 12:07:14,382) [INFO] Started parsing the URLs
-(2024-08-04 12:07:14,382) [INFO] Downloaded 1: ['/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/tmp/2024-08-04-12-phishstats.txt']

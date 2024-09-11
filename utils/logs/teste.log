@@ -1,0 +1,9 @@
+(2024-08-03 19:16:40,024) [INFO] Hello, World!
+(2024-08-03 19:16:45,606) [INFO] Hello, World!
+(2024-08-03 19:17:56,930) [INFO] So should this
+(2024-08-03 19:17:56,930) [WARNING] And this, too
+(2024-08-03 19:17:56,930) [ERROR] And non-ASCII stuff, too, like Øresund and Malmö
+(2024-08-03 19:18:27,333) [DEBUG] This message should go to the log file
+(2024-08-03 19:18:27,334) [INFO] So should this
+(2024-08-03 19:18:27,334) [WARNING] And this, too
+(2024-08-03 19:18:27,334) [ERROR] And non-ASCII stuff, too, like Øresund and Malmö
