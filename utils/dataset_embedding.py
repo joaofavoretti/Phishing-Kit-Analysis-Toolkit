@@ -1,14 +1,11 @@
 
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from sentence_transformers import SentenceTransformer
-from log_parser import LogParser, DomainInstructionBlock
-from tempfile import mkdtemp
-from typing import List, Dict
+from log_parser import DomainInstructionBlock
+from typing import List
 from enum import Enum
 import numpy as np
-import shutil
 import os
-import re
 from dataset_parser import WebsiteSample, DatasetParser, FlattenInstructionBlock
 
 
@@ -119,7 +116,7 @@ class DatasetEmbedding:
 
 
 MALICIOUS_LOGFILES_DIR = [
-    "/archive/files/eval-phishing-pages/out/phishtank/"
+    "/archive/files/eval-phishing-pages/out/tmp-phishtank/"
 ]
 
 OUT_DIR = "/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/embeddings-doc2vec"

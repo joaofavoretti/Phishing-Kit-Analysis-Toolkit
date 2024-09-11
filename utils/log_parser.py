@@ -1,13 +1,7 @@
-from gensim.models.doc2vec import Doc2Vec, TaggedDocument
-from sentence_transformers import SentenceTransformer
 from urllib.parse import urlparse
 from typing import Union, List
 from enum import Enum
-import numpy as np
 import logging
-import pickle
-import shutil
-import json
 import os
 import re
 
@@ -372,176 +366,6 @@ class LogParser:
         return parsed_instruction_blocks
 
 
-def _vectorize_instruction_blocks_doc2vec(input_filename):
-    labeled_data = []
-    filehash = None
-    domain = None
-    data = {}
-    count = 0
-    with open(input_filename, 'r') as f:
-        for line in f:
-            if line.strip() == '':
-                continue
-
-            if line.startswith('<<FILEHASH>>'):
-                filehash_t = line.strip().split('<<FILEHASH>>')[1]
-                
-                if filehash != filehash_t:
-                    filehash = filehash_t
-                    count = 0
-                
-                continue
-                
-            if line.startswith('<<DOMAIN>>'):
-                domain = line.strip().split('<<DOMAIN>>')[1].strip()
-                continue
-                
-            labeled_data.append(TaggedDocument(words=line.split(), tags=[f'{filehash}_{count}']))
-            
-            if filehash not in data:
-                data[filehash] = {}
-
-            data[filehash][count] = {
-                "domain": domain,
-                "instruction": line,
-                "vector": None,
-                "label": 0,
-            }
-
-            count += 1
-
-    model = Doc2Vec(vector_size=128, window=32, min_count=1, workers=4, epochs=40, dm=0, dbow_words=1)
-    model.build_vocab(labeled_data)
-    model.train(labeled_data, total_examples=model.corpus_count, epochs=model.epochs)
-
-    X = np.array([model.dv[tagged_doc.tags[0]] for tagged_doc in labeled_data])
-
-    y = np.array([tagged_doc.tags[0] for tagged_doc in labeled_data])
-    for i, tag in enumerate(y):
-        [hash, count] = tag.split('_')
-        data[hash][int(count)]['vector'] = [str(x) for x in X[i]]
-    
-    return X, labeled_data, data
-
-
-def _vectorize_instruction_blocks_sbert(input_filename):
-    labeled_data = []
-    filehash = None
-    domain = None
-    data = {}
-    count = 0
-    with open(input_filename, 'r') as f:
-        for line in f:
-            if line.strip() == '':
-                continue
-
-            if line.startswith('<<FILEHASH>>'):
-                filehash_t = line.strip().split('<<FILEHASH>>')[1]
-                
-                if filehash != filehash_t:
-                    filehash = filehash_t
-                    count = 0
-                
-                continue
-                
-            if line.startswith('<<DOMAIN>>'):
-                domain = line.strip().split('<<DOMAIN>>')[1].strip()
-                continue
-                
-            labeled_data.append(TaggedDocument(words=line.split(), tags=[f'{filehash}_{count}']))
-            
-            if filehash not in data:
-                data[filehash] = {}
-
-            data[filehash][count] = {
-                "domain": domain,
-                "instruction": line,
-                "vector": None,
-                "label": 0,
-            }
-
-            count += 1
-
-    model = SentenceTransformer('stsb-roberta-large')
-    X = model.encode([' '.join(tagged_doc.words) for tagged_doc in labeled_data])
-
-    y = np.array([tagged_doc.tags[0] for tagged_doc in labeled_data])
-    for i, tag in enumerate(y):
-        [hash, count] = tag.split('_')
-        data[hash][int(count)]['vector'] = [str(x) for x in X[i]]
-    
-    return X, labeled_data, data
-
-
-def vectorize_instruction_blocks(input_filename, mode="doc2vec"):
-    """
-        mode: [doc2vec, sbert] 
-    """
-
-    if mode == "doc2vec":
-        return _vectorize_instruction_blocks_doc2vec(input_filename)
-    elif mode == "sbert":
-        return _vectorize_instruction_blocks_sbert(input_filename)
-
-    raise Exception(f"Mode {mode} not supported")
-
-
-def save_vectors(X, tags, output_dir=None, labels=None):
-    if output_dir is None:
-        output_dir = os.getcwd()
-        
-    if labels is None:
-        labels = np.array([0 for _ in range(X.shape[0])])
-
-    if len(labels) != X.shape[0] and len(labels) != len(tags):
-        raise Exception(f"All vectors must have the same length. Got {X.shape[0]} vectors, {len(tags)} tags and {len(labels)} labels")
-
-    with open(os.path.join(output_dir, 'vectors.tsv'), 'w') as f:
-        for i in range(X.shape[0]):
-            f.write('\t'.join([str(x) for x in X[i]]) + '\n')
-    
-    with open(os.path.join(output_dir, 'metadata.tsv'), 'w') as f:
-        f.write('TAG\tLabel\n')
-        for i in range(len(tags)):
-            f.write(f'{tags[i]}\t{labels[i]}\n')
-
-
-def save_dict_data(data, output_file=None):
-    import copy
-    data_cp = copy.deepcopy(data)
-
-    if output_file is None:
-        output_file = os.path.join(os.getcwd(), 'data.json')
-
-    BLACKLISTED_STARTS_RE = [r"http(s)?:\/\/t.co\/", r"http(s)?:\/\/bit.ly\/", r"http(s)?:\/\/tinyurl.com\/", r"http(s)?:\/\/goo.gl\/", r"http(s)?:\/\/ow.ly\/", r"http(s)?:\/\/is.gd\/", r"http(s)?:\/\/buff.ly\/", r"http(s)?:\/\/dlvr.it\/", r"http(s)?:\/\/ift.tt\/", r"http(s)?:\/\/lnkd.in\/", r"http(s)?:\/\/fb.me\/", r"http(s)?:\/\/wp.me\/", r"http(s)?:\/\/wp.me\/", r"http(s)?:\/\/dlvr.it\/"]
-
-    # Add common library files to the blacklist and the ones that have the version as well. Like: jquery.js, jquery.min.js, jquery-3.5.1.min.js
-    BLACKLISTED_FILES_RE = [r"jquery(\-\d+\.\d+\.\d+)?(\.min)?\.js", r"bootstrap(\-\d+\.\d+\.\d+)?(\.min)?\.js", r"popper(\-\d+\.\d+\.\d+)?(\.min)?\.js"]
-
-    BLACKLISTED_DOMAINS = ["EMPTY", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js"]
-
-    # Remove the blacklisted domains
-    for filehash, counts in data.items():
-        for count, info in counts.items():
-            if info['domain'] in BLACKLISTED_DOMAINS:
-                del data_cp[filehash][count]
-                continue
-
-            # Uncomment here if you want to apply the blacklist based stuff to remove the libraries and shortened urls
-            for start in BLACKLISTED_STARTS_RE:
-                if re.search(start, info['domain']):
-                    del data_cp[filehash][count]
-                    continue
-
-            for file_re in BLACKLISTED_FILES_RE:
-                if re.search(file_re, info['domain']):
-                    del data_cp[filehash][count]
-                    continue
-
-    with open(output_file, 'w') as f:
-        json.dump(data_cp, f)
-
-
 MALICIOUS_LOGFILES_DIR = [
     "/archive/files/eval-phishing-pages/out/phishtank"
 ]
@@ -551,13 +375,7 @@ BENIGN_LOGFILES_DIR = []
 
 if __name__ == "__main__":
 
-    print("Vectorizing data...")
-    X, labeled_data, dict_data = vectorize_instruction_blocks('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/output2.txt', mode="sbert")
-    tags = np.array([tagged_doc.tags[0] for tagged_doc in labeled_data])
-    labels = np.array([1 if 'GET-Window.webdriver' in doc.words else 0 for doc in labeled_data])
-
-    save_dict_data(dict_data)
-
-    print("Saving vectors...")
-    save_vectors(X, tags, output_dir='/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/', labels=labels)
+    parser = LogParser("./samples/sample-1.log")
+    blocks = parser.extract_instruction_blocks()
+    parser.stringify_instruction_blocks(blocks, "sample-1")
 
