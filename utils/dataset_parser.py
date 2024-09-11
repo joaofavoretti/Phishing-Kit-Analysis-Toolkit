@@ -79,29 +79,20 @@ class WebsiteSample:
         self.category = category
 
 
+class FlattenInstructionBlock:
+    def __init__ (self, instructions:str, hash:str, index:int, category:WebsiteSample.Category):
+        self.instructions = instructions
+        self.hash = hash
+        self.index = index
+        self.category = category
+
+
 class DatasetParser:
-    """
-    TODO
-    [ ] Filter the data by domain or filename
-    [ ] Create the embeddings for the dataset
-    [ ] Retrieve the embeddings
-    [ ] Save the embeddings
-    """
-
-    class TransformMode(Enum):
-        DOC2VEC = "doc2vec"
-        SBERT = "sbert"
-
-    TRANSFORM_MODE_MAP = {
-        TransformMode.DOC2VEC: "_doc2vec_transform",
-        TransformMode.SBERT: "_sbert_transform"
-    }
-
     def __init__(self):
         self.sources: Dict[WebsiteSample.Category, List[PATH]] = {}
         self.websiteSamples: Dict[WebsiteSample.Category, List[WebsiteSample]] = {}
 
-    def fit(self, dir: PATH|List[PATH], category: WebsiteSample.Category) -> 'DatasetParser'
+    def fit(self, dir: PATH|List[PATH], category: WebsiteSample.Category) -> 'DatasetParser':
         if isinstance(dir, PATH):
             dir = [dir]
 
@@ -125,6 +116,18 @@ class DatasetParser:
 
         return self
 
+    def _get_nof_ibs(self) -> int:
+        """
+        INFO: This function is only used to observe the preprocessing 
+            changes in the available instruction blocks of data
+        """
+        nof_ibs = 0
+        for samples in self.websiteSamples.values():
+            for sample in samples:
+                nof_ibs += len(sample.instruction_blocks)
+
+        return nof_ibs
+
     def preprocess(self, filterOutHandler) -> 'DatasetParser':
         for category, samples in self.websiteSamples.items():
             for sample in samples:
@@ -137,18 +140,6 @@ class DatasetParser:
                 del self.websiteSamples[category]
 
         return self
-
-    def transform(self, mode: TransformMode = TransformMode.SBERT, flatten: bool = False) -> np.ndarray:
-        """
-        :param mode: The mode to transform the data. It can be either "doc2vec" or "sbert"
-        :param flatten: If true, then each instruction block will be represented as a single vector.
-            If false, each website sample will be represented by a matrix (n_instruction_blocks, n_features)
-        """
-
-
-        return np.array([])
-
-
 
     def _loadDataFromDir(self, dir, category: WebsiteSample.Category) -> List[WebsiteSample]:
         websiteSamples: List[WebsiteSample] = []
@@ -168,10 +159,44 @@ class DatasetParser:
         for_each_log_file(dir, parse_properties, debug=True)()
 
         return websiteSamples
+    
+    def flatten(self) -> List[FlattenInstructionBlock]:
+        flatten_instruction_blocks = []
+        for category, samples in self.websiteSamples.items():
+            for sample in samples:
+                for i, ib in enumerate(sample.instruction_blocks):
+                    flatten_instruction_blocks.append(FlattenInstructionBlock(ib.instructions, sample.filehash, i, sample.category))
+
+        return flatten_instruction_blocks
+
+    def unflatten(self, X:np.ndarray, y:np.ndarray) -> tuple[list, np.ndarray]:
+        """
+        This function receive a list of vectors and transform it 
+        into a list of matrices (n_instruction_blocks, n_features) for each website sample
+        The new labels will be the category and filehash of the website sample
+
+        :param X: The list of embeddings calculated
+        :param y: The list of labels for each instruction block (category, filehash_index)
+        """
+
+        unflatten_X = []
+        unflatten_y = []
+
+        for i, (category, filehash_index) in enumerate(y):
+            filehash, _ = filehash_index.split("_")
+            
+            if len(unflatten_X) == 0 or unflatten_y[-1] != (category, filehash):
+                unflatten_X.append([])
+                unflatten_y.append((category, filehash))
+
+            unflatten_X[-1].append(X[i])
+
+        return unflatten_X, np.array(unflatten_y)
+        
 
 
 MALICIOUS_LOGFILES_DIR = [
-    "/archive/files/eval-phishing-pages/out/tmp-phishtank"
+    "/archive/files/eval-phishing-pages/out/tmp-phishtank/"
 ]
 BENIGN_LOGFILES_DIR = []
 UNLABELED_LOGFILES_DIR = []
@@ -204,7 +229,5 @@ if __name__ == "__main__":
         return False
         
     datasetParser.preprocess(filterOut)
-
-    # X, y = datasetParser.get_embeddings()
 
 

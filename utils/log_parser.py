@@ -11,8 +11,6 @@ import json
 import os
 import re
 
-BLACKLIST_URLS = ["chrome\\://headless/headless_command.html", "about\\:blank"]
-
 def get_domain(url):
     if url == None:
         return ''
@@ -41,7 +39,11 @@ INSTRUCTION_INITIAL_MAP = {
 
 
 class DomainInstructionBlock:
-    def __init__(self, domain, instructions):
+    def __init__(self, domain:str, instructions:str):
+        
+        assert type(instructions) == str
+        assert type(domain) == str
+
         self.domain = domain
         self.instructions = instructions
 
@@ -296,7 +298,8 @@ class LogParser:
                 if inst_type in OPERATIONS_SET:
                     
                     # Filtering all the GET instruction that happen because of CALL instructions
-                    if inst_type == InstructionType.CALL:
+                    # TODO: Test this out
+                    if inst_type == InstructionType.CALL and len(blocks[last_executed_domain][-1]) > 0:
                         last_ret = blocks[last_executed_domain][-1][-1]
                         if last_ret['type'] == InstructionType.GET.name:
                             if last_ret['obj'] == ret['obj'] and last_ret['key'] == ret['method']:
@@ -354,8 +357,8 @@ class LogParser:
         parsed_instruction_blocks: List[DomainInstructionBlock] = []
 
         for domain, blocks in instruction_blocks.items():
+            instructions = []
             for block in blocks:
-                instructions = []
                 for instruction in block:
                     inst_type = instruction['type']
                     inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[InstructionType[inst_type]])
@@ -364,7 +367,7 @@ class LogParser:
                     if ret is not None:
                         instructions.append(ret)
                 
-                parsed_instruction_blocks.append(DomainInstructionBlock(domain, instructions))
+            parsed_instruction_blocks.append(DomainInstructionBlock(domain, ' '.join(instructions)))
 
         return parsed_instruction_blocks
 
