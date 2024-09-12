@@ -72,6 +72,12 @@ class Clusterizer:
         self.mode = mode
         self.strategy = strategy
         self.labels = []
+    
+    def _rv_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
+        raise Exception("Sorry! Not implemented yet")
+
+    def _dcov_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
+        raise Exception("Sorry! Not implemented yet")
 
     def _average_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
@@ -160,7 +166,10 @@ class Clusterizer:
         self.y = y
 
         strategy_method = getattr(self, Clusterizer.STRATEGY_MAP[self.strategy])
-        # Obj can be
+        # In general, obj could be a list of vectors that represent each samples
+        #   or a distance matrix. However, I am not sure about the idea of a distance matrix
+        #   therefore it is not impmlemented yet.
+        # The main problem of a distance matrix is that it makes the life harder in a classification system
         obj = strategy_method(X)
         self.obj = obj
 
