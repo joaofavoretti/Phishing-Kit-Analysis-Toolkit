@@ -21,13 +21,13 @@ class Clusterizer:
         Algorithm.OPTICS: "_optics_fit"
     }
 
-    class Strategy(Enum):
+    class RepresentantStrategy(Enum):
         # The representant strategy will, for each sample, select a representant
         #  vector from the sample. The representant vector will be the vector
         #  that is the most similar from any other vector of any other sample.
         # Ex: There is a vector that represent antibot.js, and there is another
         #  that has the exact same antibot.js file. Then, this vector will be choosen.
-        REPRESENTANT = "representant"
+        MOST_SIMILAR = "most_similar"
 
         # The average strategy will, for each sample, use all the vectors
         #   from the sample, averaging them.
@@ -44,29 +44,29 @@ class Clusterizer:
         #  matrices.
         DCOV = "dcov"
 
-    STRATEGY_MAP = {
-        Strategy.REPRESENTANT: "_representant_transform",
-        Strategy.AVERAGE: "_average_transform",
-        Strategy.RV: "_rv_transform",
-        Strategy.DCOV: "_dcov_transform",
+    REPRESENTANT_STRATEGY_MAP = {
+        RepresentantStrategy.MOST_SIMILAR: "_most_similar_transform",
+        RepresentantStrategy.AVERAGE: "_average_transform",
+        RepresentantStrategy.RV: "_rv_transform",
+        RepresentantStrategy.DCOV: "_dcov_transform",
     }
     
-    STRATEGY_METRIC = {
-        Strategy.REPRESENTANT: "cosine",    # Means that it deals with vectors for each sample
-        Strategy.AVERAGE: "cosine",
-        Strategy.RV: "precomputed",         # Means that it deals with distance matrix
-        Strategy.DCOV: "precomputed",
+    REPRESENTANT_STRATEGY_METRIC = {
+        RepresentantStrategy.MOST_SIMILAR: "cosine",    # Means that it deals with vectors for each sample
+        RepresentantStrategy.AVERAGE: "cosine",
+        RepresentantStrategy.RV: "precomputed",         # Means that it deals with distance matrix
+        RepresentantStrategy.DCOV: "precomputed",
     }
 
     def __init__(self,
                  alg: Algorithm,
                  mode: DatasetEmbedding.TransformMode,
-                 strategy: Strategy,
+                 strategy: RepresentantStrategy,
                  ):
         
         assert isinstance(alg, Clusterizer.Algorithm), f"Expected {Clusterizer.Algorithm}, got {type(alg)}"
         assert isinstance(mode, DatasetEmbedding.TransformMode), f"Expected {DatasetEmbedding.TransformMode}, got {type(mode)}"
-        assert isinstance(strategy, Clusterizer.Strategy), f"Expected {Clusterizer.Strategy}, got {type(strategy)}"
+        assert isinstance(strategy, Clusterizer.RepresentantStrategy), f"Expected {Clusterizer.RepresentantStrategy}, got {type(strategy)}"
 
         self.alg = alg
         self.mode = mode
@@ -86,7 +86,7 @@ class Clusterizer:
 
         return np.array(new_X)
 
-    def _representant_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
+    def _most_similar_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
 
         # Create a flatten array with all the vectors from X
@@ -127,7 +127,7 @@ class Clusterizer:
     def _dbscan_fit(self, X: np.ndarray):
         assert isinstance(X, np.ndarray), f"Expected {np.ndarray}, got {type(X)}"
 
-        model = DBSCAN(eps=0.05, min_samples=1, metric=Clusterizer.STRATEGY_METRIC[self.strategy])
+        model = DBSCAN(eps=0.05, min_samples=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy])
 
         model.fit(X)
 
@@ -136,7 +136,7 @@ class Clusterizer:
     def _hdbscan_fit(self, X: np.ndarray):
         assert isinstance(X, np.ndarray), f"Expected {np.ndarray}, got {type(X)}"
 
-        model = HDBSCAN(min_cluster_size=1, metric=Clusterizer.STRATEGY_METRIC[self.strategy])
+        model = HDBSCAN(min_cluster_size=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy])
 
         model.fit(X)
 
@@ -145,7 +145,7 @@ class Clusterizer:
     def _optics_fit(self, X: np.ndarray):
         assert isinstance(X, np.ndarray), f"Expected {np.ndarray}, got {type(X)}"
 
-        model = OPTICS(min_samples=1, metric=Clusterizer.STRATEGY_METRIC[self.strategy])
+        model = OPTICS(min_samples=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy])
 
         model.fit(X)
 
@@ -165,7 +165,7 @@ class Clusterizer:
         self.X = X
         self.y = y
 
-        strategy_method = getattr(self, Clusterizer.STRATEGY_MAP[self.strategy])
+        strategy_method = getattr(self, Clusterizer.REPRESENTANT_STRATEGY_MAP[self.strategy])
         # In general, obj could be a list of vectors that represent each samples
         #   or a distance matrix. However, I am not sure about the idea of a distance matrix
         #   therefore it is not impmlemented yet.
@@ -215,7 +215,7 @@ if __name__ == '__main__':
 
     dataset.preprocess(_filterOut)
 
-    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.Strategy.REPRESENTANT)
+    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.MOST_SIMILAR)
     cluster.fit(dataset)
 
     cluster.save(OUT_DIR)
