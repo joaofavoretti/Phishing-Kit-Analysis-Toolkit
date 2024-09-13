@@ -1,6 +1,7 @@
 from urllib.parse import urlparse
 from typing import Union, List
 from enum import Enum
+import numpy as np
 import logging
 import os
 import re
@@ -40,6 +41,18 @@ class DomainInstructionBlock:
 
         self.domain = domain
         self.instructions = instructions
+        self.vector:np.ndarray|None = None
+
+    def exportJson(self):
+        ret = {}
+
+        ret["domain"] = self.domain
+        ret["instructions"] = self.instructions
+        
+        if self.vector is not None:
+            ret["vector"] = self.vector.tolist()
+
+        return ret
 
 
 class LogParser:

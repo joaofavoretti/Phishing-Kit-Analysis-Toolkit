@@ -71,12 +71,25 @@ class WebsiteSample:
         self.filehash = filehash
         self.category = category
         self.instruction_blocks: List[DomainInstructionBlock] = [] 
+        self.cluster:int|None = None
 
     def add_instruction_blocks(self, instruction_blocks:List[DomainInstructionBlock]):
         self.instruction_blocks += instruction_blocks
 
     def set_category(self, category: Category):
         self.category = category
+
+    def exportJson(self):
+        ret = {}
+
+        ret["filehash"] = self.filehash
+        ret["category"] = self.category.value
+        ret["instruction_blocks"] = [ib.exportJson() for ib in self.instruction_blocks]
+
+        if self.cluster is not None:
+            ret["cluster"] = str(self.cluster)
+
+        return ret
 
 
 class FlattenInstructionBlock:

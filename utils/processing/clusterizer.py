@@ -5,7 +5,45 @@ from sklearn.cluster import DBSCAN, HDBSCAN, OPTICS
 from typing import List
 from enum import Enum
 import numpy as np
+import json
 import os
+
+
+class EmbeddedDomainInstructionBlock(DomainInstructionBlock):
+    def __init__(self,
+                 domain: str, 
+                 instructions: str,
+                 vector: np.ndarray
+                 ):
+        super().__init__(domain, instructions)
+        self.vector = vector
+
+    def export(self):
+        return {
+            "domain": self.domain,
+            "instructions": self.instructions,
+            "vector": self.vector.tolist()
+        }
+
+
+class CategorizedWebsiteSample(WebsiteSample):
+    def __init__(self,
+                 filehash: str,
+                 category: WebsiteSample.Category,
+                 embedded_instruction_blocks: List[EmbeddedDomainInstructionBlock],
+                 cluster: int,
+                 ):
+        super().__init__(filehash, category)
+        self.embedded_instruction_blocks = embedded_instruction_blocks
+        self.cluster = cluster
+
+    def export(self):
+        return {
+            "filehash": self.filehash,
+            "category": self.category.name,
+            "instruction_blocks": [ib.export() for ib in self.embedded_instruction_blocks],
+            "cluster": self.cluster
+        }
 
 
 class Clusterizer:
@@ -170,11 +208,12 @@ class Clusterizer:
         #   or a distance matrix. However, I am not sure about the idea of a distance matrix
         #   therefore it is not impmlemented yet.
         # The main problem of a distance matrix is that it makes the life harder in a classification system
-        obj = strategy_method(X)
-        self.obj = obj
+        # For now, this generic result can only be X transformed
+        X_transformed = strategy_method(X)
+        self.X_transformed = X_transformed
 
         alg_method = getattr(self, Clusterizer.ALGORITHM_MAP[self.alg])
-        self.model = alg_method(obj)
+        self.model = alg_method(self.X_transformed)
         self.labels = self.model.labels_
         
         assert len(y) == len(self.labels), f"Expected {len(y)} == {len(self.labels)}"
@@ -182,18 +221,54 @@ class Clusterizer:
         return self
 
     def save(self, dirPath: str):
+        """
+            Save the vectors and labels as .tsv files
+        """
         
         if not os.path.exists(dirPath):
             os.makedirs(dirPath)
 
         with open(f"{dirPath}/vectors.tsv", "w") as f:
-            for x in self.obj:
+            for x in self.X_transformed:
                 f.write("\t".join(map(str, x)) + "\n")
 
         with open(f"{dirPath}/metadata.tsv", "w") as f:
             f.write("HASH\tCATEGORY\tCLUSTER\n")
             for i in range(len(self.y)):
                 f.write(f"{self.y[i][1]}\t{self.y[i][0]}\t{self.labels[i]}\n")
+
+    def exportJson(self, filePath: str):
+        """
+            Save the dataset as a .json file with information
+            about the clusters in it.
+        """
+
+        assert isinstance(filePath, str), f"Expected {str}, got {type(filePath)}"
+        
+        sum_length_website_samples = sum([len(ws) for ws in self.dataset.websiteSamples.values()])
+        assert len(self.X_transformed) == sum_length_website_samples, f"Expected {len(self.X_transformed)} == {sum_length_website_samples}"
+
+        for wss in self.dataset.websiteSamples.values():
+            for i, ws in enumerate(wss):
+                assert len(ws.instruction_blocks) == len(self.X[i]), f"Expected {len(ws.instruction_blocks)} == {len(self.X[i])} on index {i} of websiteSamples[{ws.filehash}]"
+
+        json_website_samples = []
+        websiteSampleIdx = 0
+        for category, websiteSamples in self.dataset.websiteSamples.items():
+            for websiteSample in websiteSamples:
+                for ibIdx, ib in enumerate(websiteSample.instruction_blocks):
+                    ib.vector = self.X[websiteSampleIdx][ibIdx]
+
+                websiteSample.cluster = self.labels[websiteSampleIdx]
+                
+                json_website_samples.append(websiteSample.exportJson())
+
+                websiteSampleIdx += 1
+
+
+        # Save the result
+        with open(filePath, "w") as f:
+            f.write(json.dumps(json_website_samples, indent=2))
 
 
 MALICIOUS_LOGFILES_DIR = [
@@ -219,4 +294,5 @@ if __name__ == '__main__':
     cluster.fit(dataset)
 
     cluster.save(OUT_DIR)
+    cluster.exportJson('./data.json')
 
