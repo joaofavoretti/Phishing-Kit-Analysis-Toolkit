@@ -290,9 +290,9 @@ if __name__ == '__main__':
 
     dataset.preprocess(_filterOut)
 
-    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.MOST_SIMILAR)
+    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.AVERAGE)
     cluster.fit(dataset)
 
     cluster.save(OUT_DIR)
-    cluster.exportJson('./data.json')
+    cluster.exportJson('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/data2.json')
 
