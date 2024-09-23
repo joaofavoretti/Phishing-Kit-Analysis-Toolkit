@@ -52,6 +52,7 @@ def parse_urls():
         outputDir = os.path.join(OUTPUT_DIR, outputDirName)
 
         os.system(f"python3 {UTILS_DIR}/analiser.py -p -f {file} -o {outputDir}")
+        os.system(f"python3 uploader.py -d {outputDir}")
 
 
 def schedule_random_time():
