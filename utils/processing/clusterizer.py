@@ -1,5 +1,6 @@
 from sklearn.metrics.pairwise import cosine_similarity, cosine_distances
 from dataset_embedding import DatasetEmbedding, DomainInstructionBlock
+from sklearn.decomposition import PCA
 from dataset_parser import DatasetParser, WebsiteSample
 from sklearn.cluster import DBSCAN, HDBSCAN, OPTICS
 from typing import List
@@ -71,6 +72,11 @@ class Clusterizer:
         #   from the sample, averaging them.
         AVERAGE = "average"
 
+        # The transpose strategy will, for each sample, use all the vectors
+        #   create a square matrix by multiplying the vectors by their transpose.
+        # Then, the matrix will be flattened and used as the representant vector.
+        TRANSPOSE = "transpose"
+
         # https://math.stackexchange.com/questions/690972/distance-or-similarity-between-matrices-that-are-not-the-same-size
         # The RV Coeff strategy will, for each sample, use all the vectors
         #  from the sample, to calculate the distance between different sized
@@ -87,6 +93,7 @@ class Clusterizer:
         RepresentantStrategy.AVERAGE: "_average_transform",
         RepresentantStrategy.RV: "_rv_transform",
         RepresentantStrategy.DCOV: "_dcov_transform",
+        RepresentantStrategy.TRANSPOSE: "_transpose_transform",
     }
     
     REPRESENTANT_STRATEGY_METRIC = {
@@ -94,6 +101,7 @@ class Clusterizer:
         RepresentantStrategy.AVERAGE: "cosine",
         RepresentantStrategy.RV: "precomputed",         # Means that it deals with distance matrix
         RepresentantStrategy.DCOV: "precomputed",
+        RepresentantStrategy.TRANSPOSE: "cosine",
     }
 
     def __init__(self,
@@ -116,6 +124,23 @@ class Clusterizer:
 
     def _dcov_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         raise Exception("Sorry! Not implemented yet")
+
+    def _transpose_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
+        assert isinstance(X, list), f"Expected {list}, got {type(X)}"
+
+        # Create the transposed vectors
+        new_X = []
+        for sample in X:
+            sample = np.array(sample)
+            matrix = np.matmul(sample.transpose(), sample)
+            new_sample = matrix.flatten()
+            new_X.append(new_sample)
+
+        # Calculate the PCA to reduce the dimensionality to 1024
+        pca = PCA(n_components=min(1024, len(new_X), len(new_X[0])))
+        new_X = pca.fit_transform(new_X)
+
+        return np.array(new_X)
 
     def _average_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
@@ -275,7 +300,7 @@ MALICIOUS_LOGFILES_DIR = [
     "/archive/files/eval-phishing-pages/out/phishtank/"
 ]
 
-OUT_DIR = "/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/clusters-SBERT"
+OUT_DIR = "/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/"
 
 if __name__ == '__main__':
     dataset = DatasetParser().fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
@@ -290,9 +315,9 @@ if __name__ == '__main__':
 
     dataset.preprocess(_filterOut)
 
-    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.AVERAGE)
+    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.TRANSPOSE)
     cluster.fit(dataset)
 
     cluster.save(OUT_DIR)
-    cluster.exportJson('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/data2.json')
+    cluster.exportJson('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/data3.json')
 
