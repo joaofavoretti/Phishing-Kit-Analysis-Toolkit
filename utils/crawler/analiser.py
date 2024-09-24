@@ -59,7 +59,7 @@ def analyze_urls(urls: list, output_dir: str):
 
         os.system(f"tar -xzf {output_dir}/{directory_name}.tar.gz -C {output_dir}/{directory_name}")
 
-        os.system(f"python3 resources_saver.py -u \"{url}\" -o {output_dir}/{directory_name}")
+        os.system(f"timeout 30s python3 resources_saver.py -u \"{url}\" -o {output_dir}/{directory_name}")
 
         os.remove(f"{output_dir}/{directory_name}.tar.gz")
 

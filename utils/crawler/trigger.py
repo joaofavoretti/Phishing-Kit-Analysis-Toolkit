@@ -8,10 +8,10 @@ import os
 import sys
 
 
-URL_DIR = "/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/tmp"
-UTILS_DIR = "/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils"
-OUTPUT_DIR = "/home/joao/my/ita/mestrado/2-clustering-phishing-kit/out/"
-AMOUNT_SCHEDULES = 5
+URL_DIR = "/home/joaof/files/phishing-urls"
+UTILS_DIR = "/home/joaof/clustering-phishing-kit/utils"
+OUTPUT_DIR = "/home/joaof/files/phishing-logs"
+AMOUNT_SCHEDULES = 2
 
 
 # Possible Error: This consider that the download will be done in the same minute that the script is running

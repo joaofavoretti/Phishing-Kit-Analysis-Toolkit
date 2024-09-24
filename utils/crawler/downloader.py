@@ -2,11 +2,13 @@ from abc import abstractmethod
 import requests
 import logging
 import schedule
+import shutil
 import time
 import csv
 import os
 import argparse
 
+URL_OLD_DIR = "/home/joaof/files/phishing-urls-old"
 
 class InvalidDownloadException(Exception):
     pass
@@ -26,7 +28,7 @@ class Downloader:
 
     def _clean(self, oldFilePath):
         if oldFilePath is not None:
-            os.remove(oldFilePath)
+            shutil.move(oldFilePath, os.path.join(URL_OLD_DIR, os.path.basename(oldFilePath)))
 
     def download(self, directory):
         response = requests.get(self.URL)

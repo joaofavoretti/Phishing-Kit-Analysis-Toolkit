@@ -6,8 +6,8 @@ import subprocess
 import argparse
 
 LOGS_DIR = "/archive/files/eval-phishing-pages/out/logs-dir"
-# DRIVE_FOLDER_ID = '1yiXbLymyVIgnbakZzfCH1i3kOngwzAvr'  # That is the official one
-DRIVE_FOLDER_ID = '15MUq7UaJ8kEBnuyyhhOTN5XESEvMi9Yk'    # That is the testing one
+DRIVE_FOLDER_ID = '1yiXbLymyVIgnbakZzfCH1i3kOngwzAvr'  # That is the official one
+# DRIVE_FOLDER_ID = '15MUq7UaJ8kEBnuyyhhOTN5XESEvMi9Yk'    # That is the testing one
 
 class Uploader:
     def __init__(self, driveFolderId=DRIVE_FOLDER_ID):
