@@ -9,7 +9,7 @@ import sys
 
 
 URL_DIR = "/home/joaof/files/phishing-urls"
-UTILS_DIR = "/home/joaof/clustering-phishing-kit/utils"
+UTILS_DIR = "/home/joaof/clustering-phishing-kit/utils/crawler"
 OUTPUT_DIR = "/home/joaof/files/phishing-logs"
 AMOUNT_SCHEDULES = 2
 

@@ -41,6 +41,9 @@ class Downloader:
         fileName = f"{currentDateAndHour}-{self.LABEL}.txt"
         filePath = os.path.join(directory, fileName)
        
+        if os.path.exists(filePath):
+            return
+
         # Obtain the last txt file to compare
         oldFilePath = None
         for file in os.listdir(directory):
