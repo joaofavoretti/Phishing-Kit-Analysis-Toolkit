@@ -61,6 +61,8 @@ def analyze_urls(urls: list, output_dir: str):
 
         os.system(f"timeout 30s python3 resources_saver.py -u \"{url}\" -o {output_dir}/{directory_name}")
 
+        os.system(f"echo \"{url}\" | kitphishr -v -d -o {output_dir}/{directory_name}/kits")
+
         os.remove(f"{output_dir}/{directory_name}.tar.gz")
 
         os.system(f"tar -czf {output_dir}/{directory_name}.tar.gz -C {output_dir} {directory_name}")
