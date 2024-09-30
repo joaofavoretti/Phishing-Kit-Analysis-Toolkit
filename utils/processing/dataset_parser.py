@@ -120,6 +120,7 @@ class DatasetParser:
         # I could do it all in the transform function, but I could not use a "preprocess"
         #  function to filter the data before transforming it
         for path in dir:
+            print(f"Loading data from {path}")
             websiteSamples = self._loadDataFromDir(path, category)
 
             if category not in self.websiteSamples:
@@ -142,6 +143,7 @@ class DatasetParser:
         return nof_ibs
 
     def preprocess(self, filterOutHandler) -> 'DatasetParser':
+        print(f"Preprocessing data")
         for category, samples in self.websiteSamples.items():
             for sample in samples:
                 sample.instruction_blocks = list(filter(lambda ib: not filterOutHandler(ib), sample.instruction_blocks))

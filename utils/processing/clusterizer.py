@@ -3,11 +3,13 @@ from dataset_embedding import DatasetEmbedding, DomainInstructionBlock
 from sklearn.decomposition import PCA
 from dataset_parser import DatasetParser, WebsiteSample
 from sklearn.cluster import DBSCAN, HDBSCAN, OPTICS
+from dateutil import parser
 from typing import List
 from enum import Enum
 import numpy as np
 import json
 import os
+import re
 
 
 class EmbeddedDomainInstructionBlock(DomainInstructionBlock):
@@ -130,7 +132,10 @@ class Clusterizer:
 
         # Create the transposed vectors
         new_X = []
-        for sample in X:
+        X_len = len(X)
+        for i, sample in enumerate(X):
+            print(f"Transforming sample {i}/{X_len}")
+            
             sample = np.array(sample)
             matrix = np.matmul(sample.transpose(), sample)
             new_sample = matrix.flatten()
@@ -190,7 +195,7 @@ class Clusterizer:
     def _dbscan_fit(self, X: np.ndarray):
         assert isinstance(X, np.ndarray), f"Expected {np.ndarray}, got {type(X)}"
 
-        model = DBSCAN(eps=0.05, min_samples=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy])
+        model = DBSCAN(eps=0.05, min_samples=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy], n_jobs=-1)
 
         model.fit(X)
 
@@ -297,13 +302,46 @@ class Clusterizer:
 
 
 MALICIOUS_LOGFILES_DIR = [
-    "/archive/files/eval-phishing-pages/out/phishtank/"
+    # "/archive/files/eval-phishing-pages/out/phishtank/"
+    "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/experiments/same-urls/exp3/out"
 ]
 
-OUT_DIR = "/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/"
+OUT_DIR = "/home/joaof/files/clustering-out"
+
+# Temporary function to test the clustering
+def datasetFromDate(targetDate="2021-09-29", fromDate="2021-09-28"):
+    logFolder = "/home/joaof/files/downloaded-phishing-logs"
+    logFiles = os.listdir(logFolder)
+
+    target = parser.parse(targetDate)
+    from_ = parser.parse(fromDate)
+
+    targetLogFiles = []
+    trainingLogFiles = []
+
+    for file in logFiles:
+        if not re.match(r"\d{4}-\d{2}-\d{2}-*", file):
+            continue
+
+        logPath = os.path.join(logFolder, file)
+
+        dateString = re.match(r"(\d{4}-\d{2}-\d{2})-", file).group(1)
+        date = parser.parse(dateString)
+
+        if date == target:
+            targetLogFiles.append(logPath)
+        elif from_ <= date < target:
+            trainingLogFiles.append(logPath)
+
+    datasetParser = DatasetParser()
+    datasetParser.fit(targetLogFiles, WebsiteSample.Category.UNLABELED)
+    datasetParser.fit(trainingLogFiles, WebsiteSample.Category.MALICIOUS)
+
+    return datasetParser
 
 if __name__ == '__main__':
-    dataset = DatasetParser().fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
+    # dataset = DatasetParser().fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
+    dataset = datasetFromDate("2021-09-29")
 
     def _filterOut(ib: DomainInstructionBlock):
         BLACKLISTED_DOMAINS = ["EMPTY", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
@@ -318,6 +356,8 @@ if __name__ == '__main__':
     cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.TRANSPOSE)
     cluster.fit(dataset)
 
+    print("Saving vectors")
     cluster.save(OUT_DIR)
-    cluster.exportJson('/home/joao/my/ita/mestrado/2-clustering-phishing-kit/utils/out/data3.json')
+    print("Saving the data.json")
+    cluster.exportJson('/home/joaof/files/clustering-out/data.json')
 
