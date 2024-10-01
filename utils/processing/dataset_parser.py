@@ -3,6 +3,8 @@ from tempfile import mkdtemp
 from typing import List, Dict
 from enum import Enum
 import numpy as np
+import pickle
+import hashlib
 import shutil
 import os
 import re
@@ -14,6 +16,7 @@ PATH = str
 def for_each_log_file(logs_dir, func, debug=True):
     def wrapper(*args, **kwargs):
 
+        orig_dir = os.getcwd()
         for i, log in enumerate(os.listdir(logs_dir)):
             log_path = os.path.join(logs_dir)
             if debug:
@@ -51,6 +54,7 @@ def for_each_log_file(logs_dir, func, debug=True):
 
             os.chdir("..")
 
+        os.chdir(orig_dir)
         print()
 
     return wrapper
@@ -101,13 +105,94 @@ class FlattenInstructionBlock:
 
 
 class DatasetParser:
-    def __init__(self):
+    def __init__(self, dbPath:str|None=None):
+        self.dbPath = dbPath
+        self.saveDb = dbPath is not None
+
         self.sources: Dict[WebsiteSample.Category, List[PATH]] = {}
         self.websiteSamples: Dict[WebsiteSample.Category, List[WebsiteSample]] = {}
+
+    def _getDirHash(self, dir: PATH, category: WebsiteSample.Category) -> str:
+        """
+        Return a hash of the directory based on the sorted 
+        name of the files that are in it and the category
+        """
+
+        files = os.listdir(dir)
+        files.sort()
+
+        hash = hashlib.sha256()
+        for file in files:
+            hash.update(file.encode())
+
+        hash.update(category.value.encode())
+
+        return hash.hexdigest()[:16]
+
+    def _getHashPath(self, hash: str) -> str:
+        if not self.saveDb:
+            raise ValueError("The dbPath is not set to use _getHashPath")
+
+        assert self.dbPath is not None, "The dbPath is not set to use _getHashPath"
+
+        hashFilename = f"{hash}.pkl"
+        return os.path.join(self.dbPath, hashFilename)
+
+    def _isHashSaved(self, hash: str) -> bool:
+        hashPath = self._getHashPath(hash)
+        return os.path.exists(hashPath)
+
+    def _loadHash(self, hash: str) -> List[WebsiteSample]:
+        if not self.saveDb:
+            raise ValueError("The dbPath is not set to use _getHashPath")
+
+        assert self.dbPath is not None, "The dbPath is not set to use _getHashPath"
+
+        hashPath = self._getHashPath(hash)
+
+        if not os.path.exists(hashPath):
+            raise FileNotFoundError(f"Hashed file {hashPath} not found")
+
+        with open(hashPath, 'rb') as f:
+            return pickle.load(f)
+
+    def _saveHash(self, hash: str, samples: List[WebsiteSample]):
+        if not self.saveDb:
+            raise ValueError("The dbPath is not set to use _getHashPath")
+
+        assert self.dbPath is not None, "The dbPath is not set to use _getHashPath"
+
+        hashPath = self._getHashPath(hash)
+
+        if os.path.exists(hashPath):
+            raise FileExistsError(f"Hashed file {hashPath} already exists")
+        
+        if not os.path.exists(self.dbPath):
+            os.makedirs(self.dbPath)
+
+        print(f"Saving to {hashPath}")
+        with open(hashPath, 'wb') as f:
+            pickle.dump(samples, f)
+
+    def _loadDir(self, path: PATH, category: WebsiteSample.Category) -> List[WebsiteSample]:
+            dirHash = self._getDirHash(path, category)
+
+            if self.saveDb:
+                if self._isHashSaved(dirHash):
+                    return self._loadHash(dirHash)
+                else:
+                    websiteSamples = self._loadDataFromDir(path, category)
+                    self._saveHash(dirHash, websiteSamples)
+                    return websiteSamples
+            else:
+                return self._loadDataFromDir(path, category)
 
     def fit(self, dir: PATH|List[PATH], category: WebsiteSample.Category) -> 'DatasetParser':
         if isinstance(dir, PATH):
             dir = [dir]
+
+        if len(dir) == 0:
+            return self
 
         if category not in self.sources:
             self.sources[category] = []
@@ -120,8 +205,10 @@ class DatasetParser:
         # I could do it all in the transform function, but I could not use a "preprocess"
         #  function to filter the data before transforming it
         for path in dir:
+
             print(f"Loading data from {path}")
-            websiteSamples = self._loadDataFromDir(path, category)
+            
+            websiteSamples = self._loadDir(path, category)
 
             if category not in self.websiteSamples:
                 self.websiteSamples[category] = []
@@ -130,7 +217,7 @@ class DatasetParser:
 
         return self
 
-    def _get_nof_ibs(self) -> int:
+    def _getNofIbs(self) -> int:
         """
         INFO: This function is only used to observe the preprocessing 
             changes in the available instruction blocks of data
@@ -217,7 +304,7 @@ BENIGN_LOGFILES_DIR = []
 UNLABELED_LOGFILES_DIR = []
 
 if __name__ == "__main__":
-    datasetParser = DatasetParser()
+    datasetParser = DatasetParser(dbPath="./dpdb")
 
     datasetParser.fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
     datasetParser.fit(BENIGN_LOGFILES_DIR, WebsiteSample.Category.BENIGN)
