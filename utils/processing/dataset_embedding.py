@@ -25,7 +25,7 @@ class DatasetEmbedding:
         TransformMode.SBERT: "_sbert_transform"
     }
 
-    def __init__(self, mode: TransformMode, dbPath: str|None = None):
+    def __init__(self, mode: TransformMode, dbPath: str|None = './dedb/'):
         """
         :param mode: The mode to transform the data. It can be either "doc2vec" or "sbert"
         :param flatten: If true, then each instruction block will be represented as a single vector.
@@ -87,6 +87,12 @@ class DatasetEmbedding:
         hash = dataset.getDatasetHash()
         hash.update(self.mode.name.encode())
         return hash.hexdigest()[:16]
+    
+    # Yes, it is the same as _getModelHash, but it is used for the embedding saving
+    def _getEmbeddingHash(self, dataset: DatasetParser) -> str:
+        hash = dataset.getDatasetHash()
+        hash.update(self.mode.name.encode())
+        return hash.hexdigest()[:16]
 
     def _getModelHashPath(self, hash: str) -> str:
         if not self.saveDb:
@@ -96,26 +102,56 @@ class DatasetEmbedding:
 
         modelHashFilename = f"{hash}_model.pkl"
         return os.path.join(self.dbPath, modelHashFilename)
+    
+    def _getEmbeddingHashPath(self, hash: str) -> str:
+        if not self.saveDb:
+            raise ValueError("dbPath is not set")
+
+        assert self.dbPath is not None, "dbPath is not set"
+
+        embeddingHashFilename = f"{hash}_embedding.pkl"
+        return os.path.join(self.dbPath, embeddingHashFilename)
 
     def _isModelSaved(self, hash: str) -> bool:
         if not self.saveDb:
-            return False
+            raise ValueError("dbPath is not set")
         
         modelHashPath = self._getModelHashPath(hash)
         return os.path.exists(modelHashPath)
+    
+    def _isEmbeddingSaved(self, hash: str) -> bool:
+        if not self.saveDb:
+            raise ValueError("dbPath is not set")
+        
+        embeddingHashPath = self._getEmbeddingHashPath(hash)
+        return os.path.exists(embeddingHashPath)
 
     def _loadModel(self, hash: str) -> None|SentenceTransformer|Doc2Vec:
         if not self.saveDb:
-            return None
+            raise ValueError("dbPath is not set")
 
         modelHashPath = self._getModelHashPath(hash)
+
+        if not os.path.exists(modelHashPath):
+            raise FileNotFoundError(f"Model hash {hash} not found")
+
         with open(modelHashPath, "rb") as f:
             return pickle.load(f)
 
-    def _saveModel(self, hash: str, model: SentenceTransformer|Doc2Vec):
+    def _loadEmbedding(self, hash: str) -> DatasetParser:
         if not self.saveDb:
-            return
+            raise ValueError("dbPath is not set")
 
+        embeddingHashPath = self._getEmbeddingHashPath(hash)
+        
+        if not os.path.exists(embeddingHashPath):
+            raise FileNotFoundError(f"Embedding hash {hash} not found")
+
+        with open(embeddingHashPath, "rb") as f:
+            return pickle.load(f)
+
+    def _saveModel(self, hash: str, model: SentenceTransformer|Doc2Vec):
+        assert self.saveDb, "dbPath is not set"
         assert self.dbPath is not None, "dbPath is not set"
 
         modelHashPath = self._getModelHashPath(hash)
@@ -125,6 +161,18 @@ class DatasetEmbedding:
 
         with open(modelHashPath, "wb") as f:
             pickle.dump(model, f)
+
+    def _saveEmbedding(self, hash: str, dataset: DatasetParser):
+        assert self.saveDb, "dbPath is not set"
+        assert self.dbPath is not None, "dbPath is not set"
+
+        embeddingHashPath = self._getEmbeddingHashPath(hash)
+
+        if not os.path.exists(self.dbPath):
+            os.makedirs(self.dbPath)
+
+        with open(embeddingHashPath, "wb") as f:
+            pickle.dump(dataset, f)
 
     def fit(self, dataset: DatasetParser) -> 'DatasetEmbedding':
 
@@ -149,11 +197,20 @@ class DatasetEmbedding:
         if not self.model:
             raise ValueError("Model is not trained yet")
 
-        flattenInstructionBlocks = dataset.flatten()
+        embeddingHash = self._getEmbeddingHash(dataset)
 
-        transform_method = getattr(self, DatasetEmbedding.TRANSFORM_MODE_MAP[self.mode])
-        X, y = transform_method(flattenInstructionBlocks)
-        dataset.setEmbeddings(X, y)
+        if self.saveDb and self._isEmbeddingSaved(embeddingHash):
+            print(f"Loading embedding from {embeddingHash}")
+            dataset = self._loadEmbedding(embeddingHash)
+            return dataset
+        else:
+            flattenInstructionBlocks = dataset.flatten()
+            transform_method = getattr(self, DatasetEmbedding.TRANSFORM_MODE_MAP[self.mode])
+            X, y = transform_method(flattenInstructionBlocks)
+            dataset.setEmbeddings(X, y)
+
+            if self.saveDb:
+                self._saveEmbedding(embeddingHash, dataset)
 
         return dataset
 
@@ -198,6 +255,6 @@ if __name__ == '__main__':
 
     embedding = DatasetEmbedding(DatasetEmbedding.TransformMode.SBERT, dbPath='./dedb/')
     embedding.fit(dataset)
-    embedding.transform(dataset)
+    dataset = embedding.transform(dataset)
     embedding.save(dataset, OUT_DIR)
 

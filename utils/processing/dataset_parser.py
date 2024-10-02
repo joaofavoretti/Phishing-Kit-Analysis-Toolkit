@@ -120,6 +120,7 @@ class DatasetParser:
 
         hash = hashlib.sha256()
         for category in self.sources:
+            hash.update(category.value.encode())
             files = sorted(self.sources[category])
             for path in files:
                 hash.update(path.encode())
