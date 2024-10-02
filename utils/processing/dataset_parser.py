@@ -112,6 +112,20 @@ class DatasetParser:
         self.sources: Dict[WebsiteSample.Category, List[PATH]] = {}
         self.websiteSamples: Dict[WebsiteSample.Category, List[WebsiteSample]] = {}
 
+    def getDatasetHash(self):
+        """
+        Return a hash of the dataset based on the sorted 
+        name of the files that are in it
+        """
+
+        hash = hashlib.sha256()
+        for category in self.sources:
+            files = sorted(self.sources[category])
+            for path in files:
+                hash.update(path.encode())
+
+        return hash
+
     def _getDirHash(self, dir: PATH, category: WebsiteSample.Category) -> str:
         """
         Return a hash of the directory based on the sorted 
@@ -129,7 +143,7 @@ class DatasetParser:
 
         return hash.hexdigest()[:16]
 
-    def _getHashPath(self, hash: str) -> str:
+    def _getDirHashPath(self, hash: str) -> str:
         if not self.saveDb:
             raise ValueError("The dbPath is not set to use _getHashPath")
 
@@ -138,17 +152,17 @@ class DatasetParser:
         hashFilename = f"{hash}.pkl"
         return os.path.join(self.dbPath, hashFilename)
 
-    def _isHashSaved(self, hash: str) -> bool:
-        hashPath = self._getHashPath(hash)
+    def _isDirHashSaved(self, hash: str) -> bool:
+        hashPath = self._getDirHashPath(hash)
         return os.path.exists(hashPath)
 
-    def _loadHash(self, hash: str) -> List[WebsiteSample]:
+    def _loadDirHash(self, hash: str) -> List[WebsiteSample]:
         if not self.saveDb:
             raise ValueError("The dbPath is not set to use _getHashPath")
 
         assert self.dbPath is not None, "The dbPath is not set to use _getHashPath"
 
-        hashPath = self._getHashPath(hash)
+        hashPath = self._getDirHashPath(hash)
 
         if not os.path.exists(hashPath):
             raise FileNotFoundError(f"Hashed file {hashPath} not found")
@@ -156,13 +170,13 @@ class DatasetParser:
         with open(hashPath, 'rb') as f:
             return pickle.load(f)
 
-    def _saveHash(self, hash: str, samples: List[WebsiteSample]):
+    def _saveDirHash(self, hash: str, samples: List[WebsiteSample]):
         if not self.saveDb:
             raise ValueError("The dbPath is not set to use _getHashPath")
 
         assert self.dbPath is not None, "The dbPath is not set to use _getHashPath"
 
-        hashPath = self._getHashPath(hash)
+        hashPath = self._getDirHashPath(hash)
 
         if os.path.exists(hashPath):
             raise FileExistsError(f"Hashed file {hashPath} already exists")
@@ -178,11 +192,11 @@ class DatasetParser:
             dirHash = self._getDirHash(path, category)
 
             if self.saveDb:
-                if self._isHashSaved(dirHash):
-                    return self._loadHash(dirHash)
+                if self._isDirHashSaved(dirHash):
+                    return self._loadDirHash(dirHash)
                 else:
                     websiteSamples = self._loadDataFromDir(path, category)
-                    self._saveHash(dirHash, websiteSamples)
+                    self._saveDirHash(dirHash, websiteSamples)
                     return websiteSamples
             else:
                 return self._loadDataFromDir(path, category)
@@ -264,15 +278,91 @@ class DatasetParser:
     
     def flatten(self) -> List[FlattenInstructionBlock]:
         flatten_instruction_blocks = []
+        self.total_instruction_blocks = 0
         for category, samples in self.websiteSamples.items():
             for sample in samples:
                 for i, ib in enumerate(sample.instruction_blocks):
                     flatten_instruction_blocks.append(FlattenInstructionBlock(ib.instructions, sample.filehash, i, sample.category))
+                    self.total_instruction_blocks += 1
+
+        assert len(flatten_instruction_blocks) == self.total_instruction_blocks, f"Expected {self.total_instruction_blocks} instruction blocks, somehow got {len(flatten_instruction_blocks)}"
 
         return flatten_instruction_blocks
 
+    def _getSample(self, hash, category) -> WebsiteSample|None:
+        _category = WebsiteSample.Category(category)
+        for samples in self.websiteSamples[_category]:
+            if samples.filehash == hash:
+                return samples
+
+        return None
+
+    def setEmbeddings(self, X:np.ndarray, y:np.ndarray):
+        for i, (category, filehash_index) in enumerate(y):
+            filehash, index = filehash_index.split("_")
+            
+            sample = self._getSample(filehash, category)
+
+            if sample is None:
+                raise ValueError(f"Sample with hash {filehash} not found")
+
+            sample.instruction_blocks[int(index)].vector = X[i]
+
+    def _getEmbeddingsFlatten(self) -> tuple[list, np.ndarray]:
+        X = []
+        y = []
+
+        for category, samples in self.websiteSamples.items():
+            for sample in samples:
+                for ib_index, ib in enumerate(sample.instruction_blocks):
+                    if ib.vector is None:
+                        raise ValueError(f"Instruction block {sample.filehash}_{ib_index} does not have a vector")
+
+                    X.append(ib.vector)
+                    y.append((category.name, f"{sample.filehash}_{ib_index}"))
+
+        return X, np.array(y)
+       
+    def _getEmbeddingsNotFlatten(self) -> tuple[list, np.ndarray]:
+        X = []
+        y = []
+
+        for category, samples in self.websiteSamples.items():
+            for sample in samples:
+                X.append([])
+                for ib_index, ib in enumerate(sample.instruction_blocks):
+                    if ib.vector is None:
+                        raise ValueError(f"Instruction block {sample.filehash}_{ib_index} does not have a vector")
+
+                    X[-1].append(ib.vector)
+
+                if len(X[-1]) == 0:
+                    raise ValueError(f"Sample {sample.filehash} does not have any instruction blocks")
+
+                y.append((category.name, sample.filehash))
+
+        return X, np.array(y)
+
+    def getEmbeddings(self, flatten=False) -> tuple[list, np.ndarray]:
+        """
+        This function will use the embedding assigned list of instructions blocks with
+        its embeddings and return one of two things:
+
+        If flatten is True, then it will return a list with all vectors from all the
+        instruction block embeddings from the websiteSamples. 
+        If flatten is False, then it will return a list of lists. For each sublist, it will
+        contain the vectors for the instruction blocks of each websiteSample.
+        """
+    
+        if flatten:
+            return self._getEmbeddingsFlatten()
+
+        return self._getEmbeddingsNotFlatten()
+
     def unflatten(self, X:np.ndarray, y:np.ndarray) -> tuple[list, np.ndarray]:
         """
+        This function is not used anymore. Should use setEmbeddings and geEmbeddings
+
         This function receive a list of vectors and transform it 
         into a list of matrices (n_instruction_blocks, n_features) for each website sample
         The new labels will be the category and filehash of the website sample
@@ -285,7 +375,7 @@ class DatasetParser:
         unflatten_y = []
 
         for i, (category, filehash_index) in enumerate(y):
-            filehash, _ = filehash_index.split("_")
+            filehash, index = filehash_index.split("_")
             
             if len(unflatten_X) == 0 or unflatten_y[-1] != (category, filehash):
                 unflatten_X.append([])
@@ -294,7 +384,6 @@ class DatasetParser:
             unflatten_X[-1].append(X[i])
 
         return unflatten_X, np.array(unflatten_y)
-        
 
 
 MALICIOUS_LOGFILES_DIR = [

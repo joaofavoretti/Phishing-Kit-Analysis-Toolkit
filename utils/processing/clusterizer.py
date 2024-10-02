@@ -134,7 +134,7 @@ class Clusterizer:
         new_X = []
         X_len = len(X)
         for i, sample in enumerate(X):
-            print(f"Transforming sample {i}/{X_len}")
+            print(f"Transforming sample {i}/{X_len}", end="                  \r")
             
             sample = np.array(sample)
             matrix = np.matmul(sample.transpose(), sample)
@@ -222,9 +222,10 @@ class Clusterizer:
     def fit(self, dataset: DatasetParser) -> 'Clusterizer':
         assert isinstance(dataset, DatasetParser), f"Expected {DatasetParser}, got {type(dataset)}"
 
-        embedding = DatasetEmbedding(self.mode, flatten=False)
+        embedding = DatasetEmbedding(self.mode, dbPath='./dedb/')
         embedding.fit(dataset)
-        X, y = embedding.transform(dataset)
+        embedding.transform(dataset)
+        X, y = dataset.getEmbeddings()
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
         assert isinstance(y, np.ndarray), f"Expected {np.ndarray}, got {type(y)}"
 
@@ -302,8 +303,8 @@ class Clusterizer:
 
 
 MALICIOUS_LOGFILES_DIR = [
-    # "/archive/files/eval-phishing-pages/out/phishtank/"
-    "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/experiments/same-urls/exp3/out"
+    "/archive/files/eval-phishing-pages/out/phishtank/"
+    # "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/experiments/same-urls/exp3/out"
 ]
 
 OUT_DIR = "/home/joaof/files/clustering-out"
@@ -340,8 +341,8 @@ def datasetFromDate(targetDate="2021-09-29", fromDate="2021-09-28"):
     return datasetParser
 
 if __name__ == '__main__':
-    # dataset = DatasetParser().fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
-    dataset = datasetFromDate("2021-09-29")
+    dataset = DatasetParser(dbPath='./dpdb/').fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
+    # dataset = datasetFromDate("2021-09-29")
 
     def _filterOut(ib: DomainInstructionBlock):
         BLACKLISTED_DOMAINS = ["EMPTY", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
