@@ -373,8 +373,9 @@ class LogParser:
                     ret = inst_formatter(**{k: v for k, v in instruction.items() if k != 'type'})
                     if ret is not None:
                         instructions.append(ret)
-                
-            parsed_instruction_blocks.append(DomainInstructionBlock(domain, ' '.join(instructions)))
+
+            if len(instructions) > 0:
+                parsed_instruction_blocks.append(DomainInstructionBlock(domain, ' '.join(instructions)))
 
         return parsed_instruction_blocks
 

@@ -105,7 +105,7 @@ class FlattenInstructionBlock:
 
 
 class DatasetParser:
-    def __init__(self, dbPath:str|None=None):
+    def __init__(self, dbPath:str|None='./dpdb/'):
         self.dbPath = dbPath
         self.saveDb = dbPath is not None
 
@@ -202,7 +202,7 @@ class DatasetParser:
             else:
                 return self._loadDataFromDir(path, category)
 
-    def fit(self, dir: PATH|List[PATH], category: WebsiteSample.Category) -> 'DatasetParser':
+    def fit(self, dir: List[PATH], category: WebsiteSample.Category) -> 'DatasetParser':
         if isinstance(dir, PATH):
             dir = [dir]
 

@@ -1,6 +1,6 @@
 from sklearn.metrics.pairwise import cosine_similarity, cosine_distances
 from dataset_embedding import DatasetEmbedding, DomainInstructionBlock
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA, IncrementalPCA
 from dataset_parser import DatasetParser, WebsiteSample
 from sklearn.cluster import DBSCAN, HDBSCAN, OPTICS
 from dateutil import parser
@@ -8,6 +8,7 @@ from typing import List
 from enum import Enum
 import numpy as np
 import json
+import sys
 import os
 import re
 
@@ -142,7 +143,9 @@ class Clusterizer:
             new_X.append(new_sample)
 
         # Calculate the PCA to reduce the dimensionality to 1024
-        pca = PCA(n_components=min(1024, len(new_X), len(new_X[0])))
+        print("Calculating PCA")
+        n_components=min(256, len(new_X), len(new_X[0]))
+        pca = IncrementalPCA(n_components=n_components, batch_size=n_components)
         new_X = pca.fit_transform(new_X)
 
         return np.array(new_X)
@@ -195,6 +198,7 @@ class Clusterizer:
     def _dbscan_fit(self, X: np.ndarray):
         assert isinstance(X, np.ndarray), f"Expected {np.ndarray}, got {type(X)}"
 
+        print("Fitting DBSCAN")
         model = DBSCAN(eps=0.05, min_samples=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy], n_jobs=-1)
 
         model.fit(X)
@@ -224,7 +228,7 @@ class Clusterizer:
 
         embedding = DatasetEmbedding(self.mode, dbPath='./dedb/')
         embedding.fit(dataset)
-        embedding.transform(dataset)
+        dataset = embedding.transform(dataset)
         X, y = dataset.getEmbeddings()
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
         assert isinstance(y, np.ndarray), f"Expected {np.ndarray}, got {type(y)}"
@@ -303,14 +307,15 @@ class Clusterizer:
 
 
 MALICIOUS_LOGFILES_DIR = [
-    "/archive/files/eval-phishing-pages/out/phishtank/"
+    # "/archive/files/eval-phishing-pages/out/phishtank/"
     # "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/experiments/same-urls/exp3/out"
+    "/home/joaof/files/out/"
 ]
 
 OUT_DIR = "/home/joaof/files/clustering-out"
 
 # Temporary function to test the clustering
-def datasetFromDate(targetDate="2021-09-29", fromDate="2021-09-28"):
+def datasetFromDate(targetDate="2024-09-29", fromDate="2024-09-28"):
     logFolder = "/home/joaof/files/downloaded-phishing-logs"
     logFiles = os.listdir(logFolder)
 
@@ -341,8 +346,9 @@ def datasetFromDate(targetDate="2021-09-29", fromDate="2021-09-28"):
     return datasetParser
 
 if __name__ == '__main__':
-    dataset = DatasetParser(dbPath='./dpdb/').fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
+    # dataset = DatasetParser(dbPath='./dpdb/').fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
     # dataset = datasetFromDate("2021-09-29")
+    dataset = datasetFromDate(targetDate="2024-09-29", fromDate="2024-09-28")
 
     def _filterOut(ib: DomainInstructionBlock):
         BLACKLISTED_DOMAINS = ["EMPTY", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
