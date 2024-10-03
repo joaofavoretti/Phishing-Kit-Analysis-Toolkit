@@ -15,6 +15,7 @@ class Projector:
         hashes = set()
 
         dailySamples = sorted(os.listdir(self.dir))
+        removedHashes = 0
         for dailySample in dailySamples:
             dailySamplePath = os.path.join(self.dir, dailySample)
 
@@ -23,8 +24,13 @@ class Projector:
                 
                 if logHash in hashes:
                     print(f"Repeated hash ({logHash}) found in {dailySamplePath}")
+                    os.remove(os.path.join(dailySamplePath, logSample))
+                    removedHashes += 1
+                    continue
 
                 hashes.add(logHash)
+
+        print(f"Removed {removedHashes} repeated hashes")
 
     def fit(self, targetDate: datetime):
         dailySamples = os.listdir(self.dir)
