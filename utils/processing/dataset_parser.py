@@ -292,11 +292,14 @@ class DatasetParser:
 
     def _getSample(self, hash, category) -> WebsiteSample|None:
         _category = WebsiteSample.Category(category)
-        for samples in self.websiteSamples[_category]:
-            if samples.filehash == hash:
-                return samples
+        _sample = None
+        for sample in self.websiteSamples[_category]:
+            if sample.filehash == hash:
+                if _sample is not None:
+                    raise ValueError(f"Two samples with the same {hash} (Major error)")
+                _sample = sample
 
-        return None
+        raise ValueError(f"Sample with hash {hash} not found. It should be the case")
 
     def setEmbeddings(self, X:np.ndarray, y:np.ndarray):
         for i, (category, filehash_index) in enumerate(y):

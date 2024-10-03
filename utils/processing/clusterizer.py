@@ -8,7 +8,6 @@ from typing import List
 from enum import Enum
 import numpy as np
 import json
-import sys
 import os
 import re
 
@@ -307,48 +306,14 @@ class Clusterizer:
 
 
 MALICIOUS_LOGFILES_DIR = [
-    # "/archive/files/eval-phishing-pages/out/phishtank/"
+    "/archive/files/eval-phishing-pages/out/phishtank/"
     # "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/experiments/same-urls/exp3/out"
-    "/home/joaof/files/out/"
 ]
 
 OUT_DIR = "/home/joaof/files/clustering-out"
 
-# Temporary function to test the clustering
-def datasetFromDate(targetDate="2024-09-29", fromDate="2024-09-28"):
-    logFolder = "/home/joaof/files/downloaded-phishing-logs"
-    logFiles = os.listdir(logFolder)
-
-    target = parser.parse(targetDate)
-    from_ = parser.parse(fromDate)
-
-    targetLogFiles = []
-    trainingLogFiles = []
-
-    for file in logFiles:
-        if not re.match(r"\d{4}-\d{2}-\d{2}-*", file):
-            continue
-
-        logPath = os.path.join(logFolder, file)
-
-        dateString = re.match(r"(\d{4}-\d{2}-\d{2})-", file).group(1)
-        date = parser.parse(dateString)
-
-        if date == target:
-            targetLogFiles.append(logPath)
-        elif from_ <= date < target:
-            trainingLogFiles.append(logPath)
-
-    datasetParser = DatasetParser()
-    datasetParser.fit(targetLogFiles, WebsiteSample.Category.UNLABELED)
-    datasetParser.fit(trainingLogFiles, WebsiteSample.Category.MALICIOUS)
-
-    return datasetParser
-
 if __name__ == '__main__':
-    # dataset = DatasetParser(dbPath='./dpdb/').fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
-    # dataset = datasetFromDate("2021-09-29")
-    dataset = datasetFromDate(targetDate="2024-09-29", fromDate="2024-09-28")
+    dataset = DatasetParser(dbPath='./dpdb/').fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
 
     def _filterOut(ib: DomainInstructionBlock):
         BLACKLISTED_DOMAINS = ["EMPTY", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
@@ -366,5 +331,5 @@ if __name__ == '__main__':
     print("Saving vectors")
     cluster.save(OUT_DIR)
     print("Saving the data.json")
-    cluster.exportJson('/home/joaof/files/clustering-out/data.json')
+    cluster.exportJson(f'{OUT_DIR}/data.json')
 
