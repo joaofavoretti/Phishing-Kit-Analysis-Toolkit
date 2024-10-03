@@ -6,6 +6,7 @@ import numpy as np
 import pickle
 import hashlib
 import shutil
+import pdb
 import os
 import re
 
@@ -105,7 +106,7 @@ class FlattenInstructionBlock:
 
 
 class DatasetParser:
-    def __init__(self, dbPath:str|None='./dpdb/'):
+    def __init__(self, dbPath:str='./dpdb/'):
         self.dbPath = dbPath
         self.saveDb = dbPath is not None
 
@@ -290,7 +291,7 @@ class DatasetParser:
 
         return flatten_instruction_blocks
 
-    def _getSample(self, hash, category) -> WebsiteSample|None:
+    def _getSample(self, hash, category) -> WebsiteSample:
         _category = WebsiteSample.Category(category)
         _sample = None
         for sample in self.websiteSamples[_category]:
@@ -310,7 +311,10 @@ class DatasetParser:
             if sample is None:
                 raise ValueError(f"Sample with hash {filehash} not found")
 
-            sample.instruction_blocks[int(index)].vector = X[i]
+            try:
+                sample.instruction_blocks[int(index)].vector = X[i]
+            except:
+                pdb.set_trace()
 
     def _getEmbeddingsFlatten(self) -> tuple[list, np.ndarray]:
         X = []

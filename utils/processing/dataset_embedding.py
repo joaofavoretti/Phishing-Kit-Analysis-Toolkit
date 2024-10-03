@@ -25,7 +25,7 @@ class DatasetEmbedding:
         TransformMode.SBERT: "_sbert_transform"
     }
 
-    def __init__(self, mode: TransformMode, dbPath: str|None = './dedb/'):
+    def __init__(self, mode: TransformMode, dbPath: str = './dedb/'):
         """
         :param mode: The mode to transform the data. It can be either "doc2vec" or "sbert"
         :param flatten: If true, then each instruction block will be represented as a single vector.
@@ -126,7 +126,7 @@ class DatasetEmbedding:
         embeddingHashPath = self._getEmbeddingHashPath(hash)
         return os.path.exists(embeddingHashPath)
 
-    def _loadModel(self, hash: str) -> None|SentenceTransformer|Doc2Vec:
+    def _loadModel(self, hash: str):
         if not self.saveDb:
             raise ValueError("dbPath is not set")
 
@@ -146,11 +146,11 @@ class DatasetEmbedding:
         
         if not os.path.exists(embeddingHashPath):
             raise FileNotFoundError(f"Embedding hash {hash} not found")
-
+ 
         with open(embeddingHashPath, "rb") as f:
             return pickle.load(f)
 
-    def _saveModel(self, hash: str, model: SentenceTransformer|Doc2Vec):
+    def _saveModel(self, hash: str, model):
         assert self.saveDb, "dbPath is not set"
         assert self.dbPath is not None, "dbPath is not set"
 
