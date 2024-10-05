@@ -123,7 +123,7 @@ class GDriveDownloader:
 
         os.makedirs(folderPath)
 
-        os.system(f"rclone copy {self.remoteName}:\"{self.rootFolderPath}{folderName}\" \"{folderPath}\"")
+        os.system(f"rclone copy -v --drive-acknowledge-abuse {self.remoteName}:\"{self.rootFolderPath}{folderName}\" \"{folderPath}\"")
 
     def downloadFrom(self, dateInit = "2024-08-11", dateEnd = "2024-09-15", destination = os.getcwd()):
         dateInit = parser.parse(dateInit)
@@ -142,8 +142,14 @@ class GDriveDownloader:
                 self.downloadFolder(entry.entryName, destination)
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='(%(asctime)s) [%(levelname)s] %(message)s',
+        filename="gdrive_downloader.log"
+    )
+
     downloader = GDriveDownloader(rootFolderId=DRIVE_FOLDER_ID)
     entries = downloader.listEntries()
     
-    downloader.downloadFrom(dateInit="2024-09-25", dateEnd="2024-09-30")
+    downloader.downloadFrom(dateInit="2024-09-25", dateEnd="2024-09-30", destination='/home/joaof/files/downloaded-phishing-logs/')
 

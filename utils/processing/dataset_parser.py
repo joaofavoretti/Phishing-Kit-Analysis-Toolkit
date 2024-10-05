@@ -76,7 +76,7 @@ class WebsiteSample:
         self.filehash = filehash
         self.category = category
         self.instruction_blocks: List[DomainInstructionBlock] = [] 
-        self.vector:np.ndarray = None
+        self.vector:np.ndarray|None = None
         self.cluster:int|None = None
 
     def add_instruction_blocks(self, instruction_blocks:List[DomainInstructionBlock]):
@@ -107,7 +107,7 @@ class FlattenInstructionBlock:
 
 
 class DatasetParser:
-    def __init__(self, dbPath:str='./dpdb/'):
+    def __init__(self, dbPath:str|None='./dpdb/'):
         self.dbPath = dbPath
         self.saveDb = dbPath is not None
 
@@ -116,16 +116,17 @@ class DatasetParser:
 
     def getDatasetHash(self):
         """
-        Return a hash of the dataset based on the sorted 
-        name of the files that are in it
+        Return a hash of the dataset based on all the hashes from
+        websiteSamples
         """
 
         hash = hashlib.sha256()
-        for category in self.sources:
+        categories = sorted(self.websiteSamples.keys(), key=lambda x: x.name)
+        for category in categories:
             hash.update(category.value.encode())
-            files = sorted(self.sources[category])
-            for path in files:
-                hash.update(path.encode())
+            samples = sorted(self.websiteSamples[category], key=lambda x: x.filehash)
+            for sample in samples:
+                hash.update(sample.filehash.encode())
 
         return hash
 
@@ -204,17 +205,19 @@ class DatasetParser:
             else:
                 return self._loadDataFromDir(path, category)
 
-    def fit(self, dir: List[PATH], category: WebsiteSample.Category) -> 'DatasetParser':
+    def fit(self, dir: List[PATH], category: WebsiteSample.Category) -> List[WebsiteSample]:
         if isinstance(dir, PATH):
             dir = [dir]
 
         if len(dir) == 0:
-            return self
+            return []
 
         if category not in self.sources:
             self.sources[category] = []
 
         self.sources[category] += dir
+
+        listWebsiteSamples = []
 
         # This is something I am not sure of
         # Initially I would like to use the self.sources variable to fit all at once
@@ -226,13 +229,23 @@ class DatasetParser:
             print(f"Loading data from {path}")
             
             websiteSamples = self._loadDir(path, category)
+            listWebsiteSamples.append(websiteSamples)
 
             if category not in self.websiteSamples:
                 self.websiteSamples[category] = []
 
             self.websiteSamples[category] += websiteSamples
 
-        return self
+
+        return listWebsiteSamples
+
+    # This will not have added to the sources. Is it a problem? 
+    #   Just Future will tell me
+    def fitStored(self, websiteSamples: List[WebsiteSample], category: WebsiteSample.Category):
+        if category not in self.websiteSamples:
+            self.websiteSamples[category] = []
+
+        self.websiteSamples[category] += websiteSamples
 
     def _getNofIbs(self) -> int:
         """

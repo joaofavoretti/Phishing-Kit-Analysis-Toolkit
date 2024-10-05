@@ -241,7 +241,8 @@ MALICIOUS_LOGFILES_DIR = [
 OUT_DIR = "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/out/embeddings-doc2vec"
 
 if __name__ == '__main__':
-    dataset = DatasetParser(dbPath='./dpdb/').fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
+    dataset = DatasetParser(dbPath='./dpdb/')
+    dataset.fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
 
     def filterOut(ib: DomainInstructionBlock):
         BLACKLISTED_DOMAINS = ["EMPTY", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
