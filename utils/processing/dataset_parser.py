@@ -63,9 +63,9 @@ def for_each_log_file(logs_dir, func, debug=True):
 
 class WebsiteSample:
     class Category(Enum):
-        MALICIOUS = "malicious"
-        BENIGN = "benign"
-        UNLABELED = "unlabeled"
+        MALICIOUS = "MALICIOUS"
+        BENIGN = "BENING"
+        UNLABELED = "UNLABELED"
 
     def __init__(self, filehash: str, category: Category = Category.UNLABELED):
         """
@@ -76,6 +76,7 @@ class WebsiteSample:
         self.filehash = filehash
         self.category = category
         self.instruction_blocks: List[DomainInstructionBlock] = [] 
+        self.vector:np.ndarray = None
         self.cluster:int|None = None
 
     def add_instruction_blocks(self, instruction_blocks:List[DomainInstructionBlock]):
@@ -292,6 +293,7 @@ class DatasetParser:
         return flatten_instruction_blocks
 
     def _getSample(self, hash, category) -> WebsiteSample:
+        # Convert to WebsiteSample.Category using category name 
         _category = WebsiteSample.Category(category)
         _sample = None
         for sample in self.websiteSamples[_category]:
@@ -300,9 +302,16 @@ class DatasetParser:
                     raise ValueError(f"Two samples with the same {hash} (Major error)")
                 _sample = sample
 
-        raise ValueError(f"Sample with hash {hash} not found. It should be the case")
+        if _sample == None:
+            pdb.set_trace()
+            raise ValueError(f"Sample with hash {hash} not found. It should be the case")
 
-    def setEmbeddings(self, X:np.ndarray, y:np.ndarray):
+        return _sample
+
+    def setIbEmbeddings(self, X:np.ndarray, y:np.ndarray):
+        """
+        Set Instructon Block Embeddings
+        """
         for i, (category, filehash_index) in enumerate(y):
             filehash, index = filehash_index.split("_")
             
@@ -316,7 +325,7 @@ class DatasetParser:
             except:
                 pdb.set_trace()
 
-    def _getEmbeddingsFlatten(self) -> tuple[list, np.ndarray]:
+    def _getIbEmbeddingsFlatten(self) -> tuple[list, np.ndarray]:
         X = []
         y = []
 
@@ -331,7 +340,7 @@ class DatasetParser:
 
         return X, np.array(y)
        
-    def _getEmbeddingsNotFlatten(self) -> tuple[list, np.ndarray]:
+    def _getIbEmbeddingsNotFlatten(self) -> tuple[list, np.ndarray]:
         X = []
         y = []
 
@@ -351,7 +360,7 @@ class DatasetParser:
 
         return X, np.array(y)
 
-    def getEmbeddings(self, flatten=False) -> tuple[list, np.ndarray]:
+    def getIbEmbeddings(self, flatten=False) -> tuple[list, np.ndarray]:
         """
         This function will use the embedding assigned list of instructions blocks with
         its embeddings and return one of two things:
@@ -363,10 +372,62 @@ class DatasetParser:
         """
     
         if flatten:
-            return self._getEmbeddingsFlatten()
+            return self._getIbEmbeddingsFlatten()
 
-        return self._getEmbeddingsNotFlatten()
+        return self._getIbEmbeddingsNotFlatten()
 
+    def setWsEmbeddings(self, X:np.ndarray, y:np.ndarray):
+        """
+        Set Website Sample Embeddings
+        """
+        for i, (category, filehash) in enumerate(y):
+            sample = self._getSample(filehash, category)
+
+            if sample is None:
+                raise ValueError(f"Sample with hash {filehash} not found")
+
+            sample.vector = X[i]
+
+    def getWsEmbeddings(self) -> tuple[list, np.ndarray]:
+        X = []
+        y = []
+
+        for category, samples in self.websiteSamples.items():
+            for sample in samples:
+                if sample.vector is None:
+                    raise ValueError(f"Sample {sample.filehash} does not have a vector")
+
+                X.append(sample.vector)
+                y.append((category.name, sample.filehash))
+
+        return X, np.array(y)
+
+    def setWsLabels(self, labels:np.ndarray, y:np.ndarray):
+        """
+        Set Website Sample Labels
+        """
+        for i, (category, filehash) in enumerate(y):
+            sample = self._getSample(filehash, category)
+
+            if sample is None:
+                raise ValueError(f"Sample with hash {filehash} not found")
+
+            sample.cluster = labels[i]
+
+    def getWsLabels(self) -> tuple[list, np.ndarray]:
+        labels = []
+        y = []
+
+        for category, samples in self.websiteSamples.items():
+            for sample in samples:
+                if sample.cluster is None:
+                    raise ValueError(f"Sample {sample.filehash} does not have a cluster")
+
+                labels.append(sample.cluster)
+                y.append((category.name, sample.filehash))
+
+        return labels, np.array(y)
+            
     def unflatten(self, X:np.ndarray, y:np.ndarray) -> tuple[list, np.ndarray]:
         """
         This function is not used anymore. Should use setEmbeddings and geEmbeddings

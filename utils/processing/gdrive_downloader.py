@@ -4,7 +4,7 @@ import argparse
 import re
 import logging
 from enum import Enum
-from typing import List
+from typing import List, Set
 import subprocess
 import argparse
 from dateutil import parser
@@ -25,7 +25,7 @@ class Entry:
 # Must have rclone installed
 class GDriveDownloader:
     def __init__(self,
-                 # gdrive stuff (Still migrating)
+                 # gdrive st sfuff (Still migrating)
                  rootFolderId=DRIVE_FOLDER_ID,
                  # rclone stuff
                  rootFolderPath=DRIVE_FOLDER,
@@ -80,6 +80,29 @@ class GDriveDownloader:
         entries = self._parseEntryLines(rawEntryLines)
 
         return entries
+
+    def listDates(self, fromDate: str = None, targetDate: str = None) -> List[str]:
+        assert fromDate is None or parser.parse(fromDate), "fromDate must be parseable"
+        assert targetDate is None or parser.parse(targetDate), "targetDate must be parseable"
+
+        entries = self.listEntries()
+        dates: List[str] = []
+
+        for entry in entries:
+            if not re.match(r"\d{4}-\d{2}-\d{2}-.*", entry.entryName):
+                continue
+
+            date = re.match(r"(\d{4}-\d{2}-\d{2})-.*", entry.entryName).group(1)
+
+            if fromDate and parser.parse(date) < parser.parse(fromDate):
+                continue
+
+            if targetDate and parser.parse(date) > parser.parse(targetDate):
+                continue
+
+            dates.append(date)
+
+        return sorted(dates)
 
     def _getEntryId(self, folderId, entryName) -> str:
         p = subprocess.Popen(f"gdrive files list --parent \"{folderId}\" | grep {entryName} | awk '{{print $1}}'", shell=True, stdout=subprocess.PIPE)

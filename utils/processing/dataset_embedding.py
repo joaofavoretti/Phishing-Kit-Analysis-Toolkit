@@ -207,7 +207,7 @@ class DatasetEmbedding:
             flattenInstructionBlocks = dataset.flatten()
             transform_method = getattr(self, DatasetEmbedding.TRANSFORM_MODE_MAP[self.mode])
             X, y = transform_method(flattenInstructionBlocks)
-            dataset.setEmbeddings(X, y)
+            dataset.setIbEmbeddings(X, y)
 
             if self.saveDb:
                 self._saveEmbedding(embeddingHash, dataset)
@@ -219,7 +219,7 @@ class DatasetEmbedding:
         Save the embeddings and labels as a .tsv file
         """
         
-        X, y = dataset.getEmbeddings(flatten=True)
+        X, y = dataset.getIbEmbeddings(flatten=True)
 
         if not os.path.exists(dirPath):
             os.makedirs(dirPath)

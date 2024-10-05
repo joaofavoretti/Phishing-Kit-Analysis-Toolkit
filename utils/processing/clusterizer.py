@@ -119,7 +119,6 @@ class Clusterizer:
         self.alg = alg
         self.mode = mode
         self.strategy = strategy
-        self.labels = []
     
     def _rv_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         raise Exception("Sorry! Not implemented yet")
@@ -228,14 +227,11 @@ class Clusterizer:
         embedding = DatasetEmbedding(self.mode, dbPath='./dedb/')
         embedding.fit(dataset)
         dataset = embedding.transform(dataset)
-        X, y = dataset.getEmbeddings()
+        X, y = dataset.getIbEmbeddings()
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
         assert isinstance(y, np.ndarray), f"Expected {np.ndarray}, got {type(y)}"
 
-        # Save the fit values
         self.dataset = dataset
-        self.X = X
-        self.y = y
 
         strategy_method = getattr(self, Clusterizer.REPRESENTANT_STRATEGY_MAP[self.strategy])
         # In general, obj could be a list of vectors that represent each samples
@@ -244,14 +240,15 @@ class Clusterizer:
         # The main problem of a distance matrix is that it makes the life harder in a classification system
         # For now, this generic result can only be X transformed
         X_transformed = strategy_method(X)
-        self.X_transformed = X_transformed
+
+        dataset.setWsEmbeddings(X_transformed, y)
 
         alg_method = getattr(self, Clusterizer.ALGORITHM_MAP[self.alg])
-        self.model = alg_method(self.X_transformed)
-        self.labels = self.model.labels_
-        
-        assert len(y) == len(self.labels), f"Expected {len(y)} == {len(self.labels)}"
+        self.model = alg_method(X_transformed)
 
+        labels = self.model.labels_
+        dataset.setWsLabels(labels, y)
+        
         return self
 
     def save(self, dirPath: str):
@@ -262,14 +259,22 @@ class Clusterizer:
         if not os.path.exists(dirPath):
             os.makedirs(dirPath)
 
+        X, y = self.dataset.getWsEmbeddings()
+        labels, yLabels = self.dataset.getWsLabels()
+
         with open(f"{dirPath}/vectors.tsv", "w") as f:
-            for x in self.X_transformed:
+            for x in X:
                 f.write("\t".join(map(str, x)) + "\n")
 
         with open(f"{dirPath}/metadata.tsv", "w") as f:
             f.write("HASH\tCATEGORY\tCLUSTER\n")
-            for i in range(len(self.y)):
-                f.write(f"{self.y[i][1]}\t{self.y[i][0]}\t{self.labels[i]}\n")
+            for i in range(len(y)):
+
+                # Just a note to myself
+                if yLabels[i][1] != y[i][1]:
+                    raise Exception(f"Stupid!! getWsEmbeddings and getWsLabels do not return the samples in the same order")
+
+                f.write(f"{y[i][1]}\t{y[i][0]}\t{labels[i]}\n")
 
     def exportJson(self, filePath: str):
         """
@@ -279,26 +284,10 @@ class Clusterizer:
 
         assert isinstance(filePath, str), f"Expected {str}, got {type(filePath)}"
         
-        sum_length_website_samples = sum([len(ws) for ws in self.dataset.websiteSamples.values()])
-        assert len(self.X_transformed) == sum_length_website_samples, f"Expected {len(self.X_transformed)} == {sum_length_website_samples}"
-
-        for wss in self.dataset.websiteSamples.values():
-            for i, ws in enumerate(wss):
-                assert len(ws.instruction_blocks) == len(self.X[i]), f"Expected {len(ws.instruction_blocks)} == {len(self.X[i])} on index {i} of websiteSamples[{ws.filehash}]"
-
         json_website_samples = []
-        websiteSampleIdx = 0
         for category, websiteSamples in self.dataset.websiteSamples.items():
             for websiteSample in websiteSamples:
-                for ibIdx, ib in enumerate(websiteSample.instruction_blocks):
-                    ib.vector = self.X[websiteSampleIdx][ibIdx]
-
-                websiteSample.cluster = self.labels[websiteSampleIdx]
-                
                 json_website_samples.append(websiteSample.exportJson())
-
-                websiteSampleIdx += 1
-
 
         # Save the result
         with open(filePath, "w") as f:
@@ -306,11 +295,12 @@ class Clusterizer:
 
 
 MALICIOUS_LOGFILES_DIR = [
-    "/archive/files/eval-phishing-pages/out/phishtank/"
+    "/archive/files/eval-phishing-pages/out/tmp-phishtank/"
+    # "/archive/files/eval-phishing-pages/out/phishtank/"
     # "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/experiments/same-urls/exp3/out"
 ]
 
-OUT_DIR = "/home/joaof/files/clustering-out"
+OUT_DIR = "."
 
 if __name__ == '__main__':
     dataset = DatasetParser(dbPath='./dpdb/').fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
