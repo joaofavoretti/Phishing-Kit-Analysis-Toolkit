@@ -89,11 +89,11 @@ class Projector:
             shutil.rmtree(folderPath)
 
     def _getFolderPaths(self, date: str) -> List[PATH]:
-        folderPaths = self._getFolderPaths(date)
+        folderPaths = self._getDownloadedFolderPaths(date)
 
         if len(folderPaths) == 0:
             GDriveDownloader().downloadFrom(dateInit = date, dateEnd = date, destination = self.dir)
-            folderPaths = self._getFolderPaths(date)
+            folderPaths = self._getDownloadedFolderPaths(date)
 
         return folderPaths
 
