@@ -131,13 +131,20 @@ class Projector:
 
         return wsHashes
     
-    def _removeHashesFromFolder(self, folderPaths: List[PATH]):
+    def _removeRepeatedHashesFromFolder(self, folderPaths: List[PATH]):
+        # folderHashes are the hashes within the folderPaths
+        folderHashes: Set[str] = set()
+
         for folderPath in folderPaths:
             for sample in os.listdir(folderPath):
                 sampleHash = sample.split('.')[0]
-                if sampleHash in self.usedHashes:
+
+                if sampleHash in self.usedHashes or sampleHash in folderHashes:
                     samplePath = os.path.join(folderPath, sample)
                     os.remove(samplePath)
+                    continue
+
+                folderHashes.add(sampleHash)
 
     def _setWsCategory(self, websiteSamples: List[WebsiteSample], category: WebsiteSample.Category):
         for ws in websiteSamples:
@@ -157,7 +164,7 @@ class Projector:
         # If the folder was never downloaded before
         else:
             folderPaths = self._getFolderPaths(date)
-            self._removeHashesFromFolder(folderPaths)
+            self._removeRepeatedHashesFromFolder(folderPaths)
 
             # Fit the data
             websiteSamples = self.datasetParser.fit(folderPaths, category)

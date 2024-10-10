@@ -105,7 +105,8 @@ class GDriveDownloader:
         return sorted(dates)
 
     def _getEntryId(self, folderId, entryName) -> str:
-        p = subprocess.Popen(f"gdrive files list --parent \"{folderId}\" | grep {entryName} | awk '{{print $1}}'", shell=True, stdout=subprocess.PIPE)
+        numberOfEntries = self._numberOfEntries(folderId)
+        p = subprocess.Popen(f"gdrive files list --parent \"{folderId}\" --max {numberOfEntries} | grep {entryName} | awk '{{print $1}}'", shell=True, stdout=subprocess.PIPE)
         out, err = p.communicate()
         
         entryId = out.decode("utf-8").strip()

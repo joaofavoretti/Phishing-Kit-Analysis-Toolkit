@@ -229,7 +229,7 @@ class DatasetParser:
             print(f"Loading data from {path}")
             
             websiteSamples = self._loadDir(path, category)
-            listWebsiteSamples.append(websiteSamples)
+            listWebsiteSamples += websiteSamples
 
             if category not in self.websiteSamples:
                 self.websiteSamples[category] = []
@@ -352,6 +352,22 @@ class DatasetParser:
                     y.append((category.name, f"{sample.filehash}_{ib_index}"))
 
         return X, np.array(y)
+
+    def _getIbLabelsFlatten(self) -> tuple[list, np.ndarray]:
+        labels = []
+        y = []
+        
+        for category, samples in self.websiteSamples.items():
+            for sample in samples:
+                if sample.cluster is None:
+                    raise ValueError(f"Instruction block {sample.filehash} does not have a cluster assigned")
+
+                for ib_index, ib in enumerate(sample.instruction_blocks):
+                    labels.append(sample.cluster)
+                    y.append((category.name, f"{sample.filehash}_{ib_index}"))
+
+
+        return labels, np.array(y)
        
     def _getIbEmbeddingsNotFlatten(self) -> tuple[list, np.ndarray]:
         X = []
@@ -373,6 +389,20 @@ class DatasetParser:
 
         return X, np.array(y)
 
+    def _getIbLabelsNotFlatten(self) -> tuple[list, np.ndarray]:
+        labels = []
+        y = []
+
+        for category, samples in self.websiteSamples.items():
+            for sample in samples:
+                if sample.cluster is None:
+                    raise ValueError(f"Instruction block {sample.filehash} does not have a cluster assigned")
+
+                labels.append(sample.cluster)
+                y.append((category.name, sample.filehash))
+
+        return labels, np.array(y)
+
     def getIbEmbeddings(self, flatten=False) -> tuple[list, np.ndarray]:
         """
         This function will use the embedding assigned list of instructions blocks with
@@ -388,6 +418,22 @@ class DatasetParser:
             return self._getIbEmbeddingsFlatten()
 
         return self._getIbEmbeddingsNotFlatten()
+
+    def getIbLabels(self, flatten=False) -> tuple[list, np.ndarray]:
+        """
+        This function will use the embedding assigned list of instructions blocks with
+        its embeddings and return one of two things:
+
+        If flatten is True, then it will return a list with all vectors from all the
+        instruction block embeddings from the websiteSamples. 
+        If flatten is False, then it will return a list of lists. For each sublist, it will
+        contain the vectors for the instruction blocks of each websiteSample.
+        """
+    
+        if flatten:
+            return self._getIbLabelsFlatten()
+
+        return self._getIbLabelsNotFlatten()
 
     def setWsEmbeddings(self, X:np.ndarray, y:np.ndarray):
         """
