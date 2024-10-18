@@ -86,7 +86,10 @@ class Clusterizer:
         # Then, the matrix will be flattened and used as the representant vector.
         TRANSPOSE = "transpose"
 
-        DIFFERENT_TRANPOSE = "DIFFERENT_TRANSPOSE"
+        # Was supposed to be the same as TRANSPOSE, but it calculates the PCA of the
+        #   vectors before the tranpose calculation to avoid fill the memory with values
+        # The problem is that it misses main characteristics of the vectors and do not generalize well
+        PRE_PCA_TRANSPOSE = "PRE_PCA_TRANPOSE"
 
         # https://math.stackexchange.com/questions/690972/distance-or-similarity-between-matrices-that-are-not-the-same-size
         # The RV Coeff strategy will, for each sample, use all the vectors
@@ -99,8 +102,20 @@ class Clusterizer:
         #  matrices.
         DCOV = "dcov"
 
+        # For the distance between two samples with variable number of vectors
+        # It calculate the minimum distance between all the cross distances
+        #   between the vectors
         MIN_DISTANCE = "MIN_DISTANCE"
+
+        # For the distance between two samples with variable number of vectors
+        # It calculate a minimum distance for every vector in the sample against
+        #   all the vectors in the other sample. Then, it calculates
+        #   the geometric mean of all the distances transforming the distances first
+        #   using a shifted sigmoid function operating in the interval [0-1]
         WEIGHTED_DISTANCE = "WEIGHTED_DISTANCE"
+        
+        # 
+        PRECLUSTER = "PRECLUSTER"
 
     class StrategyMetric(Enum):
         COSINE = "cosine"
@@ -112,7 +127,7 @@ class Clusterizer:
         RepresentantStrategy.AVERAGE: "_average_transform",
         RepresentantStrategy.WEIGHTED_AVERAGE: "_weighted_average_transform",
         RepresentantStrategy.TRANSPOSE: "_transpose_transform",
-        RepresentantStrategy.DIFFERENT_TRANPOSE: "_different_transpose_transform",
+        RepresentantStrategy.PRE_PCA_TRANSPOSE: "_pre_pca_transpose_transform",
 
         # Distance Matrix strategies
         RepresentantStrategy.RV: "_rv_transform",
@@ -126,7 +141,7 @@ class Clusterizer:
         RepresentantStrategy.AVERAGE: StrategyMetric.COSINE,
         RepresentantStrategy.WEIGHTED_AVERAGE: StrategyMetric.COSINE,
         RepresentantStrategy.TRANSPOSE: StrategyMetric.COSINE,
-        RepresentantStrategy.DIFFERENT_TRANPOSE: StrategyMetric.COSINE,
+        RepresentantStrategy.PRE_PCA_TRANSPOSE: StrategyMetric.COSINE,
 
         RepresentantStrategy.RV: StrategyMetric.PRECOMPUTED,         # Means that it deals with distance matrix
         RepresentantStrategy.DCOV: StrategyMetric.PRECOMPUTED,
@@ -225,7 +240,7 @@ class Clusterizer:
 
         return np.array(new_X)
 
-    def _different_transpose_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
+    def _pre_pca_transpose_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         # Different tranpose by calculating the PCA of X before the transpose calculation
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
         
@@ -291,12 +306,12 @@ class Clusterizer:
         k = 10
         return 1 / (1 + np.exp(-k*(x-0.5)))
 
-    def _strange_function(self, x: np.ndarray) -> np.ndarray:
+    def _shifted_sigmoid_function_2(self, x: np.ndarray) -> np.ndarray:
         k = 1.6
         x0 = 1.2
         return 1 / (1 + (((1 - x) * x0) / (x * (1 - x0))) ** k)
 
-    def _strange_function2(self, x: np.ndarray) -> np.ndarray:
+    def _shifted_sigmoid_function_3(self, x: np.ndarray) -> np.ndarray:
         # Set the min to be 0.01 and the max to be 0.99
         x = np.clip(x, 0.01, 0.99)
 
@@ -332,7 +347,7 @@ class Clusterizer:
             max_values = np.max(similarity_matrix, axis=1)
 
             # Calculate the weights for each vector in the sample
-            weights = self._strange_function2(max_values)
+            weights = self._shifted_sigmoid_function_3(max_values)
 
             # Calculate the weighted average
             new_sample = np.average(sample, axis=0, weights=weights)
