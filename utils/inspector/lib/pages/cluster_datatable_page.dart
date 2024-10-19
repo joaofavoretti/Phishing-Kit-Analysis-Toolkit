@@ -9,30 +9,13 @@ import '../providers/file_provider.dart';
 import 'cluster_showcase_page.dart';
 
 class _ClustersDatatableSource extends DataTableSource {
-  late List<WebsiteSample> websiteSamples;
   late bool isSorted;
+  late String search;
   late BuildContext context;
   List<Map<String, dynamic>> _clusters = [];
 
-  _ClustersDatatableSource({required this.context, required this.websiteSamples, required this.isSorted}) {
-
-    Map<String, int> _clustersMap = {};
-
-    for (var websiteSample in websiteSamples) {
-      var clusterId = websiteSample.cluster;
-      _clustersMap[clusterId] = (_clustersMap[clusterId] ?? 0) + 1;
-    }
-
-    _clusters = _clustersMap.entries.map((entry) {
-      return {
-        'clusterId': entry.key,
-        'clusterSize': entry.value,
-      };
-    }).toList();
-
-    if (isSorted) {
-      _clusters.sort((a, b) => b['clusterSize'].compareTo(a['clusterSize']));
-    }
+  _ClustersDatatableSource({required this.context, required this.search, required this.isSorted}) {
+    _clusters = Provider.of<FileProvider>(context).getClusters(search: search, isSorted: isSorted);
   }
 
   @override
@@ -47,13 +30,27 @@ class _ClustersDatatableSource extends DataTableSource {
       cells: [
         DataCell(Text(cluster['clusterId'])),
         DataCell(Text(cluster['clusterSize'].toString())),
+        DataCell(
+          Chip(
+            label: Text(
+                cluster['hasUnlabeled'] ? 'Yes' : 'No',
+            ),
+            surfaceTintColor: cluster['hasUnlabeled'] ? Colors.red : Colors.blue,
+            elevation: 10,
+          )
+        ),
         DataCell(IconButton(
           icon: Icon(Icons.more_horiz),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => ClusterShowcasePage(cluster: cluster['clusterId']),
+              PageRouteBuilder(
+                pageBuilder: (context, animation1, animation2) => ClusterShowcasePage(
+                  cluster: cluster['clusterId'],
+                  search: search,
+                  isSorted: isSorted,
+                ),
+                transitionDuration: Duration.zero,
               ),
             );
           },
@@ -82,6 +79,7 @@ class ClusterDatatablePage extends StatefulWidget {
 class _ClusterDatatablePageState extends State<ClusterDatatablePage> {
   bool _isLoading = false;
   bool _isSorted = true;
+  TextEditingController _searchController = TextEditingController();
 
   void chooseNewFile() async {
     bool? confirm = await showDialog<bool>(
@@ -147,7 +145,20 @@ class _ClusterDatatablePageState extends State<ClusterDatatablePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                FloatingActionButton.extended(
+                Expanded(
+                  child: TextField(
+                    controller: _searchController,
+                    decoration: InputDecoration(
+                      labelText: 'Search',
+                      border: OutlineInputBorder(),
+                    ),
+                    onSubmitted: (value) {
+                      setState(() {});
+                    },
+                  ),
+                ),
+                SizedBox(width: 16),
+                ElevatedButton.icon(
                   onPressed: () {
                     setState(() {
                       _isSorted = !_isSorted;
@@ -164,11 +175,12 @@ class _ClusterDatatablePageState extends State<ClusterDatatablePage> {
               columns: [
                 DataColumn(label: Text('Cluster Id')),
                 DataColumn(label: Text('Cluster Size')),
+                DataColumn(label: Text('Has Unlabeled')),
                 DataColumn(label: Text('More'), numeric: true),
               ],
               source: _ClustersDatatableSource(
                   context: context,
-                  websiteSamples: Provider.of<FileProvider>(context).websiteSamples ?? [],
+                  search: _searchController.text,
                   isSorted: _isSorted,
               ),
               rowsPerPage: 10,

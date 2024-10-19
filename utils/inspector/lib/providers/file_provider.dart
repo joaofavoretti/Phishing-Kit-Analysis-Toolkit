@@ -34,4 +34,75 @@ class FileProvider extends ChangeNotifier {
       }
     }
   }
+
+  List<Map<String, dynamic>> getClusters({required bool isSorted, String search = ""}) {
+    List<WebsiteSample> ws = getWebsiteSamplesBySearch(search);
+    List<Map<String, dynamic>> clusters = [];
+    if (ws != null) {
+      Map<String, int> clustersMap = {};
+      Map<String, bool> clustersMapUnlabeled = {};
+      for (var websiteSample in ws!) {
+        var clusterId = websiteSample.cluster;
+        clustersMap[clusterId] = (clustersMap[clusterId] ?? 0) + 1;
+
+        if (websiteSample.category == "UNLABELED") {
+          clustersMapUnlabeled[clusterId] = true;
+        }
+      }
+
+      clusters = clustersMap.entries.map((entry) {
+        return {
+          'clusterId': entry.key,
+          'clusterSize': entry.value,
+          'hasUnlabeled': clustersMapUnlabeled[entry.key] ?? false,
+        };
+      }).toList();
+
+      if (isSorted) {
+        clusters.sort((a, b) => b['clusterSize'].compareTo(a['clusterSize']));
+      }
+    }
+
+    return clusters;
+  }
+
+  List<WebsiteSample> getWebsiteSamplesByCluster({required String clusterId, String search = ""}) {
+    var ws = getWebsiteSamplesBySearch(search);
+    return ws!.where((sample) => sample.cluster == clusterId).toList();
+  }
+
+  List<WebsiteSample> getWebsiteSamplesByCategory({required String category, String search = ""}) {
+    var ws = getWebsiteSamplesBySearch(search);
+    return ws!.where((sample) => sample.category == category).toList();
+  }
+
+  List<WebsiteSample> getWebsiteSamplesBySearch(String search) {
+    if (search.isEmpty) {
+      return _websiteSamples!;
+    }
+
+    return _websiteSamples!.where((sample) {
+      return sample.instruction_blocks.any((block) => block.instructions.contains(search));
+    }).toList();
+  }
+
+  String? getNextCluster({required String clusterId, bool isSorted = false, String search = ""}) {
+    List<Map<String, dynamic>> clusters = getClusters(isSorted: isSorted, search: search);
+    int index = clusters.indexWhere((cluster) => cluster['clusterId'] == clusterId);
+    if (index == -1 || index == clusters.length - 1) {
+      return null;
+    }
+
+    return clusters[index + 1]['clusterId'];
+  }
+
+  String? getPreviousCluster({required String clusterId, bool isSorted = false, String search = ""}) {
+    List<Map<String, dynamic>> clusters = getClusters(isSorted: isSorted, search: search);
+    int index = clusters.indexWhere((cluster) => cluster['clusterId'] == clusterId);
+    if (index == -1 || index == 0) {
+      return null;
+    }
+
+    return clusters[index - 1]['clusterId'];
+  }
 }

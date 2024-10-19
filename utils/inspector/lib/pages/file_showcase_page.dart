@@ -4,8 +4,9 @@ import '../models/website_sample.dart';
 
 class FileShowcasePage extends StatefulWidget {
   final List<WebsiteSample> websiteSamples;
+  final String search;
 
-  const FileShowcasePage({super.key, required this.websiteSamples});
+  const FileShowcasePage({super.key, required this.websiteSamples, this.search = ''});
 
   @override
   State<FileShowcasePage> createState() => _FileShowcasePageState();
@@ -33,19 +34,19 @@ class _FileShowcasePageState extends State<FileShowcasePage> {
         children: [
           Drawer(
             child: ListView(
-              children: widget.websiteSamples.map((websiteSample) =>
-                  ListTile(
-                title: Text(websiteSample.filehash),
-                selected: websiteSample == selectedWebsiteSample,
-                selectedTileColor: Colors.blueAccent.withOpacity(0.2), // Change this color as needed
-                onTap: () {
-                  setState(() {
-                    selectedWebsiteSample = websiteSample;
-                    expanded = List.filled(websiteSample.instruction_blocks.length, false);
-                  });
-                },
-              ))
-                  .toList(),
+              children: widget.websiteSamples.map((websiteSample) {
+                return ListTile(
+                  title: Text(websiteSample.filehash),
+                  selected: websiteSample == selectedWebsiteSample,
+                  selectedTileColor: Colors.blueAccent.withOpacity(0.2), // Change this color as needed
+                  onTap: () {
+                    setState(() {
+                      selectedWebsiteSample = websiteSample;
+                      expanded = List.filled(websiteSample.instruction_blocks.length, false);
+                    });
+                  },
+                );
+              }).toList(),
             ),
           ),
           Expanded(
@@ -59,14 +60,15 @@ class _FileShowcasePageState extends State<FileShowcasePage> {
                 children: selectedWebsiteSample.instruction_blocks.asMap().entries.map<ExpansionPanel>((entry) {
                   int index = entry.key;
                   var instructionBlock = entry.value;
+                  var hasSearchedText = widget.search.isNotEmpty && instructionBlock.instructions.contains(widget.search);
                   return ExpansionPanel(
                     headerBuilder: (BuildContext context, bool isExpanded) {
                       return ListTile(
-                        title: Text(instructionBlock.domain.isEmpty ? '<EMPTY>' : instructionBlock.domain),
+                        title: Text((hasSearchedText ? '* ' : '') + (instructionBlock.domain.isEmpty ? '<EMPTY>' : instructionBlock.domain)),
                       );
                     },
                     body: ListTile(
-                      title: Text(instructionBlock.instructions),
+                      title: SelectableText(instructionBlock.instructions),
                     ),
                     isExpanded: expanded[index],
                   );

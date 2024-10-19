@@ -31,7 +31,13 @@ class _SamplesDatabaseSource extends DataTableSource {
       index: index,
       cells: [
         DataCell(Text(websiteSample.filehash)),
-        DataCell(Text(websiteSample.category)),
+        DataCell(
+          Chip(
+            label: Text(websiteSample.category),
+            surfaceTintColor: websiteSample.category == "UNLABELED" ? Colors.red : Colors.blue,
+            elevation: 10,
+          ),
+        ),
         DataCell(Text(websiteSample.instruction_blocks.length.toString())),
         DataCell(Text(firstNonEmptyDomain ?? "")),
       ],
@@ -50,8 +56,10 @@ class _SamplesDatabaseSource extends DataTableSource {
 
 class ClusterShowcasePage extends StatefulWidget {
   final String cluster;
+  final bool isSorted;
+  final String search;
 
-  const ClusterShowcasePage({super.key, required this.cluster});
+  const ClusterShowcasePage({super.key, required this.cluster, required this.isSorted, this.search = ""});
 
   @override
   State<ClusterShowcasePage> createState() => _ClusterShowcasePageState();
@@ -59,16 +67,15 @@ class ClusterShowcasePage extends StatefulWidget {
 
 class _ClusterShowcasePageState extends State<ClusterShowcasePage> {
   late List<WebsiteSample> clusterWebsiteSamples;
+  late String? nextCluster;
+  late String? previousCluster;
 
   @override
   void initState() {
     super.initState();
-    fetchClusterWebsiteSamples();
-  }
-
-  void fetchClusterWebsiteSamples() {
-    var websiteSamples = Provider.of<FileProvider>(context, listen: false).websiteSamples!;
-    clusterWebsiteSamples = websiteSamples.where((sample) => sample.cluster == widget.cluster).toList();
+    clusterWebsiteSamples = Provider.of<FileProvider>(context, listen: false).getWebsiteSamplesByCluster(clusterId: widget.cluster, search: widget.search);
+    nextCluster = Provider.of<FileProvider>(context, listen: false).getNextCluster(clusterId: widget.cluster, isSorted: widget.isSorted, search: widget.search);
+    previousCluster = Provider.of<FileProvider>(context, listen: false).getPreviousCluster(clusterId: widget.cluster, isSorted: widget.isSorted, search: widget.search);
   }
 
   @override
@@ -84,17 +91,59 @@ class _ClusterShowcasePageState extends State<ClusterShowcasePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                FloatingActionButton.extended(
+                ElevatedButton.icon(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => FileShowcasePage(websiteSamples: clusterWebsiteSamples),
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) => FileShowcasePage(
+                            websiteSamples: clusterWebsiteSamples,
+                            search: widget.search,
+                        ),
+                        transitionDuration: Duration.zero,
                       ),
                     );
                   },
                   label: Text('Expand'),
                   icon: Icon(Icons.open_in_new),
+                ),
+                SizedBox(width: 16),
+                ElevatedButton(
+                  onPressed: previousCluster == null
+                      ? null
+                      : () {
+                    Navigator.pushReplacement(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) => ClusterShowcasePage(
+                            cluster: previousCluster!,
+                            isSorted: widget.isSorted,
+                            search: widget.search,
+                        ),
+                        transitionDuration: Duration.zero,
+                      ),
+                    );
+                  },
+                  child: Icon(Icons.arrow_back),
+                ),
+                SizedBox(width: 16),
+                ElevatedButton(
+                  onPressed: nextCluster == null
+                      ? null
+                      : () {
+                    Navigator.pushReplacement(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) => ClusterShowcasePage(
+                            cluster: nextCluster!,
+                            isSorted: widget.isSorted,
+                            search: widget.search,
+                        ),
+                        transitionDuration: Duration.zero,
+                      ),
+                    );
+                  },
+                  child: Icon(Icons.arrow_forward),
                 ),
               ],
             ),
