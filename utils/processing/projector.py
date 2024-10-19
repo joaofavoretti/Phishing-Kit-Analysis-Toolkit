@@ -13,7 +13,7 @@ import re
 PATH = str
 
 class Projector:
-    def __init__(self, dir: str, dbPath='./pdb/', targetDate: str|None = None, fromDate: str|None = None):
+    def __init__(self, dir: str, dbPath='./pdb/', targetDate: str = None, fromDate: str = None):
 
         # Store the path that will handle the downloading of data
         self.dir = dir
@@ -152,7 +152,7 @@ class Projector:
     
     def _loadDate(self, datasetParser: DatasetParser, date: str, category: WebsiteSample.Category):
         # If the date was already downloaded before
-        if self._dbIsDateSaved(date):
+        if self.saveDb and self._dbIsDateSaved(date):
             # If the date was already downloaded,
             #   it is not necessary to check if there is repeated hashes
             websiteSamples = self._dbLoadDateWebsiteSamples(date)
@@ -234,8 +234,8 @@ class Projector:
         self.dataset = datasetParser
 
     def export(self, dir):
-        cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.TRANSPOSE)
-        cluster.fit(self.dataset)
+        cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY)
+        cluster.fit(self.datasetParser)
 
         targetDateDir = os.path.join(dir, self.targetDate)
         print("Saving vectors")
@@ -289,6 +289,6 @@ def datasetFromDate(targetDate="2024-09-29", fromDate="2024-09-28"):
 
 
 if __name__ == '__main__':
-    projector = Projector("/archive/files/downloaded-phishing-logs", fromDate="2024-09-25")
+    projector = Projector("/home/joaof/files/downloaded-phishing-logs", fromDate="2024-09-25")
     projector.fit()
     projector.export("/home/joaof/files/clustering-out")

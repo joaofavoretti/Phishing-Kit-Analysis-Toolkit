@@ -1,5 +1,5 @@
 from urllib.parse import urlparse
-from typing import Union, List
+from typing import Union, List, Dict
 from enum import Enum
 import numpy as np
 import logging
@@ -256,7 +256,7 @@ class LogParser:
     def _format_domain(self, url, domain, secret):
         return None
 
-    def extract_instruction_blocks(self):
+    def extract_instruction_blocks(self) -> Dict:
         """
             Each domain in the log file loads a piece of code.
             That code can be execute in different times throughout the program lifecycle.
@@ -305,7 +305,6 @@ class LogParser:
                 if inst_type in OPERATIONS_SET:
                     
                     # Filtering all the GET instruction that happen because of CALL instructions
-                    # TODO: Test this out
                     if inst_type == InstructionType.CALL and len(blocks[last_executed_domain][-1]) > 0:
                         last_ret = blocks[last_executed_domain][-1][-1]
                         if last_ret['type'] == InstructionType.GET.name:
@@ -314,7 +313,6 @@ class LogParser:
 
                     blocks[last_executed_domain][-1].append(ret)
                     
-
         return blocks
 
     # category: FILE, DOMAIN, DEFAULT
@@ -389,7 +387,10 @@ BENIGN_LOGFILES_DIR = []
 
 if __name__ == "__main__":
 
-    parser = LogParser("./samples/sample-1.log")
+    parser = LogParser("../samples/sample-1.log")
     blocks = parser.extract_instruction_blocks()
-    parser.stringify_instruction_blocks(blocks, "sample-1")
+
+    parsed_instruction_blocks = parser.parse_instruction_blocks(blocks)
+
+
 

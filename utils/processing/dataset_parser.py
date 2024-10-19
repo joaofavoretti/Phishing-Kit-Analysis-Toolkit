@@ -107,7 +107,7 @@ class FlattenInstructionBlock:
 
 
 class DatasetParser:
-    def __init__(self, dbPath:str|None='./dpdb/'):
+    def __init__(self, dbPath:str='./dpdb/'):
         self.dbPath = dbPath
         self.saveDb = dbPath is not None
 

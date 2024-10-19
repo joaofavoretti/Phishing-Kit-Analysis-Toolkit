@@ -102,7 +102,7 @@ class GDriveDownloader:
 
             dates.append(date)
 
-        return sorted(dates)
+        return sorted(list(set(dates)))
 
     def _getEntryId(self, folderId, entryName) -> str:
         numberOfEntries = self._numberOfEntries(folderId)

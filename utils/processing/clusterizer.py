@@ -114,39 +114,49 @@ class Clusterizer:
         #   using a shifted sigmoid function operating in the interval [0-1]
         WEIGHTED_DISTANCE = "WEIGHTED_DISTANCE"
         
-        # 
-        PRECLUSTER = "PRECLUSTER"
+        # The idea of this algorithm is to calculate the calculate the clusters from
+        #   the embeddings of each sample. Then calculate a distance matrix based on 
+        #   information from the clusters of each vector from the sample.
+        PRECLUSTER_AVERAGE = "PRECLUSTER_AVERAGE"
+
+        PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY = "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY"
 
     class StrategyMetric(Enum):
         COSINE = "cosine"
         PRECOMPUTED = "precomputed"
 
     REPRESENTANT_STRATEGY_MAP = {
-        # Vector summarization strategies
+        # Representant Vector Strategies
         RepresentantStrategy.MOST_SIMILAR: "_most_similar_transform",
         RepresentantStrategy.AVERAGE: "_average_transform",
         RepresentantStrategy.WEIGHTED_AVERAGE: "_weighted_average_transform",
         RepresentantStrategy.TRANSPOSE: "_transpose_transform",
         RepresentantStrategy.PRE_PCA_TRANSPOSE: "_pre_pca_transpose_transform",
 
-        # Distance Matrix strategies
+        # Distance Matrix Strategies
         RepresentantStrategy.RV: "_rv_transform",
         RepresentantStrategy.DCOV: "_dcov_transform",
         RepresentantStrategy.MIN_DISTANCE: "_min_distance_transform",
-        RepresentantStrategy.WEIGHTED_DISTANCE: "_weighted_distance_transform"
+        RepresentantStrategy.WEIGHTED_DISTANCE: "_weighted_distance_transform",
+        RepresentantStrategy.PRECLUSTER_AVERAGE: "_precluster_average_transform",
+        RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY: "_precluster_sequence_levenshtein_decay_transform"
     }
     
     REPRESENTANT_STRATEGY_METRIC = {
-        RepresentantStrategy.MOST_SIMILAR: StrategyMetric.COSINE,    # Means that it deals with vectors for each s
+        # Representant Vector Approaches
+        RepresentantStrategy.MOST_SIMILAR: StrategyMetric.COSINE,
         RepresentantStrategy.AVERAGE: StrategyMetric.COSINE,
         RepresentantStrategy.WEIGHTED_AVERAGE: StrategyMetric.COSINE,
         RepresentantStrategy.TRANSPOSE: StrategyMetric.COSINE,
         RepresentantStrategy.PRE_PCA_TRANSPOSE: StrategyMetric.COSINE,
 
-        RepresentantStrategy.RV: StrategyMetric.PRECOMPUTED,         # Means that it deals with distance matrix
+        # Distance Matrix Approaches
+        RepresentantStrategy.RV: StrategyMetric.PRECOMPUTED,
         RepresentantStrategy.DCOV: StrategyMetric.PRECOMPUTED,
         RepresentantStrategy.MIN_DISTANCE: StrategyMetric.PRECOMPUTED,
-        RepresentantStrategy.WEIGHTED_DISTANCE: StrategyMetric.PRECOMPUTED
+        RepresentantStrategy.WEIGHTED_DISTANCE: StrategyMetric.PRECOMPUTED,
+        RepresentantStrategy.PRECLUSTER_AVERAGE: StrategyMetric.PRECOMPUTED,
+        RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY: StrategyMetric.PRECOMPUTED
     }
 
     def __init__(self,
@@ -162,7 +172,80 @@ class Clusterizer:
         self.alg = alg
         self.mode = mode
         self.strategy = strategy
-    
+   
+    def _weighting_sigmoid_function(self, x: np.ndarray) -> np.ndarray:
+        k = 10
+        return 1 / (1 + np.exp(-k*(x-0.5)))
+
+    def _weighting_sigmoid_function_2(self, x: np.ndarray) -> np.ndarray:
+        k = 1.6
+        x0 = 1.2
+        return 1 / (1 + (((1 - x) * x0) / (x * (1 - x0))) ** k)
+
+    def _weighting_sigmoid_function_3(self, x: np.ndarray) -> np.ndarray:
+        # Set the min to be 0.01 and the max to be 0.99
+        x = np.clip(x, 0.01, 0.99)
+
+        k = 10.0
+        x0 = 0.5
+        return 1 / (1 + np.exp(-k*(np.log(x/(1-x)) - np.log(x0/(1-x0)))))
+
+    def _weighting_log_function_1(self, x: np.ndarray) -> np.ndarray:
+        a = 50.0
+
+        return np.log(a * x + 1) / np.log(a + 1)
+
+    def _weighting_log_function_2(self, x: np.ndarray) -> np.ndarray:
+        a = 10.0
+
+        return 1 - 1 / ((x + 1) ** a)
+
+    def _weighting_exp_function_1(self, x: np.ndarray) -> np.ndarray:
+        a = 10.0
+
+        return 1 - np.exp(-a * x)
+
+    def _exponential_decay_weight(self, i, alpha=0.1):
+        """Calculate the exponential decay weight for a given position."""
+        return np.exp(-alpha * i)
+
+    def _weighted_decay_levenshtein_distance(self, s1: np.ndarray, s2: np.ndarray) -> np.ndarray:
+        """
+        This is a variation of the Levenshtein Distance where the cost of 
+        edits decreases as the position in the sequence increases. The idea is 
+        to give more importance to the first elements of the sequences by 
+        applying an exponential decay to the cost of edits as you go further 
+        along the sequence.
+        """
+        n, m = len(s1), len(s2)
+        
+        # Create a distance matrix
+        dp = np.zeros((n + 1, m + 1))
+        
+        # Initialize the matrix with position-based weights
+        for i in range(1, n + 1):
+            dp[i][0] = dp[i-1][0] + self._exponential_decay_weight(i-1)
+        for j in range(1, m + 1):
+            dp[0][j] = dp[0][j-1] + self._exponential_decay_weight(j-1)
+
+        # Fill in the matrix using weighted costs for insertions, deletions, and substitutions
+        for i in range(1, n + 1):
+            for j in range(1, m + 1):
+                cost = 0 if s1[i-1] == s2[j-1] else 1
+                weight = self._exponential_decay_weight(max(i-1, j-1))
+                dp[i][j] = min(dp[i-1][j] + weight,            # Deletion
+                               dp[i][j-1] + weight,            # Insertion
+                               dp[i-1][j-1] + cost * weight)   # Substitution
+        
+        # The weighted Levenshtein distance is the value in the bottom-right corner
+        weighted_distance = dp[n][m]
+        
+        # Normalize the weighted distance
+        max_weighted_distance = sum(self._exponential_decay_weight(i) for i in range(max(n, m)))
+        normalized_distance = weighted_distance / max_weighted_distance
+        
+        return normalized_distance
+
     def _rv_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         raise Exception("Sorry! Not implemented yet")
 
@@ -207,14 +290,96 @@ class Clusterizer:
             for j in range(i+1, n_samples):
                 # Calculate the distance between the two samples
                 subDistMatrix = cosine_distances(X[i], X[j])
-                # subDistMatrix = self._shifted_sigmoid_function(subDistMatrix)
-                subDistMatrix = self._strange_function2(subDistMatrix)
+                # subDistMatrix = self._weighting_sigmoid_function(subDistMatrix)
+                subDistMatrix = self._weighting_sigmoid_function_3(subDistMatrix)
                 # minSubDistances = np.min(subDistMatrix, axis=1)
 
                 dist = gmean(subDistMatrix.flatten())
 
                 distMatrix[i, j] = dist
                 distMatrix[j, i] = dist
+
+        return distMatrix
+
+    def _precluster_average_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
+        """
+            This algorithm will calculate the clusters from the embeddings of each sample.
+            Then, it will calculate a distance matrix based on the information from the clusters
+            of each vector from the sample.
+        """
+
+        flatten_X = []
+        for sample in X:
+            flatten_X.extend(sample)
+        flatten_X = np.array(flatten_X)
+
+        model = DBSCAN(eps=0.5, min_samples=1, n_jobs=-1)
+        model.fit(flatten_X)
+        labels = model.labels_
+
+        # Transform the labels to the X structure
+        y = []
+        current_index = 0
+        for sample in X:
+            y.append(labels[current_index:current_index+len(sample)])
+            current_index += len(sample)
+
+        assert len(X) == len(y), f"Expected len(x) == len(y). Got {len(X)} == {len(y)}"
+
+        # Create a zero out matrix
+        n_samples = len(X)
+        distMatrix = np.zeros((n_samples, n_samples))
+
+        for i in range(n_samples):
+            for j in range(n_samples):
+                # Calculate the distance between the two samples
+                setI = set(y[i]) - {-1}
+                setJ = set(y[j]) - {-1}
+
+                intersection = setI.intersection(setJ)
+                union = setI.union(setJ)
+
+                similarity = 0.0 if len(union) == 0 else len(intersection) / len(union)
+
+                distMatrix[i, j] = 1 - similarity
+                distMatrix[j, i] = 1 - similarity
+
+        return self._weighting_sigmoid_function_3(distMatrix)
+
+    def _precluster_sequence_levenshtein_decay_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
+        """
+            This algorithm will calculate the clusters from the embeddings of each sample.
+            Then, it will calculate a distance matrix based on the information from the clusters
+            of each vector from the sample.
+        """
+
+        flatten_X = []
+        for sample in X:
+            flatten_X.extend(sample)
+        flatten_X = np.array(flatten_X)
+
+        model = DBSCAN(eps=0.5, min_samples=1, n_jobs=-1)
+        model.fit(flatten_X)
+        labels = model.labels_
+
+        # Transform the labels to the X structure
+        y = []
+        current_index = 0
+        for sample in X:
+            y.append(labels[current_index:current_index+len(sample)])
+            current_index += len(sample)
+
+        assert len(X) == len(y), f"Expected len(x) == len(y). Got {len(X)} == {len(y)}"
+
+        # Create a zero out matrix
+        n_samples = len(X)
+        distMatrix = np.zeros((n_samples, n_samples))
+
+        for i in range(n_samples):
+            for j in range(n_samples):
+                # Calculate the distance between the two samples
+                distMatrix[i][j] = self._weighted_decay_levenshtein_distance(y[i], y[j])
+                distMatrix[j][i] = distMatrix[i][j]
 
         return distMatrix
 
@@ -302,23 +467,6 @@ class Clusterizer:
 
         return np.array(new_X)
 
-    def _shifted_sigmoid_function(self, x: np.ndarray) -> np.ndarray:
-        k = 10
-        return 1 / (1 + np.exp(-k*(x-0.5)))
-
-    def _shifted_sigmoid_function_2(self, x: np.ndarray) -> np.ndarray:
-        k = 1.6
-        x0 = 1.2
-        return 1 / (1 + (((1 - x) * x0) / (x * (1 - x0))) ** k)
-
-    def _shifted_sigmoid_function_3(self, x: np.ndarray) -> np.ndarray:
-        # Set the min to be 0.01 and the max to be 0.99
-        x = np.clip(x, 0.01, 0.99)
-
-        k = 15.0
-        x0 = 0.4
-        return 10 / (1 + np.exp(-k*(np.log(x/(1-x)) - np.log(x0/(1-x0)))))
-
     def _weighted_average_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
 
@@ -347,7 +495,7 @@ class Clusterizer:
             max_values = np.max(similarity_matrix, axis=1)
 
             # Calculate the weights for each vector in the sample
-            weights = self._shifted_sigmoid_function_3(max_values)
+            weights = self._weighting_sigmoid_function_3(max_values)
 
             # Calculate the weighted average
             new_sample = np.average(sample, axis=0, weights=weights)
@@ -364,7 +512,7 @@ class Clusterizer:
         assert isinstance(X, np.ndarray), f"Expected {np.ndarray}, got {type(X)}"
 
         print("Fitting DBSCAN")
-        model = DBSCAN(eps=0.05, min_samples=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy].value, n_jobs=-1)
+        model = DBSCAN(eps=0.5, min_samples=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy].value, n_jobs=-1)
 
         model.fit(X)
 
@@ -495,7 +643,7 @@ class Clusterizer:
 MALICIOUS_LOGFILES_DIR = [
     # "/archive/files/eval-phishing-pages/out/tmp-phishtank/"
     "/archive/files/eval-phishing-pages/out/phishtank/"
-    # "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/experiments/same-urls/exp3/out"
+    # "/home/joao/my/ita/mestrado/clustering-phishing-kit/experiments/same-urls/exp3/out"
 ]
 
 OUT_DIR = "."
@@ -514,11 +662,11 @@ if __name__ == '__main__':
 
     dataset.preprocess(_filterOut)
 
-    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.WEIGHTED_DISTANCE)
+    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY)
     cluster.fit(dataset)
 
     print("Saving vectors")
     cluster.save(OUT_DIR)
     print("Saving the data.json")
-    cluster.exportJson(f'{OUT_DIR}/data2.json')
+    cluster.exportJson(f'{OUT_DIR}/data3.json')
 
