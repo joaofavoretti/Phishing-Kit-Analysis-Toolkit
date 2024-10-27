@@ -41,20 +41,41 @@ class FileProvider extends ChangeNotifier {
     if (ws != null) {
       Map<String, int> clustersMap = {};
       Map<String, bool> clustersMapUnlabeled = {};
-      for (var websiteSample in ws!) {
+      Map<String, List<DateTime>> clustersMapDates = {};
+      Map<String, String> clustersMapClosestCluster = {};
+
+      for (var websiteSample in ws) {
         var clusterId = websiteSample.cluster;
         clustersMap[clusterId] = (clustersMap[clusterId] ?? 0) + 1;
 
         if (websiteSample.category == "UNLABELED") {
           clustersMapUnlabeled[clusterId] = true;
         }
+
+        if (!clustersMapDates.containsKey(clusterId)) {
+          clustersMapDates[clusterId] = [];
+        }
+        clustersMapDates[clusterId]!.add(websiteSample.date);
+
+        if (!clustersMapClosestCluster.containsKey(clusterId)) {
+          clustersMapClosestCluster[clusterId] = websiteSample.closest_cluster;
+        }
+        clustersMapClosestCluster[clusterId] = websiteSample.closest_cluster;
       }
 
       clusters = clustersMap.entries.map((entry) {
+        var dates = clustersMapDates[entry.key]!;
+        dates.sort();
+        var maxInterval = dates.length > 1
+            ? dates.last.difference(dates.first).inDays
+            : 0;
+
         return {
           'clusterId': entry.key,
           'clusterSize': entry.value,
           'hasUnlabeled': clustersMapUnlabeled[entry.key] ?? false,
+          'maxInterval': '$maxInterval days',
+          'closestCluster': clustersMapClosestCluster[entry.key],
         };
       }).toList();
 
@@ -64,6 +85,10 @@ class FileProvider extends ChangeNotifier {
     }
 
     return clusters;
+  }
+
+  String getClosestCluster(String clusterId) {
+    return _websiteSamples!.firstWhere((sample) => sample.cluster == clusterId).closest_cluster;
   }
 
   List<WebsiteSample> getWebsiteSamplesByCluster({required String clusterId, String search = ""}) {

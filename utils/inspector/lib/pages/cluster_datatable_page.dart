@@ -30,6 +30,8 @@ class _ClustersDatatableSource extends DataTableSource {
       cells: [
         DataCell(Text(cluster['clusterId'])),
         DataCell(Text(cluster['clusterSize'].toString())),
+        DataCell(Text(cluster['maxInterval'])),
+        DataCell(Text(cluster['closestCluster'])),
         DataCell(
           Chip(
             label: Text(
@@ -173,8 +175,10 @@ class _ClusterDatatablePageState extends State<ClusterDatatablePage> {
             PaginatedDataTable(
               header: Text('Clusters'),
               columns: [
-                DataColumn(label: Text('Cluster Id')),
-                DataColumn(label: Text('Cluster Size')),
+                DataColumn(label: Text('Id')),
+                DataColumn(label: Text('Size')),
+                DataColumn(label: Text('Date Interval')),
+                DataColumn(label: Text('Closest Cluster')),
                 DataColumn(label: Text('Has Unlabeled')),
                 DataColumn(label: Text('More'), numeric: true),
               ],

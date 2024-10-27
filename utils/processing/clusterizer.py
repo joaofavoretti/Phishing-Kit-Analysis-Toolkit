@@ -552,6 +552,46 @@ class Clusterizer:
 
         return model
 
+    def _getClosestLabels(self, X: csr_matrix, labels: np.ndarray) -> np.ndarray:
+        """
+            The main purpose of this is to obtain the closest cluster from the cluster assigned to
+            each sample in the dataset.
+            For this, it will create a distance matrix between the samples and calculate the closest
+        """
+
+        assert self.strategy == Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY, f"Expected {Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY}, got {self.strategy}"
+
+        unique_clusters = np.unique(labels)
+        closest_cluster_map = {}
+
+        # Iterate over each unique cluster
+        for i in unique_clusters:
+            min_avg_dist = float('inf')
+            closest_cluster = None
+            
+            for j in unique_clusters:
+                if i != j:
+                    # Get pairs of samples where one is in cluster i and the other in cluster j
+                    mask_i = (labels == i)
+                    mask_j = (labels == j)
+
+                    # Extract distances for pairs between clusters i and j
+                    distances = X[mask_i][:, mask_j].data
+                    if distances.size > 0:
+                        avg_distance = distances.mean()
+
+                        # Track the minimum average distance and the closest cluster
+                        if avg_distance < min_avg_dist:
+                            min_avg_dist = avg_distance
+                            closest_cluster = j
+
+            closest_cluster_map[i] = closest_cluster
+
+        # Map the closest clusters to the original labels
+        closest_clusters = np.array([closest_cluster_map[label] for label in labels])
+
+        return closest_clusters
+
     def fit(self, dataset: DatasetParser) -> 'Clusterizer':
         assert isinstance(dataset, DatasetParser), f"Expected {DatasetParser}, got {type(dataset)}"
 
@@ -586,6 +626,11 @@ class Clusterizer:
 
         labels = self.model.labels_
         dataset.setWsLabels(labels, y)
+
+        if self.strategy == Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY:
+            # For now, it only applies to this strategy
+            closest_labels = self._getClosestLabels(obj, labels)
+            dataset.setWsClosestLabels(closest_labels, y)
         
         return self
 
@@ -688,5 +733,5 @@ if __name__ == '__main__':
     print("Saving vectors")
     cluster.save(OUT_DIR)
     print("Saving the data.json")
-    cluster.exportJson(f'{OUT_DIR}/data2.json')
+    cluster.exportJson(f'{OUT_DIR}/data1.json')
 

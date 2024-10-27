@@ -78,6 +78,7 @@ class WebsiteSample:
         self.instruction_blocks: List[DomainInstructionBlock] = [] 
         self.vector:np.ndarray|None = None
         self.cluster:int|None = None
+        self.closest_cluster:int|None = None
         self.date:str|None = None
 
     def add_instruction_blocks(self, instruction_blocks:List[DomainInstructionBlock]):
@@ -96,7 +97,12 @@ class WebsiteSample:
         if self.cluster is not None:
             ret["cluster"] = str(self.cluster)
 
-        if self.date is not None:
+        ret["closest_cluster"] = "-1"
+        if hasattr(self, "closest_cluster") and self.closest_cluster is not None:
+            ret["closest_cluster"] = str(self.closest_cluster)
+
+        ret["date"] = "2024-09-25"
+        if hasattr(self, "date") and self.date is not None:
             ret["date"] = self.date
 
         return ret
@@ -484,6 +490,18 @@ class DatasetParser:
                 raise ValueError(f"Sample with hash {filehash} not found")
 
             sample.cluster = labels[i]
+
+    def setWsClosestLabels(self, labels:np.ndarray, y:np.ndarray):
+        """
+        Set Website Sample Closest Labels
+        """
+        for i, (category, filehash) in enumerate(y):
+            sample = self._getSample(filehash, category)
+
+            if sample is None:
+                raise ValueError(f"Sample with hash {filehash} not found")
+
+            sample.closest_cluster = labels[i]
 
     def getWsLabels(self) -> tuple[list, np.ndarray]:
         labels = []

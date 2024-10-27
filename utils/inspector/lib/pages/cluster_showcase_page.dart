@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 import '../models/website_sample.dart' show WebsiteSample;
 import '../providers/file_provider.dart' show FileProvider;
@@ -38,6 +39,7 @@ class _SamplesDatabaseSource extends DataTableSource {
             elevation: 10,
           ),
         ),
+        DataCell(Text(DateFormat('dd/MM/yyyy').format(websiteSample.date))),
         DataCell(Text(websiteSample.instruction_blocks.length.toString())),
         DataCell(Text(firstNonEmptyDomain ?? "")),
       ],
@@ -67,6 +69,7 @@ class ClusterShowcasePage extends StatefulWidget {
 
 class _ClusterShowcasePageState extends State<ClusterShowcasePage> {
   late List<WebsiteSample> clusterWebsiteSamples;
+  late String? closestCluster;
   late String? nextCluster;
   late String? previousCluster;
 
@@ -76,6 +79,7 @@ class _ClusterShowcasePageState extends State<ClusterShowcasePage> {
     clusterWebsiteSamples = Provider.of<FileProvider>(context, listen: false).getWebsiteSamplesByCluster(clusterId: widget.cluster, search: widget.search);
     nextCluster = Provider.of<FileProvider>(context, listen: false).getNextCluster(clusterId: widget.cluster, isSorted: widget.isSorted, search: widget.search);
     previousCluster = Provider.of<FileProvider>(context, listen: false).getPreviousCluster(clusterId: widget.cluster, isSorted: widget.isSorted, search: widget.search);
+    closestCluster = Provider.of<FileProvider>(context, listen: false).getClosestCluster(widget.cluster);
   }
 
   @override
@@ -91,6 +95,26 @@ class _ClusterShowcasePageState extends State<ClusterShowcasePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
+                ElevatedButton.icon(
+                  onPressed: closestCluster == null
+                      ? null
+                      : () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) => ClusterShowcasePage(
+                          cluster: closestCluster!,
+                          isSorted: widget.isSorted,
+                          search: widget.search,
+                        ),
+                        transitionDuration: Duration.zero,
+                      ),
+                    );
+                  },
+                  icon: Icon(Icons.near_me),
+                  label: Text('Closest Cluster ($closestCluster)'),
+                ),
+                SizedBox(width: 16),
                 ElevatedButton.icon(
                   onPressed: () {
                     Navigator.push(
@@ -153,6 +177,7 @@ class _ClusterShowcasePageState extends State<ClusterShowcasePage> {
               columns: [
                 DataColumn(label: Text('Hash')),
                 DataColumn(label: Text('Category')),
+                DataColumn(label: Text('Date')),
                 DataColumn(label: Text('# Blocks')),
                 DataColumn(label: Text('1st Domain')),
               ],
