@@ -7,6 +7,7 @@ from dateutil import parser
 from typing import List, Set
 import pickle
 import shutil
+import time
 import os
 import re
 
@@ -182,6 +183,7 @@ class Projector:
         # Get the dates in the format "YYYY-MM-DD"
         dateEntries = GDriveDownloader().listDates(fromDate = self.fromDate, targetDate = self.targetDate)
         
+        print(f"[{time.ctime()}] Fitting the projector from {self.fromDate} to {self.targetDate}")
         self.datasetParser = DatasetParser(dbPath=None)
 
         # Fit the training data
@@ -198,13 +200,14 @@ class Projector:
 
         # Filtering the uncessary files
         def _filterOut(ib: DomainInstructionBlock):
-            BLACKLISTED_DOMAINS = ["EMPTY", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
+            BLACKLISTED_DOMAINS = ["", "<EMPTY>", "EMPTY", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
 
             if ib.domain in BLACKLISTED_DOMAINS:
                 return True
 
             return False
 
+        print(f"[{time.ctime()}] Preprocessing the data")
         self.datasetParser.preprocess(_filterOut)
 
     def old_fit(self):
@@ -290,5 +293,11 @@ def datasetFromDate(targetDate="2024-09-29", fromDate="2024-09-28"):
 
 if __name__ == '__main__':
     projector = Projector("/home/joaof/files/downloaded-phishing-logs", fromDate="2024-09-25")
+    
+    initialTime = time.time()
+
     projector.fit()
     projector.export("/home/joaof/files/clustering-out")
+
+    finalTime = time.time()
+    print("Execution time:", time.strftime("%H hours, %M minutes", time.gmtime(finalTime - initialTime)))

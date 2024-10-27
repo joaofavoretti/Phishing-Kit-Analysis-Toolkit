@@ -64,7 +64,7 @@ def for_each_log_file(logs_dir, func, debug=True):
 class WebsiteSample:
     class Category(Enum):
         MALICIOUS = "MALICIOUS"
-        BENIGN = "BENING"
+        BENIGN = "BENIGN"
         UNLABELED = "UNLABELED"
 
     def __init__(self, filehash: str, category: Category = Category.UNLABELED):
@@ -78,6 +78,7 @@ class WebsiteSample:
         self.instruction_blocks: List[DomainInstructionBlock] = [] 
         self.vector:np.ndarray|None = None
         self.cluster:int|None = None
+        self.date:str|None = None
 
     def add_instruction_blocks(self, instruction_blocks:List[DomainInstructionBlock]):
         self.instruction_blocks += instruction_blocks
@@ -94,6 +95,9 @@ class WebsiteSample:
 
         if self.cluster is not None:
             ret["cluster"] = str(self.cluster)
+
+        if self.date is not None:
+            ret["date"] = self.date
 
         return ret
 
@@ -276,6 +280,11 @@ class DatasetParser:
     def _loadDataFromDir(self, dir, category: WebsiteSample.Category) -> List[WebsiteSample]:
         websiteSamples: List[WebsiteSample] = []
 
+        # If the file dir has the format of date (YYYY-MM-DD), then save this information as the date
+        date = None
+        if re.match(r"\d{4}-\d{2}-\d{2}", os.path.basename(dir)):
+            date = os.path.basename(dir)
+
         def parse_properties(filepaths, filehash):
             websiteSample = WebsiteSample(filehash, category=category)
             for filepath in filepaths:
@@ -285,6 +294,9 @@ class DatasetParser:
                 parsed_instruction_blocks = parser.parse_instruction_blocks(instruction_blocks)
 
                 websiteSample.add_instruction_blocks(parsed_instruction_blocks)
+
+            if date is not None:
+                websiteSample.date = date
 
             websiteSamples.append(websiteSample)
 

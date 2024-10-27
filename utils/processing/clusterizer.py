@@ -1,13 +1,15 @@
 from sklearn.metrics.pairwise import cosine_similarity, cosine_distances
 from dataset_embedding import DatasetEmbedding, DomainInstructionBlock
-from sklearn.decomposition import PCA, IncrementalPCA
 from dataset_parser import DatasetParser, WebsiteSample
-from scipy.stats import gmean
+from sklearn.decomposition import PCA, IncrementalPCA
 from sklearn.cluster import DBSCAN, HDBSCAN, OPTICS
+from scipy.sparse import lil_matrix, csr_matrix
+from scipy.stats import gmean
 from dateutil import parser
 from typing import List
 from enum import Enum
 import numpy as np
+import time
 import json
 import os
 import re
@@ -205,9 +207,9 @@ class Clusterizer:
 
         return 1 - np.exp(-a * x)
 
-    def _exponential_decay_weight(self, i, alpha=0.1):
+    def _exponential_decay_weight(self, i, alpha=0.3) -> np.float16:
         """Calculate the exponential decay weight for a given position."""
-        return np.exp(-alpha * i)
+        return np.float16(np.exp(-alpha * i))
 
     def _weighted_decay_levenshtein_distance(self, s1: np.ndarray, s2: np.ndarray) -> np.ndarray:
         """
@@ -220,7 +222,7 @@ class Clusterizer:
         n, m = len(s1), len(s2)
         
         # Create a distance matrix
-        dp = np.zeros((n + 1, m + 1))
+        dp = np.zeros((n + 1, m + 1), dtype=np.float16)
         
         # Initialize the matrix with position-based weights
         for i in range(1, n + 1):
@@ -236,7 +238,7 @@ class Clusterizer:
                 dp[i][j] = min(dp[i-1][j] + weight,            # Deletion
                                dp[i][j-1] + weight,            # Insertion
                                dp[i-1][j-1] + cost * weight)   # Substitution
-        
+
         # The weighted Levenshtein distance is the value in the bottom-right corner
         weighted_distance = dp[n][m]
         
@@ -328,7 +330,7 @@ class Clusterizer:
 
         # Create a zero out matrix
         n_samples = len(X)
-        distMatrix = np.zeros((n_samples, n_samples))
+        distMatrix = np.zeros((n_samples, n_samples), dtype=np.float16)
 
         for i in range(n_samples):
             for j in range(n_samples):
@@ -346,22 +348,25 @@ class Clusterizer:
 
         return self._weighting_sigmoid_function_3(distMatrix)
 
-    def _precluster_sequence_levenshtein_decay_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
+    def _precluster_sequence_levenshtein_decay_transform(self, X: List[List[np.ndarray]]) -> np.ndarray|csr_matrix:
         """
             This algorithm will calculate the clusters from the embeddings of each sample.
             Then, it will calculate a distance matrix based on the information from the clusters
             of each vector from the sample.
         """
 
+        print(f"[{time.ctime()}] Calculating the distance matrix")
         flatten_X = []
         for sample in X:
             flatten_X.extend(sample)
         flatten_X = np.array(flatten_X)
 
+        print(f"[{time.ctime()}] Calculating the clusters")
         model = DBSCAN(eps=0.5, min_samples=1, n_jobs=-1)
         model.fit(flatten_X)
         labels = model.labels_
 
+        print(f"[{time.ctime()}] Transforming the labels")
         # Transform the labels to the X structure
         y = []
         current_index = 0
@@ -371,17 +376,28 @@ class Clusterizer:
 
         assert len(X) == len(y), f"Expected len(x) == len(y). Got {len(X)} == {len(y)}"
 
+        print(f"[{time.ctime()}] Calculating the distance matrix")
         # Create a zero out matrix
         n_samples = len(X)
-        distMatrix = np.zeros((n_samples, n_samples))
+        distMatrix = lil_matrix((n_samples, n_samples))
+        # distMatrix = np.zeros((n_samples, n_samples), dtype=np.float16)
 
         for i in range(n_samples):
-            for j in range(n_samples):
-                # Calculate the distance between the two samples
-                distMatrix[i][j] = self._weighted_decay_levenshtein_distance(y[i], y[j])
-                distMatrix[j][i] = distMatrix[i][j]
+            print(f"Calculating distance {i}/{n_samples}", end="                  \r")
+            for j in range(i + 1, n_samples):
+                distance = self._weighted_decay_levenshtein_distance(y[i], y[j])
 
-        return distMatrix
+                if distance == 0.0:
+                    distance = 0.0001
+
+                if distance == 1.0:
+                    continue
+
+                distMatrix[i, j] = distance
+                distMatrix[j, i] = distance
+        print()
+
+        return distMatrix.tocsr()
 
     def _transpose_transform(self, X: List[List[np.ndarray]]) -> np.ndarray:
         assert isinstance(X, list), f"Expected {list}, got {type(X)}"
@@ -509,9 +525,9 @@ class Clusterizer:
         return np.array(new_X)
 
     def _dbscan_fit(self, X: np.ndarray):
-        assert isinstance(X, np.ndarray), f"Expected {np.ndarray}, got {type(X)}"
+        assert isinstance(X, np.ndarray) or isinstance(X, csr_matrix), f"Expected {np.ndarray} or {csr_matrix}, got {type(X)}"
 
-        print("Fitting DBSCAN")
+        print(f"[{time.ctime()}] Fitting DBSCAN")
         model = DBSCAN(eps=0.5, min_samples=1, metric=Clusterizer.REPRESENTANT_STRATEGY_METRIC[self.strategy].value, n_jobs=-1)
 
         model.fit(X)
@@ -643,7 +659,10 @@ class Clusterizer:
 MALICIOUS_LOGFILES_DIR = [
     # "/archive/files/eval-phishing-pages/out/tmp-phishtank/"
     "/archive/files/eval-phishing-pages/out/phishtank/"
-    # "/home/joao/my/ita/mestrado/clustering-phishing-kit/experiments/same-urls/exp3/out"
+]
+
+BENIGN_LOGFILES_DIR = [
+    "/home/joao/my/ita/mestrado/clustering-phishing-kit/experiments/same-urls/exp3/out"
 ]
 
 OUT_DIR = "."
@@ -651,6 +670,7 @@ OUT_DIR = "."
 if __name__ == '__main__':
     dataset = DatasetParser(dbPath='./dpdb/')
     dataset.fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
+    dataset.fit(BENIGN_LOGFILES_DIR, WebsiteSample.Category.UNLABELED)
 
     def _filterOut(ib: DomainInstructionBlock):
         BLACKLISTED_DOMAINS = ["", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
@@ -668,5 +688,5 @@ if __name__ == '__main__':
     print("Saving vectors")
     cluster.save(OUT_DIR)
     print("Saving the data.json")
-    cluster.exportJson(f'{OUT_DIR}/data3.json')
+    cluster.exportJson(f'{OUT_DIR}/data2.json')
 
