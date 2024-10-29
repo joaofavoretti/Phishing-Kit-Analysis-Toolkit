@@ -80,6 +80,7 @@ class WebsiteSample:
         self.cluster:int|None = None
         self.closest_cluster:int|None = None
         self.date:str|None = None
+        self.uniqueness:np.float16|None = None
 
     def add_instruction_blocks(self, instruction_blocks:List[DomainInstructionBlock]):
         self.instruction_blocks += instruction_blocks
@@ -104,6 +105,10 @@ class WebsiteSample:
         ret["date"] = "2024-09-25"
         if hasattr(self, "date") and self.date is not None:
             ret["date"] = self.date
+
+        ret["uniqueness"] = "1"
+        if hasattr(self, "uniqueness") and self.uniqueness is not None:
+            ret["uniqueness"] = str(self.uniqueness)
 
         return ret
 
@@ -502,6 +507,18 @@ class DatasetParser:
                 raise ValueError(f"Sample with hash {filehash} not found")
 
             sample.closest_cluster = labels[i]
+
+    def setWsUniqueness(self, uniqueness:np.ndarray, y:np.ndarray):
+        """
+        Set Website Sample Uniqueness
+        """
+        for i, (category, filehash) in enumerate(y):
+            sample = self._getSample(filehash, category)
+
+            if sample is None:
+                raise ValueError(f"Sample with hash {filehash} not found")
+
+            sample.uniqueness = uniqueness[i]
 
     def getWsLabels(self) -> tuple[list, np.ndarray]:
         labels = []

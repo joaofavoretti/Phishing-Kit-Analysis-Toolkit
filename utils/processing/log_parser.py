@@ -49,8 +49,8 @@ class DomainInstructionBlock:
         ret["domain"] = self.domain
         ret["instructions"] = self.instructions
         
-        if self.vector is not None:
-            ret["vector"] = self.vector.tolist()
+        # if self.vector is not None:
+        #     ret["vector"] = self.vector.tolist()
 
         return ret
 

@@ -62,7 +62,7 @@ class Clusterizer:
     ALGORITHM_MAP = {
         Algorithm.DBSCAN: "_dbscan_fit",
         Algorithm.HDBSCAN: "_hdbscan_fit",
-        Algorithm.OPTICS: "_optics_fit"
+        Algorithm.OPTICS: "_optics_fit",
     }
 
     class RepresentantStrategy(Enum):
@@ -592,6 +592,47 @@ class Clusterizer:
 
         return closest_clusters
 
+    def _getUniqueness(self, X: csr_matrix, labels: np.ndarray) -> np.ndarray:
+        """
+            The uniqueness value for each sample is going to be used in the next time
+            that clusters are gonna be evaluated. The idea is that non unique samples can be discarted
+            from the dataset at clustering time, therefore reducing the time/memory complexity of the
+            algorithm. Making it more large scale.
+        """
+
+        assert self.strategy == Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY, f"Expected {Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY}, got {self.strategy}"
+
+        unique_clusters = np.unique(labels)
+        uniqueness = np.ones(len(labels), dtype=np.float16)
+
+        # Iterate over each unique cluster
+        for c in unique_clusters:
+            # Get the indexes that belong to the cluster i
+            mask_c = (labels == c)
+            cluster_indexes = np.where(mask_c)[0]
+
+            # Extract the distance matrix between the samples of the same cluser
+            distances = X[mask_c][:, mask_c]
+
+            if distances.size == 0:
+                continue
+            
+            # Calculate the uniqueness value for each sample in the cluster by comparing it to the other samples in the cluster
+            for i in range(len(cluster_indexes)):
+                used = False
+                sample_i = cluster_indexes[i]
+                for j in range(i+1, len(cluster_indexes)):
+                    sample_j = cluster_indexes[j]
+
+                    if uniqueness[sample_j] > distances[i, j]:
+                        uniqueness[sample_j] = distances[i, j]
+                        used = True
+
+                if used:
+                    uniqueness[sample_i] = 1.0
+
+        return uniqueness
+
     def fit(self, dataset: DatasetParser) -> 'Clusterizer':
         assert isinstance(dataset, DatasetParser), f"Expected {DatasetParser}, got {type(dataset)}"
 
@@ -629,8 +670,13 @@ class Clusterizer:
 
         if self.strategy == Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY:
             # For now, it only applies to this strategy
+            print(f"[{time.ctime()}] Calculating the closest labels")
             closest_labels = self._getClosestLabels(obj, labels)
             dataset.setWsClosestLabels(closest_labels, y)
+
+            print(f"[{time.ctime()}] Calculating the uniqueness")
+            uniqueness = self._getUniqueness(obj, labels)
+            dataset.setWsUniqueness(uniqueness, y)
         
         return self
 
@@ -715,7 +761,7 @@ OUT_DIR = "."
 if __name__ == '__main__':
     dataset = DatasetParser(dbPath='./dpdb/')
     dataset.fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
-    dataset.fit(BENIGN_LOGFILES_DIR, WebsiteSample.Category.UNLABELED)
+    # dataset.fit(BENIGN_LOGFILES_DIR, WebsiteSample.Category.UNLABELED)
 
     def _filterOut(ib: DomainInstructionBlock):
         BLACKLISTED_DOMAINS = ["", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
@@ -733,5 +779,5 @@ if __name__ == '__main__':
     print("Saving vectors")
     cluster.save(OUT_DIR)
     print("Saving the data.json")
-    cluster.exportJson(f'{OUT_DIR}/data1.json')
+    cluster.exportJson(f'{OUT_DIR}/data2.json')
 
