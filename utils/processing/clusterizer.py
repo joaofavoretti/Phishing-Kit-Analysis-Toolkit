@@ -4,7 +4,7 @@ from dataset_parser import DatasetParser, WebsiteSample, hash_t
 from sklearn.decomposition import PCA, IncrementalPCA
 from sklearn.cluster import DBSCAN, HDBSCAN, OPTICS
 from scipy.sparse import lil_matrix, csr_matrix
-from typing import List, Dict
+from typing import List, Dict, Union
 from scipy.stats import gmean
 from dateutil import parser
 from enum import Enum
@@ -348,7 +348,7 @@ class Clusterizer:
 
         return self._weighting_sigmoid_function_3(distMatrix)
 
-    def _precluster_sequence_levenshtein_decay_transform(self, X: List[List[np.ndarray]]) -> np.ndarray|csr_matrix:
+    def _precluster_sequence_levenshtein_decay_transform(self, X: List[List[np.ndarray]]) -> Union[np.ndarray,csr_matrix]:
         """
             This algorithm will calculate the clusters from the embeddings of each sample.
             Then, it will calculate a distance matrix based on the information from the clusters
