@@ -1,12 +1,12 @@
 from sklearn.metrics.pairwise import cosine_similarity, cosine_distances
 from dataset_embedding import DatasetEmbedding, DomainInstructionBlock
-from dataset_parser import DatasetParser, WebsiteSample
+from dataset_parser import DatasetParser, WebsiteSample, hash_t
 from sklearn.decomposition import PCA, IncrementalPCA
 from sklearn.cluster import DBSCAN, HDBSCAN, OPTICS
 from scipy.sparse import lil_matrix, csr_matrix
+from typing import List, Dict
 from scipy.stats import gmean
 from dateutil import parser
-from typing import List
 from enum import Enum
 import numpy as np
 import time
@@ -592,7 +592,7 @@ class Clusterizer:
 
         return closest_clusters
 
-    def _getUniqueness(self, X: csr_matrix, labels: np.ndarray) -> np.ndarray:
+    def _getUniqueness(self, X: csr_matrix, y: np.ndarray, labels: np.ndarray) -> tuple[np.ndarray, List[hash_t]]:
         """
             The uniqueness value for each sample is going to be used in the next time
             that clusters are gonna be evaluated. The idea is that non unique samples can be discarted
@@ -604,6 +604,7 @@ class Clusterizer:
 
         unique_clusters = np.unique(labels)
         uniqueness = np.ones(len(labels), dtype=np.float16)
+        binding: List[hash_t] = [y[i][1] for i in range(len(y))]
 
         # Iterate over each unique cluster
         for c in unique_clusters:
@@ -625,13 +626,15 @@ class Clusterizer:
                     sample_j = cluster_indexes[j]
 
                     if uniqueness[sample_j] > distances[i, j]:
+                        binding[sample_j] = y[sample_i][1]
                         uniqueness[sample_j] = distances[i, j]
                         used = True
 
                 if used:
+                    binding[sample_i] = y[sample_i][1]
                     uniqueness[sample_i] = 1.0
 
-        return uniqueness
+        return uniqueness, binding
 
     def fit(self, dataset: DatasetParser) -> 'Clusterizer':
         assert isinstance(dataset, DatasetParser), f"Expected {DatasetParser}, got {type(dataset)}"
@@ -675,8 +678,8 @@ class Clusterizer:
             dataset.setWsClosestLabels(closest_labels, y)
 
             print(f"[{time.ctime()}] Calculating the uniqueness")
-            uniqueness = self._getUniqueness(obj, labels)
-            dataset.setWsUniqueness(uniqueness, y)
+            uniqueness, binding = self._getUniqueness(obj, y, labels)
+            dataset.setWsUniqueness(uniqueness, binding, y)
         
         return self
 
@@ -736,16 +739,9 @@ class Clusterizer:
         """
 
         assert isinstance(filePath, str), f"Expected {str}, got {type(filePath)}"
+
+        self.dataset.saveJson(filePath)
         
-        json_website_samples = []
-        for category, websiteSamples in self.dataset.websiteSamples.items():
-            for websiteSample in websiteSamples:
-                json_website_samples.append(websiteSample.exportJson())
-
-        # Save the result
-        with open(filePath, "w") as f:
-            f.write(json.dumps(json_website_samples, indent=2))
-
 
 MALICIOUS_LOGFILES_DIR = [
     # "/archive/files/eval-phishing-pages/out/tmp-phishtank/"
@@ -759,7 +755,7 @@ BENIGN_LOGFILES_DIR = [
 OUT_DIR = "."
 
 if __name__ == '__main__':
-    dataset = DatasetParser(dbPath='./dpdb/')
+    dataset = DatasetParser(dbPath='./dpdb/', lookup='./data2.json')
     dataset.fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
     # dataset.fit(BENIGN_LOGFILES_DIR, WebsiteSample.Category.UNLABELED)
 
@@ -779,5 +775,5 @@ if __name__ == '__main__':
     print("Saving vectors")
     cluster.save(OUT_DIR)
     print("Saving the data.json")
-    cluster.exportJson(f'{OUT_DIR}/data2.json')
+    cluster.exportJson(f'{OUT_DIR}/data3.json')
 

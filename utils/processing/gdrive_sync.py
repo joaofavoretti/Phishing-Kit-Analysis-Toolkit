@@ -23,7 +23,7 @@ class Entry:
         self.entryType = Entry.Category(entryType)
 
 # Must have rclone installed
-class GDriveDownloader:
+class GDriveSync:
     def __init__(self,
                  # gdrive st sfuff (Still migrating)
                  rootFolderId=DRIVE_FOLDER_ID,
@@ -81,6 +81,7 @@ class GDriveDownloader:
 
         return entries
 
+    # This function is very specific for folders with dates in the name
     def listDates(self, fromDate: str = None, targetDate: str = None) -> List[str]:
         assert fromDate is None or parser.parse(fromDate), "fromDate must be parseable"
         assert targetDate is None or parser.parse(targetDate), "targetDate must be parseable"
@@ -89,10 +90,10 @@ class GDriveDownloader:
         dates: List[str] = []
 
         for entry in entries:
-            if not re.match(r"\d{4}-\d{2}-\d{2}-.*", entry.entryName):
+            if not re.match(r"\d{4}-\d{2}-\d{2}*", entry.entryName):
                 continue
 
-            date = re.match(r"(\d{4}-\d{2}-\d{2})-.*", entry.entryName).group(1)
+            date = re.match(r"(\d{4}-\d{2}-\d{2})*", entry.entryName).group(1)
 
             if fromDate and parser.parse(date) < parser.parse(fromDate):
                 continue
@@ -126,6 +127,18 @@ class GDriveDownloader:
 
         os.system(f"rclone copy -v --drive-acknowledge-abuse {self.remoteName}:\"{self.rootFolderPath}{folderName}\" \"{folderPath}\"")
 
+    def uploadFolder(self, source) -> int:
+        folderName = os.path.basename(source)
+
+        folderId = self._getEntryId(self.rootFolderId, folderName)
+
+        if folderId:
+            raise ValueError(f"Folder {folderName} already exists")
+
+        ret = os.system(f"rclone copy -v --drive-acknowledge-abuse \"{source}\" {self.remoteName}:\"{self.rootFolderPath}{folderName}\"")
+
+        return ret
+
     def downloadFrom(self, dateInit = "2024-08-11", dateEnd = "2024-09-15", destination = os.getcwd()):
         dateInit = parser.parse(dateInit)
         dateEnd = parser.parse(dateEnd)
@@ -146,10 +159,10 @@ if __name__ == "__main__":
     logging.basicConfig(
         level=logging.DEBUG,
         format='(%(asctime)s) [%(levelname)s] %(message)s',
-        filename="gdrive_downloader.log"
+        filename="gdrive_sync.log"
     )
 
-    downloader = GDriveDownloader(rootFolderId=DRIVE_FOLDER_ID)
+    downloader = GDriveSync(rootFolderId=DRIVE_FOLDER_ID)
     entries = downloader.listEntries()
     
     downloader.downloadFrom(dateInit="2024-09-25", dateEnd="2024-09-30", destination='/home/joaof/files/downloaded-phishing-logs/')

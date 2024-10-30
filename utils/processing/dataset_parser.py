@@ -1,16 +1,19 @@
 from log_parser import LogParser, DomainInstructionBlock
 from tempfile import mkdtemp
-from typing import List, Dict
+from typing import List, Dict, Union
 from enum import Enum
 import numpy as np
 import pickle
 import hashlib
 import shutil
+import json
 import pdb
 import os
 import re
 
-PATH = str
+# Types
+path_t = str
+hash_t = str
 
 # I have no idea how I once did this, but that
 # is useful to iterate through a directory of tar.gz'd log files
@@ -60,7 +63,6 @@ def for_each_log_file(logs_dir, func, debug=True):
 
     return wrapper
 
-
 class WebsiteSample:
     class Category(Enum):
         MALICIOUS = "MALICIOUS"
@@ -80,7 +82,14 @@ class WebsiteSample:
         self.cluster:int|None = None
         self.closest_cluster:int|None = None
         self.date:str|None = None
+
+        # I didnt like this. I shouldve imagined
+        # a solution that groups both informations
+        # in a single variable. But I want the uniqueness
+        # value to be able to be decided at parsing time
+        # not at processing time.
         self.uniqueness:np.float16|None = None
+        self.binded:hash_t|None = None
 
     def add_instruction_blocks(self, instruction_blocks:List[DomainInstructionBlock]):
         self.instruction_blocks += instruction_blocks
@@ -93,7 +102,6 @@ class WebsiteSample:
 
         ret["filehash"] = self.filehash
         ret["category"] = self.category.value
-        ret["instruction_blocks"] = [ib.exportJson() for ib in self.instruction_blocks]
 
         if self.cluster is not None:
             ret["cluster"] = str(self.cluster)
@@ -110,8 +118,13 @@ class WebsiteSample:
         if hasattr(self, "uniqueness") and self.uniqueness is not None:
             ret["uniqueness"] = str(self.uniqueness)
 
-        return ret
+        ret["binded"] = "foo"
+        if hasattr(self, "binded") and self.binded is not None:
+            ret["binded"] = self.binded
 
+        ret["instruction_blocks"] = [ib.exportJson() for ib in self.instruction_blocks]
+
+        return ret
 
 class FlattenInstructionBlock:
     def __init__ (self, instructions:str, hash:str, index:int, category:WebsiteSample.Category):
@@ -122,12 +135,40 @@ class FlattenInstructionBlock:
 
 
 class DatasetParser:
-    def __init__(self, dbPath:str='./dpdb/'):
+    def __init__(self, dbPath:Union[str,None]='./dpdb/', lookup:Union[path_t,None]=None):
         self.dbPath = dbPath
         self.saveDb = dbPath is not None
 
-        self.sources: Dict[WebsiteSample.Category, List[PATH]] = {}
+        self.sources: Dict[WebsiteSample.Category, List[path_t]] = {}
         self.websiteSamples: Dict[WebsiteSample.Category, List[WebsiteSample]] = {}
+
+        self.leftovers: Dict[hash_t, WebsiteSample] = self._loadLeftovers(lookup)
+
+    def _loadLeftovers(self, lookup:Union[str,None]) -> Dict[hash_t, WebsiteSample]: 
+        if lookup is None:
+            return {}
+
+        if not os.path.exists(lookup):
+            return {}
+    
+        with open(lookup, 'r') as f:
+            websiteSamples: List = json.load(f)
+
+        leftovers = {}
+
+        for websiteSample in websiteSamples:
+            ws = WebsiteSample(websiteSample["filehash"], WebsiteSample.Category(websiteSample["category"]))
+            ws.instruction_blocks = [DomainInstructionBlock(ib["instructions"], ib["domain"]) for ib in websiteSample["instruction_blocks"]]
+            ws.date = websiteSample["date"]
+            ws.uniqueness = np.float16(websiteSample["uniqueness"])
+            ws.binded = websiteSample["binded"]
+
+            if ws.uniqueness > 0.1:
+                continue
+
+            leftovers[ws.filehash] = ws
+
+        return leftovers
 
     def getDatasetHash(self):
         """
@@ -145,7 +186,7 @@ class DatasetParser:
 
         return hash
 
-    def _getDirHash(self, dir: PATH, category: WebsiteSample.Category) -> str:
+    def _getDirHash(self, dir: path_t, category: WebsiteSample.Category) -> str:
         """
         Return a hash of the directory based on the sorted 
         name of the files that are in it and the category
@@ -187,7 +228,10 @@ class DatasetParser:
             raise FileNotFoundError(f"Hashed file {hashPath} not found")
 
         with open(hashPath, 'rb') as f:
-            return pickle.load(f)
+            websiteSamples = pickle.load(f)
+
+        return websiteSamples
+                
 
     def _saveDirHash(self, hash: str, samples: List[WebsiteSample]):
         if not self.saveDb:
@@ -207,21 +251,25 @@ class DatasetParser:
         with open(hashPath, 'wb') as f:
             pickle.dump(samples, f)
 
-    def _loadDir(self, path: PATH, category: WebsiteSample.Category) -> List[WebsiteSample]:
+    def _loadDir(self, path: path_t, category: WebsiteSample.Category) -> List[WebsiteSample]:
             dirHash = self._getDirHash(path, category)
+
+            websiteSamples: List[WebsiteSample] = []
 
             if self.saveDb:
                 if self._isDirHashSaved(dirHash):
-                    return self._loadDirHash(dirHash)
+                    websiteSamples = self._loadDirHash(dirHash)
                 else:
                     websiteSamples = self._loadDataFromDir(path, category)
                     self._saveDirHash(dirHash, websiteSamples)
-                    return websiteSamples
-            else:
-                return self._loadDataFromDir(path, category)
 
-    def fit(self, dir: List[PATH], category: WebsiteSample.Category) -> List[WebsiteSample]:
-        if isinstance(dir, PATH):
+            else:
+                websiteSamples = self._loadDataFromDir(path, category)
+
+            return websiteSamples
+
+    def fit(self, dir: List[path_t], category: WebsiteSample.Category) -> List[WebsiteSample]:
+        if isinstance(dir, path_t):
             dir = [dir]
 
         if len(dir) == 0:
@@ -243,13 +291,16 @@ class DatasetParser:
 
             print(f"Loading data from {path}")
             
-            websiteSamples = self._loadDir(path, category)
-            listWebsiteSamples += websiteSamples
+            _websiteSamples = self._loadDir(path, category)
+
+            _websiteSamples = [ws for ws in _websiteSamples if ws.filehash not in self.leftovers]
+
+            listWebsiteSamples += _websiteSamples
 
             if category not in self.websiteSamples:
                 self.websiteSamples[category] = []
 
-            self.websiteSamples[category] += websiteSamples
+            self.websiteSamples[category] += _websiteSamples
 
 
         return listWebsiteSamples
@@ -260,7 +311,8 @@ class DatasetParser:
         if category not in self.websiteSamples:
             self.websiteSamples[category] = []
 
-        self.websiteSamples[category] += websiteSamples
+        _websiteSamples = [ws for ws in websiteSamples if ws.filehash not in self.leftovers]
+        self.websiteSamples[category] += _websiteSamples
 
     def _getNofIbs(self) -> int:
         """
@@ -293,8 +345,8 @@ class DatasetParser:
 
         # If the file dir has the format of date (YYYY-MM-DD), then save this information as the date
         date = None
-        if re.match(r"\d{4}-\d{2}-\d{2}", os.path.basename(dir)):
-            date = os.path.basename(dir)
+        if re.match(r"\d{4}-\d{2}-\d{2}-*", os.path.basename(dir)):
+            date = re.match(r"(\d{4}-\d{2}-\d{2})-*", os.path.basename(dir)).group(1)
 
         def parse_properties(filepaths, filehash):
             websiteSample = WebsiteSample(filehash, category=category)
@@ -328,7 +380,15 @@ class DatasetParser:
 
         return flatten_instruction_blocks
 
-    def _getSample(self, hash, category) -> WebsiteSample:
+    def _getSample(self, hash:hash_t) -> Union[WebsiteSample,None]:
+        for _, samples in self.websiteSamples.items():
+            for sample in samples:
+                if sample.filehash == hash:
+                    return sample
+
+        return None
+
+    def _getSampleFromCategory(self, hash, category) -> WebsiteSample:
         # Convert to WebsiteSample.Category using category name 
         _category = WebsiteSample.Category(category)
         _sample = None
@@ -351,7 +411,7 @@ class DatasetParser:
         for i, (category, filehash_index) in enumerate(y):
             filehash, index = filehash_index.split("_")
             
-            sample = self._getSample(filehash, category)
+            sample = self._getSampleFromCategory(filehash, category)
 
             if sample is None:
                 raise ValueError(f"Sample with hash {filehash} not found")
@@ -463,7 +523,7 @@ class DatasetParser:
         Set Website Sample Embeddings
         """
         for i, (category, filehash) in enumerate(y):
-            sample = self._getSample(filehash, category)
+            sample = self._getSampleFromCategory(filehash, category)
 
             if sample is None:
                 raise ValueError(f"Sample with hash {filehash} not found")
@@ -489,7 +549,7 @@ class DatasetParser:
         Set Website Sample Labels
         """
         for i, (category, filehash) in enumerate(y):
-            sample = self._getSample(filehash, category)
+            sample = self._getSampleFromCategory(filehash, category)
 
             if sample is None:
                 raise ValueError(f"Sample with hash {filehash} not found")
@@ -501,24 +561,25 @@ class DatasetParser:
         Set Website Sample Closest Labels
         """
         for i, (category, filehash) in enumerate(y):
-            sample = self._getSample(filehash, category)
+            sample = self._getSampleFromCategory(filehash, category)
 
             if sample is None:
                 raise ValueError(f"Sample with hash {filehash} not found")
 
             sample.closest_cluster = labels[i]
 
-    def setWsUniqueness(self, uniqueness:np.ndarray, y:np.ndarray):
+    def setWsUniqueness(self, uniqueness:np.ndarray, binding: List[hash_t], y:np.ndarray):
         """
         Set Website Sample Uniqueness
         """
         for i, (category, filehash) in enumerate(y):
-            sample = self._getSample(filehash, category)
+            sample = self._getSampleFromCategory(filehash, category)
 
             if sample is None:
                 raise ValueError(f"Sample with hash {filehash} not found")
 
             sample.uniqueness = uniqueness[i]
+            sample.binded = binding[i]
 
     def getWsLabels(self) -> tuple[list, np.ndarray]:
         labels = []
@@ -559,6 +620,48 @@ class DatasetParser:
             unflatten_X[-1].append(X[i])
 
         return unflatten_X, np.array(unflatten_y)
+
+    def _joinLeftovers(self) -> List[WebsiteSample]:
+        if len(self.leftovers) == 0:
+            return []
+
+        _leftWebsiteSamples = []
+
+        for websiteSample in self.leftovers.values():
+            if websiteSample.binded == None:
+                continue
+
+            bindedWebsiteSample = self._getSample(websiteSample.binded)
+            
+            if bindedWebsiteSample is None:
+                continue
+
+            websiteSample.cluster = bindedWebsiteSample.cluster
+            websiteSample.closest_cluster = bindedWebsiteSample.closest_cluster
+
+            _leftWebsiteSamples.append(websiteSample)
+
+        return _leftWebsiteSamples
+
+
+    def saveJson(self, filePath:path_t):
+        assert isinstance(filePath, path_t), "The file path should be a string"
+        assert filePath.endswith(".json"), "The file path should end with .json"
+
+        # Loading the workbench data
+        json_website_samples = []
+        for _, websiteSamples in self.websiteSamples.items():
+            for websiteSample in websiteSamples:
+                json_website_samples.append(websiteSample.exportJson())
+
+        # Loading the saved data
+        _leftWebsitSamples = self._joinLeftovers()
+        for websiteSample in _leftWebsitSamples:
+            json_website_samples.append(websiteSample.exportJson())
+
+        # Save the result
+        with open(filePath, "w") as f:
+            f.write(json.dumps(json_website_samples, indent=2))
 
 
 MALICIOUS_LOGFILES_DIR = [

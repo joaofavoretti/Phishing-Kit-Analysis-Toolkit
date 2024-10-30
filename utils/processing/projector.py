@@ -1,20 +1,21 @@
 from dataset_embedding import DatasetEmbedding, DomainInstructionBlock
 from dataset_parser import DatasetParser, WebsiteSample
-from gdrive_downloader import GDriveDownloader, Entry
+from gdrive_sync import GDriveSync, Entry
+from typing import List, Set, Union
 from clusterizer import Clusterizer
 from datetime import datetime
 from dateutil import parser
-from typing import List, Set
 import pickle
 import shutil
 import time
 import os
 import re
 
-PATH = str
+path_t = str
+date_t = str
 
 class Projector:
-    def __init__(self, dir: str, dbPath='./pdb/', targetDate: str = None, fromDate: str = None):
+    def __init__(self, dir: str, dbPath='./pdb/', lookup:Union[path_t,None] = None, targetDate: Union[str,None] = None, fromDate: Union[str,None] = None):
 
         # Store the path that will handle the downloading of data
         self.dir = dir
@@ -26,6 +27,10 @@ class Projector:
         self.saveDb = dbPath is not None
         if self.saveDb and not os.path.exists(self.dbPath):
             os.makedirs(self.dbPath)
+
+        if lookup is not None and not os.path.exists(lookup):
+            raise ValueError(f"Lookup file {lookup} does not exist")
+        self.lookup = lookup
 
         # Set that will store the used hashes for each day
         # INFO: Assumption that the hashes are gonna be stored in order
@@ -67,14 +72,14 @@ class Projector:
         return websiteSamples
     
     def _getLastAvailableDate(self):
-        entries = GDriveDownloader().listDates()
+        entries = GDriveSync().listDates()
         return entries[-1]
 
     def _getFirstAvailableDate(self):
-        entries = GDriveDownloader().listDates()
+        entries = GDriveSync().listDates()
         return entries[0]
 
-    def _getDownloadedFolderPaths(self, date: str) -> List[PATH]:
+    def _getDownloadedFolderPaths(self, date: str) -> List[path_t]:
         folders = os.listdir(self.dir)
         folderPaths = []
         for folder in folders:
@@ -89,11 +94,11 @@ class Projector:
         for folderPath in folderPaths:
             shutil.rmtree(folderPath)
 
-    def _getFolderPaths(self, date: str) -> List[PATH]:
+    def _getFolderPaths(self, date: str) -> List[path_t]:
         folderPaths = self._getDownloadedFolderPaths(date)
 
         if len(folderPaths) == 0:
-            GDriveDownloader().downloadFrom(dateInit = date, dateEnd = date, destination = self.dir)
+            GDriveSync().downloadFrom(dateInit = date, dateEnd = date, destination = self.dir)
             folderPaths = self._getDownloadedFolderPaths(date)
 
         return folderPaths
@@ -132,7 +137,7 @@ class Projector:
 
         return wsHashes
     
-    def _removeRepeatedHashesFromFolder(self, folderPaths: List[PATH]):
+    def _removeRepeatedHashesFromFolder(self, folderPaths: List[path_t]):
         # folderHashes are the hashes within the folderPaths
         folderHashes: Set[str] = set()
 
@@ -181,10 +186,10 @@ class Projector:
 
     def fit(self):
         # Get the dates in the format "YYYY-MM-DD"
-        dateEntries = GDriveDownloader().listDates(fromDate = self.fromDate, targetDate = self.targetDate)
+        dateEntries = GDriveSync().listDates(fromDate = self.fromDate, targetDate = self.targetDate)
         
         print(f"[{time.ctime()}] Fitting the projector from {self.fromDate} to {self.targetDate}")
-        self.datasetParser = DatasetParser(dbPath=None)
+        self.datasetParser = DatasetParser(dbPath=None, lookup=self.lookup)
 
         # Fit the training data
         # INFO: Sorted here is important because the hash calculations
@@ -209,6 +214,9 @@ class Projector:
 
         print(f"[{time.ctime()}] Preprocessing the data")
         self.datasetParser.preprocess(_filterOut)
+
+    def getTargetDate(self) -> date_t:
+        return self.targetDate
 
     def old_fit(self):
         dailySamples = os.listdir(self.dir)
