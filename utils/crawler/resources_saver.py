@@ -8,6 +8,7 @@ import cssutils
 import logging
 import datetime
 import argparse
+import csv
 import re
 
 def saveFileInTag(soup, pagefolder, url, session, tag2find='img', inner='src'):
@@ -159,14 +160,18 @@ def savePageRequests(url, pagefilename='page', output_dir=""):
     driver.implicitly_wait(10)
     # Access requests via the `requests` attribute
     resources = []
+    status_list = []
+
     for request in driver.requests:
         if request.response:
             resources.append(request)
+            status_list.append(request.response.status_code)
 
     # Write the requests in a requests.txt file
-    with open(os.path.join(output_dir, pagefilename, "requests.txt"), 'w') as file:
-        for resource in resources:
-            file.write(str(resource) + "\n")
+    with open(os.path.join(output_dir, pagefilename, "requests.csv"), 'w') as file:
+        writer = csv.writer(file)
+        writer.writerow(["URL", "Status"])
+        writer.writerows(zip([str(resource) for resource in resources], status_list))
 
     # Make the folder if it does not exist
     requests_folder = os.path.join(output_dir, pagefilename,pagefilename+'_requests')
