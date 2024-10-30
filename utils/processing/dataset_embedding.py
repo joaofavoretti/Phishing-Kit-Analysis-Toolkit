@@ -2,7 +2,7 @@ from dataset_parser import WebsiteSample, DatasetParser, FlattenInstructionBlock
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from sentence_transformers import SentenceTransformer
 from log_parser import DomainInstructionBlock
-from typing import List
+from typing import List, Union
 from enum import Enum
 import numpy as np
 import hashlib
@@ -25,7 +25,7 @@ class DatasetEmbedding:
         TransformMode.SBERT: "_sbert_transform"
     }
 
-    def __init__(self, mode: TransformMode, dbPath: str = './dedb/'):
+    def __init__(self, mode: TransformMode, dbPath: Union[str,None] = './dedb/'):
         """
         :param mode: The mode to transform the data. It can be either "doc2vec" or "sbert"
         :param flatten: If true, then each instruction block will be represented as a single vector.

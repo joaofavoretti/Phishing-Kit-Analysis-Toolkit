@@ -639,7 +639,7 @@ class Clusterizer:
     def fit(self, dataset: DatasetParser) -> 'Clusterizer':
         assert isinstance(dataset, DatasetParser), f"Expected {DatasetParser}, got {type(dataset)}"
 
-        embedding = DatasetEmbedding(self.mode, dbPath='./dedb/')
+        embedding = DatasetEmbedding(self.mode, dbPath=None)
         embedding.fit(dataset)
         dataset = embedding.transform(dataset)
         X, y = dataset.getIbEmbeddings()
