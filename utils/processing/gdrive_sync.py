@@ -90,10 +90,10 @@ class GDriveSync:
         dates: List[str] = []
 
         for entry in entries:
-            if not re.match(r"\d{4}-\d{2}-\d{2}*", entry.entryName):
+            if not re.match(r"\d{4}-\d{2}-\d{2}.*", entry.entryName):
                 continue
 
-            date = re.match(r"(\d{4}-\d{2}-\d{2})*", entry.entryName).group(1)
+            date = re.match(r"(\d{4}-\d{2}-\d{2}).*", entry.entryName).group(1)
 
             if fromDate and parser.parse(date) < parser.parse(fromDate):
                 continue

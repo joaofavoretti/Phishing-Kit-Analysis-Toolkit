@@ -48,6 +48,9 @@ class Trigger:
     def _getLastDataPath(self) -> path_t:
         availableResults = os.listdir(RESULTS_DIR)
 
+        if not availableResults:
+            return None
+
         return os.path.join(RESULTS_DIR, sorted(availableResults)[-1], 'data.json')
 
     def _runProjector(self, targetDate:date_t) -> path_t:
@@ -63,7 +66,7 @@ class Trigger:
 
         finalTime = time.time()
 
-        logging.info(f"Execution time ({self.initialDate} to {targetDate}): {time.strftime("%H hours, %M minutes", time.gmtime(finalTime - initialTime))}")
+        logging.info(f"Execution time ({self.initialDate} to {targetDate}): {time.strftime('%H hours, %M minutes', time.gmtime(finalTime - initialTime))}")
 
         return targetDateDir
 
