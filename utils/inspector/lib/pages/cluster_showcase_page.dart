@@ -41,6 +41,8 @@ class _SamplesDatabaseSource extends DataTableSource {
         ),
         DataCell(Text(DateFormat('dd/MM/yyyy').format(websiteSample.date))),
         DataCell(Text(websiteSample.instruction_blocks.length.toString())),
+        DataCell(Text(websiteSample.uniqueness)),
+        DataCell(Text(websiteSample.binded)),
         DataCell(Text(firstNonEmptyDomain ?? "")),
       ],
     );
@@ -179,6 +181,8 @@ class _ClusterShowcasePageState extends State<ClusterShowcasePage> {
                 DataColumn(label: Text('Category')),
                 DataColumn(label: Text('Date')),
                 DataColumn(label: Text('# Blocks')),
+                DataColumn(label: Text('Uniqueness')),
+                DataColumn(label: Text('Binded')),
                 DataColumn(label: Text('1st Domain')),
               ],
               source: _SamplesDatabaseSource(
