@@ -1,13 +1,11 @@
-import os
-import shutil
-import argparse
-import re
-import logging
-from enum import Enum
-from typing import List, Set
-import subprocess
-import argparse
+from typing import List, Set, Union
 from dateutil import parser
+from enum import Enum
+import subprocess
+import logging
+import shutil
+import os
+import re
 
 DRIVE_FOLDER_ID = '1yiXbLymyVIgnbakZzfCH1i3kOngwzAvr'  # That is the official one
 DRIVE_FOLDER = '/ITA/Mestrado/Crawled Data/Log Files/'
@@ -82,7 +80,7 @@ class GDriveSync:
         return entries
 
     # This function is very specific for folders with dates in the name
-    def listDates(self, fromDate: str = None, targetDate: str = None) -> List[str]:
+    def listDates(self, fromDate: Union[str,None] = None, targetDate: Union[str,None] = None) -> List[str]:
         assert fromDate is None or parser.parse(fromDate), "fromDate must be parseable"
         assert targetDate is None or parser.parse(targetDate), "targetDate must be parseable"
 

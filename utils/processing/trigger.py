@@ -45,7 +45,7 @@ class Trigger:
 
         return newDates[0]
 
-    def _getLastDataPath(self) -> path_t:
+    def _getLastDataPath(self) -> Union[path_t,None]:
         availableResults = os.listdir(RESULTS_DIR)
 
         if not availableResults:

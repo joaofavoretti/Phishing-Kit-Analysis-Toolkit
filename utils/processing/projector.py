@@ -248,11 +248,10 @@ class Projector:
         cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY)
         cluster.fit(self.datasetParser)
 
-        targetDateDir = os.path.join(dir, self.targetDate)
         print("Saving vectors")
-        cluster.save(targetDateDir)
+        cluster.save(dir)
         print("Saving the data.json")
-        cluster.exportJson(os.path.join(targetDateDir, "data.json"))
+        cluster.exportJson(os.path.join(dir, "data.json"))
 
 # Temporary function to test the clustering
 def datasetFromDate(targetDate="2024-09-29", fromDate="2024-09-28"):
@@ -305,7 +304,8 @@ if __name__ == '__main__':
     initialTime = time.time()
 
     projector.fit()
-    projector.export("/home/joaof/files/clustering-out")
+    targetDateDir = os.path.join("/home/joaof/files/clustering-out", projector.getTargetDate())
+    projector.export(targetDateDir)
 
     finalTime = time.time()
     print("Execution time:", time.strftime("%H hours, %M minutes", time.gmtime(finalTime - initialTime)))
