@@ -1,0 +1,881 @@
+(2024-09-28 13:49:56,456) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:50:04,371) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 13:50:04,371) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:50:10,693) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 13:50:10,693) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:50:33,425) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:50:40,176) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 13:50:40,177) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:51:07,466) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:51:26,499) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 13:51:26,499) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:51:38,270) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 13:51:38,270) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:51:50,588) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 13:51:50,589) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:52:02,712) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 13:52:02,712) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 13:52:14,374) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 13:52:14,374) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:52:26,613) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:52:26,613) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:52:38,197) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:52:38,197) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:52:50,182) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:52:50,182) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:53:01,977) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:53:01,977) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 13:53:13,766) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:07:10,008) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:07:10,037) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:07:10,047) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:07:10,060) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:07:20,428) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/170710.519709:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170710.520403:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170710.520517:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170710.530896:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/170710.712702:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0928/170710.727093:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[0928/170720.392998:ERROR:headless_command_handler.cc(352)] Unexpected renderer destruction.
+[0928/170720.395120:WARNING:zygote_communication_linux.cc(301)] Error reading message from zygote: Connection reset by peer (104)
+[0928/170720.400405:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/170720.400544:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0928/170720.404047:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/170720.404275:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+'
+
+(2024-09-28 14:07:20,718) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:07:20,718) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:07:22,012) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:07:22,012) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:07:23,349) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:07:23,349) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:07:31,531) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:07:31,531) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:07:34,193) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:07:34,193) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:07:34,548) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:07:34,548) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:07:40,368) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:07:40,369) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:07:43,624) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:07:43,624) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:07:47,814) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:07:47,814) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:07:48,663) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:07:48,663) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:07:50,725) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/170740.744407:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170740.751275:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170740.751323:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170740.776002:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/170740.857123:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0928/170740.877993:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+'
+
+(2024-09-28 14:07:56,787) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:07:56,787) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:01,525) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:08:01,526) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:08:02,023) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:08:02,023) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:08:10,200) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:10,200) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:13,010) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:08:13,010) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:08:15,740) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:08:15,740) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:08:15,964) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:08:15,965) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:08:21,843) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:21,843) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:23,351) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/170813.336703:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170813.342846:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170813.342896:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170813.354915:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/170813.436325:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+'
+
+(2024-09-28 14:08:31,219) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:08:31,220) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:08:31,849) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:08:31,849) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:08:34,326) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:34,326) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:44,781) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:08:44,781) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:08:46,661) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:08:46,661) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:08:47,351) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:08:47,351) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:08:48,801) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:48,801) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:08:55,236) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/170845.261056:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170845.268438:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170845.268488:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170845.289951:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/170845.396262:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0928/170845.415297:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+'
+
+(2024-09-28 14:09:00,843) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:09:00,843) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:09:01,441) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:09:01,441) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:09:01,799) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:09:01,800) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:09:12,855) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:09:12,855) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:09:14,825) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 14:09:16,005) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:09:16,005) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 14:09:16,050) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:09:16,557) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:09:16,557) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:09:23,154) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/170913.189026:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170913.196182:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170913.196454:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170913.217914:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/170913.341633:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0928/170913.363353:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+'
+
+(2024-09-28 14:09:32,029) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 14:09:32,491) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:09:32,491) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:09:33,014) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 14:09:33,104) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:09:34,145) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:09:39,058) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:09:39,059) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:09:46,648) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:09:46,648) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:09:48,129) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:09:48,129) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:09:49,499) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/170939.490421:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170939.496278:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170939.496323:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/170939.506883:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/170939.638206:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0928/170939.650394:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[0928/170949.419332:ERROR:headless_command_handler.cc(352)] Unexpected renderer destruction.
+[0928/170949.422231:WARNING:zygote_communication_linux.cc(301)] Error reading message from zygote: Connection reset by peer (104)
+[0928/170949.426810:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/170949.429030:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0928/170949.467307:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/170949.467343:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+'
+
+(2024-09-28 14:09:52,357) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:09:52,357) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:01,353) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:10:01,353) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:10:03,814) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:10:03,814) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:10:06,685) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:06,685) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:06,990) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:10:06,990) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:10:17,453) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/171007.503488:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171007.504703:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171007.505858:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171007.516370:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/171007.612237:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+'
+
+(2024-09-28 14:10:19,754) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:10:19,754) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:10:21,540) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:10:21,540) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:10:25,117) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:25,117) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:35,949) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:10:35,949) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:10:37,851) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:10:37,851) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:10:38,569) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:10:38,569) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:10:40,179) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:40,179) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:48,253) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/171038.252995:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171038.278338:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171038.278389:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171038.304849:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/171038.399624:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+'
+
+(2024-09-28 14:10:49,645) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:10:49,645) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:10:55,363) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:55,363) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:10:56,124) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:10:56,124) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:02,224) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:11:02,224) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:11:04,116) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:11:04,116) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:11:10,804) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:11:10,804) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:11:12,410) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:12,410) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:12,647) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/171102.653546:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171102.660289:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171102.660523:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171102.673093:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/171102.772267:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0928/171102.791131:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[0928/171112.614997:ERROR:headless_command_handler.cc(352)] Unexpected renderer destruction.
+[0928/171112.615273:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/171112.615286:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0928/171112.616645:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/171112.616662:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0928/171112.627578:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/171112.627597:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+'
+
+(2024-09-28 14:11:21,555) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:11:21,555) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:11:24,402) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:24,402) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:24,686) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:11:24,686) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:11:27,059) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:11:27,060) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:11:37,445) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files d6a89baa7844c62b6022e68882063c034e2959cfba6c6533ff62c673a43c5136 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0928/171127.493654:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171127.499876:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171127.501513:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0928/171127.539271:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0928/171127.602988:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0928/171137.416433:ERROR:headless_command_handler.cc(352)] Unexpected renderer destruction.
+[0928/171137.421911:WARNING:zygote_communication_linux.cc(301)] Error reading message from zygote: Connection reset by peer (104)
+[0928/171137.426646:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/171137.426660:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0928/171137.427556:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0928/171137.427573:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+'
+
+(2024-09-28 14:11:37,470) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:11:37,470) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:11:39,925) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:11:39,925) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:11:40,546) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:40,546) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:51,111) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:11:51,111) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:11:52,581) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 14:11:53,618) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:11:53,851) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 14:11:54,373) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:54,373) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:11:54,705) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:04,108) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 14:12:04,964) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:06,848) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:06,848) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:08,941) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 14:12:09,563) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:09,563) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:13,292) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:12:13,292) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:12:15,081) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:15,081) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:17,620) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:17,621) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:20,187) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:20,187) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:25,312) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:25,312) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:28,299) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:28,300) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:30,561) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:30,561) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:31,148) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:12:31,148) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:12:35,637) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:35,637) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:40,880) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:40,880) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:40,951) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:40,951) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:47,050) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:47,050) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:48,495) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:12:48,496) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:12:52,401) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:12:52,402) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 14:12:55,296) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:55,296) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:12:57,705) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 14:13:05,679) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:13:05,679) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:13:06,359) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:06,359) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:16,160) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:16,160) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:21,148) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:13:21,148) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:13:26,371) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:26,371) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:36,530) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:36,530) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:37,286) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:13:37,286) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:13:47,203) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 14:13:52,726) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:13:52,726) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:14:07,994) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:14:07,994) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:14:24,017) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:14:24,018) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 14:14:39,182) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:26:30,650) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:26:30,678) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:26:30,699) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:26:30,700) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:26:41,998) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:26:41,999) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:26:43,647) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:26:43,648) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:26:43,867) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:26:43,867) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:26:52,011) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:26:52,012) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:26:55,232) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:26:55,232) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:26:56,034) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:26:56,034) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:26:56,514) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:26:56,514) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:02,014) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:02,015) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:07,632) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:07,632) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:08,901) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:08,901) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:12,947) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:12,947) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:19,527) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:19,527) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:19,979) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:19,979) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:21,112) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:27:21,112) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:27:23,372) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:23,373) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:31,825) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:31,826) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:31,930) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:31,930) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:34,217) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:34,217) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:44,403) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:44,404) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:44,523) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:44,523) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:44,928) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:44,928) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:45,284) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:27:45,284) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:27:54,485) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:54,485) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:27:56,336) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:56,336) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:27:56,972) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:27:56,972) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:28:04,655) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:28:04,655) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:28:09,137) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:28:09,138) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:28:09,277) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:28:09,277) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:28:11,126) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:28:11,126) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:28:15,757) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-28 15:28:16,473) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:28:19,226) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:28:19,226) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-28 15:28:22,361) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:28:22,361) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:28:29,090) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:28:29,090) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:28:31,677) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-28 15:28:32,771) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:28:34,437) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-28 15:28:34,469) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:28:34,469) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:28:35,214) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:28:42,402) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:28:42,402) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:28:48,531) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:28:48,531) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:28:48,855) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:28:48,855) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:28:57,742) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:28:57,742) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:28:58,901) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:28:58,901) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:03,931) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:03,931) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:06,047) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:29:06,047) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:29:12,346) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:12,346) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:18,281) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:18,281) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:18,819) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:29:18,819) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:29:22,649) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:29:22,649) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:29:25,643) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:25,643) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:31,559) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:31,559) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:32,311) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:29:32,311) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:29:39,396) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:39,397) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:44,799) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:44,799) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:48,722) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:29:48,723) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:29:48,898) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:29:48,898) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:29:52,603) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:52,603) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:29:56,560) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:29:56,560) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:30:05,619) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:30:05,619) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:30:08,581) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:30:08,581) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:30:09,756) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:30:09,756) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:30:13,266) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:30:13,266) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:30:18,071) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:30:18,071) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:30:21,573) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:30:21,573) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:30:28,640) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:30:28,640) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:30:39,021) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-28 15:30:39,560) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-28 15:30:39,696) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:30:39,696) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:30:42,425) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:30:42,425) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:30:55,934) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:30:55,957) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:30:58,445) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-28 15:30:58,507) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:30:58,507) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:30:59,272) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:04,942) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:04,942) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:07,345) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:07,345) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:10,603) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:10,603) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:10,891) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-28 15:31:14,688) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:31:14,688) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:31:16,012) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:16,012) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:18,520) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:18,520) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:21,038) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:21,038) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:26,922) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:26,922) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:30,223) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:30,223) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:31,696) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:31:31,696) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:31:32,144) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:32,144) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:36,639) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:36,639) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:40,951) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:40,951) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:41,950) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:41,950) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:46,871) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:46,871) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-28 15:31:49,262) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:31:49,262) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:31:51,418) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-28 15:31:51,487) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:31:51,487) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:01,667) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:01,667) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:07,441) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:32:07,441) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:32:12,145) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:12,145) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:21,890) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:21,891) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:24,041) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:32:24,041) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:32:31,641) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:31,641) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:40,975) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:32:40,975) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:32:42,051) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-28 15:32:55,937) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:32:55,937) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:33:11,264) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:33:11,264) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:33:26,821) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:33:26,821) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-28 15:33:42,387) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:12:44,712) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:12:44,746) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:12:44,756) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:12:44,761) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:12:55,085) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181245.500156:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181245.581899:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181245.582167:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181245.888055:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181246.372339:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0929/181246.400740:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+'
+
+(2024-09-29 15:12:57,304) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:12:57,304) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:12:57,527) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:12:57,527) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:12:58,713) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:12:58,713) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:07,503) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:13:07,503) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:13:08,184) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:08,184) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:09,092) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:13:09,092) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:13:11,332) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:11,332) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:17,801) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181307.805848:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181307.807248:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181307.810312:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181307.826990:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181307.885747:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0929/181307.892553:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+'
+
+(2024-09-29 15:13:18,933) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:18,933) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:21,414) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:13:21,414) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:13:24,041) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:24,042) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:30,208) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:30,208) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:32,639) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:13:32,639) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:13:32,874) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:13:32,874) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:13:36,405) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:36,405) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:41,244) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:41,245) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:42,867) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181332.893962:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181332.899865:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181332.899914:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181332.913485:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181332.981265:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0929/181332.989615:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+'
+
+(2024-09-29 15:13:46,231) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:13:46,231) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:13:49,605) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:49,605) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:13:52,084) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:52,084) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:13:57,036) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:13:57,036) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:14:00,504) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:00,504) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:03,204) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:03,204) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:04,193) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:14:04,193) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:14:07,263) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181357.290147:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181357.295816:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181357.295862:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181357.304987:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181357.366447:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+'
+
+(2024-09-29 15:14:12,958) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:12,958) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:15,799) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:15,799) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:16,102) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:14:16,102) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:14:19,202) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:14:19,202) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:14:24,312) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:24,312) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:26,551) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:14:26,551) [INFO] Scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:14:28,304) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:28,305) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:35,652) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:35,652) [INFO] Scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:37,236) [INFO] Finished scanning URL: "https://www.wikipedia.org/"
+(2024-09-29 15:14:38,772) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:14:41,172) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:41,173) [INFO] Scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:41,858) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:14:41,858) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:14:48,436) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-09-29 15:14:48,517) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:14:48,517) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:14:49,201) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:14:52,117) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181442.138457:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181442.145038:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181442.145421:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181442.160232:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181442.256239:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0929/181442.273214:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[0929/181452.075567:ERROR:headless_command_handler.cc(352)] Unexpected renderer destruction.
+[0929/181452.086303:WARNING:zygote_communication_linux.cc(301)] Error reading message from zygote: Connection reset by peer (104)
+[0929/181452.091726:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181452.092335:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0929/181452.096562:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181452.096678:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+'
+
+(2024-09-29 15:14:53,810) [INFO] Finished scanning URL: "https://www.facebook.com/"
+(2024-09-29 15:14:54,657) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:14:56,299) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:14:56,299) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:03,756) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:15:03,757) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:15:04,370) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:15:04,370) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:15:07,831) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:15:07,831) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:15:12,037) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:12,037) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:14,626) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181504.616373:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181504.624690:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181504.624741:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181504.634905:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181504.704957:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0929/181514.563696:ERROR:headless_command_handler.cc(352)] Unexpected renderer destruction.
+[0929/181514.569197:WARNING:zygote_communication_linux.cc(301)] Error reading message from zygote: Connection reset by peer (104)
+[0929/181514.571377:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181514.577581:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0929/181514.584838:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181514.584857:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+'
+
+(2024-09-29 15:15:16,922) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:15:16,922) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:15:20,804) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:15:20,804) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:15:21,023) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:21,023) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:27,767) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:15:27,767) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:15:30,516) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:30,516) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:30,868) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:15:30,868) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:15:34,304) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:15:34,304) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:15:38,235) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181528.282758:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181528.282840:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181528.283115:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181528.294373:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181528.361173:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0929/181528.374060:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+'
+
+(2024-09-29 15:15:39,761) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:39,762) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:51,341) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:15:51,341) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:15:52,495) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:15:52,495) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:15:54,071) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:15:54,071) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:16:00,809) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:16:00,810) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:16:11,094) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181601.162902:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181601.165624:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181601.169261:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181601.196310:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181601.306882:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0929/181601.322028:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[0929/181611.048020:ERROR:headless_command_handler.cc(352)] Unexpected renderer destruction.
+[0929/181611.048295:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181611.048305:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0929/181611.049863:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181611.050015:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0929/181611.066159:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181611.066179:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+'
+
+(2024-09-29 15:16:11,171) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:16:11,171) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:16:13,424) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:16:13,424) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:16:15,660) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:16:15,661) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:16:29,853) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:16:29,853) [INFO] Scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:16:30,521) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:16:30,521) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:16:30,738) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:16:30,738) [INFO] Scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:16:37,238) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:16:37,238) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:16:40,090) [ERROR] Error while running VV8: The docker command executed was `/usr/local/bin/docker exec --workdir /home/node/files 930d331977254dafe5d1c8fedb4055b505e6d223f8c053aa99f19e0e3cf1236f timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage https://www.youtube.com/`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[0929/181630.100025:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181630.106221:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181630.106268:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[0929/181630.117456:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[0929/181630.171470:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[0929/181640.051551:ERROR:headless_command_handler.cc(352)] Unexpected renderer destruction.
+[0929/181640.051833:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181640.051845:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0929/181640.053411:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181640.053431:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+[0929/181640.070115:ERROR:zygote_communication_linux.cc(291)] Failed to send GetTerminationStatus message to zygote
+[0929/181640.070591:WARNING:zygote_communication_linux.cc(303)] Socket closed prematurely.
+'
+
+(2024-09-29 15:16:49,307) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:16:49,307) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:16:49,330) [INFO] Finished scanning URL: "https://www.amazon.com.br/"
+(2024-09-29 15:16:50,487) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:16:53,216) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:16:53,216) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:16:54,186) [INFO] Finished scanning URL: "https://www.youtube.com/"
+(2024-09-29 15:16:54,902) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:01,951) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:17:01,951) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:17:05,829) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:05,829) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:09,374) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:17:09,375) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:17:09,441) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:17:09,441) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:17:13,834) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:17:13,834) [INFO] Scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:17:17,392) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:17,392) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:19,804) [INFO] Finished scanning URL: "https://www.linkedin.com/"
+(2024-09-29 15:17:20,873) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:17:23,008) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:17:23,008) [INFO] Scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:17:26,308) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:17:26,308) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:17:27,334) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:17:27,334) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:17:29,570) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:29,570) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:31,961) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:17:31,961) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:17:37,283) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:17:37,283) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:17:39,494) [INFO] Finished scanning URL: "https://www.instagram.com/"
+(2024-09-29 15:17:40,594) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:40,594) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:42,170) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:17:42,170) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:17:45,787) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:17:45,787) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:17:47,196) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:17:47,196) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:17:51,274) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:51,274) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:17:52,184) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:17:52,184) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:17:57,032) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:17:57,032) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:18:02,008) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:18:02,009) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:18:02,062) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:18:02,062) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:18:02,930) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:02,930) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:07,267) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:18:07,267) [INFO] Scanning URL: "https://openai.com/"
+(2024-09-29 15:18:11,978) [INFO] Finished scanning URL: "https://openai.com/"
+(2024-09-29 15:18:12,947) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:12,947) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:18,511) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:18:18,511) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:18:23,281) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:23,281) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:32,984) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:32,984) [INFO] Scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:34,019) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:18:34,019) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:18:43,700) [INFO] Finished scanning URL: "https://www.whatsapp.com/"
+(2024-09-29 15:18:49,666) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:18:49,666) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:19:04,506) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:19:04,506) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:19:20,330) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:19:20,330) [INFO] Scanning URL: "https://www.reddit.com/"
+(2024-09-29 15:19:35,120) [INFO] Finished scanning URL: "https://www.reddit.com/"

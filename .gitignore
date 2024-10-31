@@ -1,3 +1,5 @@
 .venv
 tests/word2vec/aclImdb
 tests/sbert/sentence-embedding/output/sentence-transformers_all-MiniLM-L6-v2-2024-08-30_22-26-20/*
+experiments
+utils/out/*
