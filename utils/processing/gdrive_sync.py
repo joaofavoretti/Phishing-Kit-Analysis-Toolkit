@@ -137,6 +137,18 @@ class GDriveSync:
 
         return ret
 
+    def uploadFile(self, source) -> int:
+        fileName = os.path.basename(source)
+
+        fileId = self._getEntryId(self.rootFolderId, fileName)
+
+        if fileId:
+            raise ValueError(f"File {fileName} already exists")
+
+        ret = os.system(f"rclone copy -v --drive-acknowledge-abuse \"{source}\" {self.remoteName}:\"{self.rootFolderPath}{fileName}\"")
+
+        return ret
+
     def downloadFrom(self, dateInit = "2024-08-11", dateEnd = "2024-09-15", destination = os.getcwd()):
         dateInit = parser.parse(dateInit)
         dateEnd = parser.parse(dateEnd)

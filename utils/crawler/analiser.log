@@ -879,3 +879,69 @@ The content of stderr is '[0929/181630.100025:ERROR:bus.cc(399)] Failed to conne
 (2024-09-29 15:19:20,330) [INFO] Finished scanning URL: "https://www.reddit.com/"
 (2024-09-29 15:19:20,330) [INFO] Scanning URL: "https://www.reddit.com/"
 (2024-09-29 15:19:35,120) [INFO] Finished scanning URL: "https://www.reddit.com/"
+(2024-11-01 11:08:19,848) [INFO] Batch 1/1 with 2 URLs
+(2024-11-01 11:08:20,386) [INFO] Scanning URL: "https://www.google.com/"
+(2024-11-01 11:08:31,771) [INFO] Finished scanning URL: "https://www.google.com/"
+(2024-11-01 11:08:31,771) [INFO] Scanning URL: "https://www.google.com/?salt=1273821793729187"
+(2024-11-01 11:08:46,948) [INFO] Finished scanning URL: "https://www.google.com/?salt=1273821793729187"
+(2024-11-01 12:24:46,620) [INFO] Batch 1/2 with 10 URLs
+(2024-11-01 12:24:46,970) [INFO] Scanning URL: "http://localhost:8080/?kit=badoo&rnd=e477c6c54bfad8c62d848d285d368e08"
+(2024-11-01 12:24:50,470) [INFO] Finished scanning URL: "http://localhost:8080/?kit=badoo&rnd=e477c6c54bfad8c62d848d285d368e08"
+(2024-11-01 12:24:50,470) [INFO] Scanning URL: "http://localhost:8081/?kit=adobe&rnd=b82e357ecda1f9c7294287dc38144b06"
+(2024-11-01 12:24:52,708) [INFO] Finished scanning URL: "http://localhost:8081/?kit=adobe&rnd=b82e357ecda1f9c7294287dc38144b06"
+(2024-11-01 12:24:52,708) [INFO] Scanning URL: "http://localhost:8082/?kit=badoo&rnd=09598f171cbbf7422c44a86b5294adab"
+(2024-11-01 12:24:57,028) [INFO] Finished scanning URL: "http://localhost:8082/?kit=badoo&rnd=09598f171cbbf7422c44a86b5294adab"
+(2024-11-01 12:24:57,028) [INFO] Scanning URL: "http://localhost:8083/?kit=adobe&rnd=3d165fac16c67be4fdbdd5f6587f173a"
+(2024-11-01 12:24:59,288) [INFO] Finished scanning URL: "http://localhost:8083/?kit=adobe&rnd=3d165fac16c67be4fdbdd5f6587f173a"
+(2024-11-01 12:24:59,288) [INFO] Scanning URL: "http://localhost:8084/?kit=adobe&rnd=d125296c2970c543d8b732375bab445a"
+(2024-11-01 12:25:01,463) [INFO] Finished scanning URL: "http://localhost:8084/?kit=adobe&rnd=d125296c2970c543d8b732375bab445a"
+(2024-11-01 12:25:01,463) [INFO] Scanning URL: "http://localhost:8085/?kit=adobe&rnd=368161b4f816c960315e935a1218664e"
+(2024-11-01 12:25:03,624) [INFO] Finished scanning URL: "http://localhost:8085/?kit=adobe&rnd=368161b4f816c960315e935a1218664e"
+(2024-11-01 12:25:03,624) [INFO] Scanning URL: "http://localhost:8086/?kit=deviantart&rnd=3790d8a5908c1d479bc26bfb18fc17a0"
+(2024-11-01 12:25:34,504) [INFO] Finished scanning URL: "http://localhost:8086/?kit=deviantart&rnd=3790d8a5908c1d479bc26bfb18fc17a0"
+(2024-11-01 12:25:34,504) [INFO] Scanning URL: "http://localhost:8087/?kit=deviantart&rnd=bbe026438b8c34754681a7cae70660dd"
+(2024-11-01 12:26:05,279) [INFO] Finished scanning URL: "http://localhost:8087/?kit=deviantart&rnd=bbe026438b8c34754681a7cae70660dd"
+(2024-11-01 12:26:05,279) [INFO] Scanning URL: "http://localhost:8088/?kit=badoo&rnd=89ed2a851a0992873416af31775832b7"
+(2024-11-01 12:26:08,282) [INFO] Finished scanning URL: "http://localhost:8088/?kit=badoo&rnd=89ed2a851a0992873416af31775832b7"
+(2024-11-01 12:26:08,282) [INFO] Scanning URL: "http://localhost:8089/?kit=adobe&rnd=c802b36678d79d472f8285287a1b18c9"
+(2024-11-01 12:26:10,537) [INFO] Finished scanning URL: "http://localhost:8089/?kit=adobe&rnd=c802b36678d79d472f8285287a1b18c9"
+(2024-11-01 12:33:43,122) [INFO] Scanning URL: "http://192.168.0.8:8080/?kit=deviantart&rnd=f8b0d5eb587983c3f3630955597ec8b5"
+(2024-11-01 12:34:21,423) [INFO] Finished scanning URL: "http://192.168.0.8:8080/?kit=deviantart&rnd=f8b0d5eb587983c3f3630955597ec8b5"
+(2024-11-01 12:34:21,424) [INFO] Scanning URL: "http://192.168.0.8:8081/?kit=badoo&rnd=08e2dbf20caf318f819e9e2ac91b25e5"
+(2024-11-01 12:34:24,689) [INFO] Finished scanning URL: "http://192.168.0.8:8081/?kit=badoo&rnd=08e2dbf20caf318f819e9e2ac91b25e5"
+(2024-11-01 12:34:24,689) [INFO] Scanning URL: "http://192.168.0.8:8082/?kit=badoo&rnd=76286faa26046ecee5eb2c8ff8c157f9"
+(2024-11-01 12:34:27,797) [INFO] Finished scanning URL: "http://192.168.0.8:8082/?kit=badoo&rnd=76286faa26046ecee5eb2c8ff8c157f9"
+(2024-11-01 12:34:27,797) [INFO] Scanning URL: "http://192.168.0.8:8083/?kit=adobe&rnd=a967ccbad8962ce6ba95ec76ac3a626f"
+(2024-11-01 12:34:30,208) [INFO] Finished scanning URL: "http://192.168.0.8:8083/?kit=adobe&rnd=a967ccbad8962ce6ba95ec76ac3a626f"
+(2024-11-01 12:34:30,209) [INFO] Scanning URL: "http://192.168.0.8:8084/?kit=deviantart&rnd=d33eb3f7d89ff6f26ccfb5cf32315f38"
+(2024-11-01 12:34:40,419) [ERROR] Error while running VV8: The command executed was `/usr/local/bin/docker exec --workdir /home/node/files 2f0423a36e38519db897ff6abaca6b5672daeb975146fc23ba45fde3d6e77b03 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage http://192.168.0.8:8084/?kit=deviantart&rnd=d33eb3f7d89ff6f26ccfb5cf32315f38`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[1101/153430.448503:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[1101/153430.454406:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[1101/153430.454455:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[1101/153430.464959:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[1101/153430.523297:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+'
+
+(2024-11-01 12:35:11,109) [INFO] Finished scanning URL: "http://192.168.0.8:8084/?kit=deviantart&rnd=d33eb3f7d89ff6f26ccfb5cf32315f38"
+(2024-11-01 12:35:11,109) [INFO] Scanning URL: "http://192.168.0.8:8085/?kit=badoo&rnd=fe9fe627c44eb7a5cdc4846a094eb4c8"
+(2024-11-01 12:35:14,147) [INFO] Finished scanning URL: "http://192.168.0.8:8085/?kit=badoo&rnd=fe9fe627c44eb7a5cdc4846a094eb4c8"
+(2024-11-01 12:35:14,147) [INFO] Scanning URL: "http://192.168.0.8:8086/?kit=badoo&rnd=885e591092af8e6891b95b4833efdb33"
+(2024-11-01 12:35:17,165) [INFO] Finished scanning URL: "http://192.168.0.8:8086/?kit=badoo&rnd=885e591092af8e6891b95b4833efdb33"
+(2024-11-01 12:35:17,165) [INFO] Scanning URL: "http://192.168.0.8:8087/?kit=deviantart&rnd=52db6f317c3f556b824e0744c06b551b"
+(2024-11-01 12:35:55,885) [INFO] Finished scanning URL: "http://192.168.0.8:8087/?kit=deviantart&rnd=52db6f317c3f556b824e0744c06b551b"
+(2024-11-01 12:35:55,885) [INFO] Scanning URL: "http://192.168.0.8:8088/?kit=badoo&rnd=4f813b9552b110900632d2de67f89e7a"
+(2024-11-01 12:35:58,920) [INFO] Finished scanning URL: "http://192.168.0.8:8088/?kit=badoo&rnd=4f813b9552b110900632d2de67f89e7a"
+(2024-11-01 12:35:58,920) [INFO] Scanning URL: "http://192.168.0.8:8089/?kit=deviantart&rnd=d25905956b629a427da2e2f5581ab21f"
+(2024-11-01 12:36:09,157) [ERROR] Error while running VV8: The command executed was `/usr/local/bin/docker exec --workdir /home/node/files 2f0423a36e38519db897ff6abaca6b5672daeb975146fc23ba45fde3d6e77b03 timeout --preserve-status 10s /opt/chromium.org/chromium/chrome --no-sandbox --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage http://192.168.0.8:8089/?kit=deviantart&rnd=d25905956b629a427da2e2f5581ab21f`.
+It returned with code 143
+The content of stdout is ''
+The content of stderr is '[1101/153559.172309:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[1101/153559.178053:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[1101/153559.178102:ERROR:bus.cc(399)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[1101/153559.187425:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[1101/153559.242984:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+'
+
+(2024-11-01 12:36:39,734) [INFO] Finished scanning URL: "http://192.168.0.8:8089/?kit=deviantart&rnd=d25905956b629a427da2e2f5581ab21f"

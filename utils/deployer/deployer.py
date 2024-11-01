@@ -1,27 +1,48 @@
 from typing import List, cast
 from python_on_whales import DockerClient
 from python_on_whales.components.container.cli_wrapper import ValidContainer
+import urllib.parse
+import hashlib
+import socket
+import time
 import os
 
 class Deployer:
-    def __init__(self, kit:str, port:str = '8080', cwd:str = os.getcwd()):
+    def __init__(self, kit:str, port:str = '8080', kits_dir:str = os.path.join(os.getcwd(), 'kits'), php_config:str = os.path.join(os.getcwd(), 'config/php')):
 
-        self.cwd = cwd
+        self.kits_dir = kits_dir
         self.port = port
+        self.php_config = php_config
+        self.rnd = hashlib.sha256(str(time.time()).encode()).hexdigest()[:32]
+        self.addr = self._getHostAddrs()
 
         if not self._isValidKit(kit):
             raise ValueError(f'Kit {kit} is not available')
-        self.kit = os.path.join(cwd, 'kits', kit)
-
-        self.php_config = os.path.join(cwd, 'config/php')
+        self.kit = kit
+        self.kit_path = os.path.join(self.kits_dir, kit)
 
     def _isValidKit(self, kit:str) -> bool:
-        return kit in self.listAvailableKits(self.cwd)
+        return kit in self.listAvailableKits(self.kits_dir)
+        
+    def _getHostAddrs(self):
+        # Create a socket object
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        
+        try:
+            # Connect to a remote server (Google's DNS server)
+            s.connect(("8.8.8.8", 80))
+            
+            # Get the IP address
+            ip_address = s.getsockname()[0]
+        finally:
+            # Close the socket
+            s.close()
+        
+        return ip_address
 
     @staticmethod
-    def listAvailableKits(cwd) -> List[str]:
-        kitsPath = os.path.join(cwd, 'kits')
-        return os.listdir(kitsPath)
+    def listAvailableKits(kits_dir) -> List[str]:
+        return os.listdir(kits_dir)
 
     def deploy(self):
         self.docker = DockerClient()
@@ -30,14 +51,21 @@ class Deployer:
             'php:8.2-apache',
             detach=True,
             workdir='/home',
-            volumes=[(self.kit, '/var/www/html', 'ro'), (self.php_config, '/usr/local/etc/php', 'ro')],
+            volumes=[(self.kit_path, '/var/www/html', 'ro'), (self.php_config, '/usr/local/etc/php', 'ro')],
             publish=[(self.port, '80')],
         )
 
         self.p = cast(ValidContainer, p)
 
     def getAddr(self) -> str:
-        return f'http://localhost:{self.port}/'
+        params = urllib.parse.urlencode({'kit': self.kit, 'rnd': self.rnd})
+        return f'http://{self.addr}:{self.port}/?{params}'
+
+    def getPort(self) -> str:
+        return self.port
+
+    def getKit(self) -> str:
+        return self.kit
 
     def stop(self):
         self.docker.stop(self.p)
