@@ -1,3 +1,4 @@
+from textual import log
 from typing import List, Dict
 from deployer import Deployer
 import pickle
@@ -65,15 +66,29 @@ class PhishingKitStateManager:
 
         return None
 
-    def saveKits(self) -> None:
-        savingName = os.path.basename(self.dir)
+    def _getSavingFilename(self) -> str:
+        _abs = self.dir
+        if os.path.isabs(self.dir):
+            # _abs is the full path
+            _abs = os.path.join(os.getcwd(), self.dir)
+        savingName = os.path.basename(os.path.dirname(_abs))
         filename = f"{savingName}.pkl"
+        os.path.join('db', filename)
+        
+        if not os.path.exists('db'):
+            os.makedirs('db')
+
+        log.info(f"Directory: {self.dir}")
+        log.info(f"Saving kits to {filename}")
+        return filename
+
+    def saveKits(self) -> None:
+        filename = self._getSavingFilename()
         with open(filename, "wb") as f:
             pickle.dump(self.kits, f)
 
     def loadKits(self) -> List[PhishingKit]:
-        savingName = os.path.basename(self.dir)
-        filename = f"{savingName}.pkl"
+        filename = self._getSavingFilename()
         if not os.path.exists(filename):
             return []
 
@@ -124,6 +139,10 @@ class PhishingKitStateManager:
         assert kit is not None, f"Kit {name} not found"
         
         if kit.isDeployed():
+            kit.stop()
+
+    def stopAll(self) -> None:
+        for kit in self.kits:
             kit.stop()
 
     def getURL(self, name:KitName) -> str:

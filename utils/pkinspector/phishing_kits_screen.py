@@ -204,6 +204,7 @@ class PhishingKitsScreen(Screen):
 
     def on_unmount(self) -> None:
         self.stateManager.saveKits()
+        self.stateManager.stopAll()
 
     def compose(self) -> ComposeResult:
         with Horizontal():

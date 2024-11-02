@@ -1,3 +1,4 @@
 #!/bin/bash
 
-textual run --dev inspector.py
+# textual run --dev inspector.py
+python3 inspector.py

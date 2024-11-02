@@ -17,8 +17,7 @@ class InspectorApp(App):
     CSS_PATH = "inspector.tcss"
 
     def on_mount(self) -> None:
-        # self.push_screen(SearchDirectoryScreen())
-        self.push_screen(PhishingKitsScreen(DEFAULT_DIRECTORY))
+        self.push_screen(SearchDirectoryScreen())
 
     @on(SearchDirectoryScreen.DirectorySelected)
     def handleDirectorySelected(self, event: SearchDirectoryScreen.DirectorySelected) -> None:

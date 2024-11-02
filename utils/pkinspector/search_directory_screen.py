@@ -10,6 +10,11 @@ from textual.widgets import Header, Footer, LoadingIndicator, OptionList, Static
 
 import os
 
+DEFAULT_DIRECTORIES = [
+    '/archive/files/phishunt-phishing-kits/',
+    '/home/joao/my/repos/zphisher/zphisher-phishing-kits/',
+]
+
 class SearchDirectoryScreen(Screen):
     
     class DirectorySelected(Message):
@@ -24,9 +29,17 @@ class SearchDirectoryScreen(Screen):
     def handleInputSubmitted(self, event: Input.Submitted) -> None:
         path = event.value
         if os.path.isdir(path):
-            log.info(f"Directory selected: {path}")
             self.post_message(self.DirectorySelected(path))
+
+    @on(OptionList.OptionSelected)
+    def handleOptionSelected(self, event: OptionList.OptionSelected) -> None:
+        index = event.option_index
+        option_list = event.option_list
+        option = option_list.get_option_at_index(index)
+        path = str(option.prompt)
+        self.post_message(self.DirectorySelected(path))
 
     def compose(self) -> ComposeResult:
         yield Input(placeholder="Enter base directory")
+        yield OptionList(*DEFAULT_DIRECTORIES)
 
