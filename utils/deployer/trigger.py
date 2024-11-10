@@ -1,8 +1,10 @@
 from deployer import Deployer
 from typing import List
-from ..processing.gdrive_sync import GDriveSync
+from gdrive_sync import GDriveSync
 import hashlib
 import urllib.parse
+import logging
+import hashlib
 import random
 import socket
 import time
@@ -86,11 +88,19 @@ class Trigger:
         os.chdir(current_dir)
 
 if __name__ == '__main__':
+    logging.basicConfig(
+            level=logging.DEBUG,
+            format='(%(asctime)s) [%(levelname)s] %(message)s',
+            filename="trigger.log"
+        )
+
     trigger = Trigger()
     
-    deployment_count = 80
+    deployment_count = 100
 
     for i in range(deployment_count):
+        logging.info(f'[{time.ctime()}] Deploying batch {i+1}/{deployment_count}')
+
         print(f'[time.ctime()] Deploying batch {i+1}/{deployment_count}', end='             \r')
 
         trigger.deployBatch()

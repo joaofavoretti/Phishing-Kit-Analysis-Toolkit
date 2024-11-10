@@ -1,5 +1,5 @@
 from typing import List, cast
-from python_on_whales import DockerClient
+from python_on_whales import DockerClient, docker
 from python_on_whales.components.container.cli_wrapper import ValidContainer
 import urllib.parse
 import hashlib
@@ -68,6 +68,8 @@ class Deployer:
         return self.kit
 
     def stop(self):
+        if not self.docker.container.exists(self.p):
+            return
         self.docker.stop(self.p)
         self.docker.remove(self.p)
 
