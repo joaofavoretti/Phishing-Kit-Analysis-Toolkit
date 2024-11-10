@@ -1,0 +1,40 @@
+/* ***********************************************************************************************
+// *** FORMS: Ajax loader ************************************************************************
+// **********************************************************************************************/
+
+#body[theme="osmp"] [control="loadingAction"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10000;
+    display: none;
+}
+
+#body[theme="osmp"] [control="loadingAction"] .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0px;
+}
+
+#body[theme="osmp"] [control="loadingAction"] .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.4;
+    background-color: #000;
+    z-index: 1; 
+}
+
+#body[theme="osmp"] [control="loadingAction"] img {
+    vertical-align: middle;
+    margin: auto;
+    width: 60px;
+    position: relative;
+    left: 50%;
+    margin-left: -30px;
+}

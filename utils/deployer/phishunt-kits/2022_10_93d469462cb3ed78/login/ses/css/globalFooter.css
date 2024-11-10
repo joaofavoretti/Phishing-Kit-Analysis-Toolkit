@@ -1,0 +1,141 @@
+#globalFooter {
+  font-size: 13px;
+  line-height: 16px;
+  background-color: #f4f0ed;
+  border-top: 1px solid #b5adad;
+  padding: 32px 24px 24px 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-direction: column;
+  margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+#globalFooter svg {
+  padding-bottom: 24px;
+}
+#globalFooter svg path {
+  fill: #787070;
+}
+#globalFooter ul.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#globalFooter ul.links li {
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+}
+#body #globalFooter a,
+#globalFooter a {
+  padding: 0 16px 0 0;
+  white-space: nowrap;
+  margin-right: 16px;
+  cursor: pointer;
+  border-right: 1px solid gray;
+  color: #3b3331;
+  text-decoration: none;
+}
+#body #globalFooter ul li:last-child a,
+#globalFooter ul li:last-child a {
+	border-right: 0;
+}
+#footerContainer{
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/*css for tempPassword,Remeidate flows, changeUsername,modify password to override styles*/
+body#body[theme="ssep"][isMobile=false] main {
+	margin-bottom: 0;
+}
+body[isMobile=false], body#body[theme="ssep"] {
+  display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+  flex: 1;
+  -webkit-user-drag: none;
+  text-size-adjust: none;
+  margin: 0;
+  height: auto;
+}
+
+body[isMobile=false] footer#prefFooter {
+	position: relative;
+}
+
+/* adding space in usernamehelp page */
+body#body[theme="osmp"] .content {
+	padding-bottom: 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+/*LMS-3086: Empty Grey space is displayed below the footer - fixed  */
+html {
+  display: flex;
+  height: auto;
+  flex: 1 0 auto;
+  -webkit-user-drag: none;
+  text-size-adjust: none;
+  margin: 0;
+}
+
+html #body[theme="ssep"][isMobile=false] footer {
+  margin-top: auto;
+}
+
+html body#body[theme="ssep"][isMobile=false] main {
+  flex: 1 0 auto;
+}
+/* styles for Order RSA token timeout page */
+#shell {
+  margin: 0 auto;
+  border-width: 0 2px;
+  flex:1;
+}
+#shell #main {
+  height: auto;
+}
+/*  hiding stage coach for Divested LOB  */
+body#body[divested=true] #globalFooter svg {
+  display: none;
+}
+body#body[theme="ssep"][isMobile=true][divested=true] main {
+  min-height: auto;
+}
+#globalFooter[isMobile=true] ul.links li{
+  width: 50%;
+  padding-right: 20px;
+}
+#body #globalFooter[isMobile=true] a,
+#globalFooter a {
+  border-right: none;
+  white-space: normal;
+}
+#body #globalFooter[isMobile=true] div.copyright{
+  padding-top: 16px;
+  border-top: 1px solid #b5adad;
+}
+@media only screen and (max-width: 569px) {
+  #globalFooter ul.links li {
+  width: 50%;
+  padding-right: 20px;
+}
+#body #globalFooter a,
+#globalFooter a {
+  border-right: none;
+  white-space: normal;
+}
+}
+@media only screen and (max-width: 767px) {
+#body #globalFooter div.copyright{
+  padding-top: 16px;
+  border-top: 1px solid #b5adad;
+}
+}

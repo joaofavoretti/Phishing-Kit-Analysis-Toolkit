@@ -1,0 +1,1457 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ew-language date="2018/10/18" version="15.0.0.1" id="zh-CN" name="Chinese (Simplified)" desc="简体中文" author="e.World Technology Ltd.">
+  <!-- 
+	*** Important Notes:
+	1. Language ID should follow: https://developers.google.com/recaptcha/docs/language,
+	2. Locale settings are placed in a separate locale files under the "locales" folder,
+	3. Locale files must be named with language ID of language file (and converted to lowercase), e.g. en.json,
+	4. Locale files are ALWAYS used, regardless of whether the project is single language or multiple language.
+-->
+  <global>
+    <phrase id="accept" value="Accept" />
+    <!-- v2019 -->
+    <phrase id="actiondeleted" value="Deleted" />
+    <phrase id="actioninserted" value="Inserted" />
+    <phrase id="actioninsertedgridadd" value="Inserted (Grid-Add)" />
+    <phrase id="actionupdated" value="Updated" />
+    <phrase id="actionupdatedgridedit" value="Updated (Grid-Edit)" />
+    <phrase id="actionupdatedmultiupdate" value="Updated (Multi-Update)" />
+    <phrase id="activateaccount" value="Your account is activated" />
+    <phrase id="activatefailed" value="Activation failed" />
+    <phrase id="add" value="Add" />
+    <phrase id="addblankrow" value="Add Blank Row" class="fa fa-plus ew-icon" />
+    <!-- v2019 -->
+    <phrase id="addbtn" value="Add" client="1" />
+    <!-- v2018 -->
+    <phrase id="addlink" value="Add" class="fa fa-plus ew-icon" />
+    <!-- v2019 -->
+    <phrase id="addmasterdetaillink" value="Master/Detail Add" class="icon-md-add ew-icon" />
+    <!-- v11 -->
+    <phrase id="addsuccess" value="Add succeeded" />
+    <phrase id="advancedsearch" value="Advanced Search" />
+    <!-- v11 -->
+    <phrase id="advancedsearchbtn" value="Advanced Search" class="icon-advanced-search ew-icon" />
+    <!-- v11 -->
+    <phrase id="allrecords" value="All" />
+    <phrase id="allword" value="All words" />
+    <phrase id="alwaysask" value="Always ask for my user name and password" />
+    <!-- Deprecated since v2018 -->
+    <phrase id="anyword" value="Any word" />
+    <phrase id="audittrailautologin" value="autologin" />
+    <phrase id="audittrailfailedattempt" value="failed attempt: %n" />
+    <phrase id="audittrailuserloggedin" value="user already logged in" />
+    <phrase id="audittrailpasswordexpired" value="password expired" />
+    <phrase id="audittraillogin" value="login" />
+    <phrase id="audittraillogout" value="logout" />
+    <phrase id="autologin" value="Auto login until I logout explicitly" />
+    <!-- Deprecated since v2018 -->
+    <phrase id="autologinfailed" value="Auto login failed" />
+    <!-- v2018 -->
+    <phrase id="average" value="Average" />
+    <phrase id="backtolist" value="Back to List" />
+    <phrase id="backtologin" value="Back to login page" />
+    <phrase id="backtomasterrecordpage" value="Back to master table" />
+    <phrase id="batchdeletebegin" value="*** Batch delete begin ***" />
+    <phrase id="batchdeleterollback" value="*** Batch delete rollback ***" />
+    <phrase id="batchdeletesuccess" value="*** Batch delete successful ***" />
+    <phrase id="batchinsertbegin" value="*** Batch insert begin ***" />
+    <phrase id="batchinsertrollback" value="*** Batch insert rollback ***" />
+    <phrase id="batchinsertsuccess" value="*** Batch insert successful ***" />
+    <phrase id="batchupdatebegin" value="*** Batch update begin ***" />
+    <phrase id="batchupdaterollback" value="*** Batch update rollback ***" />
+    <phrase id="batchupdatesuccess" value="*** Batch update successful ***" />
+    <phrase id="buttonactions" value="Actions" class="icon-options ew-icon" />
+    <!-- v11 -->
+    <phrase id="buttonaddedit" value="Add/Edit" class="icon-addedit ew-icon" />
+    <!-- v11 -->
+    <phrase id="buttondetails" value="Master/Detail" class="icon-master-detail ew-icon" />
+    <!-- v11 -->
+    <phrase id="buttonexport" value="Export" class="fa fa-download ew-icon" />
+    <!-- v2019 -->
+    <phrase id="buttonimport" value="Import" class="fa fa-upload ew-icon" />
+    <!-- v2019 -->
+    <phrase id="buttonlistoptions" value="Options" class="icon-options ew-icon" />
+    <!-- v11 -->
+    <phrase id="buttonsearch" value="Search" class="icon-search ew-icon" />
+    <!-- v11 -->
+    <phrase id="cancelbtn" value="Cancel" client="1" />
+    <!-- v2017 -->
+    <phrase id="cancellink" value="Cancel" class="fa fa-times ew-icon" />
+    <!-- v2019 -->
+    <phrase id="changepwd" value="Change Password" />
+    <phrase id="changepwdmsg" value="Change Password" />
+    <!-- v2019 -->
+    <phrase id="changepwdpage" value="Change Password" />
+    <phrase id="changepwdbtn" value="Change" />
+    <phrase id="choosefilebtn" value="Choose..." />
+    <!-- v11 -->
+    <phrase id="choosefile" value="Choose file" />
+    <!-- v11 -->
+    <phrase id="choosefiles" value="Choose files" />
+    <!-- v11 -->
+    <phrase id="clickrecaptcha" value="Please click reCAPTCHA" client="1" />
+    <!-- v12 -->
+    <phrase id="closeaccountbtn" value="Delete data and close my account" />
+    <!-- v2019 -->
+    <phrase id="closebtn" value="Close" client="1" />
+    <!-- v2017 -->
+    <phrase id="confirm" value="Confirm" />
+    <phrase id="confirmbtn" value="Confirm" client="1" />
+    <!-- v2017 -->
+    <phrase id="confirmcancel" value="Do you want to cancel?" client="1" />
+    <!-- v12 -->
+    <phrase id="confirmpassword" value="Confirm Password" />
+    <phrase id="conflictcancellink" value="Cancel" />
+    <phrase id="cookieconsentsummary" value="Use this space to summarize your privacy and cookie use policy." />
+    <!-- v2019 -->
+    <phrase id="copy" value="Copy" />
+    <phrase id="copylink" value="Copy" class="icon-copy ew-icon" />
+    <!-- v11 -->
+    <phrase id="count" value="Count" />
+    <phrase id="countselected" value="%s selected" client="1" />
+    <!-- v12 -->
+    <phrase id="currentpassword" value="Current password: " client="1" />
+    <!-- v12 -->
+    <phrase id="customactioncompleted" value="'%s' completed" />
+    <phrase id="customactioncancelled" value="'%s' cancelled" />
+    <phrase id="customactionfailed" value="'%s' failed" />
+    <!-- v12 -->
+    <phrase id="customactionnotallowed" value="'%s' not allowed" />
+    <!-- v12 -->
+    <phrase id="customview" value="CUSTOM VIEW" />
+    <phrase id="delete" value="Delete" />
+    <phrase id="deletebtn" value="Delete" />
+    <phrase id="deletecancelled" value="Delete cancelled" />
+    <phrase id="deleteconfirmmsg" value="Are you sure you want to delete?" client="1" />
+    <phrase id="deletefilter" value="Delete filter" />
+    <!-- v12 -->
+    <phrase id="deletefilterconfirm" value="Delete filter %s?" client="1" />
+    <!-- v12 -->
+    <phrase id="deletelink" value="Delete" class="fa fa-trash ew-icon" />
+    <!-- v2019 -->
+    <phrase id="deleteselectedlink" value="Delete Selected Records" class="fa fa-trash ew-icon" />
+    <!-- v2019 -->
+    <phrase id="deletesuccess" value="Delete succeeded" />
+    <phrase id="detaillink" value="" />
+    <phrase id="detailcount" value="&lt;span class='badge badge-info ew-detail-count%c'&gt;%c&lt;/span&gt;" />
+    <!-- v2019 -->
+    <phrase id="downloadbtn" value="Download" />
+    <!-- v2019 -->
+    <phrase id="dupindex" value="Duplicate value '%v' for unique index '%f'" />
+    <phrase id="dupkey" value="Duplicate primary key: '%f'" />
+    <phrase id="edit" value="Edit" />
+    <phrase id="editbtn" value="Edit" client="1" />
+    <!-- v2018 -->
+    <phrase id="editlink" value="Edit" class="icon-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="enterfiltername" value="Enter filter name" client="1" />
+    <!-- v12 -->
+    <phrase id="enternewpassword" value="Please enter new password" client="1" />
+    <phrase id="enteroldpassword" value="Please enter old password" client="1" />
+    <phrase id="enterpassword" value="Please enter password" client="1" />
+    <phrase id="enterpwd" value="Please enter password" client="1" />
+    <phrase id="enterrequiredfield" value="Please enter required field - %s" />
+    <!-- v11 -->
+    <phrase id="entersearchcriteria" value="Please enter search criteria" />
+    <phrase id="enterusername" value="Please enter username" client="1" />
+    <phrase id="entervalidatecode" value="Enter the validation code shown" client="1" />
+    <!-- v11 -->
+    <phrase id="entersenderemail" value="Please enter sender email" client="1" />
+    <phrase id="enterpropersenderemail" value="Exceed maximum sender email count or email address incorrect" client="1" />
+    <phrase id="enterrecipientemail" value="Please enter recipient email" client="1" />
+    <phrase id="enterproperrecipientemail" value="Exceed maximum recipient email count or email address incorrect" client="1" />
+    <phrase id="enterproperccemail" value="Exceed maximum cc email count or email address incorrect" client="1" />
+    <phrase id="enterproperbccemail" value="Exceed maximum bcc email count or email address incorrect" client="1" />
+    <phrase id="entersubject" value="Please enter subject" client="1" />
+    <phrase id="emailformsender" value="From" />
+    <phrase id="emailformrecipient" value="To" />
+    <phrase id="emailformcc" value="Cc" />
+    <phrase id="emailformbcc" value="Bcc" />
+    <phrase id="emailformsubject" value="Subject" />
+    <phrase id="emailformmessage" value="Message" />
+    <phrase id="emailformcontenttype" value="Send as" />
+    <phrase id="emailformcontenttypeurl" value="URL" />
+    <phrase id="emailformcontenttypehtml" value="HTML" />
+    <phrase id="enteruid" value="Please enter user ID" client="1" />
+    <phrase id="entervalidemail" value="Please enter valid Email Address" client="1" />
+    <phrase id="exactphrase" value="Exact phrase" />
+    <phrase id="exceedmaxretry" value="Exceed maximum login retry count. Account is locked. Please try again in %t minutes" />
+    <phrase id="exceedmaxemailexport" value="Exceed maximum export email count. Please try again later" />
+    <phrase id="exportclassnotfound" value="Export class not found" />
+    <!-- v2019 -->
+    <phrase id="exporting" value="Exporting, please wait..." client="1" />
+    <!-- v2018 -->
+    <phrase id="exporttocsv" value="Export to CSV" class="icon-csv ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttocsvtext" value="CSV" />
+    <phrase id="exporttoemail" value="Email" class="icon-email ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttoemailtext" value="Email" client="1" />
+    <phrase id="exporttoexcel" value="Export to Excel" class="icon-excel ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttoexceltext" value="Excel" />
+    <phrase id="exporttohtml" value="Export to HTML" class="icon-html ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttohtmltext" value="HTML" />
+    <phrase id="exporttopdf" value="Export to PDF" class="icon-pdf ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttopdftext" value="PDF" />
+    <phrase id="exporttoword" value="Export to Word" class="icon-word ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttowordtext" value="Word" />
+    <phrase id="exporttoxml" value="Export to XML" class="icon-xml ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttoxmltext" value="XML" />
+    <phrase id="failedtoexport" value="Failed to Export" client="1" />
+    <!-- v2018 -->
+    <phrase id="failedtosendmail" value="Failed to send mail. " />
+    <phrase id="fieldname" value="Field Name" />
+    <phrase id="fieldrequiredindicator" class="fa fa-asterisk ew-required" />
+    <!-- v2019 -->
+    <phrase id="filenotfound" value="File not found" />
+    <!-- * characters need to be supported by TEMP_IMAGE_FONT * -->
+    <phrase id="filter" value="Filter" />
+    <!-- v12 -->
+    <phrase id="filtername" value="Filter name" client="1" />
+    <!-- v12 -->
+    <phrase id="filters" value="Filters" class="icon-filter ew-icon" />
+    <!-- v12 -->
+    <phrase id="forgotpasswordresponse" value="You will receive password recovery instructions shortly if your email address is registered." />
+    <!-- v2019 -->
+    <phrase id="forgotpwd" value="Forgot Password" />
+    <phrase id="generatepassword" value="Generate password" class="fa fa-bolt ew-icon" />
+    <!-- v2019 -->
+    <phrase id="goback" value="Go Back" />
+    <phrase id="gridaddcancelled" value="Grid add cancelled" />
+    <!-- v11 -->
+    <phrase id="gridaddlink" value="Grid Add" class="icon-grid-add ew-icon" />
+    <!-- v11 -->
+    <phrase id="gridcancellink" value="Cancel" class="fa fa-times ew-icon" />
+    <!-- v2019 -->
+    <phrase id="grideditcancelled" value="Grid edit cancelled" />
+    <!-- v11 -->
+    <phrase id="grideditlink" value="Grid Edit" class="icon-grid-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="gridinsertlink" value="Insert" class="fa fa-check ew-icon" />
+    <!-- v2019 -->
+    <phrase id="gridsavelink" value="Save" class="fa fa-check ew-icon" />
+    <!-- v2019 -->
+    <phrase id="highlight" value="Highlight" />
+    <!-- v11 -->
+    <phrase id="highlightbtn" value="Highlight" class="icon-highlight ew-icon" />
+    <!-- v11 -->
+    <phrase id="homepage" value="Home" class="fa fa-home ew-icon" />
+    <!-- v2019 -->
+    <phrase id="import" value="Import" class="fa fa-upload ew-icon" />
+    <!-- v2019 -->
+    <phrase id="importbtn" value="Import" />
+    <!-- v2019 -->
+    <phrase id="importmessageerror1" value="Imported %c of %t records from %f (success: %s, failure: %e)" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageerror2" value=", error: %e" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageerror3" value="row %i: %d" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageerror4" value="log file: %l" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageinvalidfileextension" value="Invalid file extension '%e'" />
+    <!-- v2019 -->
+    <phrase id="importmessageinvalidfieldname" value="Invalid field name: %f" />
+    <!-- v2019 -->
+    <phrase id="importmessageinvalidfieldvalue" value="Invalid field value (field name %f): %v" />
+    <!-- v2019 -->
+    <phrase id="importmessagemore" value="(%s more)" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessagenoheaderrow" value="No header row for import" />
+    <!-- v2019 -->
+    <phrase id="importmessageprogress" value="Importing %c of %t records from %f..." client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageservererror" value="Server error %s: %t" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessagesuccess" value="Imported %c of %t records from %f successfully" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageuploaderror" value="Failed to upload %f: %s" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageuploadcomplete" value="Upload completed" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageuploadprogress" value="Uploading...(p%)" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessagepleaseselect" value="Please select file" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageincorrectfiletype" value="Incorrect file type" client="1" />
+    <!-- v2019 -->
+    <phrase id="importtext" value="Import" client="1" />
+    <!-- v2019 -->
+    <phrase id="incorrectcreditcard" value="Incorrect credit card number" />
+    <phrase id="incorrectdate" value="Incorrect date (%s)" />
+    <phrase id="incorrectdateymd" value="Incorrect date (yyyy%smm%sdd)" />
+    <phrase id="incorrectdatemdy" value="Incorrect date (mm%sdd%syyyy)" />
+    <phrase id="incorrectdatedmy" value="Incorrect date (dd%smm%syyyy)" />
+    <phrase id="incorrectshortdateymd" value="Incorrect date (yy%smm%sdd)" />
+    <phrase id="incorrectshortdatemdy" value="Incorrect date (mm%sdd%syy)" />
+    <phrase id="incorrectshortdatedmy" value="Incorrect date (dd%smm%syy)" />
+    <phrase id="incorrectemail" value="Incorrect email" client="1" />
+    <phrase id="incorrectfield" value="Incorrect field" client="1" />
+    <phrase id="incorrectfloat" value="Incorrect floating point number" client="1" />
+    <phrase id="incorrectguid" value="Incorrect GUID" client="1" />
+    <phrase id="incorrectinteger" value="Incorrect integer" client="1" />
+    <phrase id="incorrectphone" value="Incorrect phone number" client="1" />
+    <phrase id="incorrectregexp" value="Regular expression not matched" client="1" />
+    <phrase id="incorrectrange" value="Number must be between %1 and %2" client="1" />
+    <phrase id="incorrectssn" value="Incorrect social security number" client="1" />
+    <phrase id="incorrecttime" value="Incorrect time (hh%smm(%sss))" />
+    <phrase id="incorrectzip" value="Incorrect ZIP code" client="1" />
+    <phrase id="inlineaddlink" value="Inline Add" class="icon-inline-add ew-icon" />
+    <!-- v11 -->
+    <phrase id="inlinecopylink" value="Inline Copy" class="icon-inline-copy ew-icon" />
+    <!-- v11 -->
+    <phrase id="inlineeditlink" value="Inline Edit" class="icon-inline-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="insertcancelled" value="Insert cancelled" />
+    <phrase id="insertfailed" value="Insert failed" client="1" />
+    <phrase id="insertlink" value="Insert" class="fa fa-check ew-icon" />
+    <!-- v2019 -->
+    <phrase id="insertsuccess" value="Insert succeeded" />
+    <phrase id="invalidemail" value="Invalid Email" />
+    <phrase id="invalidfield" value="Invalid Field" />
+    <phrase id="invalidkeyvalue" value="Invalid key value" />
+    <phrase id="invalidrecord" value="Invalid Record! Key is null" client="1" />
+    <phrase id="invalidpostrequest" value="Invalid post request" />
+    <!-- v11 -->
+    <phrase id="invalidparameter" value="Invalid Parameter" />
+    <phrase id="invalidpassword" value="Invalid Password" />
+    <phrase id="invalidnewpassword" value="Invalid New Password" />
+    <phrase id="invaliduidpwd" value="Incorrect user name or password" />
+    <phrase id="keep" value="Keep" />
+    <phrase id="language" value="Language" />
+    <phrase id="learnmore" value="Learn More" />
+    <!-- v2019 -->
+    <phrase id="lightboxtitle" value=" " client="1" />
+    <!-- v11 -->
+    <phrase id="lightboxcurrent" value="image {current} of {total}" client="1" />
+    <!-- Note: DO NOT translate "{current}" and "{total}" -->
+    <!-- v11 -->
+    <phrase id="lightboxprevious" value="previous" client="1" />
+    <!-- v11 -->
+    <phrase id="lightboxnext" value="next" client="1" />
+    <!-- v11 -->
+    <phrase id="lightboxclose" value="close" client="1" />
+    <!-- v11 -->
+    <phrase id="lightboxxhrerror" value="This content failed to load." client="1" />
+    <!-- v11 -->
+    <phrase id="lightboximgerror" value="This image failed to load." client="1" />
+    <!-- v11 -->
+    <phrase id="listactionbutton" value="Actions" class="icon-user ew-icon" />
+    <!-- v12 -->
+    <phrase id="loading" value="Loading..." client="1" />
+    <phrase id="login" value="Login" />
+    <phrase id="logincancelled" value="Login cancelled" />
+    <phrase id="loginfacebook" value="Login with Facebook" />
+    <!-- v2018 -->
+    <phrase id="loginfailed" value="Login with %p failed" />
+    <!-- v2018 -->
+    <phrase id="logingoogle" value="Login with Google" />
+    <!-- v2018 -->
+    <phrase id="loginmsg" value="Sign in to start your session" />
+    <!-- v2019 -->
+    <phrase id="loginoptions" value="Options" />
+    <!-- v11 -->
+    <phrase id="loginor" value="- OR -" />
+    <!-- v2018 -->
+    <phrase id="loginpage" value="Login" />
+    <phrase id="logout" value="Logout" />
+    <phrase id="lookuplink" value="Lookup - %s" class="fa fa-search ew-icon" />
+    <!-- v2019 -->
+    <phrase id="masterdetailcopylink" value="Master/Detail Copy" class="icon-md-copy ew-icon" />
+    <!-- v11 -->
+    <phrase id="masterdetaileditlink" value="Master/Detail Edit" class="icon-md-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="masterdetaillistlink" value="Detail List" class="icon-table ew-icon" />
+    <!-- v11 -->
+    <phrase id="masterdetailviewlink" value="Master/Detail View" class="icon-md-view ew-icon" />
+    <!-- v11 -->
+    <phrase id="masterrecord" value="Master Record: " />
+    <phrase id="maxfilesize" value="Max. file size (%s bytes) exceeded." client="1" />
+    <phrase id="messageok" value="OK" client="1" />
+    <phrase id="midnight" value="midnight" client="1" />
+    <!-- v2017 -->
+    <phrase id="mismatchpassword" value="Mismatch Password" client="1" />
+    <phrase id="missinglookuptablename" value="Missing lookup table name" />
+    <phrase id="missingdisplayfieldname" value="Missing display field name" />
+    <phrase id="missingdisplayfieldvalue" value="Missing display field value" />
+    <phrase id="missinguserlevelid" value="Missing User Level ID" />
+    <phrase id="missinguserlevelname" value="Missing User Level name" />
+    <phrase id="mobilemenu" value="Menu" />
+    <phrase id="more" value="More" client="1" />
+    <!-- v2018 -->
+    <phrase id="multiplemasterdetails" value="Master/Detail" class="icon-master-detail ew-icon" />
+    <!-- v11 -->
+    <phrase id="new" value="New" />
+    <phrase id="newpassword" value="New Password" />
+    <phrase id="newvalue" value="New value" />
+    <!-- v12 -->
+    <phrase id="next" value="Next" client="1" />
+    <!-- v12 -->
+    <phrase id="noaddrecord" value="No records to be added" client="1" />
+    <phrase id="nofieldselected" value="No field selected for update" client="1" />
+    <phrase id="nopermission" value="You do not have permission to access %s." />
+    <!-- v12.0.6 -->
+    <phrase id="noaddpermission" value="You do not have permission to add the record." />
+    <phrase id="nodeletepermission" value="You do not have permission to delete the record." />
+    <phrase id="noeditpermission" value="You do not have permission to edit the record." />
+    <phrase id="noon" value="noon" />
+    <!-- v2017 -->
+    <phrase id="norecord" value="No records found" client="1" />
+    <!-- v2017 -->
+    <phrase id="norecordforkey" value="No record found for key = " />
+    <phrase id="norecordselected" value="No records selected" client="1" />
+    <phrase id="notablegenerated" value="No tables generated" />
+    <phrase id="nouserlevel" value="No user level settings." />
+    <phrase id="of" value="of" client="1" />
+    <!-- v2017 -->
+    <phrase id="old" value="Old" />
+    <phrase id="oldpassword" value="Old Password" />
+    <phrase id="optionalreadyexist" value="Option already exists" />
+    <phrase id="overwritebtn" value="Overwrite" client="1" />
+    <!-- v2017 -->
+    <phrase id="overwritelink" value="Overwrite" />
+    <phrase id="page" value="Page" client="1" />
+    <!-- v2017 -->
+    <phrase id="pagerfirst" value="First" />
+    <phrase id="pagerlast" value="Last" />
+    <phrase id="pagernext" value="Next" />
+    <phrase id="pagerprevious" value="Previous" />
+    <phrase id="password" value="Password" />
+    <phrase id="passwordmask" value="********" />
+    <!-- v12 -->
+    <phrase id="passwordrequest" value="Password Request" />
+    <phrase id="passwordchanged" value="Password Changed" />
+    <phrase id="passwordexpired" value="Password Expired. Please change password." />
+    <phrase id="passwordstrength" value="Strength: %p" client="1" />
+    <!-- v12 -->
+    <phrase id="passwordtoosimple" value="Your password is too simple" client="1" />
+    <!-- v12 -->
+    <phrase id="permission" value="Permissions" class="icon-user ew-icon" />
+    <!-- v11 -->
+    <phrase id="permissionaddcopy" value="Add/Copy" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionadmin" value="Admin" client="1" />
+    <!-- v2019 -->
+    <phrase id="permissiondelete" value="Delete" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionedit" value="Edit" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionlistsearchview" value="List/Search/View" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionlist" value="List" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionsearch" value="Search" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionview" value="View" client="1" />
+    <!-- v2018 -->
+    <phrase id="personaldatabtn" value="Personal Data" />
+    <!-- v2019 -->
+    <phrase id="personaldatacontent" value="Your account contains personal data that you have given us. This page allows you to download or delete that data." />
+    <!-- v2019 -->
+    <phrase id="personaldatadeletefailure" value="Unexpected error occurred deleting user" />
+    <!-- v2019 -->
+    <phrase id="personaldatadeletesuccess" value="Personal data deleted successfully" />
+    <!-- v2019 -->
+    <phrase id="personaldatatitle" value="Personal Data" />
+    <!-- v2019 -->
+    <phrase id="personaldatawarning" value="Deleting this data will permanently remove your account, and this cannot be recovered." />
+    <!-- v2019 -->
+    <phrase id="pickdate" value="Pick a date" />
+    <phrase id="pleaseselect" value="Please select" client="1" />
+    <!-- v12 -->
+    <phrase id="pleasewait" value="Please wait..." client="1" />
+    <phrase id="prev" value="Prev" client="1" />
+    <!-- v12 -->
+    <phrase id="primarykeyunspecified" value="Primary key unspecified" />
+    <phrase id="printerfriendly" value="Printer Friendly" class="icon-print ew-icon" />
+    <!-- v11 -->
+    <phrase id="printerfriendlytext" value="Printer Friendly" />
+    <phrase id="privacypolicy" value="Privacy Policy" />
+    <!-- v2019 -->
+    <phrase id="privacypolicycontent" value="Use this page to detail your site's privacy policy." />
+    <!-- v2019 -->
+    <phrase id="quicksearch" value="Quick Search" />
+    <phrase id="quicksearchbtn" value="Search" />
+    <phrase id="quicksearchauto" value="Auto" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchautoshort" value="" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchall" value="All keywords" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchallshort" value="All" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchany" value="Any keywords" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchanyshort" value="Any" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchexact" value="Exact match" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchexactshort" value="Exact" client="1" />
+    <!-- v11 -->
+    <phrase id="record" value="Records" client="1" />
+    <!-- v2017 -->
+    <phrase id="recordchangedbyotheruser" value="Data has been changed by other user. Click [Reload] to retrieve the changed data (your data in the form will be overwritten) or click [Overwrite] to overwrite the changed data." />
+    <phrase id="recorddeleted" value="record(s) deleted" />
+    <phrase id="recordinserted" value="record(s) inserted" />
+    <phrase id="recordupdated" value="record(s) updated" />
+    <phrase id="recordsperpage" value="Page size" client="1" />
+    <!-- v2017 -->
+    <phrase id="register" value="Register" />
+    <phrase id="registerbtn" value="Register" />
+    <phrase id="registersuccess" value="Registration succeeded" />
+    <phrase id="registersuccessactivate" value="Registration succeeded. An email has been sent to your email address, please click the link in the email to activate your account." />
+    <phrase id="registerpage" value="Registration" />
+    <phrase id="relatedrecordrequired" value="You cannot add or update a record because the foreign key value does not exist in the master table '%t'" />
+    <phrase id="relatedrecordexists" value="You cannot delete a record because related records exist in the detail table '%t'" />
+    <phrase id="reloadbtn" value="Reload" client="1" />
+    <!-- v2017 -->
+    <phrase id="reloadlink" value="Reload" />
+    <phrase id="rememberme" value="Remember me" />
+    <phrase id="remove" value="Remove" />
+    <phrase id="replace" value="Replace" />
+    <phrase id="report" value="Report" />
+    <phrase id="requestpwd" value="Request Password" />
+    <!-- v2018 -->
+    <phrase id="requestpwdmsg" value="Request Password" />
+    <!-- v2019 -->
+    <phrase id="reset" value="Reset" />
+    <phrase id="resendregisteremailbtn" value="Resend registration email" />
+    <!-- v12 -->
+    <phrase id="resendregisteremailsuccess" value="Registration email for user '%u' has been re-sent" />
+    <!-- v12 -->
+    <phrase id="resendregisteremailfailure" value="Failed to re-send register email for user '%u' has failed" />
+    <!-- v12 -->
+    <phrase id="resetconcurrentuserbtn" value="Reset concurrent user session" />
+    <!-- v12 -->
+    <phrase id="resetconcurrentusersuccess" value="Session for user '%u' has been reset" />
+    <!-- v12 -->
+    <phrase id="resetconcurrentuserfailure" value="Failed to reset session for user '%u'" />
+    <!-- v12 -->
+    <phrase id="resetloginretrybtn" value="Reset login retry count" />
+    <!-- v12 -->
+    <phrase id="resetloginretrysuccess" value="Login retry count for user '%u' has been reset" />
+    <!-- v12 -->
+    <phrase id="resetloginretryfailure" value="Failed to reset login retry count for user '%u'" />
+    <!-- v12 -->
+    <phrase id="resetsearchbtn" value="Reset" class="icon-reset-search ew-icon" />
+    <!-- v11 -->
+    <phrase id="resetsearch" value="Reset" />
+    <phrase id="rptavg" value="Average" />
+    <phrase id="rptdtlrec" value="Detail Records" />
+    <phrase id="rptgrandtotal" value="Grand Total" />
+    <phrase id="rptmax" value="Maximum" />
+    <phrase id="rptmin" value="Minimum" />
+    <phrase id="rptsum" value="Sum" />
+    <phrase id="rptsumhead" value="Summary for" />
+    <phrase id="savebtn" value="Save" client="1" />
+    <!-- v2018 -->
+    <phrase id="savecurrentfilter" value="Save current filter" />
+    <!-- v12 -->
+    <phrase id="saveusername" value="Save my user name" />
+    <!-- Deprecated since v2018 -->
+    <phrase id="search" value="Search" client="1" />
+    <!-- v2017 -->
+    <phrase id="searchbtn" value="Search" client="1" />
+    <!-- v2018 -->
+    <phrase id="searchlink" value="Search" class="fa fa-search ew-icon" />
+    <!-- v2019 -->
+    <phrase id="searchpanel" value="Search Panel" />
+    <!-- v11 -->
+    <phrase id="selectbtn" value="Select" client="1" />
+    <!-- v2017 -->
+    <phrase id="sendemailbtn" value="Send" />
+    <phrase id="sendemailsuccess" value="Email sent successfully" client="1" />
+    <phrase id="sendpwd" value="Send" />
+    <phrase id="sequencenumber" value="%s." />
+    <phrase id="servercommunicationerror" value="An error occured while communicating to the server." />
+    <!-- v2017 -->
+    <phrase id="sessionwillexpire" value="Your session will expire in %s seconds. Click OK to continue your session." client="1" />
+    <!-- v12 -->
+    <phrase id="sessionexpired" value="Your session has expired." client="1" />
+    <!-- v12 -->
+    <phrase id="setpasswordexpiredbtn" value="Set password expired" />
+    <!-- v12 -->
+    <phrase id="setpasswordexpiredsuccess" value="Password for user '%u' has been set as expired" />
+    <!-- v12 -->
+    <phrase id="setpasswordexpiredfailure" value="Failed to set password for user '%u' as expired" />
+    <!-- v12 -->
+    <phrase id="showallbtn" value="Show all" class="icon-reset-search ew-icon" />
+    <!-- v11 -->
+    <phrase id="showall" value="Show all" />
+    <!-- v11 -->
+    <phrase id="srchlegend" value="" />
+    <phrase id="table" value="TABLE" />
+    <phrase id="tableorview" value="Tables" client="1" />
+    <!-- v2018 -->
+    <phrase id="tbltypetable" value="Table: " />
+    <phrase id="tbltypeview" value="View: " />
+    <phrase id="tbltypecustomview" value="Custom View: " />
+    <phrase id="tbltypereport" value="Report: " />
+    <phrase id="to" value="to" />
+    <phrase id="total" value="Total" />
+    <phrase id="unauthorizeduserid" value="The current user (%c) is not authorized to assign the user ID (%u)." />
+    <phrase id="unauthorizedparentuserid" value="The current user (%c) is not authorized to assign the parent user ID (%p)." />
+    <phrase id="unauthorizedmasteruserid" value="The current user (%c) is not authorized to insert the record. Master filter: %f" />
+    <phrase id="update" value="Update" />
+    <phrase id="updatebtn" value="Update" client="1" />
+    <!-- v2017 -->
+    <phrase id="updatecancelled" value="Update cancelled" />
+    <phrase id="updatefailed" value="Update failed" />
+    <phrase id="updatelink" value="Update" class="fa fa-check ew-icon" />
+    <!-- v2019 -->
+    <phrase id="updateselectall" value="Select all" />
+    <!-- v11 -->
+    <phrase id="updateselectedlink" value="Update Selected Records" class="icon-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="updatesuccess" value="Update succeeded" />
+    <phrase id="uploading" value="Uploading..." client="1" />
+    <phrase id="uploadstart" value="Start" client="1" />
+    <phrase id="uploadcancel" value="Cancel" client="1" />
+    <phrase id="uploaddelete" value="Delete" client="1" />
+    <phrase id="uploadoverwrite" value="Overwrite old file?" client="1" />
+    <phrase id="uploaderrmsg1" value="The uploaded file exceeds the upload_max_filesize directive in php.ini" />
+    <phrase id="uploaderrmsg2" value="The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form" />
+    <phrase id="uploaderrmsg3" value="The uploaded file was only partially uploaded" />
+    <phrase id="uploaderrmsg4" value="No file was uploaded" />
+    <phrase id="uploaderrmsg6" value="Missing a temporary folder" />
+    <phrase id="uploaderrmsg7" value="Failed to write file to disk" />
+    <phrase id="uploaderrmsg8" value="A PHP extension stopped the file upload" />
+    <phrase id="uploaderrmsgpostmaxsize" value="The uploaded file exceeds the post_max_size directive in php.ini" />
+    <phrase id="uploaderrmsgmaxfilesize" value="File is too big" client="1" />
+    <phrase id="uploaderrmsgminfilesize" value="File is too small" client="1" />
+    <phrase id="uploaderrmsgacceptfiletypes" value="File type not allowed" client="1" />
+    <phrase id="uploaderrmsgmaxnumberoffiles" value="Maximum number of files exceeded" client="1" />
+    <phrase id="uploaderrmsgmaxwidth" value="Image exceeds maximum width" />
+    <phrase id="uploaderrmsgminwidth" value="Image requires a minimum width" />
+    <phrase id="uploaderrmsgmaxheight" value="Image exceeds maximum height" />
+    <phrase id="uploaderrmsgminheight" value="Image requires a minimum height" />
+    <phrase id="uploaderrmsgmaxfilelength" value="Total length of file names exceeds field length" client="1" />
+    <phrase id="useradministrator" value="Administrator" client="1" />
+    <!-- v12 -->
+    <phrase id="useranonymous" value="Anonymous" client="1" />
+    <!-- v12 -->
+    <phrase id="userdefault" value="Default" client="1" />
+    <!-- v12 -->
+    <phrase id="useremail" value="Email" />
+    <phrase id="userexists" value="User already exists" />
+    <phrase id="userlevel" value="User Level: " />
+    <phrase id="userleveladministratorname" value="User level name for user level -1 must be 'Administrator'" client="1" />
+    <phrase id="userlevelanonymousname" value="User level name for user level -2 must be 'Anonymous'" client="1" />
+    <!-- v12 -->
+    <phrase id="userlevelpermission" value="User Level Permissions" />
+    <phrase id="userlevelidinteger" value="User Level ID must be integer" client="1" />
+    <phrase id="userleveldefaultname" value="User level name for user level 0 must be 'Default'" client="1" />
+    <phrase id="userlevelidincorrect" value="User defined User Level ID must be larger than 0" client="1" />
+    <phrase id="userlevelnameincorrect" value="User defined User Level name cannot be 'Administrator' or 'Default'" client="1" />
+    <phrase id="userloggedin" value="User '%u' already logged in" />
+    <phrase id="username" value="User Name" />
+    <phrase id="usernotfound" value="User '%u' not found" />
+    <!-- v2018 -->
+    <phrase id="userprofilecorrupted" value="User profile is corrupted. Please logout and login again" />
+    <phrase id="valuenotexist" value="Value does not exist" client="1" />
+    <!-- v11 -->
+    <phrase id="view" value="View" />
+    <phrase id="viewimagegallery" value="Click to view image" />
+    <!-- v12 -->
+    <phrase id="viewlink" value="View" class="icon-view ew-icon" />
+    <!-- v11 -->
+    <phrase id="viewpageaddlink" value="Add" class="fa fa-plus ew-icon" />
+    <!-- v2019 -->
+    <phrase id="viewpagecopylink" value="Copy" class="icon-copy ew-icon" />
+    <!-- v11 -->
+    <phrase id="viewpagedeletelink" value="Delete" class="fa fa-trash ew-icon" />
+    <!-- v2019 -->
+    <phrase id="viewpagedetaillink" value="" />
+    <phrase id="viewpageeditlink" value="Edit" class="icon-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="wrongfiletype" value="File type is not allowed." client="1" />
+    <phrase id="=" value="&amp;nbsp;" />
+    <!-- v12 -->
+    <phrase id="equal" value="=" />
+    <!-- v12 -->
+    <phrase id="&lt;&gt;" value="&amp;lt;&amp;gt;" />
+    <phrase id="&lt;" value="&amp;lt;" />
+    <phrase id="&lt;=" value="&amp;lt;=" />
+    <phrase id="&gt;" value="&amp;gt;" />
+    <phrase id="&gt;=" value="&amp;gt;=" />
+    <phrase id="like" value="contains" />
+    <phrase id="not like" value="does not contain" />
+    <!-- v11.0.3 -->
+    <phrase id="starts with" value="starts with" />
+    <phrase id="ends with" value="ends with" />
+    <phrase id="is null" value="is null" />
+    <phrase id="is not null" value="is not null" />
+    <phrase id="between" value="between" />
+    <phrase id="and" value="and" />
+    <phrase id="or" value="or" />
+    <phrase id="am" value="AM" client="1" />
+    <!-- v2017 -->
+    <phrase id="pm" value="PM" client="1" />
+    <!-- v2017 -->
+  </global>
+  <project>
+    <phrase id="footertext" value="&amp;copy;2018 EqualSmart Technology Ltd. All rights reserved." />
+    <menu id="24">
+      <phrase id="menutext" value="esbc host" />
+    </menu>
+    <menu id="2">
+      <phrase id="menutext" value="basic acctype" />
+    </menu>
+    <menu id="3">
+      <phrase id="menutext" value="笔链总览" />
+    </menu>
+    <menu id="4">
+      <phrase id="menutext" value="basic server" />
+    </menu>
+    <menu id="6">
+      <phrase id="menutext" value="basic user" />
+    </menu>
+    <menu id="19">
+      <phrase id="menutext" value="&lt;h style=&quot;font-weight:bold&quot;&gt;应用总览&lt;/h&gt;" />
+    </menu>
+    <menu id="5">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;通证总览" />
+    </menu>
+    <menu id="20">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;合约总览" />
+    </menu>
+    <menu id="8">
+      <phrase id="menutext" value="服务器地址总览" />
+    </menu>
+    <menu id="18">
+      <phrase id="menutext" value="&lt;h style=&quot;font-weight:bold&quot;&gt;创链总览&lt;/h&gt;" />
+    </menu>
+    <menu id="7">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;服务器总览" />
+    </menu>
+    <menu id="15">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;节点总览" />
+    </menu>
+    <menu id="1">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;账户总览" />
+    </menu>
+    <menu id="9">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;创链记录" />
+    </menu>
+    <menu id="23">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;BCHUB组织" />
+    </menu>
+    <menu id="21">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;区块指令集" />
+    </menu>
+    <menu id="22">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;GETH参数" />
+    </menu>
+    <menu id="25">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;创始区块" />
+    </menu>
+    <menu id="17">
+      <phrase id="menutext" value="&lt;h style=&quot;font-weight:bold&quot;&gt;历史资料&lt;/h&gt;" />
+    </menu>
+    <menu id="12">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;区块记录" />
+    </menu>
+    <menu id="13">
+      <phrase id="menutext" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;gt;&amp;nbsp;交易记录" />
+    </menu>
+    <menu id="10">
+      <phrase id="menutext" value="esbc template" />
+    </menu>
+    <menu id="11">
+      <phrase id="menutext" value="&lt;h style=&quot;font-weight:bold&quot;&gt;用户资料&lt;/h&gt;" />
+    </menu>
+    <menu id="14">
+      <phrase id="menutext" value="log uncle" />
+    </menu>
+    <menu id="16">
+      <phrase id="menutext" value="userlevels" />
+    </menu>
+    <table id="basic_acc">
+      <phrase id="tblcaption" value="账户总览" />
+      <field id="acc_addr">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;账户地址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="acc_name">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;账户名称&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="type">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;账户类型&lt;/strong&gt;&lt;/center&gt;" />
+        <phrase id="fldtagvalue1" value="Personal Account" />
+        <phrase id="fldtagcaption1" value="Personal Account" />
+        <phrase id="fldtagvalue2" value="Smart Contract" />
+        <phrase id="fldtagcaption2" value="Smart Contract" />
+      </field>
+      <field id="balance">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;账户余额&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="txcount">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;交易次数&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="dateadd">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;账户设立时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="basic_acctype">
+      <phrase id="tblcaption" value="账户类型" />
+      <field id="type">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;账户类型&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;类型名称&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="dateadd">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;设立时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="basic_chain">
+      <phrase id="tblcaption" value="笔链总览" />
+      <field id="rindex">
+        <phrase id="fldcaption" value="序号" />
+      </field>
+      <field id="serverip">
+        <phrase id="fldcaption" value="服务器IP" />
+      </field>
+      <field id="bootdir">
+        <phrase id="fldcaption" value="中央节点地址" />
+      </field>
+      <field id="bootnode">
+        <phrase id="fldcaption" value="中央节点" />
+      </field>
+      <field id="nodedir">
+        <phrase id="fldcaption" value="子节点地址" />
+      </field>
+      <field id="acc0">
+        <phrase id="fldcaption" value="初始账户" />
+      </field>
+      <field id="acc0_role">
+        <phrase id="fldcaption" value="初始账户职务" />
+      </field>
+      <field id="acc0_pwd">
+        <phrase id="fldcaption" value="初始账户密码" />
+      </field>
+      <field id="acc1">
+        <phrase id="fldcaption" value="衍生账户" />
+      </field>
+      <field id="acc1_role">
+        <phrase id="fldcaption" value="衍生账户职务" />
+      </field>
+      <field id="acc1_pwd">
+        <phrase id="fldcaption" value="衍生账户密码" />
+      </field>
+      <field id="date_add">
+        <phrase id="fldcaption" value="账户创建时间" />
+      </field>
+    </table>
+    <table id="basic_server">
+      <phrase id="tblcaption" value="服务器资料" />
+      <field id="rindex">
+        <phrase id="fldcaption" value="序号" />
+      </field>
+      <field id="ip">
+        <phrase id="fldcaption" value="ip" />
+      </field>
+      <field id="pwd">
+        <phrase id="fldcaption" value="pwd" />
+      </field>
+      <field id="role">
+        <phrase id="fldcaption" value="role" />
+      </field>
+      <field id="city">
+        <phrase id="fldcaption" value="city" />
+      </field>
+      <field id="owner">
+        <phrase id="fldcaption" value="owner" />
+      </field>
+      <field id="gpslan">
+        <phrase id="fldcaption" value="gpslan" />
+      </field>
+      <field id="gpslon">
+        <phrase id="fldcaption" value="gpslon" />
+      </field>
+      <field id="dateadd">
+        <phrase id="fldcaption" value="dateadd" />
+      </field>
+    </table>
+    <table id="basic_token">
+      <phrase id="tblcaption" value="通证总览" />
+      <field id="rindex">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="type">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;通证类型&lt;/strong&gt;&lt;/center&gt;" />
+        <phrase id="fldtagvalue1" value="ERC-20" />
+        <phrase id="fldtagcaption1" value="ERC-20" />
+        <phrase id="fldtagvalue2" value="ERC-721" />
+        <phrase id="fldtagcaption2" value="ERC-721" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;通证名称&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="symble">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;通证代码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="supply">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;供应总量(枚)&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="price">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;交易市价($)&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="logo">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;商标&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="holders">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;持有者&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="transfers">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;交易次数&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="website">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;通证网址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="contract">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;发行源码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="decimals">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;最小单位&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="dateadd">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;发行时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="basic_user">
+      <phrase id="tblcaption" value="用户资料" />
+      <field id="rtlindex">
+        <phrase id="fldcaption" value="RTLindex" />
+      </field>
+      <field id="lastname">
+        <phrase id="fldcaption" value="Last Name" />
+      </field>
+      <field id="firstname">
+        <phrase id="fldcaption" value="First Name" />
+      </field>
+      <field id="title">
+        <phrase id="fldcaption" value="Title" />
+      </field>
+      <field id="titleofcourtesy">
+        <phrase id="fldcaption" value="Title Of Courtesy" />
+      </field>
+      <field id="cellphone">
+        <phrase id="fldcaption" value="Cell Phone" />
+      </field>
+      <field id="officephone">
+        <phrase id="fldcaption" value="Office Phone" />
+      </field>
+      <field id="extension">
+        <phrase id="fldcaption" value="Extension" />
+      </field>
+      <field id="_email">
+        <phrase id="fldcaption" value="Email" />
+      </field>
+      <field id="photo">
+        <phrase id="fldcaption" value="Photo" />
+      </field>
+      <field id="notes">
+        <phrase id="fldcaption" value="Notes" />
+      </field>
+      <field id="reportsto">
+        <phrase id="fldcaption" value="Reports To" />
+      </field>
+      <field id="password">
+        <phrase id="fldcaption" value="Password" />
+      </field>
+      <field id="userlevel">
+        <phrase id="fldcaption" value="User Level" />
+      </field>
+      <field id="username">
+        <phrase id="fldcaption" value="Username" />
+      </field>
+      <field id="activated">
+        <phrase id="fldcaption" value="Activated" />
+        <phrase id="fldtagvalue1" value="Y" />
+        <phrase id="fldtagcaption1" value="Y" />
+        <phrase id="fldtagvalue2" value="N" />
+        <phrase id="fldtagcaption2" value="N" />
+      </field>
+      <field id="profile">
+        <phrase id="fldcaption" value="Profile" />
+      </field>
+    </table>
+    <table id="esbc_host_basic">
+      <phrase id="tblcaption" value="服务器总览" />
+      <field id="host_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_type">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器类型&lt;/strong&gt;&lt;/center&gt;" />
+        <phrase id="fldtagvalue1" value="VPS" />
+        <phrase id="fldtagcaption1" value="VPS" />
+        <phrase id="fldtagvalue2" value="Pi" />
+        <phrase id="fldtagcaption2" value="Pi" />
+      </field>
+      <field id="hostname">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器名称&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_location">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器地址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_rootid">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;根目录&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_ip">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器IP&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_pw">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器密码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_owner">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器Owner&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="nodename_array">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;节点名称集&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="pw_array">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;密码集&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="mysql_owner">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;资料库用户&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="mysql_pw">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;资料库密码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="ftp_owner">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;FTP用户&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="ftp_pw">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;FTP密码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="networkid">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;链网ID&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="bc_port_base">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;链网端口&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="http_port">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;HTTP端口&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="rpcport_base">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;RPC端口&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;设立时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="esbc_location">
+      <phrase id="tblcaption" value="服务器地址总览" />
+      <field id="l_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="vps">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器名称&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="vps_url">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器位址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="l_name">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器地址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="l_lat">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;纬度&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="l_lon">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;经度&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器创建时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="esbc_log">
+      <phrase id="tblcaption" value="创链记录" />
+      <field id="log_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="log_esbc_id">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;ESBC编码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="log_memo">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;创链日志&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;创链时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="esbc_template">
+      <phrase id="tblcaption" value="esbc template" />
+      <field id="tpl_index">
+        <phrase id="fldcaption" value="TPL INDEX" />
+      </field>
+      <field id="tpl_filename">
+        <phrase id="fldcaption" value="TPL FILENAME" />
+      </field>
+      <field id="tpl_sourceurl">
+        <phrase id="fldcaption" value="TPL SOURCEURL" />
+      </field>
+      <field id="tpl_content">
+        <phrase id="fldcaption" value="TPL CONTENT" />
+      </field>
+      <field id="tpl_owner">
+        <phrase id="fldcaption" value="TPL OWNER" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="Create Date" />
+      </field>
+      <field id="tpl_memo">
+        <phrase id="fldcaption" value="TPL MEMO" />
+      </field>
+    </table>
+    <table id="esbc_user">
+      <phrase id="tblcaption" value="用户资料" />
+      <field id="user_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="user_name">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;用户名&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="user_pw">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;密码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="user_email">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Email&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="user_level">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;权限&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;创建时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="log_block">
+      <phrase id="tblcaption" value="区块记录" />
+      <field id="height_block">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;区块高度&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="time_mined">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;产生时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="hash">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Hash值&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="size">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;区块大小&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="acc_from">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;发送账户&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="acc_to">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;接收账户&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="gasused">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Gas&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="nonce">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Nonce&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="extradata">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;备注&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="tx_num">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Tx数量&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="hash_parent">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Hash父值&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="miner">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;签章账户&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="log_tx">
+      <phrase id="tblcaption" value="交易记录" />
+      <field id="rindex">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="blocknum">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;区块高度&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="txhash">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Tx Hash值&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="timestamp">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;产生时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="acc_from">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;发送账户&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="acc_to">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;接收账户&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="value">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;金额&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="extradata">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;交易备注&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="log_uncle">
+      <phrase id="tblcaption" value="叔块记录" />
+      <field id="height_block">
+        <phrase id="fldcaption" value="height block" />
+      </field>
+      <field id="time_mined">
+        <phrase id="fldcaption" value="time mined" />
+      </field>
+      <field id="hash">
+        <phrase id="fldcaption" value="hash" />
+      </field>
+      <field id="size">
+        <phrase id="fldcaption" value="size" />
+      </field>
+      <field id="acc_from">
+        <phrase id="fldcaption" value="acc from" />
+      </field>
+      <field id="acc_to">
+        <phrase id="fldcaption" value="acc to" />
+      </field>
+      <field id="gasused">
+        <phrase id="fldcaption" value="gasused" />
+      </field>
+      <field id="nonce">
+        <phrase id="fldcaption" value="nonce" />
+      </field>
+      <field id="extradata">
+        <phrase id="fldcaption" value="extradata" />
+      </field>
+      <field id="tx_num">
+        <phrase id="fldcaption" value="tx num" />
+      </field>
+      <field id="hash_parent">
+        <phrase id="fldcaption" value="hash parent" />
+      </field>
+      <field id="miner">
+        <phrase id="fldcaption" value="miner" />
+      </field>
+    </table>
+    <table id="esbc_node_basic">
+      <phrase id="tblcaption" value="节点总览" />
+      <field id="node_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;节点编码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="hub_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;组织&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_name">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;节点名称&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_pw">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;节点密码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_enode">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;节点地址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_acc40">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;账户地址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_signer">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;挖矿(Y/N)&lt;/strong&gt;&lt;/center&gt;" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="N" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="Y" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;设立时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="userlevels">
+      <phrase id="tblcaption" value="userlevels" />
+      <field id="userlevelid">
+        <phrase id="fldcaption" value="userlevelid" />
+      </field>
+      <field id="userlevelname">
+        <phrase id="fldcaption" value="userlevelname" />
+      </field>
+    </table>
+    <table id="esbc_contract">
+      <phrase id="tblcaption" value="合约总览" />
+      <phrase id="tblpagecaption1" value="OverView" />
+      <phrase id="tblpagecaption2" value="Source Code" />
+      <field id="con_addr">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;合约地址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="con_owner">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;合约创建人&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="con_source">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;合约源码&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="date_add">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;创建时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="geth_cmd">
+      <phrase id="tblcaption" value="区块指令集" />
+      <field id="rindex">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="hub_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;组织&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;节点&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="geth_par_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Geth参数&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_type">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器类型&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="geth_path">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Geth路径&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_root">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;节点根目录&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_acc40">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;账户&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_port">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;基础端口&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="hostip">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器IP&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="node_rpcport">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;RPC端口&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="bootnode_enode">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;扩网地址&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="bootnode_ip">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;扩网IP&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="bootnode_port">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;扩网端口&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="date_add">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;设立时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="esbc_host">
+      <phrase id="tblcaption" value="服务器" />
+      <field id="bc_index">
+        <phrase id="fldcaption" value="BC INDEX" />
+      </field>
+      <field id="host_type">
+        <phrase id="fldcaption" value="HOST TYPE" />
+      </field>
+      <field id="hostname">
+        <phrase id="fldcaption" value="HOSTNAME" />
+      </field>
+      <field id="host_location">
+        <phrase id="fldcaption" value="HOST LOCATION" />
+      </field>
+      <field id="bcs_rootname">
+        <phrase id="fldcaption" value="BCS ROOTNAME" />
+      </field>
+      <field id="host_ip">
+        <phrase id="fldcaption" value="HOST IP" />
+      </field>
+      <field id="host_rootid">
+        <phrase id="fldcaption" value="HOST ROOTID" />
+      </field>
+      <field id="host_pw">
+        <phrase id="fldcaption" value="HOST PW" />
+      </field>
+      <field id="host_owner">
+        <phrase id="fldcaption" value="HOST OWNER" />
+      </field>
+      <field id="nodename_array">
+        <phrase id="fldcaption" value="NODENAME ARRAY" />
+      </field>
+      <field id="pw_array">
+        <phrase id="fldcaption" value="PW ARRAY" />
+      </field>
+      <field id="mysql_owner">
+        <phrase id="fldcaption" value="MYSQL OWNER" />
+      </field>
+      <field id="mysql_pw">
+        <phrase id="fldcaption" value="MYSQL PW" />
+      </field>
+      <field id="ftp_owner">
+        <phrase id="fldcaption" value="FTP OWNER" />
+      </field>
+      <field id="ftp_pw">
+        <phrase id="fldcaption" value="FTP PW" />
+      </field>
+      <field id="networkid">
+        <phrase id="fldcaption" value="NETWORKID" />
+      </field>
+      <field id="bc_port_base">
+        <phrase id="fldcaption" value="BC PORT BASE" />
+      </field>
+      <field id="http_port">
+        <phrase id="fldcaption" value="HTTP PORT" />
+      </field>
+      <field id="rpcport_base">
+        <phrase id="fldcaption" value="RPCPORT BASE" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="Create Date" />
+      </field>
+    </table>
+    <table id="esbc_geth_par">
+      <phrase id="tblcaption" value="GETH参数" />
+      <field id="geth_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_type">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器类型&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="geth_path">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;Geth路径&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="esbc_hub_basic">
+      <phrase id="tblcaption" value="BCHUB组织" />
+      <field id="hub_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="host_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;服务器&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="hub_name">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;组织&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="genesis">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;创始区块&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="genesis_file">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;创世文件&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;设立时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+    <table id="esbc_genesis">
+      <phrase id="tblcaption" value="创始区块" />
+      <field id="genesis_index">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;序号&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="genesis_name">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;创世文件名&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="genesis_text">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;创世文件内容&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+      <field id="create_date">
+        <phrase id="fldcaption" value="&lt;center&gt;&lt;strong&gt;设立时间&lt;/strong&gt;&lt;/center&gt;" />
+      </field>
+    </table>
+  </project>
+</ew-language>

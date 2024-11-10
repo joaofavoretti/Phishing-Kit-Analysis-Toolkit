@@ -1,0 +1,5522 @@
+/* ################################################################ */
+
+/*
+/*                  * @version $Revision: 1.1 $
+/*                  * @lastmodified $Date: 10-06-2016
+/*
+/* ################################################################ */
+
+/* -------------------------------
+@1. Generiques
+@2. Layouts
+  @2.a Three column
+  @2.b TWO column
+  @2.c Two column (right)
+  @2.d One column (right)
+  @2.e Dimensions
+  @2.f Marges et espaces
+  @2.h Positionnement et visibilite
+  @2.i Footer
+  @2.j Popin
+  @2.k Onglets
+  @2.l Accordeons
+  @2.m Tableaux
+    @2.m1 Divers tableaux
+  @2.n Formulaires
+    @2.n1 Formulaires specifique assurances
+    @2.n2 Formulaire souscription investissement
+    @2.n3 Formulaire recherche
+    @2.n4 Formulaire specifique commande
+    @2.n5 Formulaire specifique Bel
+    @2.n6 Formulaire specifique detail credit renouvelable
+    @2.n7 Formulaire specifique souscription demande
+    @2.n8 Formulaire adhesion Banque Chez Soi
+@3. Styles de texte
+  @3.a Titres
+  @3.b Titres variations image
+  @3.c Titre_Accordeon
+  @3.d Styles de texte communs
+@4. Boutons dactions_et_liens
+  @4.a Liens
+  @4.b Boutons_dactions
+@5. Navigation
+	@5.a TopNav
+	@5.b NavGauche
+  @5.c Colonne de droite  (Q4X V1)
+    @5.c1 Blocs Colonne de droite
+	@5.d Stepper
+  @5.e Slider
+  @5.f Ascenseurs
+@6. Styles divers
+	@6.a Listes
+	@6.b Encadrement et contenu
+	@6.c Pictos_et_images
+	@6.d Classes fix pour perso_donnees_personnelles.html
+	@6.e Webaccess
+	@6.f TEMPLATE 800x600
+	@6.g Script choix radio
+  @6.h Update lot4
+  @6.i Sel_AQ
+  @6.j imprimesFiscaux
+  @6.k creditCards
+  @6.l persoIdentiteDetail
+  @6.m Issue de SKIN UNIVERS 2 ENRICHI
+  @6.n MAJ_10-10-2011
+  @6.o MAJ_11-10-2011
+  @6.p MAJ_13/11/2011
+  @6.q A2G
+  @6.r OER
+  @6.s MEF Synthese Solde CCP & CNE
+@7. MediaQueries
+
+------------------------------- */
+
+/* ----- @1. Generiques ----- */
+
+body {
+    font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+    font-size: .80em;
+    font-weight: normal;
+}
+
+#left {
+    display: none;
+}
+
+#page {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#content {
+    margin: 40px 0 0;
+}
+
+.center {
+    text-align: center;
+}
+
+.noFloat,
+.noFloat img {
+    float: none !important;
+}
+
+img {
+    border: none;
+}
+
+#acces_rapide {
+    position: absolute;
+    text-indent: -5000px;
+}
+
+#numeroCompteCCP {
+    padding: 7px;
+    border: 1px solid #ccc;
+}
+
+.taC {
+    text-align: center;
+}
+
+legend {
+    position: relative;
+    top: 0;
+    left: 0;
+    clear: both;
+    font-weight: bold;
+    padding: 5px 6px;
+}
+
+select,
+input {
+    padding: 7px 14px;
+    border: 1px solid #b8b8b8;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+    line-height: 1;
+    padding: 0;
+    border: 0;
+}
+
+.logo_OER {
+    background: url('../../img/q4x/logoLBP_oer.png') no-repeat 0 100px;
+}
+
+/* ######################### **  @2. Layouts  ** ############################# */
+
+.colmask {
+    position: relative;
+    left: 0;
+    float: left;
+    clear: both;
+    width: 99%;
+    margin-top: 20px;
+}
+
+/* -----  @2.a Three column  ----- */
+
+.threecol #leftcol {
+    position: relative;
+    left: .50%;
+    float: left;
+    width: 15.00%;
+}
+
+.threecol #main {
+    position: relative;
+    float: left;
+    width: 65%;
+    margin: 0 2.5%;
+}
+
+.threecol #rightcol {
+    position: relative;
+    float: right;
+    width: 15.00%;
+}
+
+/* -----  @2.b TWO column  ----- */
+
+.twocol #leftcol {
+    position: relative;
+    left: .50%;
+    float: left;
+    width: 15.00%;
+}
+
+.twocol #main {
+    position: relative;
+    left: .50%;
+    float: right;
+    width: 84.00%;
+}
+
+/* -----  @2.c Two column (right) ----- */
+
+.tworcol #main {
+    position: relative;
+    left: .50%;
+    float: left;
+    width: 84.00%;
+}
+
+.tworcol #rightcol {
+    position: relative;
+    right: .50%;
+    float: right;
+    width: 15.00%;
+}
+
+/* -----  @2.d One column (right) ----- */
+
+.colmask.onecol {
+    width: 99%;
+    margin: 0 auto;
+}
+
+.onecol #main {
+    float: left;
+    width: 100.00%;
+}
+
+#leftcol,
+#main,
+#rightcol {
+    overflow: hidden;
+}
+
+/* -----  @2.e Dimensions  ----- */
+
+#main ul.tabs.demi li,
+#main ul.tabs.tier li,
+#main ul.tabs.quart li,
+#main ul.tabs.cinquieme li {
+    margin: 0 .12%;
+    padding: 20px 1% 10px;
+}
+
+#main ul.tabs.demi li {
+    width: 47.76%;
+}
+
+#main ul.tabs.tier li {
+    width: 31.08%;
+}
+
+#main ul.tabs.quart li {
+    width: 24.76%;
+}
+
+#main ul.tabs.cinquieme li {
+    width: 17.76%;
+}
+
+#main col.demi,
+#main div.demi {
+    width: 50%;
+}
+
+#main col.tier,
+#main div.tier {
+    width: 33.3%;
+}
+
+#main col.quart,
+#main div.quart {
+    width: 25%;
+}
+
+#main col.cinquieme,
+#main div.cinquieme {
+    width: 20%;
+}
+
+#main dl.cinquieme dt {
+    width: 19.8%;
+}
+
+#main dl.cinquieme dd {
+    width: 80%;
+}
+
+#main dl.quart dt {
+    width: 24.8%;
+}
+
+#main dl.quart dd {
+    width: 75%;
+}
+
+#main dl.troisquart dt {
+    width: 75%;
+}
+
+#main dl.troisquart dd {
+    width: 24.8%;
+}
+
+#main dl.demi dt {
+    width: 50%;
+}
+
+#main dl.demi dd {
+    width: 49.7%;
+}
+
+#main .bloc .codepostal {
+    width: 50px;
+}
+
+.defaultWidth {
+    width: auto !important;
+}
+
+#main .defaultWidth legend {
+    font-weight: normal;
+    position: static;
+    width: auto;
+    padding: 2px 0 0;
+}
+
+/* -----  @2.f Marges et espaces  ----- */
+
+.Tmargin {
+    margin-top: 20px;
+}
+
+.Bmargin {
+    margin-bottom: 20px;
+}
+
+.litSpacer {
+    padding-bottom: 5px;
+}
+
+.little-lPad {
+    padding-left: 5px;
+}
+
+.little-rPad {
+    padding-right: 5px;
+}
+
+.little-tPad {
+    padding-top: 5px;
+}
+
+.little-bPad {
+    padding-bottom: 5px;
+}
+
+.inner5 {
+    padding: 5px !important;
+}
+
+.innerL10 {
+    padding-left: 10px;
+}
+
+.innerL30 {
+    padding-left: 30px;
+}
+
+.spaceL5 {
+    margin-left: 5px;
+}
+
+.spaceL10 {
+    margin-left: 10px;
+}
+
+.spaceL20 {
+    margin-left: 20px;
+}
+
+.spaceB10 {
+    margin-bottom: 10px;
+}
+
+.spaceB5 {
+    margin-bottom: 5px;
+}
+
+.spaceB20 {
+    margin-bottom: 20px;
+}
+
+.spaceB40 {
+    margin-bottom: 40px;
+}
+
+.spaceT10 {
+    margin-top: 10px;
+}
+
+.spaceT20 {
+    margin-top: 20px;
+}
+
+.spaceR20 {
+    margin-right: 20px;
+}
+
+.spaceR80 {
+    margin-right: 80px;
+}
+
+.spaceR90 {
+    margin-right: 90px;
+}
+
+.spaceR10 {
+    margin-right: 10px;
+}
+
+.size1of1 {
+    width: 100%;
+}
+
+.innerT10 {
+    padding-top: 10px;
+}
+
+.checkline {
+    padding: 5px;
+}
+
+#main .bloc ul.nopadding {
+    padding-left: 0;
+}
+
+/* -----  @2.h Positionnement et visibilite -----  */
+
+.clear,
+.clearfix {
+    clear: both;
+}
+
+.clear:before,
+.clear:after .clearfix:before,
+.clearfix:after {
+    display: table;
+    clear: both;
+    height: 0;
+    content: '';
+}
+
+#header:before,
+#header:after {
+    display: table;
+    content: ' ';
+    clear: both;
+}
+
+#header {
+    clear: both;
+}
+
+.unit {
+    float: left;
+}
+
+.unitR {
+    float: right;
+}
+
+.displayBlock {
+    display: block;
+}
+
+.displayInline {
+    display: inline !important;
+}
+
+.vAlignTop {
+    vertical-align: top;
+}
+
+.Vpadding {
+    padding: 10px 0;
+}
+
+.floatL {
+    float: left;
+}
+
+.floatR {
+    float: right;
+}
+
+#main span.ie7line {
+    position: absolute;
+    left: -5000px;
+}
+
+.util {
+    position: relative;
+}
+
+.h {
+    display: none !important;
+}
+
+/* -----  @2.j Popin  ----- */
+
+#popinBack {
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 600px;
+    opacity: .5;
+    background-color: #000;
+    _position: absolute;
+    -moz-opacity: .5;
+}
+
+#popinContBack {
+    position: fixed;
+    z-index: 1002;
+    top: 55px;
+    left: 55px;
+    background-color: #fff;
+    _position: absolute;
+}
+
+#popinStart {
+    position: absolute;
+    left: -3000px;
+}
+
+#simplemodal-overlay {
+    background-color: #000;
+}
+
+#modalWindow {
+    width: 670px;
+    height: 505px;
+    background-color: #fff;
+}
+
+#modalWindow #main.box .title-level2 {
+    background: red;
+}
+
+#modalWindow .modalCloseImg {
+    display: none;
+}
+
+#modalWindow .header a:not(#popinTitleV2) {
+    font-weight: bold;
+    line-height: 16px;
+    display: block;
+    float: right;
+    margin: 15px 15px 0 0;
+    padding-right: 25px;
+    color: #fff;
+    background-image: url(skin/popin/popinCross.gif);
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+#modalWindow .header #popinTitle,
+#modalWindow .header #popinTitleV2 {
+    font-size: 1.2em;
+    font-weight: normal;
+    width: 80%;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#modalWindow .header #popinTitleV2 {
+    font-weight: bold;
+    line-height: 16px;
+    display: block;
+    margin: 12px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+#modalWindow .header h1 img {
+    display: none;
+}
+
+#modalWindow #page {
+    width: 95% !important;
+    margin: 0 auto !important;
+}
+
+.popinCont {
+    position: fixed;
+    z-index: 1003;
+    top: 50px;
+    left: 50px;
+    _position: absolute;
+}
+
+/* -----  @2.k Onglets  ----- */
+
+#main ul.tabs {
+    font-size: 12px;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: 1px solid #fff;
+}
+
+#main ul.tabs:before,
+#main ul.tabs:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+#main ul.tabs li {
+    display: block;
+    float: left;
+    background: #eae9e8;
+}
+
+#main ul.tabs li:last-child {
+    border: none;
+}
+
+#main ul.tabs li a,
+#main ul.tabs li p {
+    line-height: 1;
+    display: block;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#main ul.tabs li.on {
+    position: relative;
+    background: #1344a1;
+}
+
+#main ul.tabs li.on:after {
+    position: absolute;
+    z-index: 2;
+    bottom: -6px;
+    display: table;
+    width: 12px;
+    height: 12px;
+    margin: 0 48%;
+    content: ' ';
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #1344a1;
+}
+
+#main ul.tabs li a,
+#main ul.tabs li.on {
+    color: #222;
+}
+
+#main ul.tabs li.on span {
+    color: #f2f2f2;
+}
+
+#main ul.tabs li.on a,
+#main ul.tabs li.on a:hover,
+#main ul.tabs li.on a span {
+    cursor: initial;
+    text-decoration: none !important;
+}
+
+#main ul.tabs li a span,
+#main ul.tabs li p span {
+    display: block;
+    text-transform: uppercase;
+}
+
+/* ----  @2.l Accordeons  ----- */
+
+#main div.titleAccordion {
+    width: 100%;
+    height: 60px;
+    cursor: default;
+    text-align: left;
+    color: #323232;
+    /*     border-bottom: 1px solid #e6e6e6; */
+}
+
+#main div.titleAccordion:before,
+#main div.titleAccordion:after {
+    display: table;
+    clear: both;
+    content: ' ';
+}
+
+#main .selected div.titleAccordion {
+    border: none;
+}
+
+#main div.imageAccordion,
+#main table.dataNum thead th img {
+    float: left;
+    margin: 0 12px 0 0;
+}
+
+#main div.imageAccordion img {
+    width: 42px !important;
+    height: auto;
+}
+
+#main div.lireAccordion {
+    position: relative;
+    top: 14px;
+    float: right;
+    height: 42px;
+}
+
+#main div.lireAccordion a {
+    color: #464646;
+    background-size: 14px;
+}
+
+#main .lire {
+    font-size: 12px;
+    font-weight: bold;
+    width: 30px;
+    padding-right: 20px;
+    text-transform: uppercase;
+    background: url('skin/picto/picto_fleche.gif') no-repeat right;
+}
+
+#main .lireSelect,
+#main .selected .lire {
+    background: url('skin/picto/picto_fleche_bas.gif') no-repeat 90% 50%;
+}
+
+/* Classe pour le retrait des textes dans les accordeons */
+
+.retraitpaddinggauche {
+    padding-left: 10px;
+}
+
+#main .bloc table tbody td ul.retraitmargingauche,
+.bloc table tbody td li.retraitmargingauche {
+    float: right;
+    padding-right: 5px;
+}
+
+/* Classe pour les puces dans l'accordeon */
+
+td a.lienslink,
+div a.lienslink {
+    font-weight: bold;
+    padding-left: 15px;
+    background: url('../../img/q4x/puce-fleche.png') no-repeat scroll 0 3px transparent;
+}
+
+/* Classe pour les pictos dans les accordeons*/
+
+#main h2 .picto_id,
+#main h2 .picto_ad,
+#main h2 .picto_tel,
+#main h2 .picto_mail,
+#main .titleAccordion h2 .picto_id,
+#main .titleAccordion h2 .picto_ad,
+#main .titleAccordion h2 .picto_tel,
+#main .titleAccordion h2 .picto_mail {
+    display: inline-block;
+    height: 34px;
+    padding-top: 6px;
+    padding-left: 52px;
+    vertical-align: middle;
+}
+
+#main h2 .picto_id,
+#main .titleAccordion h2 .picto_id {
+    background: url('../../img/q4x/PictoIdentite-bleu.png') no-repeat top left;
+}
+
+#main h2 .picto_ad,
+#main .titleAccordion h2 .picto_ad {
+    background: url('../../img/q4x/PictoAdresse-bleu.png') no-repeattop left;
+}
+
+#main h2 .picto_tel,
+#main .titleAccordion h2 .picto_tel {
+    background: url('../../img/q4x/PictoTelephone-bleu.png')no-repeat top left;
+}
+
+#main h2 .picto_mail,
+#main .titleAccordion h2 .picto_mail {
+    background: url('../../img/q4x/PictoMail-bleu.png') no-repeat top left;
+}
+
+#main h2.titreAccordion {
+    float: left;
+    margin: 10px 0 0 10px;
+}
+
+#main h2.titreAccordion span {
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+#main .affichercontenu .title-level2 {
+    background: none;
+    padding-bottom: 0;
+    float: left;
+}
+
+/* -----  @2.m Tableaux  ----- */
+
+#main table[summary='Liste des supports'] input {
+    width: 150px;
+    max-width: 200px;
+}
+
+#main caption.title-level2 {
+    height: auto;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+}
+
+#main caption.title-level3 {
+    font-size: 18px;
+    font-weight: normal;
+    height: 30px;
+    border-bottom: 1px solid #fff;
+}
+
+#main table thead th,
+#main table tbody th {
+    font-weight: normal;
+    padding: 10px !important;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#main .bloc table tbody td ul,
+.bloc table tbody td li {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+#main table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+#main table .num,
+#main .num {
+    text-align: right;
+    vertical-align: middle;
+}
+
+#main table .str {
+    padding: 10px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+#main table tbody .caps strong {
+    font-weight: bold;
+    color: #504d51;
+}
+
+#main table.dataNum select {
+    width: 95%;
+}
+
+#main table.dataNum tfoot .bkg,
+#main table.dataStr tfoot .bkg {
+    font-weight: bold;
+    height: 38px;
+}
+
+#main table.dataNum tfoot tr td.num span strong {
+    font-weight: bold;
+}
+
+#main table.dataNum thead .bkg img {
+    float: left;
+}
+
+#main table.dataNum thead .bkg a img.imghelper,
+#main a img.imghelper {
+    position: relative;
+    float: none;
+}
+
+#main legend a img.imghelper {
+    float: none;
+}
+
+#main table.dataNum thead tr {
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 1.1;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #444;
+    border: none;
+    background: #eae9e8;
+}
+
+#main table.dataNum thead tr strong {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+#main table.dataNum tfoot td {
+    line-height: 17px;
+    vertical-align: middle;
+}
+
+#main table.dataNum tr {
+    border-top: 1px solid #e9e8e7;
+}
+
+#main table.dataNum span {
+    font-size: 12px;
+    display: block;
+}
+
+#main table.dataNum li.btn {
+    float: right;
+}
+
+#main table.dataNum thead th span {
+    font-size: 11px;
+    display: block;
+}
+
+#main table.dataNum th.img img {
+    float: left;
+    margin-left: 5px;
+}
+
+#main table.dataNum th.img span {
+    font-size: 110%;
+    float: left;
+    margin-top: 7px;
+}
+
+#main table.dataNum td span a {
+    font-size: 12px;
+}
+
+#main table.dataNum thead th .helper {
+    display: inline;
+}
+
+#main table.dataNum thead .thSpan,
+#main table.dataStr thead .thSpan,
+#main table.dataNum tfoot .thSpan {
+    padding: 8px 12px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+#main table.dataNum.tablesorter thead th span a {
+    line-height: 16px;
+    padding: 0 22px 0 0;
+    cursor: pointer;
+    background: url('../../img/q4x/picto-arrowTable.png') no-repeat right 3px transparent;
+}
+
+#main table.dataNum caption {
+    font-size: 18px;
+    text-align: left;
+}
+
+#main .dataNum caption .grilleRepart {
+    margin-top: -26px;
+}
+
+#main table.dataNum tfoot.title-level4 {
+    font-weight: bold;
+    border-top: 1px solid #d4d3d1;
+    background: none;
+}
+
+#main table.dataNum tfoot.title-level4 .num span {
+    border-right: 1px solid #d4d3d1;
+}
+
+#main table.dataNum tbody tr td:nth-child(2),
+#main table.dataNum thead tr th:nth-child(1),
+#main table.dataNum thead tr th:nth-child(2) {
+    text-align: left;
+}
+
+#main #comptesEpargne thead tr th:nth-child(2),
+#main #comptes thead tr th:nth-child(2),
+#main #comptesEpargne tbody td:nth-child(2),
+#main #comptes tbody td:nth-child(2) {
+    text-align: right;
+}
+
+#main #options thead tr th:nth-child(1),
+#main #options thead tr th:nth-child(2),
+#main #options thead tr th:nth-child(3) {
+    text-align: left;
+}
+
+#main table.dataNum thead tr th:last-child,
+#main table.dataNum tbody tr td:last-child {
+    text-align: right !important;
+}
+
+#main #contratsAsso thead tr th,
+#main #detailAvance thead tr th,
+#main #GestionFrequence thead tr th,
+#main #GestionFrequence td {
+    text-align: left !important;
+}
+
+#main #mouvementsHorsFormule thead tr th:nth-child(2) {
+    text-align: right;
+}
+
+#main table span {
+    color: #222 !important;
+}
+
+#main table tbody span,
+#main table tbody a,
+#main table tbody strong {
+    font-weight: normal !important;
+    color: #222 !important;
+}
+
+#main table tfoot span,
+#main table tfoot a,
+#main table tfoot strong {
+    font-weight: bold !important;
+}
+
+#main table tfoot tr td.num span,
+#main table tfoot tr td.num strong {
+    font-size: 12px;
+    color: #1344a1 !important;
+}
+
+/*DisplayTag: duplication du style tablesorter en displaytablesorter pour les besoins CDM : Merci de mettre ÃÂÃ  jour en cas d evolution du tablesorter (Debut)*/
+
+#main table.displaytablesorter thead th a {
+    line-height: 1;
+    display: inline-block;
+    padding-right: 30px;
+    cursor: pointer;
+    background: transparent url('../../img/q4x/picto-arrowTable.png') no-repeat right center;
+}
+
+/*DisplayTag: duplication du style tablesorter en displaytablesorter pour les besoins CDM (Fin)*/
+
+#main table.dataStr,
+table.dataNum {
+    width: 100%;
+    border: 1px solid #e9e8e7;
+}
+
+#main table.dataStr .dt {
+    width: 20%;
+}
+
+#main table.dataStr .dd-2 {
+    width: 40%;
+}
+
+#main table.dataStr span {
+    display: block;
+    margin: 5px;
+}
+
+#main dl dt.bdrF,
+#main dl dd.bdrF {
+    border-bottom: solid 1px #d4d3d1;
+}
+
+#main table ul.table li {
+    padding-left: 10px;
+}
+
+#main table tr.total {
+    font-weight: normal;
+    font-weight: normal;
+    height: 25px;
+    color: #504d51;
+}
+
+#main table span.alerte {
+    font-size: .85em;
+    margin: 1% 0 0 0 !important;
+    color: red;
+}
+
+#main td.bdrL ul.liens {
+    padding-left: 10px;
+}
+
+#main table.dataNum td.bdrL ul.liens span {
+    padding: 0 4px;
+}
+
+/* @2.m1 Divers tableaux */
+
+#main div.troisquart {
+    width: 75%;
+}
+
+#main .table {
+    width: 97%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+#main .table h3 {
+    line-height: 34px;
+    height: 34px;
+    padding-left: 5px;
+    border: 1px solid #bbb;
+    background: #e0e0e5;
+}
+
+#main .table dl {
+    line-height: 25px;
+    border-top: 1px solid #bbb;
+}
+
+#main .table dl dt {
+    font-weight: normal;
+    text-align: left;
+}
+
+#main .table dl dt,
+#main .table dl dd {
+    padding-left: 5px;
+    border: 1px solid #bbb;
+    border-top: none;
+}
+
+#main .table dl dt {
+    float: left;
+    width: 155px;
+    height: 100%;
+    margin-right: 5px;
+}
+
+#main .table dl dd {
+    height: 100%;
+    border-left: none;
+}
+
+/* -----  @2.n Formulaires  ----- */
+
+#main fieldset {
+    position: relative;
+    width: 100%;
+}
+
+#main .topform fieldset {
+    border: none;
+}
+
+#main legend {
+    display: block;
+    width: 100%;
+}
+
+#main form .formline {
+    display: block;
+    clear: both;
+    width: 100%;
+    padding: 16px 0;
+    border-top: solid 1px #d4d3d1;
+}
+
+#main form .formline:before,
+#main form .formline:after {
+    display: table;
+    clear: both;
+    content: ' ';
+}
+
+#main form .formlist {
+    border-top: 0;
+}
+
+#main form .formline.noBorder {
+    border: none !important;
+}
+
+#main form .formline div {
+    display: block;
+    float: left;
+    /*margin: 10px;*/
+    ;
+}
+
+#main form .formline div.field,
+#main form .formline .field2 {
+    display: block;
+    float: left;
+}
+
+#main form .formline div.field span {
+    margin: 0 5px;
+}
+
+#main #formID table tbody td {
+    padding-top: 10px !important;
+}
+
+#main #alerte div {
+    margin: 0 1px;
+}
+
+#main #alerte .formline .tier {
+    float: none;
+    width: 100%;
+}
+
+#main #alerte .formline .tier:before,
+#main #alerte .formline .tier:after {
+    display: table;
+    clear: both;
+    zoom: 1;
+    content: ' ';
+}
+
+#main #alerte .formline .tier span {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#main #alerte .formline .tier span+span {
+    margin: 0 0 0 20px;
+}
+
+#main #alerte .formline .tier span {
+    vertical-align: baseline;
+}
+
+#main #alerte .formline .tier+.tier .title-level3 {
+    font-size: 14px;
+    width: 120px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+#main #alerte .formline .tier+.tier .title-level3+span {
+    position: relative;
+    top: 10px;
+    left: 40px;
+}
+
+#main #alerte fieldset {
+    margin: 10px 0;
+}
+
+#main #alerte .title-level3 {
+    text-transform: lowercase;
+}
+
+#main form#alerte .title-level3 label {
+    padding: 0;
+}
+
+#main form .doublecol div.field {
+    width: 39.89%;
+}
+
+#main form .bloc ul li ul li {
+    margin: 15px 0 !important;
+}
+
+#main form .formline label,
+form .formline span,
+#main form .formline div.itemlabel {
+    display: block;
+}
+
+#main form .formline .blcoptions_frequence label,
+#main form .formline .blcoptions_frequence span {
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+#main form .formline span .innerInline {
+    display: inline;
+}
+
+#main form .formline label.inline {
+    display: inline;
+}
+
+#main form .formline .label.cinquieme {
+    width: 19.8%;
+}
+
+#main form .formline .dl {
+    width: 35%;
+}
+
+#main form .formline .field.dl {
+    width: 65%;
+}
+
+#main form .formline.checkbox input,
+#main form .formline.checkbox label {
+    display: inline-block;
+}
+
+#main form .formline.checkbox label {
+    max-width: 92%;
+}
+
+#main form .formline input.large {
+    width: 200%;
+}
+
+#main form .formline input.xlarge {
+    width: 55em;
+}
+
+#main form .formline textarea.large {
+    width: 99%;
+}
+
+#main form .formline input.little {
+    width: 3em;
+}
+
+#main form .formline span.noBT {
+    padding-bottom: 0;
+}
+
+#main form button.btn span,
+#main form button.btn.ok span,
+#main form button.btnOK span,
+#main form .formline button.btn span,
+#main form input.ok {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#main form input.ok {
+    min-width: 20px;
+    text-align: center;
+    _width: 20px;
+    *width: 20px;
+}
+
+#main .formline div span input[type='submit'],
+#main form button.btn,
+#main form .formline button,
+#main form button,
+#main form.cmdcheque button.btn,
+#main form .listeComptes button.btn,
+#main form .formline button.ok,
+#main form .formline input.ok,
+#main form .formline .btnOK,
+#main form input.btnOK {
+    display: inline-block;
+    min-width: 30px;
+    margin: 0 0 0 10px;
+    padding: 7px !important;
+    cursor: pointer;
+    color: #f2f2f2;
+    border: 0;
+    background: #1344a1;
+    _width: 30px;
+    *width: 30px;
+}
+
+#main form .formline button.btn:hover,
+#main form.cmdcheque button.btn:hover,
+#main form .listeComptes button.btn:hover,
+#main form .formline button.ok:hover,
+#main form .formline input.ok:hover,
+#main form .formline .btnOK:hover,
+#main form .formline .btnOK:focus,
+#main form .formline button.btn:focus,
+#main form.cmdcheque button.btn:focus,
+#main form .listeComptes button.btn:focus,
+#main form .formline button.ok:focus,
+#main form .formline input.ok:focus,
+#main form .formline .btnOK:active,
+#main form .formline .btnOK:active,
+#main form .formline button.btn:active,
+#main form.cmdcheque button.btn:active,
+#main form .listeComptes button.btn:active,
+#main form .formline button.ok:active,
+#main form .formline input.ok:active,
+#main form .formline .btnOK:active {
+    text-decoration: underline;
+}
+
+#main form .ok span {
+    padding: 8px;
+}
+
+#main form .formline.checkbox .cinquieme input.text {
+    width: 64%;
+}
+
+#main form .formline.paratext {
+    border-top: none;
+}
+
+#main form .formline.paratext span {
+    padding-top: 0;
+}
+
+#main label.title-level2 span {
+    font-size: 19px;
+    display: block;
+    margin: 5px 0 0 0;
+    cursor: initial;
+    text-align: left;
+}
+
+#main form div.radioinverse div.field {
+    border: none;
+}
+
+#main form div.radioinverse div.field,
+#main form div.radioinverse div.label,
+#main form div.radioinverse div.field input,
+#main form .formline.radioinverse label {
+    display: inline-block;
+}
+
+#main form input.iban {
+    display: inline;
+    width: 40px;
+}
+
+#main form input.date {
+    display: inline;
+    width: 70px;
+}
+
+#main form input.heure {
+    display: inline;
+    width: 17px;
+}
+
+#main form input.montant {
+    display: inline;
+    width: 50px;
+}
+
+#main form .iban1 {
+    margin-right: 17px;
+}
+
+#main form .formline div.doublefield span a img {
+    margin: 7px 5px 0 0;
+}
+
+#main form .formline div.doublefield span {
+    display: inline-block;
+    padding: 0;
+}
+
+#main form .formline div.field.doublefield span label {
+    padding-top: 5px;
+}
+
+#main form .formline .radio span,
+#main form .formline.radio label {
+    display: inline-block;
+    float: left;
+}
+
+#main form .formline input[type='radio'] {
+    margin: 0 10px 0 0;
+}
+
+#main form .formline img[src*='warning.png'] {
+    width: 25px;
+    height: auto;
+    vertical-align: middle;
+}
+
+#virement_telethon_saisie_saisie_virement_autorisation {
+    margin-top: 3px;
+}
+
+#main form .formline div.dateCondition {
+    display: none;
+}
+
+#main form div.conditionDate * {
+    display: inline;
+}
+
+#main form div.dateCondition div.line {
+    display: none;
+    clear: both;
+}
+
+#main form div.dateCondition.selected div.line {
+    display: block;
+}
+
+#main form .formline div.dateCondition.selected {
+    display: block;
+}
+
+/* ----  @2.n1 Formulaires specifique assurances  ----- */
+
+#main .formline.button .liens {
+    float: right;
+    margin: 9px 0 0 0;
+}
+
+#main form .formline.button span {
+    display: inline;
+    padding: 0;
+}
+
+#main form .formline.button ul.liens li .btn_crt img {
+    margin: 5px 6px 3px 5px;
+}
+
+#main .accesAssur {
+    margin: 20px 0;
+}
+
+#main .accesAssur li {
+    float: left;
+    width: 30%;
+    margin-right: 15px;
+    padding: 20px;
+    text-align: center;
+    background: #1344a1;
+}
+
+#main .accesAssur li a {
+    color: #fff;
+}
+
+#main .accesAssur li a strong {
+    display: table-cell;
+    vertical-align: middle;
+    _display: block;
+    *display: block;
+}
+
+#main form .ssonglet {
+    clear: both;
+}
+
+/* ----- @2.n2 Formulaire souscription investissement  ----- */
+
+#main form.ss_investissement .formline .label.cinquieme {
+    width: 19.8%;
+}
+
+#main form.ss_investissement .formline legend span {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    display: block;
+    *left: 20px;
+}
+
+#main form.ss_investissement .formlist legend {
+    padding-left: 0;
+}
+
+#main form.ss_investissement .formlist legend span {
+    position: relative;
+}
+
+#main form.ss_investissement .formline div.blcoptions {
+    float: right;
+    width: 70%;
+}
+
+#main form.ss_investissement .formline div.blcoptions_frequence {
+    width: 66%;
+}
+
+#main form.ss_investissement .formline .quart .label {
+    width: 70%;
+}
+
+#main form.ss_investissement .formline div.field {
+    border: none;
+}
+
+#main form.ss_investissement .instru_fin_col_headers span {
+    display: block;
+    text-align: center;
+}
+
+#main form.ss_investissement .instru_fin_col_headers .col_left {
+    position: absolute;
+    left: 110px;
+    width: 30%;
+    text-align: center;
+}
+
+#main form.ss_investissement .instru_fin_col_headers .col_right {
+    left: 40%;
+    float: right;
+    width: 66%;
+}
+
+#main form.ss_investissement .formline div.blcoptions_nolegend {
+    float: left;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+#main form.ss_investissement .formline div.blcoptions_produitconnu {
+    width: 30%;
+    text-align: center;
+}
+
+#main form.ss_investissement .formline div.blcoptions_produitconnu .field {
+    display: inline-block;
+    float: none;
+    margin-left: 200px;
+}
+
+#main form.ss_investissement .formline div.blcoptions_produitconnu .label {
+    visibility: hidden;
+}
+
+/* ----- @2.n3 Formulaire recherche  ----- */
+
+#main form.recherche .formline div.tier label,
+#main form.recherche .formline div.quart label {
+    display: inline-block;
+}
+
+#main form.recherche {
+    line-height: 1;
+}
+
+#main form.recherche .col.quart span,
+#main form.recherche .col.quart label {
+    font-weight: bold;
+    line-height: 2.5;
+    margin: 0 20px;
+    padding: 0;
+}
+
+#main form.recherche .col.tier input {
+    padding: 7px 14px;
+}
+
+#main form.recherche .col.tier span {
+    display: inline-block;
+    width: 25px;
+}
+
+#main form.recherche .col {
+    margin: 12px 0 !important;
+}
+
+/* -----  @2.n4 Formulaire specifique commande  ----- */
+
+#main form .formline.cmd label,
+#main .cmd input {
+    float: left;
+}
+
+#main .cmd input {
+    float: right;
+    width: 20%;
+    margin: 6px 0 8px 0;
+    text-align: right;
+}
+
+#main .cmd .firstcol .col {
+    width: 100%;
+    border-right: solid 1px #d4d3d1;
+}
+
+#main .cmd .col {
+    width: 100%;
+}
+
+#main form .formline.recap label,
+#main form .formline.recap input {
+    display: inline-block;
+    float: none;
+}
+
+#main form .formline.recap input {
+    width: 50px;
+}
+
+/* -----  @2.n5 Formulaire specifique Bel  ----- */
+
+#main form div.multifield div *,
+#main form div.multichamp div * {
+    display: inline-block;
+}
+
+#main form div.multifield .colheader,
+#main form div.multichamp .colheader {
+    width: 18%;
+}
+
+#main form div.multifield .colheader.large,
+#main form div.multichamp .colheader.large {
+    width: 22%;
+}
+
+#main form div.multifield .colheader.xlarge,
+#main form div.multichamp .colheader.xlarge {
+    width: 22%;
+}
+
+#main form div.multifield .colcontent,
+#main form div.multichamp .colcontent {
+    width: 41%;
+}
+
+#main form div.alertes div.multifield .colcontent,
+#main form div.alertes div.multichamp .colcontent {
+    width: 37%;
+}
+
+#main form div.alertes div.multifield .Alertesolde .colheader,
+#main form div.alertes div.multifield .Alerteoperation .colheader,
+#main form div.alertes div.multichamp .Alertesolde .colheader,
+#main form div.alertes div.multichamp .Alerteoperation .colheader {
+    width: 15%;
+}
+
+#main form div.alertes div.multifield .Alertesolde .colcontent,
+#main form div.alertes div.multichamp .Alertesolde .colcontent {
+    width: 27%;
+}
+
+#main form div.alertes div.multifield .Alertesolde .colcontent span,
+#main form div.alertes div.multifield .Alerteoperation div.montant span,
+#main form div.alertes div.multichamp .Alertesolde .colcontent span,
+#main form div.alertes div.multichamp .Alerteoperation div.montant span {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+#main form div.alertes div.multifield .Alertesolde .colcontent input.montant,
+#main form div.alertes div.multichamp .Alertesolde .colcontent input.montant {
+    width: 40px;
+}
+
+#main form div.alertes div.multifield .Alerteoperation div.montant input.montant,
+#main form div.alertes div.multichamp .Alerteoperation div.montant input.montant {
+    width: 40px;
+}
+
+#main form div.alertes div.multifield .colcontent label,
+#main form div.alertes div.multichamp .colcontent label {
+    padding-right: 0;
+    padding-left: 3px;
+}
+
+#main form div.alertes div.multifield .colcontent span label,
+#main form div.alertes div.multichamp .colcontent span label {
+    padding: 0;
+}
+
+#main form div.alertes div.multifield .colcontent input.date_picker,
+#main form div.alertes div.multichamp .colcontent input.date_picker {
+    width: 100px;
+}
+
+#main form div.alertes div.multifield .colcontent input,
+#main form div.alertes div.multifield .colcontent a,
+#main form div.alertes div.multichamp .colcontent input,
+#main form div.alertes div.multichamp .colcontent a {
+    margin-right: 0;
+}
+
+#main form div.multifield .colcontent.lit,
+#main form div.multichamp .colcontent.lit {
+    width: 35%;
+}
+
+#main form div.multifield .colcontent.spec-a div.field,
+#main form div.multichamp .colcontent.spec-a div.field {
+    border: none;
+}
+
+#main form div.multifield .colcontent.spec-a,
+#main form div.multichamp .colcontent.spec-a {
+    width: 26%;
+}
+
+#main form div.multifield .colcontent.spec-a div.label span,
+#main form div.multichamp .colcontent.spec-a div.label span {
+    padding-top: 12px;
+}
+
+#main form div.multifield .colcontent.spec-a div.week,
+#main form div.multifield .colcontent2.spec-a div.week,
+#main form div.multichamp .colcontent.spec-a div.week,
+#main form div.multichamp .colcontent2.spec-a div.week {
+    padding-top: 4px;
+}
+
+#main form div.multifield .colcontent.spec-a *,
+#main form div.multifield .colcontent2.spec-a *,
+#main form div.multichamp .colcontent.spec-a *,
+#main form div.multichamp .colcontent2.spec-a * {
+    padding-left: 0;
+}
+
+#main form div.multifield .colcontent.spec-a input.day,
+#main form div.multifield .colcontent2.spec-a input.day,
+#main form div.multichamp .colcontent.spec-a input.day,
+#main form div.multichamp .colcontent2.spec-a input.day {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+form .formline span.overlabel {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+#main form div.multifield .colcontent span.overlabel input,
+#main form div.multichamp .colcontent span.overlabel input {
+    margin-top: 4px;
+}
+
+#main form div.multifield .colcontent2,
+#main form div.multichamp .colcontent2 {
+    width: 20%;
+}
+
+#main form div.multifield .colcontent2 .field,
+#main form div.multichamp .colcontent2 .field {
+    border-left: none;
+}
+
+#main form div.multifield .colcontent2 .text,
+#main form div.multichamp .colcontent2 .text {
+    width: 95%;
+}
+
+#main form div select.selectlist {
+    width: 15em;
+    height: 65px;
+}
+
+#main form div .double select.selectlist {
+    height: 35px;
+}
+
+#main form div.multifield div select.selectlist option,
+#main form div.multichamp div select.selectlist option {
+    display: block;
+}
+
+#main form div.multifield div .labellist,
+#main form div.multichamp div .labellist {
+    display: block;
+}
+
+#main form .checkbox div span input[type='radio'] {
+    margin: 0 10px 0;
+}
+
+#main div.blocText {
+    line-height: 18px;
+    margin: 11px 0 0 0;
+    padding: 0 0 14px 14px;
+    border: solid 1px #d4d3d1;
+    border-width: 0 0 1px 0;
+}
+
+div.blocText ul {
+    padding: 0 0 10px 14px;
+    list-style-type: disc;
+}
+
+div.containerframe {
+    text-align: center;
+}
+
+div.conainerframe iframe {
+    width: 60%;
+    margin: 0 auto;
+}
+
+div.conainerframe iframe.validation {
+    width: 99%;
+}
+
+/* -----  @2.n6 Formulaire specifique detail credit renouvelable ---- */
+
+#main ul.list-detail-items {
+    padding: 0 0 4px 15px;
+}
+
+#main ul.list-detail-values {
+    font-weight: bold;
+    padding: 0 0 4px 6px;
+}
+
+#main .list-detail-values em {
+    font-style: normal;
+}
+
+/* -----  @2.n7 Formulaire specifique souscription demande  ----- */
+
+#main .option-credit-offset .imghelper {
+    margin: 0 12px 0 41px;
+}
+
+#main .option-credit-offset.one .imghelper {
+    margin: 0 11px 0 35px;
+}
+
+#main .option-credit-offset.two .imghelper {
+    margin: 0 12px 0 4px;
+}
+
+#main form .formline img.illustration {
+    display: block;
+    width: 478px;
+    height: 74px;
+    margin: 0 auto;
+}
+
+/** -----  @2.n8 Formulaire adhesion Banque Chez Soi ---- **/
+
+#page.banquechezsoi .onecol #main {
+    width: 850px;
+}
+
+#page.banquechezsoi #header {
+    position: absolute;
+    top: 19px;
+    left: 173px;
+}
+
+#page.banquechezsoi #header h1 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
+    color: #344582;
+}
+
+#page.banquechezsoi #header p {
+    font-size: 17px;
+    color: #797979;
+}
+
+#page.banquechezsoi #main {
+    margin: 130px 175px 0;
+}
+
+#page.banquechezsoi {
+    position: relative;
+    width: 1032px;
+    height: 1033px;
+    margin: 0;
+    background: url('../../img/q4x/bkg_banqueChezSoi.png') no-repeat scroll left top #fff;
+}
+
+.banquechezsoi .back {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 28px;
+    position: absolute;
+    display: block;
+    width: 196px;
+    height: 33px;
+    height: 28px;
+    margin: -103px 0 0 650px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    background: #2e569e;
+}
+
+.police10 {
+    font-size: 10px;
+}
+
+#main ul.actions input.adhesion {
+    font-family: arial;
+    font-size: 18px;
+    font-weight: bold;
+    width: 406px;
+    height: 37px;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    background: #ff7000;
+}
+
+#main form.adhesionForm .bloc2 .formline label {
+    display: inline-block;
+}
+
+#main form.adhesionForm .bloc {
+    border: none;
+}
+
+#main form.adhesionForm .bloc .CQedito {
+    border: 1px solid #d4d3d1;
+}
+
+#main form.adhesionForm .topform .formline .field span,
+#main form.adhesionForm .topform .formline .label span {
+    padding: 6px 7px;
+}
+
+#main form.adhesionForm .civil {
+    padding: 5px 0 0;
+}
+
+#main form.adhesionForm .civil input {
+    float: left;
+    padding: 5px 0 0;
+}
+
+#main form.adhesionForm div.civil fieldset {
+    min-height: 5px;
+}
+
+#main form.adhesionForm div.civil fieldset .field label span.webaccess {
+    padding: 0;
+}
+
+#main form.adhesionForm div.civil fieldset .field img.monsieur {
+    float: left;
+    padding: 0 0 11px 5px;
+}
+
+#main form.adhesionForm div.civil fieldset .field img.madame {
+    float: left;
+    padding: 0 0 11px 5px;
+}
+
+#main form.adhesionForm div.civil fieldset .field img.mademoiselle {
+    float: left;
+    padding: 0 0 11px 5px;
+}
+
+#main form.adhesionForm .bloc1 {
+    margin-top: 50px;
+}
+
+#main form.adhesionForm .bloc2 {
+    margin-top: 7px;
+}
+
+#main form.adhesionForm .bloc p,
+#main form.adhesionForm .bloc1 p,
+#main form.adhesionForm .bloc2 p {
+    font-family: verdana;
+    font-size: 12px;
+    padding: 5px 0 0 10px;
+}
+
+#main form.adhesionForm .bloc3 {
+    margin-top: 30px;
+}
+
+#main form.adhesionForm .bloc3 p {
+    font-family: verdana;
+    font-size: 12px;
+    margin: 0;
+    padding: 0 0 0 10px;
+}
+
+#main form.adhesionForm .formline {
+    position: relative;
+    border-top: none;
+}
+
+#main form.adhesionForm .formline label {
+    display: inline;
+    padding: 0;
+}
+
+#main form.adhesionForm .formline .label.dl label {
+    line-height: 32px;
+}
+
+#main form.adhesionForm div.blcoptions,
+#main form.adhesionForm div.blcoptions1 {
+    float: right;
+    width: 95%;
+}
+
+#main form.adhesionForm div.blcoptions label {
+    padding-left: 10px;
+}
+
+#main form.adhesionForm .bloc2 div.blcoptions1 {
+    float: right;
+    width: 90%;
+}
+
+#main form.adhesionForm .bloc2 div.blcoptions1 label span {
+    margin-left: -36px;
+}
+
+#main form.adhesionForm .formline div.field {
+    border-left: none;
+}
+
+#main form.adhesionForm .formline .label {
+    text-align: left;
+}
+
+#main form.adhesionForm .topform .formline .label {
+    text-align: right;
+}
+
+#main form.adhesionForm .topform .field span {
+    margin-left: 3px;
+}
+
+#main form.adhesionForm .formline .label span,
+#main form.adhesionForm .formline .field span {
+    padding: 7px;
+}
+
+#main form.adhesionForm .formline .blcoptions span {
+    padding: 0 15px;
+}
+
+#main form.adhesionForm .formline label {
+    font-size: 12px !important;
+}
+
+.adhesionForm .topform {
+    float: left;
+    width: 450px;
+}
+
+.adhesionForm .doc {
+    float: left;
+    width: 375px;
+    margin: 40px 0 0;
+}
+
+.adhesionForm .doc h2 {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    color: #3e3e3e;
+}
+
+.adhesionForm .doc ul li,
+.adhesionForm .lienmodif ul li {
+    float: left;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    background: url(../../img/q4x/adhesion_puce.png) no-repeat 0 5px;
+}
+
+.adhesionForm .doc ul li .pdfPicto {
+    display: block;
+    float: right;
+    width: 27px;
+    height: 33px;
+    background: url(../../img/q4x/formulaire_picto.png) no-repeat right top;
+}
+
+.adhesionForm .lienmodif {
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 375px;
+    margin: 10px 0 0 315px;
+}
+
+.adhesionForm .lienmodif a {
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 0;
+    color: #364581;
+}
+
+.adhesionForm .bloc3 .doc {
+    float: none;
+    margin: 0;
+    padding: 0 0 0 451px;
+}
+
+.adhesionForm .bloc3 .doc ul {
+    width: 150px;
+}
+
+.adhesionForm .bloc3 .doc .bcsPdfLink {
+    font-size: 12px;
+    color: #2853a1;
+}
+
+.adhesionForm .doc ul li .pdfLinkText {
+    float: left;
+}
+
+.adhesionForm .doc ul li .pdfSize {
+    font-size: 11px;
+    float: right;
+    margin-top: 8px;
+    margin-left: 9px;
+    text-decoration: none;
+    color: #888;
+}
+
+.adhesionForm .doc ul li .bcsPdfLink {
+    font-size: 14px;
+    display: block;
+    color: #364581;
+}
+
+.adhesionForm .blcoptions1 {
+    height: 35px;
+}
+
+.adhesionForm .blcoptions .phone {
+    display: block;
+    height: 33px;
+    padding: 0;
+    background: url(../../img/q4x/phone.png) no-repeat 40px top;
+}
+
+.adhesionForm .blcoptions .Email {
+    display: block;
+    height: 33px;
+    padding: 0;
+    background: url(../../img/q4x/mail.png) no-repeat 40px top;
+}
+
+.adhesionForm .blcoptions .Messagerie {
+    height: 33px;
+    padding: 0;
+    background: url(../../img/q4x/message_instantane.png) no-repeat 37px top;
+}
+
+.adhesionForm .blcoptions .visio {
+    display: block;
+    height: 33px;
+    padding: 0;
+    background: url(../../img/q4x/visio.png) no-repeat 37px top;
+}
+
+.adhesionForm .blcoptions .Courrier {
+    display: block;
+    height: 33px;
+    padding: 0;
+    background: url(../../img/q4x/courrier.png) no-repeat 40px top;
+}
+
+form.adhesionForm div.blcoptions span {
+    display: inline;
+}
+
+.adhesionForm .blcoptions .phone span,
+.adhesionForm .blcoptions .Email span,
+.adhesionForm .blcoptions .Messagerie span,
+.adhesionForm .blcoptions .visio span,
+.adhesionForm .blcoptions .Courrier span {
+    margin-top: 0;
+}
+
+.adhesionForm .bloc2 .blcoptions1 {
+    margin-bottom: -18px;
+}
+
+.adhesionForm .blcoptions1 .planning {
+    display: inline-block;
+    overflow: hidden;
+    width: 19px;
+    height: 22px;
+    padding-left: 0;
+    background: url(../../img/q4x/radio.png) no-repeat -1px 5px;
+}
+
+.adhesionForm .planning input {
+    width: 19px;
+    height: 22px;
+    margin: -2px -7px 0;
+    padding: 0;
+}
+
+.adhesionForm .plan {
+    background: url('../../img/q4x/plan_border.png') repeat-x scroll left 13px transparent;
+}
+
+#main form.adhesionForm .formline input.moyenlarge {
+    width: 20em;
+    height: 1.4em;
+}
+
+#main form.adhesionForm .positif {
+    padding: 0 7px 7px;
+}
+
+#main form.adhesionForm .positif a {
+    color: #2853a1;
+}
+
+#main form.adhesionForm .positif input {
+    margin: 3px 3px 0;
+}
+
+#main form.adhesionForm ul.actions {
+    margin: 10px 250px 0;
+}
+
+#main form.adhesionForm ul.actions {
+    margin: 10px 250px 0;
+}
+
+#main form.adhesionForm input.btn {
+    margin-left: 0;
+}
+
+/* ######################### **  @3. Styles de texte  ** ############################# */
+
+/* Font Lato sur les titres */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#main [class^='title-'],
+#main [class^='title-'] *,
+#main .titreAccordion,
+#main .titreAccordion * {
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+    opacity: .999;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* ----- @3.a Titres ----- */
+
+#main h1 {
+    font-weight: 700;
+}
+
+#main .toptitle.twin h1 {
+    display: block;
+    float: left;
+    width: 80%;
+}
+
+#main .toptitle.marginL h1 {
+    margin-left: 10px;
+}
+
+#main .toptitle.twin .visuel {
+    position: relative;
+    display: block;
+    float: left;
+    width: 20%;
+}
+
+#main .title-level1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px 0;
+    color: #222;
+}
+
+#main .title-level2 {
+    font-size: 21px;
+    font-weight: normal;
+    margin: 10px 0;
+    text-transform: lowercase;
+    color: #373737;
+}
+
+#main .title-level2-nolowercase {
+    font-size: 21px;
+    font-weight: normal;
+    margin: 10px 0;
+    color: #373737;
+}
+
+#main .title-level2Maj {
+    font-size: 21px;
+    font-weight: normal;
+    margin: 10px 0;
+    color: #373737;
+}
+
+#main form .formline .label span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#main .title-level2:first-letter {
+    text-transform: uppercase !important;
+}
+
+#main .title-level3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 10px 0;
+    text-transform: lowercase;
+}
+
+#main .title-level3 strong {
+    font-weight: normal;
+}
+
+#main .title-level3:first-letter {
+    text-transform: uppercase;
+}
+
+#main .titleLevel3 {
+    font-weight: bold;
+    padding: 15px 0 0 15px;
+}
+
+#main .titleLevel3 h3 {
+    font-size: 15px;
+    font-weight: bold;
+    width: 60%;
+    height: 32px;
+}
+
+#main .title-level3 .perso1 {
+    padding: 17px 0 10px 10px;
+}
+
+#main .title-level4 {
+    font-size: 12px;
+    height: 39px;
+    color: #000;
+}
+
+/* -----  @3.b Titres variations image ----- */
+
+#main .title-level2 img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#main .title-level2 span.txtimg {
+    padding-left: 5px;
+}
+
+#main .title-level3 img {
+    margin: 0 5px 3px;
+    vertical-align: middle;
+}
+
+#main legend.title-level2 {
+    padding: 18px 0 0 0;
+}
+
+#main legend.title-level2 span {
+    padding: 0 0 0 14px;
+}
+
+#main legend.title-level3 span {
+    padding: 0 0 0 15px;
+}
+
+#main legend.title-level3 {
+    padding: 13px 5px 0 0;
+}
+
+/* -----  @3.c Titre_Accordeon  ----- */
+
+#main div.titreAccordion {
+    font-size: 21px;
+    line-height: 1;
+    float: left;
+    height: 42px;
+    vertical-align: middle;
+}
+
+#main div.titreAccordion h2 {
+    position: relative;
+    top: 10px;
+}
+
+/* ----- @3.d Styles de texte communs ----- */
+
+.caps {
+    text-transform: uppercase;
+}
+
+.medium {
+    font-size: 90%;
+}
+
+.big {
+    font-size: 110%;
+}
+
+.note {
+    margin: 5px 10px;
+    color: #73718d;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bold img {
+    float: left;
+    width: 20px;
+    height: auto;
+    margin: 0 10px 0 0;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.positif,
+.negatif {
+    color: #222;
+}
+
+.checkbox {
+    margin: 0;
+}
+
+.solde {
+    font-size: 13px;
+    float: right;
+    margin-top: -1px;
+    padding-right: 7px;
+}
+
+ul.nobullet * {
+    list-style-type: none;
+}
+
+#main .textFCK #fcklink0,
+#main .textFCK a {
+    color: #1344a1;
+}
+
+#main sup {
+    font-size: 10px;
+    line-height: 1;
+    vertical-align: top;
+}
+
+.txtCenter {
+    text-align: center;
+}
+
+.txtLeft {
+    text-align: left;
+}
+
+.txtRight {
+    text-align: right;
+}
+
+/* ######################### **  @4. Boutons dactions_et_liens  ** ############################# */
+
+/* -----  @4.a Liens  ----- */
+
+a {
+    cursor: pointer;
+    color: #000;
+}
+
+a,
+a span {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:hover span,
+a:focus span,
+a:focus>strong,
+#headContent li a:focus {
+    text-decoration: underline;
+}
+
+button:focus {
+    text-decoration: underline;
+    border: 2px solid #0a265c !important;
+}
+
+/* -----  @4.b Boutons_dactions  ----- */
+
+/* Font Lato sur les boutons d'actions et onglets */
+
+#main ul.actions li *,
+#main ul.liens a *,
+#main ul.tabs li span {
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+    opacity: .999;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+#main ul.actions {
+    float: right;
+    margin: 20px 0;
+    _margin-bottom: 140px;
+}
+
+#main ul.actions:before,
+#main ul.actions:after {
+    display: table;
+    clear: both;
+    content: ' ';
+}
+
+#main ul.actions li *,
+#main ul.liens a * {
+    font-weight: 700;
+}
+
+#main ul.liens {
+    margin: 10px 0;
+}
+
+#main ul.liens li {
+    display: inline-block;
+    margin: 1.5px 0;
+    _display: inline;
+}
+
+#main ul.liens li.simple a strong,
+#main ul.liens li.simple a span {
+    color: #f2f2f2 !important;
+}
+
+#main ul.liens li.med {
+    margin: 2px 2.5px 0 0;
+}
+
+#main ul.liens li.med:first-child {
+    margin-left: 0;
+}
+
+#main ul.liens li a.btn_crt span img,
+#main ul.liens li span a.btn_crt img,
+#main ul.actions li a.btn_crt span img {
+    display: none !important;
+}
+
+#main ul.actions li,
+.supportLink,
+#main ul.links li,
+.lbpBtn {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    padding: 0;
+    text-align: center;
+}
+
+#main ul.actions li:last-child,
+#main ul.links li:last-child {
+    margin-right: 0;
+}
+
+#main ul.actions a,
+#main ul.actions input,
+#main ul.links a,
+#main ul.links input,
+#main ul.actions .btn_bleu {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 130%;
+    display: block;
+    float: left;
+    height: 45px;
+    padding: 0 20px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    background-color: #1344a1;
+}
+
+#main ul.actions input[type] {
+    line-height: 17px;
+    /* Safari */
+    padding: 0 20px;
+    /* Firefox */
+}
+
+*:first-child+html button[type] {
+    padding: 0 20px;
+    /* IE7 */
+}
+
+#main ul.liens li .btn_crt,
+#main ul.smallPopinLinks li input {
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 8px 10px;
+    text-align: center;
+    vertical-align: middle !important;
+    color: #f2f2f2;
+    border: none;
+    background: #1344a1;
+}
+
+#main button:hover,
+#main button:active,
+#main button:focus,
+#main .btn:hover span,
+#main .btn:active span,
+#main button.btn:focus span,
+#main ul.actions a:hover,
+#main ul.actions a:focus,
+#main ul.actions a:active,
+#main ul.actions input:active,
+#main ul.actions input:hover,
+#main ul.actions input:focus,
+#main ul.actions a:hover,
+#main ul.actions input:hover,
+#main ul.links li .btn:hover,
+#main ul.links li .btn_crt:hover {
+    text-decoration: underline !important;
+}
+
+#main ul.actions a,
+#main ul.links a {
+    line-height: 45px;
+}
+
+#main ul.liens a.logout {
+    font-size: 90%;
+    font-weight: bold;
+    display: block;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: url('../../img/q4x/top.png') no-repeat;
+}
+
+#main ul.liens a.logout strong {
+    display: block;
+    width: 147px;
+    padding: 14px 0 0;
+    text-transform: uppercase;
+}
+
+.supportLink {
+    float: left;
+    margin-top: 10px;
+}
+
+#main ul.smallPopinLinks li {
+    float: left;
+    margin: 10px 5px 0;
+}
+
+#main ul.centerLink {
+    float: none !important;
+    text-align: center;
+}
+
+#main ul.centerLink li {
+    display: inline-block;
+    float: none;
+    margin: 0 auto;
+}
+
+#main input.btn.mid {
+    padding: 0;
+    text-align: left;
+}
+
+/* ############################# @5. Navigation ############################# */
+
+/* ----- @5.a TopNav ----- */
+
+#navH #headTop {
+    line-height: 4em;
+    position: relative;
+    z-index: 2;
+    background: #f2f2f2;
+}
+
+#navH #headTop #headContent {
+    position: relative;
+    width: 910px;
+    height: 4em;
+    margin: 0 auto;
+}
+
+#navH #headTop #headContent #espace {
+    margin: 0 0 0 13px !important;
+}
+
+#navH #headTop .mainLogo {
+    position: relative;
+    z-index: 2;
+    left: 0;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#navH #headTop .navHlist {
+    font-size: .91em;
+    float: right;
+    margin-right: 0;
+}
+
+#navH #headTop .navHlist li {
+    float: left;
+    padding-right: 2px;
+    padding-left: 4px;
+}
+
+#navH #middleContent {
+    margin: 24px auto;
+}
+
+#navH #middleContent ul {
+    display: inline-block;
+    margin: 0 0 0 70px;
+}
+
+#navH #middleContent ul li {
+    float: left;
+}
+
+#navH #middleContent ul li.univ1,
+#navH #middleContent ul li.univ2,
+#navH #middleContent ul li.univ3 {
+    height: 60px;
+}
+
+#navH #middleContent .univers a.title,
+#navH #middleContent .univers a.level1,
+#headContent a {
+    color: #454246;
+}
+
+#navH #middleContent ul li a.title {
+    font-family: Arial;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.1em;
+    display: block;
+    height: 30px;
+    padding: 0 15px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    border-right: 1px solid #dbdbde;
+}
+
+#navH #middleContent ul li a.title:last-child {
+    border-right: none;
+}
+
+#navH #middleContent ul li div {
+    position: absolute;
+    z-index: 2;
+    top: -1000px;
+    left: 0;
+    width: 100%;
+    _width: 1080px;
+    text-align: center;
+}
+
+#navH #middleContent ul li.current div,
+#navH #middleContent ul li.active div {
+    top: 45px;
+}
+
+#navH #middleContent ul li.current div {
+    z-index: 600;
+}
+
+#navH #middleContent ul li div ul {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#navH #middleContent ul li div ul li {
+    line-height: 34px;
+    display: inline-block;
+    float: none;
+    margin: 0 auto;
+    padding: 0 2%;
+    border-right: 1px solid rgba(255, 255, 255, .25);
+}
+
+#navH #middleContent ul li div ul li:last-child {
+    border: none;
+}
+
+#navH #middleContent li div a {
+    font-size: .91em;
+    color: #222;
+}
+
+#navH #headtop_new {
+    line-height: 4em;
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    background: url('../img/q4x/bkg_stripe_old.png') repeat-x scroll left top #fff;
+}
+
+#navH #headtop_new #headContent {
+    position: relative;
+    width: 976px;
+    height: 4em;
+    margin: 0 auto;
+}
+
+#navH #headMiddle {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#navH #headtop_new .mainLogo {
+    position: absolute;
+    z-index: 2;
+    bottom: -71px;
+    left: 0;
+    cursor: pointer;
+}
+
+#navH #headtop_new .navHlist {
+    font-size: .91em;
+    float: right;
+    margin-right: 0;
+}
+
+#navH #headtop_new .navHlist li {
+    float: left;
+    padding-right: 2px;
+    padding-left: 4px;
+}
+
+#navH #headtop_new #headContent .textFCK li a {
+    color: #666;
+}
+
+#navH #middleContent ul li.current.univ1 a.title,
+#navH #middleContent ul li.active.univ1 a.title {
+    color: #1244a1;
+}
+
+#navH #middleContent ul li.current.univ2 a.title,
+#navH #middleContent ul li.active.univ2 a.title {
+    color: #990058;
+}
+
+#navH #middleContent ul li.current.univ3 a.title,
+#navH #middleContent ul li.active.univ3 a.title {
+    color: #056169;
+}
+
+#navH #middleContent ul li.current.univ1 a.title:after,
+#navH #middleContent ul li.current.univ2 a.title:after,
+#navH #middleContent ul li.current.univ3 a.title:after {
+    position: absolute;
+    top: 38px;
+    display: table;
+    overflow: hidden;
+    width: 15px;
+    height: 15px;
+    margin: 0 50px;
+    content: ' ';
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #990058;
+}
+
+#navH #middleContent ul li.current.univ1 a.title:after {
+    background-color: #1244a1 !important;
+}
+
+#navH #middleContent ul li.current.univ3 a.title:after {
+    background-color: #056169 !important;
+}
+
+#navH #middleContent.univers .univ1 div,
+#navH #middleContent.univers .univ2 div,
+#navH #middleContent.univers .univ3 div {
+    width: 100%;
+    padding: 8px 12px;
+}
+
+#navH #middleContent.univers .univ1 div a,
+#navH #middleContent.univers .univ2 div a,
+#navH #middleContent.univers .univ3 div a {
+    font-size: 12px;
+    color: #fff;
+}
+
+#navH #middleContent.univers .univ1 div {
+    background: #1244a1;
+}
+
+#navH #middleContent.univers .univ2 div {
+    background: #990058;
+}
+
+#navH #middleContent.univers .univ3 div {
+    background: #056169;
+}
+
+/* ----- @5.b NavGauche  ----- */
+
+.h_navl {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    color: #222;
+}
+
+.navL {
+    overflow: hidden;
+}
+
+.navL li {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.navL li a {
+    display: block;
+    float: none;
+    padding: 12px 18px;
+    text-decoration: none;
+    color: #222;
+    background: transparent url('skin/vertnav/puce-navl.png') no-repeat scroll 4px center;
+}
+
+.navL li a:hover {
+    background-color: #f4f4f3;
+}
+
+.navL li.current a {
+    color: #333;
+    background: #ebebeb;
+}
+
+.navL li.current ul li a {
+    padding: 10px 22px;
+    color: #676767;
+    background: url('skin/vertnav/puce-navlsecond.png') no-repeat 10px center #fff;
+}
+
+.navL li.current ul li.current a {
+    background-image: url('skin/vertnav/puce-navlbas.png');
+    background-position: 10px center;
+}
+
+.navL li.current ul li a:hover,
+.navL li.current ul li.current a {
+    background-color: #f4f4f3;
+}
+
+.navL li.current ul li.first {
+    border-top: #a4a4a4;
+}
+
+.navL li.current ul li.last {
+    border-bottom: none ! important;
+}
+
+.navL li.current ul li.current ul li a {
+    font-weight: normal;
+    padding: 5px 32px 5px 32px;
+    background: url('skin/vertnav/puce-navlsecond.png') no-repeat 20px center #fff;
+}
+
+.navL li.current ul li.current ul li.current a {
+    font-weight: bold;
+    background-image: url('skin/vertnav/puce-navlbas.png');
+    background-position: 20px center;
+}
+
+.navL li.current ul li.current ul li.current a,
+.navL li.current ul li.current ul li a:hover {
+    background-color: #f4f4f3;
+}
+
+/* ----- @5.c Colonne de droite ----- */
+
+/* @Bouton Deconnexion Colonne de droite */
+
+.disconnect a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    color: #456eb6;
+}
+
+.disconnect a span {
+    padding-right: 20px;
+    background: url('skin/picto/picto-cross.png') no-repeat scroll right top transparent;
+}
+
+div.right {
+    width: 150px;
+}
+
+div.right a.logout {
+    font-size: 90%;
+    font-weight: bold;
+    display: block;
+    height: 50px;
+    text-align: left;
+    text-decoration: none;
+    color: #fff;
+    background: #1244a1;
+}
+
+div.right a.logout span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 48px;
+    display: block;
+    text-align: center;
+    letter-spacing: .1px;
+    text-transform: uppercase;
+}
+
+div.right div.decotop {
+    margin-top: 10px;
+}
+
+div.right .title {
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 10px 0 0;
+    text-transform: uppercase;
+    color: #000;
+}
+
+div.right ul li,
+div.right dt {
+    text-transform: capitalize;
+}
+
+div.right ul,
+div.right dl,
+div.right div.messagerie {
+    margin-top: 10px;
+    padding: 0 0 8px 0;
+}
+
+div.right ul li,
+div.right dt,
+div.right dd {
+    padding: 0 0 2px 10px;
+}
+
+div.utilisateur,
+div.ajdhui,
+div.connexion {
+    line-height: 1.2;
+    padding: 10px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+div.right dd span {
+    display: block;
+}
+
+div.right dl {
+    padding-top: 8px;
+}
+
+div.right div.messagerie a {
+    font-size: 12px;
+    display: block;
+    margin: 0 0 10px 2px;
+    padding-left: 35px;
+    background: url('../../img/q4x/enveloppe.png') no-repeat left;
+}
+
+div.right ul.links li {
+    font-size: 12px;
+    display: block;
+    margin-left: 10px;
+    padding-left: 13px;
+    background: url('../../img/q4x/puce.png') no-repeat left top;
+}
+
+div.right div.acces {
+    font-size: 12px;
+    display: block;
+    margin: 0 5px;
+    padding: 0 5px 8px 23px;
+    border-bottom: 1px solid #ddd;
+    background: url('../../img/q4x/pic_cpte.gif') no-repeat left top;
+}
+
+div.right div.acces1 {
+    font-size: 12px;
+    display: block;
+    margin: 0 5px;
+    padding: 0 5px 8px 15px;
+    border-bottom: 1px solid #ddd;
+    background: url('../../img/q4x/pic_cons.gif') no-repeat left top;
+}
+
+div.right div.acces2 {
+    font-size: 12px;
+    display: block;
+    margin: 0 5px;
+    padding: 0 5px 8px 33px;
+    border-bottom: 1px solid #ddd;
+    background: url('../../img/q4x/logo_small.gif') no-repeat 0 3px;
+}
+
+/* @5.c1 Blocs Colonne de droite */
+
+.block {
+    font-size: 12px;
+    color: #676767;
+}
+
+.block h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.block hr {
+    color: #d4d4d2;
+}
+
+.block.gradientGrey {
+    background: #b2b2b2;
+}
+
+.block .inside {
+    background: #b2b2b2 repeat-y top right;
+}
+
+.block .body {
+    padding: 10px;
+}
+
+.block .borderTop,
+.block .borderBottom {
+    width: 100%;
+    height: 5px;
+}
+
+.block .borderTop .left,
+.block .borderBottom .left {
+    display: block;
+    float: left;
+    width: 10px;
+    height: 5px;
+}
+
+.block .borderTop .right,
+.block .borderBottom .right {
+    display: block;
+    float: right;
+    width: 10px;
+    height: 5px;
+}
+
+/* ----- @5.d Stepper ----- */
+
+#main #stepper ul:before,
+#main #stepper ul:after,
+#main #stepper ol:before,
+#main #stepper ol:after {
+    display: table;
+    clear: both;
+    content: ' ';
+}
+
+#main #stepper ul,
+#main #stepper ol {
+    margin: 16px 0;
+}
+
+#main #stepper li span {
+    display: inline-block;
+}
+
+#main #stepper li {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1;
+    display: inline-block;
+    overflow: hidden;
+    width: 85px;
+    height: 42px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #b2b2b2;
+}
+
+#main #stepper li span:last-child {
+    display: none;
+}
+
+#main #stepper li.active span:last-child {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.44;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    vertical-align: baseline;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    color: #222;
+}
+
+#main #stepper li.active {
+    width: auto;
+}
+
+#main #stepper li.active span.stepper-num {
+    color: #fff;
+    background: url('../../img/q4x/bkg_stepper-active.png');
+}
+
+#main #stepper li:after {
+    position: relative;
+    top: 7px;
+    display: inline-block;
+    width: 13px;
+    height: 25px;
+    margin: 0 8px;
+    content: ' ';
+    vertical-align: top;
+    background: transparent url('../../img/q4x/Fleche_stepper.png') no-repeat scroll right bottom;
+}
+
+#main #stepper li:last-child:after {
+    background: none;
+}
+
+#main #stepper li span.stepper-num {
+    width: 42px;
+    height: 42px;
+    margin: 0 10px 0 0;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 42px;
+    text-align: center;
+    color: #222;
+    background: url('../../img/q4x/bkg_stepper.png');
+}
+
+#stepper li.active span.encours {
+    position: absolute;
+    margin-top: -9999px;
+}
+
+/* -----  @5.e Slider  -----*/
+
+.getSlider em {
+    float: left;
+    margin: 8px 0 0 40px;
+}
+
+.getSlider p {
+    float: left;
+    width: 150px;
+}
+
+.getSlider span.absslider,
+#main table.dataNum span.absslider {
+    font-size: 10px;
+    position: absolute;
+    z-index: 1000;
+    top: -15px;
+    width: 100px;
+    width: 30px;
+    padding: 0 3px;
+    text-decoration: none;
+    color: #000;
+    border: solid 1px #000;
+    background-color: #fff;
+}
+
+.getSlider a {
+    text-decoration: none;
+}
+
+input.toadd {
+    font-weight: bold;
+}
+
+input.slide {
+    text-align: right;
+}
+
+.slider0prcent {
+    display: block;
+    float: left;
+    width: 50px;
+    margin-right: 20px;
+}
+
+.slidercentprcent {
+    display: block;
+    float: left;
+    margin-left: 10px;
+}
+
+.profil-level2 {
+    width: 18%;
+    margin: 2px 0 2px 15px;
+    padding: 5px 0 5px 10px;
+    border: 1px solid #d4d3d1;
+}
+
+/* -----  @5.f Ascenseurs  ----- */
+
+#main .tableWrapper {
+    margin: 10px auto;
+}
+
+#main .tableWrapper h3 {
+    font-size: 14px;
+}
+
+#main .tableWrapper .sixLines,
+#main .tableWrapper .threeLines {
+    margin: 10px auto;
+    overflow: auto;
+}
+
+#main .tableWrapper .sixLines {
+    height: 186px;
+}
+
+#main .tableWrapper .threeLines {
+    height: 105px;
+}
+
+/* ############################# @6. Styles divers  ############################# */
+
+/* ----- @6.a Listes  ----- */
+
+#main .bloc dt {
+    clear: left;
+    width: 30.5%;
+    border-right: solid 1px #d4d3d1;
+}
+
+#main .bloc dd {
+    width: 69.2%;
+}
+
+#main .bloc dt,
+.bloc dd {
+    line-height: 20px;
+    float: left;
+    border-top: solid 1px #d4d3d1;
+}
+
+#main .bloc dt.bkg,
+.bloc dd.bkg {
+    font-weight: bold;
+    height: 38px;
+    color: #222;
+}
+
+#main .bloc dl dt span {
+    display: block;
+    padding: 10px 0;
+}
+
+#main .bloc dl dd span {
+    display: block;
+    padding: 10px;
+}
+
+#main .bloc dt span {
+    width: 90%;
+}
+
+#main .bloc dt.bkg {
+    border-right: none;
+}
+
+#main .bloc dt.bkg span,
+#main .bloc dd.bkg span {
+    padding-top: 10px;
+}
+
+#main .jscontrol.disabled strong {
+    cursor: default;
+    color: #ccc;
+}
+
+#main dl span strong,
+#main dl span a.positif.lienslink {
+    float: right;
+}
+
+#main dl span a.positif.lienslink.rightalign {
+    width: 40%;
+    text-align: left;
+}
+
+#main dl span em.emstrong {
+    font-weight: bold;
+    font-style: normal;
+}
+
+#main .accordContent.accordListe {
+    width: 100%;
+}
+
+#main .accordContent dl span strong {
+    float: none;
+}
+
+#main p.bot {
+    padding-left: 10px;
+}
+
+/* -----  @6.b Encadrement et contenu ----- */
+
+#main .bloc,
+#rightcol .bloc {
+    padding: 0 0 0 0;
+}
+
+#main .bloc.first,
+#main .bloc.last {
+    border: none;
+}
+
+#main .bloc .blcfooter {
+    overflow: hidden;
+    height: 1px;
+    margin: 0;
+    padding: 0 0 0 0;
+    border-top: 1px solid #d4d3d1;
+}
+
+#main .bloc p,
+#main .bloc h4 {
+    margin: 11px 0;
+    padding: 0 10px;
+}
+
+#main .bloc .lienmodif ul {
+    margin-top: 0;
+}
+
+#main .bloc ul,
+.bloc ol {
+    padding: 0 0 10px 5px;
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+#main .bloc ol {
+    list-style-type: decimal;
+}
+
+#main a.pdf {
+    display: inline-block;
+    min-height: 16px;
+    padding-right: 20px;
+    background: url('../../img/q4x/logo_pdf.png') no-repeat scroll right -1px transparent;
+    *display: inline;
+    *zoom: 1;
+}
+
+#main a.help,
+#main a.helper {
+    height: 16px;
+    margin: 0 6px 0;
+    padding: 0 12px 0 0;
+    background: url('../../img/q4x/picto-aide-carre.png') no-repeat scroll right 2px transparent;
+}
+
+#main a.help.img,
+#main a.helper.img {
+    background: none;
+}
+
+#main a.helper {
+    position: relative;
+    left: 5px;
+    display: block;
+    float: left;
+}
+
+#main label.helper {
+    float: left;
+    margin-bottom: 10px;
+}
+
+#main span.light {
+    font-size: 80%;
+    font-weight: normal;
+}
+
+#main p.simpletext {
+    padding: 0 6px 6px 6px;
+}
+
+#main .accordContent {
+    position: absolute;
+    left: -5000px;
+}
+
+#main .selected .accordContent {
+    position: relative;
+    left: 0;
+}
+
+/* -----  @6.c Pictos_et_images ----- */
+
+/* @Classe pour le picto exclamation */
+
+#main div.doublecol.picto {
+    padding-top: 12px;
+    padding-left: 18px;
+    background: url('../../img/q4x/picto-excla.png') no-repeat scroll 0 0 transparent;
+}
+
+/* @Classe pour la puce triangulaire */
+
+.pucetriangle {
+    padding-left: 20px;
+    background: url('../../img/q4x/puce-fleche.png') no-repeat;
+}
+
+div.abslink {
+    position: relative;
+    height: 20px;
+}
+
+div.abslink a {
+    position: absolute;
+    z-index: 998;
+    top: 0;
+    right: 90px;
+}
+
+div.ssc a {
+    top: -40px;
+}
+
+/* ----- @Classe pour les infos-bulle  ----- */
+
+span.altbulle {
+    position: relative;
+}
+
+span.altbulle img {
+    width: 20px;
+    height: auto;
+}
+
+#main span.altbulle strong {
+    font-weight: normal;
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 20px;
+    display: none;
+    width: 200px;
+    padding: 3px;
+    text-decoration: none;
+    background: #efefef;
+}
+
+/*  @Classe pour le marginblock */
+
+.marginbloc {
+    padding: 5px;
+    border-top: 1px solid #d4d3d1;
+}
+
+/* @Classe pour le picto-warning */
+
+p.pictowarning {
+    margin: 10px 0 10px 5px !important;
+    padding: 0 35px !important;
+    background: transparent url('../../img/q4x/warning.png') no-repeat scroll 0 38%;
+}
+
+.warning span img {
+    width: 20px;
+    height: auto;
+    margin: 0 7px 0 0;
+}
+
+.warning {
+    margin: 0 15px;
+    color: red;
+}
+
+.warning span {
+    float: left;
+}
+
+.pictoposition {
+    position: relative;
+    top: 15px;
+}
+
+/* -----  @DAtePicker  ----- */
+
+a.dp-choose-date {
+    line-height: 1;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    display: inline-block;
+    overflow: hidden;
+    width: 20px;
+    height: 22px;
+    padding: 0;
+    text-indent: -2000px;
+    background: transparent url(../../img/q4x/picto_calendar.png)no-repeat center center / 20px;
+}
+
+#main #CreationAlerte .formline .date a.dp-choose-date {
+    margin: 0 25px 0 5px;
+}
+
+#main #CreationAlerte div.multifield .colcontent2 {
+    width: 41%;
+    margin-bottom: 20px;
+}
+
+#main #CreationAlerte div.multifield .colcontent2 .text {
+    width: 39%;
+}
+
+#main #CreationAlerte div.multifield .colcontent .note,
+#main #CreationAlerte div.multifield .colcontent2 .note {
+    margin-left: 0;
+}
+
+#main #CreationAlerte .msgvocal .colheader {
+    height: 80px;
+}
+
+a.dp-choose-date.dp-disabled {
+    cursor: default;
+    background-position: 0 -20px;
+}
+
+/* -----  @6.d Classes fix pour perso_donnees_personnelles.html ----- */
+
+#main .gestionFix table.dataStr span {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#main .gestionFix table.dataStr tbody tr,
+#main .gestionFix table.dataStr tbody tr td {
+    vertical-align: middle;
+}
+
+/***  @Centrage image bloc edito  ****/
+
+.CQblocedito .centre_image img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* -----  @6.e Webaccess  ----- */
+
+.webaccess {
+    line-height: 10px;
+    position: absolute;
+    left: -5000px;
+    overflow: hidden;
+}
+
+legend.webaccess {
+    text-indent: -3000px;
+}
+
+/* ----- @6.f TEMPLATE 800x600  ----- */
+
+body.annexe .wrapper {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+body.annexe .wrapper #header {
+    height: 1px;
+}
+
+body.annexe .wrapper #navH #headTop {
+    line-height: 4em;
+    position: relative;
+    z-index: 2;
+    background: none;
+}
+
+body.annexe .wrapper #navH #headTop .mainLogoVir {
+    position: absolute;
+    z-index: 2;
+    left: 3px;
+    cursor: pointer;
+}
+
+body.annexe .wrapper .colmask {
+    position: relative;
+    left: 0;
+    float: left;
+    clear: both;
+    width: 99%;
+    margin-top: 20px;
+}
+
+body.annexe .wrapper #main.sml {
+    width: 70%;
+}
+
+body.annexe .wrapper #main .title-level1Vir {
+    font-size: 1.8em;
+    font-weight: normal;
+    position: relative;
+    top: -5px;
+    margin-bottom: 20px;
+    margin-left: 110px;
+    color: #456fb7;
+}
+
+body.annexe .wrapper #main .title-level2 {
+    font-size: 15px;
+    font-weight: bold;
+    height: 32px;
+    padding: 18px 0 0 14px;
+    color: #504d51;
+    background: transparent;
+}
+
+body.annexe .wrapper #main .toptitle img {
+    float: left;
+}
+
+body.annexe .wrapper #main .toptitle .title-level1 {
+    float: left;
+}
+
+body.annexe .wrapper .twocol #leftcol {
+    position: relative;
+    left: .50%;
+    float: left;
+    width: 29.00%;
+}
+
+body.annexe .wrapper .twocol #main {
+    position: relative;
+    left: .50%;
+    float: left;
+    width: 80%;
+    margin-right: 11px;
+}
+
+body.annexe .wrapper .twocol #main .mode_emploi {
+    float: left;
+    width: 250px;
+    height: 350px;
+    margin-top: 50px;
+    border: 1px solid black;
+}
+
+body.annexe .wrapper div.conainerframe iframe {
+    float: right;
+    width: 350px;
+}
+
+body.annexe .wrapper #main table.dataNum span {
+    padding: 1px 2px 0 4px;
+}
+
+body.annexe .wrapper {
+    display: block;
+    clear: both;
+    width: 100%;
+}
+
+/* -----  @6.g Script choix radio  -----*/
+
+#target #BlocOption {
+    display: none;
+}
+
+#target.selected #BlocOption {
+    display: block;
+}
+
+#target #BlocOption .formline {
+    display: none;
+}
+
+#target.selected.choix1 #BlocOption .formline.choix2 {
+    display: block;
+}
+
+#target.selected.choix1 #BlocOption .formline.choix3 {
+    display: block;
+}
+
+#target.selected.choix2 #BlocOption .formline.choix1 {
+    display: block;
+}
+
+#target.selected.choix2 #BlocOption .formline.choix3 {
+    display: block;
+}
+
+#target.selected.choix3 #BlocOption .formline.choix1 {
+    display: block;
+}
+
+#target.selected.choix3 #BlocOption .formline.choix2 {
+    display: block;
+}
+
+div.idemAdresse {
+    display: none;
+}
+
+input.idemAdresse {
+    display: block;
+}
+
+/* -----  @6.h Update lot4  ----- */
+
+#nouveau_numero {
+    display: none;
+}
+
+#nouveau_numero.selected {
+    display: block;
+}
+
+#main div.colonneur {
+    float: left;
+}
+
+#main div.colonneur.deuxTiers {
+    width: 66%;
+}
+
+#main span.altbulle strong {
+    position: absolute;
+    top: 0;
+    left: -50000px;
+}
+
+#main span.altbulle strong.selected {
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+
+#main .tableWrapper .valeurActualiseeTable {
+    margin: 0 auto;
+}
+
+#main .valeurActualiseeTable {
+    margin: 10px auto;
+    border: 1px solid #D4D3D1;
+}
+
+#main .valeurActualiseeTable caption {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+#main .valeurActualiseeTable thead th span {
+    text-align: center;
+}
+
+#main .valeurActualiseeTable.noDate .support {
+    width: 25%;
+}
+
+#main .valeurActualiseeTable.noDate .nbUc {
+    width: 18%;
+}
+
+#main .valeurActualiseeTable.noDate .montant {
+    width: 25%;
+}
+
+.availableCard .h3Title {
+    display: block;
+    padding: 5px 0 5px 5px;
+    background: #ebebeb;
+    color: #222;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.availableCard {
+    float: left;
+    width: 33.3333333%;
+}
+
+.availableCard .availableCardInner {
+    border: 1px solid #D4D3D1;
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+
+.availableCard.last .availableCardInner {
+    margin-right: 0px;
+}
+
+.modeEmploiHeader {
+    margin-top: 10px;
+    padding: 0 0 25px 74px;
+    background: url('../../img/q4x/bulle_engr.png') no-repeat scroll left top transparent;
+}
+
+.modeEmploiHeader .title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.modeEmploiContent {
+    background-color: #DEDEDE;
+    padding: 10px 0 10px 20px;
+    border: 1px solid #F9F9F9;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.modeEmploiContent ol {
+    list-style: decimal inside none;
+}
+
+.alertBox {
+    color: #0B4BA2;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.alertText {
+    color: #6f0068;
+    font-weight: bold;
+}
+
+.alertLink {
+    color: #6f0068;
+    text-decoration: underline;
+}
+
+.innerBox {
+    background-color: #DEDEDE;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 10px 10px 10px 32px;
+}
+
+.innerBox li {
+    list-style: disc outside none;
+}
+
+.miniTitle {
+    font-weight: bold;
+    font-size: 15px;
+    color: #222;
+}
+
+.enAttente {
+    position: relative;
+    top: 5px;
+}
+
+#main .formLine .label {
+    float: left;
+}
+
+#main .formLine label.title-level-2 span {
+    margin: 0;
+}
+
+#main .formLine .country {
+    width: 140px;
+}
+
+.formLine input {
+    border: 1px solid #D4D3D1;
+}
+
+#main .innerBloc {
+    border-left: none;
+    border-right: none;
+}
+
+#main .radioBoxes {
+    width: 40%;
+    margin: 0 auto;
+}
+
+#main .accordContent table.smaller {
+    width: 90%;
+    margin: 10px auto 0;
+}
+
+#main .accordContent table.smaller tbody th,
+#main .accordContent table.smaller tbody td {
+    vertical-align: middle;
+    text-align: left;
+}
+
+.pdfLink {
+    background: url('../../img/q4x/logo_pdf.png') no-repeat scroll right top transparent;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    line-height: 22px;
+}
+
+#main .titleLevel3 .editInfoLink,
+#main .titleLevel3 .editInfoLinkInvalid {
+    padding-left: 20px;
+    padding-bottom: 3px;
+    margin-right: 10px;
+    display: block;
+}
+
+#main .titleLevel3 .editInfoLink {
+    background: url('../../img/q4x/img_valide.png') no-repeat scroll left top transparent;
+}
+
+#main .titleLevel3 .editInfoLinkInvalid {
+    background: url('../../img/q4x/img_faire.png') no-repeat scroll left top transparent;
+}
+
+#main .removeSubscription,
+#main .seeSubscriptionDetails,
+#main .callbackDetails {
+    padding-right: 25px;
+    padding-bottom: 5px;
+    line-height: 22px;
+}
+
+#main .removeSubscription {
+    background: url('../../img/q4x/picto-trash.png') no-repeat scroll right top transparent;
+}
+
+#main .seeSubscriptionDetails {
+    background: url('../../img/q4x/pictograms_detail_petit.png') no-repeat scroll right top transparent;
+}
+
+#main .callbackDetails {
+    background: url('../../img/q4x/pictograms_detail_petit.png') no-repeat scroll right top transparent;
+}
+
+.contratPDF iframe,
+.legalMentions iframe {
+    width: 99.8%;
+    height: 440px;
+    border: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.legalMentions iframe {
+    height: 100px;
+    margin-left: 0;
+    width: 99.8%;
+}
+
+.getAcrobat .getAcrobatDesc {
+    color: #676767;
+}
+
+/* ----- @6.i Sel_AQ ----- */
+
+#main .selAQ {
+    position: relative;
+}
+
+#main .selAQ .maCalculette {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    margin-right: 3px;
+    background: #dedddc
+}
+
+#main .selAQ .maCalculette .innerContent {
+    padding: 10px;
+}
+
+#main .selAQ .maCalculette .innerContent .title {
+    color: #0B4BA2;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#main .selAQ .maCalculette .maCalculetteFooter {
+    background-color: #0B4BA2;
+    color: #FFFFFF;
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+#main .selAQ .maCalculette .maCalculetteFooter .bold {
+    padding-right: 20px;
+}
+
+#main .selAQ table.dataNum td,
+#main .selAQ table.dataNum thead th,
+#main .selAQ table.dataNum tfoot td {
+    text-align: right;
+}
+
+/* -----  @6.j imprimesFiscaux ----- */
+
+#imprimesFiscaux ul {
+    margin: 10px auto 0;
+    width: 92%;
+}
+
+#imprimesFiscaux ul li {
+    border-bottom: 1px solid #D4D3D1;
+    padding-left: 12px;
+    padding-bottom: 2px;
+}
+
+#imprimesFiscaux ul li.last {
+    border-bottom: none;
+}
+
+/* ----- @6.k creditCards ----- */
+
+#main .creditCards {
+    border: none;
+}
+
+#main .creditCards .titleAccordion {
+    background: transparent;
+    height: auto;
+    border-bottom: 1px solid #D4D3D1;
+}
+
+#main .creditCards .lireAccordion {
+    margin-top: 15px;
+}
+
+.ie #main .creditCards .lireAccordion {
+    margin-top: 20px !important;
+}
+
+/* ----- @6.l persoIdentiteDetail ----- */
+
+#persoIdentiteDetail .formline .field {
+    padding: 5px 0 0 5px;
+}
+
+#persoIdentiteDetail .formline .field input {
+    width: 400px;
+}
+
+#persoIdentiteDetail .formline .field select {
+    width: 406px;
+}
+
+#persoIdentiteDetail .formline .field .errorMessage {
+    clear: both;
+    color: #FF3A00;
+    margin: 5px 0;
+}
+
+/* ----- @6.m Issue de SKIN UNIVERS 2 ENRICHI ----- */
+
+#main form .clause {
+    clear: both;
+    border: none;
+}
+
+.titre_levels {
+    font-size: 15px;
+    height: 25px;
+    margin-left: 4px;
+    text-transform: uppercase;
+    color: #222;
+}
+
+#main div.bloc_div {
+    border: none;
+}
+
+#main .bloc_div dt,
+div.bloc_div dd {
+    border: none;
+}
+
+.sixieme {
+    margin-left: 70px;
+}
+
+#main .bloc_div .list_paragraphe {
+    padding-left: 30px;
+    list-style: disc;
+}
+
+#main .bloc_div .detail_liste,
+#main .bloc_div .detail_dt {
+    overflow: hidden;
+    margin: 10px 0 10px 36px;
+}
+
+#main .bloc_div .detail_liste li,
+#main .bloc_div .detail_dt dt,
+#main .bloc_div .detail_dt dd {
+    float: left;
+    width: 400px;
+}
+
+#main .bloc_div .detail_dt dd {
+    *float: none;
+}
+
+#main .bloc_div .detail_liste li.item_detail,
+#main .bloc_div .detail_dt dd {
+    font-weight: bold;
+    text-align: right;
+    color: #222;
+}
+
+#main .bloc_div .detail_dt_2 {
+    overflow: hidden;
+    margin: 10px 0 10px 36px;
+}
+
+#main .bloc_div .detail_dt_2 dt,
+#main .bloc_div .detail_dt_2 dd {
+    float: left;
+    width: 400px;
+}
+
+#main .bloc_div .detail_dt_2 dd {
+    *float: none;
+}
+
+#main .bloc_div .detail_dt_2 dd {
+    font-weight: bold;
+}
+
+#main .bloc_div .detail_dt_2 dd strong {
+    float: none !important;
+    padding-right: 30px;
+    color: #222;
+}
+
+#main .formline .field span {
+    vertical-align: top;
+}
+
+#main .formline>.label {
+    position: relative;
+    top: 8px;
+}
+
+#main #saisieCreationVOSF div.formline:nth-child(12) fieldset .field:first-child,
+#main #saisieCreationVOSF div.formline:nth-child(12) fieldset>.label+.label {
+    position: relative;
+    top: 8px;
+}
+
+#main #ProduitAideVenteFormBean .formline>.label,
+#main .formline.radioinverse>.label {
+    position: inherit;
+    top: 0;
+}
+
+#main .formline.radioinverse>.field,
+#main .formline.radioinverse .label {
+    position: relative;
+    top: 0;
+}
+
+#main #formComptes .formline>.label {
+    top: 0;
+}
+
+.lien_active {
+    text-decoration: underline;
+    color: #222;
+}
+
+.liste_choix {
+    width: 550px;
+    margin: 0 auto;
+}
+
+.cache {
+    display: none;
+}
+
+#main ul.actions li.button {
+    float: left;
+}
+
+.btn-imprimer {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.coordonnees {
+    float: left;
+    width: 50%;
+}
+
+.coordonnees-port {
+    float: left;
+    width: 50%;
+}
+
+h3.title_levels {
+    font-weight: bold;
+    margin: 0 0 0 10px;
+}
+
+#main .bloc ul.icon_disc {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+.div_image {
+    overflow: hidden;
+    width: 550px;
+    margin: 0 auto;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#main form div.div_image .dl,
+#main form div.div_image .img_carte {
+    width: 130px;
+}
+
+.code_securite {
+    width: 300px;
+    margin: 10px auto;
+}
+
+#main .bloc_div ul.forme li {
+    list-style-image: url('../img/q4x/skin-2/puce-fleche.png');
+}
+
+#main ul.actions input.btn-gd {
+    padding-right: 8px;
+    padding-left: 3px;
+}
+
+#main ul.actions li.btn-gd {
+    display: block;
+    padding-right: 0;
+}
+
+/* ----- @6.n MAJ_10-10-2011  ----- */
+
+#main form div.clause ul li {
+    float: left;
+}
+
+#main form div.clause ul li.img_attention {
+    width: 30px;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+#main form div.clause ul li.img_attention img {
+    float: left;
+    width: 20px;
+    height: auto;
+}
+
+#main form div.clause ul li.text_attention {
+    width: 80%;
+    padding-top: 10px;
+}
+
+.borde {
+    overflow: hidden;
+    border: 1px solid #d4d3d1;
+}
+
+/* -----  @6.o MAJ_11-10-2011  ----- */
+
+.logo_gestion {
+    float: left;
+    width: 200px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.titre_gestion {
+    float: left;
+    width: 610px;
+}
+
+.titre_gestion h1 {
+    font-size: 20px;
+    margin: 30px 0;
+    color: #456ec2;
+}
+
+.quitter {
+    font-weight: 500;
+    float: left;
+    padding: 25px 0;
+}
+
+.gestion_center {
+    width: 650px;
+}
+
+.liste_gestion li {
+    float: left;
+}
+
+.liste_gestion li.cadeuu {
+    width: 81px;
+}
+
+.liste_gestion li.content_liste {
+    width: 400px;
+    text-align: left;
+}
+
+.liste_gestion li.lien_gestion {
+    width: 100px;
+    margin: 20px 0;
+}
+
+#main .bloc_div .troisquart_gestion {
+    margin-left: 10px;
+}
+
+#main .bloc_div .troisquart_gestion dd {
+    float: left;
+    width: 276px;
+    text-align: left;
+}
+
+#espace_gestion {
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    margin-left: 110px;
+    color: #3a64ae;
+}
+
+#main .title-level5 {
+    font-size: 1.8em;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.attentions {
+    color: #f00;
+}
+
+/* -----  @6.p MAJ_13/11/2011  -----*/
+
+.carte_prepayee {
+    width: 600px;
+    margin: 0 auto;
+}
+
+#main .bloc p.spaceL100 {
+    margin-left: 100px;
+}
+
+.avisysResultats .label {
+    display: block;
+    float: left;
+    width: 80%;
+}
+
+.avisysResultats .separator {
+    display: block;
+    float: left;
+    width: 14%;
+}
+
+#main .avisysResultats {
+    padding-left: 15px;
+}
+
+.avisysChoixPaiement .label {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+.avisysChoixPaiement .separator {
+    display: block;
+    float: left;
+    width: 28%;
+}
+
+.avisysChoixPaiement .separator.min {
+    width: 1%;
+}
+
+.userInfoForm .leftColumn {
+    float: left;
+    width: 50%;
+}
+
+.userInfoForm .rightColumn {
+    float: left;
+    width: 50%;
+    *float: none;
+    *width: auto;
+}
+
+#main .userInfoForm .rightColumn .title-level2 {
+    padding-left: 0;
+}
+
+.userInfoForm .label {
+    float: left;
+    width: 38%;
+}
+
+.userInfoForm .field {
+    margin-bottom: 10px;
+}
+
+.sadRecapCards .card img,
+.sadRecapCards .card label,
+.sadRecapCards .card input {
+    display: block;
+    margin: 0 auto;
+}
+
+.sadRecapCards .card {
+    display: block;
+    float: left;
+    width: 24%;
+    text-align: center;
+}
+
+.sadRecapCards .secondLine .card {
+    width: 33%;
+}
+
+.amountLabel {
+    display: block;
+    float: left;
+    width: 400px;
+}
+
+.amountSeparator {
+    display: block;
+    float: left;
+    width: 400px;
+}
+
+.plafondMax .label,
+.seuilCard .label {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.plafondMax .separator,
+.seuilCard .separator {
+    display: block;
+    float: left;
+    width: 5%;
+}
+
+.plafondMax .inputRadios .formField {
+    display: block;
+    float: left;
+    width: 15%;
+}
+
+#logo.mainLogo {
+    float: left;
+    width: 120px;
+}
+
+#headContent .title-level1 {
+    float: left;
+    width: 300px;
+}
+
+#headContent .userBlock {
+    float: left;
+}
+
+.cadeauPrepayes {
+    padding: 10px 5px;
+}
+
+.cadeauPrepayes img {
+    float: left;
+    margin-left: 5px;
+}
+
+.cadeauPrepayes .cadeauTXT {
+    float: left;
+    width: 68%;
+    text-align: left;
+}
+
+.cadeauPrepayes .linkBoutique {
+    float: left;
+    width: 100px;
+    margin-top: 15px;
+}
+
+.tiersTable {
+    display: block;
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+
+.tiersTable .label {
+    display: block;
+}
+
+.tiersTable .value {
+    font-weight: bold;
+    display: block;
+    margin: 15px 0;
+}
+
+.rechargement .formField .label {
+    display: block;
+    float: left;
+    width: 300px;
+}
+
+.changementVisuelCarte {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.changementVisuelCarte .label {
+    display: block;
+    float: left;
+    width: 60%;
+}
+
+.changementVisuelCarte .value {
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+.changementVisuelCarte .legend {
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.montantDispo .formField .label {
+    display: block;
+    float: left;
+    width: 48%;
+}
+
+#main .bloc .confirmAdhInfo {
+    padding: 0;
+}
+
+#main form .formline .inlineField {
+    float: left;
+}
+
+#main form .formline .inlineField label {
+    margin-right: 20px;
+    padding: 4px 0 0;
+}
+
+.attention img {
+    float: left;
+    margin-right: 5px;
+}
+
+#main .attention p {
+    margin: 0;
+    padding: 0;
+}
+
+#main .bloc .paiementCotisationBilan {
+    padding: 0;
+}
+
+.paiementCotisationBilan .label {
+    display: block;
+    float: left;
+    width: 400px;
+}
+
+.paiementCotisationBilan .separator {
+    display: block;
+    float: left;
+    width: 100px;
+}
+
+.paiementCotisationBilan .value {
+    display: block;
+    float: left;
+    width: 400px;
+}
+
+.paiementCotisationBilan.rof .value {
+    float: right;
+    color: #906;
+}
+
+#main .bloc .msgRouge {
+    line-height: 30px;
+}
+
+#main .bloc .msgRouge,
+#main .bloc .msgRouge a {
+    color: red;
+}
+
+#main .bloc .msgRouge a {
+    text-decoration: underline;
+}
+
+#main .bloc .msgRouge img {
+    float: left;
+    margin-right: 5px;
+}
+
+.rappelGaranties .value {
+    color: #906;
+}
+
+#main .bloc .otp dl span {
+    margin-top: 7px;
+}
+
+#main .bloc p.assoc {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+#main .bloc ul.noPaddingB {
+    padding-bottom: 0;
+}
+
+.mise_en_relation {
+    padding: 0 0 6px 10px;
+}
+
+.mise_en_relation a {
+    position: relative;
+    display: block;
+    height: 36px;
+    padding-left: 35px;
+    background: url('../../img/q4x/hub_mise_en_relation.png') no-repeat left center;
+}
+
+.pop_message {
+    font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
+    font-size: 11px;
+    font-weight: bold;
+    position: absolute;
+    top: 18px;
+    left: 21px;
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding-top: 2px;
+    padding-left: 0;
+    text-align: center;
+    color: #fff;
+    background: url('../../img/q4x/pop_message.png') no-repeat left top;
+}
+
+.pop_message.hidden {
+    display: none;
+}
+
+a:hover .pop_message {
+    text-decoration: none;
+}
+
+.contact_message {
+    line-height: 12px;
+    float: left;
+    width: 82px;
+    padding-left: 9px;
+}
+
+.widgContacts .contact_message {
+    line-height: 23px;
+    width: 103px;
+}
+
+.noPadding {
+    line-height: 1em;
+    padding: 0 !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.smallInputs input {
+    width: 70px;
+}
+
+.fixedInputs input {
+    width: 155px;
+}
+
+.repartchoice1 input,
+.repartchoice2 input,
+.repartchoice1 span,
+.repartchoice2 span {
+    display: inline !important;
+}
+
+.repartchoice1 input,
+.repartchoice2 input {
+    width: 10px !important;
+}
+
+.smallInputs .repartchoice1,
+.smallInputs .repartchoice2 {
+    width: 100%;
+    text-align: center;
+}
+
+.smallInputs .repartchoice1 input,
+.smallInputs .repartchoice2 input {
+    float: none;
+    margin: 0 auto;
+}
+
+.smallInputs .repartchoice1 span,
+.smallInputs .repartchoice2 span {
+    float: none;
+}
+
+.fiftytable {
+    width: 100%;
+}
+
+.fiftytable td {
+    width: 50%;
+}
+
+.fiftytable label,
+.fiftytable .refSelect {
+    display: inline !important;
+}
+
+.AccordionCheckBox {
+    width: 100%;
+}
+
+.AccordionCheckBox .accoCheck {
+    position: absolute;
+    display: block;
+    margin-top: 10px;
+}
+
+.AccordionCheckBox .creditCards {
+    margin-left: 30px !important;
+}
+
+.AccordionCheckBox .creditCards .title-level2 {
+    font-size: 12px !important;
+    line-height: 0 !important;
+    height: 15px !important;
+}
+
+.AccordionCheckBox .creditCards .lireAccordion {
+    margin-top: 9px !important;
+}
+
+select.valeur_sele {
+    margin-top: -3px;
+}
+
+#PMSCtoggle {
+    padding: 5px 15px;
+}
+
+#PMSCtoggle #otherNum {
+    margin-left: 15px;
+}
+
+.visuelWU {
+    font-size: 11px;
+    float: right;
+    margin-left: 20px;
+}
+
+.visuelWUsimple {
+    font-size: 11px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.visuelWUinline {
+    font-size: 11px;
+    margin-left: 50px;
+}
+
+.visuelWUinline p {
+    display: inline;
+    padding: 0 10px;
+}
+
+.heightNullifier {
+    min-height: auto !important;
+}
+
+.blockShadowSimpleMain {
+    position: relative;
+    overflow: hidden;
+    margin-right: 6px !important;
+    padding: 0 0 4px;
+    border: none !important;
+}
+
+.blockShadowSimpleMain .texte {
+    margin-right: 4px;
+}
+
+.blockA2G {
+    background: #fdfdfd;
+}
+
+.blockA2G h2 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 10px;
+    padding-bottom: 3px;
+    text-transform: uppercase;
+    color: #606fb9;
+}
+
+.blockA2G .texte {
+    min-height: 125px;
+    padding: 0 10px;
+}
+
+.blockA2G .texte .arrowGrey {
+    padding-left: 12px;
+    background: url(../../img/q4x/pucearrow.gif) no-repeat left top transparent;
+}
+
+.blockA2G .blue a {
+    font-weight: bold;
+    color: #676767;
+}
+
+#main ul.liens li .btn_crt.inverted strong {
+    float: left;
+    padding-right: 10px;
+}
+
+#main ul.liens li .btn_crt.inverted span {
+    float: right;
+    height: 33px;
+    margin-left: -5px;
+    background: #fff;
+}
+
+#main .bloc .checkboxlink p.blue {
+    padding-left: 10px;
+}
+
+#main .a2gform {
+    width: 590px;
+    margin: 0 auto;
+}
+
+#main .a2gform .formline .dl {
+    width: 25%;
+}
+
+#main .a2gform .formline .field span {
+    height: 23px;
+}
+
+#main .a2gform .formline input.large {
+    float: left;
+    width: 22em;
+}
+
+#main .a2gform .formline a.a2gformModify {
+    font-weight: bold;
+    display: block;
+    float: right;
+    height: 23px;
+    color: #456fb7;
+}
+
+.deviceForm table tr {
+    line-height: 50px;
+    height: 50px;
+    border-bottom: 1px solid #d4d3d1;
+}
+
+.deviceForm table tr:last-of-type {
+    border: none;
+}
+
+.deviceForm table tr td label img {
+    margin-right: 10px;
+    margin-bottom: -10px;
+}
+
+.deviceForm table tr td ul {
+    margin: 0 10px !important;
+    padding: 0 !important;
+    text-align: right;
+}
+
+.deviceForm table tr td ul li {
+    display: inline-block;
+    float: none;
+    margin-left: 10px;
+}
+
+.deviceForm table tr td ul li img {
+    display: inline-block;
+    float: none;
+}
+
+#smallPopin {
+    width: 400px;
+    background-color: #fff;
+}
+
+#smallPopin.mediumSize {
+    width: 600px;
+}
+
+#smallPopin a.modalCloseImg {
+    display: none;
+}
+
+#smallPopin .header {
+    line-height: 47px;
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+    height: 47px;
+    margin-bottom: 0;
+    color: #fff;
+    background: #1243a0;
+    background-color: #ddd;
+    background-repeat: repeat-x;
+    background-position: top left;
+    _overflow: visible;
+}
+
+#smallPopin .header a {
+    font-weight: bold;
+    line-height: 16px;
+    display: block;
+    float: right;
+    width: 17px;
+    height: 17px;
+    margin: 15px 15px 0 0;
+    padding-right: 25px;
+    color: #fff;
+    background-image: url(skin/popin/popinCross.gif);
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+#smallPopin .header h1#popinTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+    float: left;
+    width: 80%;
+    margin-bottom: 16px;
+    padding: 0 0 0 10px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#smallPopin .header h1 img {
+    display: none;
+}
+
+#smallPopin label,
+#smallPopin input {
+    display: block;
+    margin: 15px auto;
+}
+
+#smallPopin label {
+    text-align: center;
+}
+
+#smallPopin .ajaxPopinLargeForm select {
+    line-height: 30px;
+    display: block;
+    width: 300px;
+    height: 30px;
+    margin: 15px auto;
+}
+
+#smallPopin ul.smallPopinLinks {
+    margin: 10px 0 10px 0;
+    text-align: center;
+}
+
+#smallPopin ul.smallPopinLinks li {
+    line-height: 33px;
+    display: inline-block;
+    height: 33px;
+    padding-left: 15px;
+    text-align: center;
+    background: #dedddc;
+    _display: inline;
+}
+
+#smallPopin ul.smallPopinLinks li .btn_crt {
+    line-height: 33px;
+    height: 33px;
+}
+
+#smallPopin ul.smallPopinLinks li .btn_crt strong {
+    font-size: 85%;
+    line-height: 33px;
+    float: right;
+    height: 33px;
+    margin: 0;
+    padding: 0;
+    padding-right: 17px;
+    text-align: left;
+    vertical-align: top;
+    color: #504d51;
+    background: #fff;
+}
+
+#smallPopin ul.smallPopinLinks li .btn_crt strong em {
+    font-size: 85%;
+    font-weight: normal;
+    line-height: 8px;
+    display: inline;
+    padding-right: 4px;
+    color: #504d51;
+}
+
+#smallPopin ul.smallPopinLinks li strong {
+    margin-bottom: -9px;
+    padding-top: 9px;
+}
+
+#smallPopin ul.smallPopinLinks li.simple strong {
+    margin-left: 6px;
+    padding-right: 10px;
+}
+
+#smallPopin ul.smallPopinLinks li.long .btn_crt strong {
+    margin-left: 40px;
+    padding-right: 40px;
+}
+
+#smallPopin ul.smallPopinLinks .btn {
+    font-size: 12px;
+    font-size: 90%;
+    font-weight: bold;
+    height: 33px;
+    margin: 0;
+    padding: 0 17px 0 0;
+    color: #504d51;
+    border: 0 none;
+    background: url('skin/bkg-abtn.png') no-repeat scroll right top transparent;
+}
+
+ul.pagination {
+    padding: 15px 0;
+    text-align: center;
+}
+
+ul.pagination li {
+    display: inline;
+    padding: 0 10px;
+}
+
+ul.pagination li.current a {
+    font-weight: bold;
+}
+
+/* ----- @6.q A2G  -----*/
+
+.a2gTab table tbody a,
+.a2gTab table tbody a span,
+.a2gTab .hover a,
+.a2gTab .hover a span {
+    text-decoration: none !important;
+}
+
+.a2gTab .hover {
+    background: #eee !important;
+}
+
+.a2gTab .current {
+    background: #ddd !important;
+}
+
+/* ----- @6.r OER  -----*/
+
+.inactif {
+    color: #808080;
+}
+
+#main form.espace_favori .formline div.blcoptions {
+    float: right;
+    width: 90%;
+}
+
+.BGP {
+    margin-left: 87px;
+}
+
+#main .BGP dl.demi dd {
+    width: 49%;
+}
+
+.BGP_img {
+    margin: 0;
+    padding: 0;
+    background: url('../../img/q4x/maison_ra.png') no-repeat 6px 0;
+}
+
+.Conseil_img {
+    margin: 0;
+    padding: 0;
+    background: url('../../img/q4x/pic_cons_grand.png') no-repeat 35px 3px;
+}
+
+/* ----- @7. MEF Synthese Solde CCP & CNE ----- */
+
+#main .infosynthese {
+    margin: 10px 0 0 0
+}
+
+#main .infosynthese .part-a {
+    float: left
+}
+
+#main span.part-a {
+    line-height: 1.44;
+    font-size: 13px;
+    text-transform: uppercase
+}
+
+#main span.part-a .synthese_solde {
+    letter-spacing: -.25px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#main span.part-a .synthese_solde sup {
+    font-size: 18px
+}
+
+/* ----- @7. MediaQueries ----- */
+
+@media only screen and (max-width: 768px) {
+    #main table.dataNum span input,
+    #main table.dataStr span input {
+        width: 30%;
+    }
+    #main table.dataNum span th span,
+    #main table.dataStr span td span {
+        width: 30%;
+    }
+    #main ul.tabs.demi li,
+    #main ul.tabs.tier li,
+    #main ul.tabs.quart li,
+    #main ul.tabs.cinquieme li {
+        margin: 0 .12%;
+        padding: 10px 1% 10px;
+    }
+    #main ul.tabs li a,
+    #main ul.tabs li p {
+        height: 35px;
+    }
+    table.dataNum ul.actions a,
+    table.dataNum ul.actions input {
+        font-size: 11px !important;
+        margin: 0 auto;
+        margin: 0 5px;
+        padding: 5px 0;
+    }
+    #main form .formline .dl {
+        top: 0;
+        width: 50%;
+        margin: 0 0 10px;
+    }
+    #main form .formline div.field span {
+        margin: 0;
+    }
+    #main form .formline div.field input,
+    #main form .formline .field2 input {
+        float: none;
+        width: 100%;
+    }
+    #main .formline .week .day {
+        float: left;
+        width: 16px;
+    }
+    #main #CreationAlerte div.multifield .colcontent2 {
+        width: 67%;
+        margin-bottom: 20px;
+    }
+    #main #CreationAlerte .msgvocal .colheader {
+        height: 240px;
+    }
+    #main #CreationAlerte .msgvocal .colheader label {
+        width: 50%;
+        vertical-align: middle;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    #main ul.tabs.demi li,
+    col.demi,
+    #main ul.tabs.tier li,
+    col.tier,
+    #main ul.tabs.quart li,
+    col.quart,
+    #main ul.tabs.cinquieme li {
+        margin: 0 .12%;
+        padding: 15px 1% 10px;
+    }
+    #main ul.tabs li a,
+    #main ul.tabs li p {
+        height: 40px;
+    }
+    #main table.dataNum span input {
+        width: 40%;
+    }
+    #main form .formline .dl {
+        top: 0;
+        width: 50%;
+        margin: 0 0 10px;
+    }
+    #main form .formline div.field span {
+        margin: 0;
+    }
+    #main form .formline input.large {
+        width: 100%;
+    }
+}

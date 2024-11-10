@@ -1,0 +1,63 @@
+.workload_item {
+	margin:0 10px 10px 0;
+	display:inline-block;
+	font-family:'Segoe UI Semilight','Segoe WP Semilight','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+	font-size:12px;
+	-webkit-transition:.125s outline ease-in-out,.125s -webkit-transform ease-in-out;
+	-moz-transition:.125s outline ease-in-out;
+	-ms-transition:.125s outline ease-in-out;
+	-o-transition:.125s outline ease-in-out;
+	transition:.125s outline ease-in-out,.125s -webkit-transform ease-in-out
+}
+.workload_icon {
+	margin-top:20px;
+	color:#fff;
+	display:inline-block
+}
+.workload_name,.provision_text {
+	padding:0 9px;
+	position:absolute;
+	color:#fff;
+	bottom:5px;
+	line-height:14px;
+	text-align:left;
+	white-space:normal;
+	display:block
+}
+.workload_hyperlink {
+	height:110px;
+	display:block;
+	position:relative;
+	text-align:center;
+	background-clip:content-box
+}
+.workload_hyperlink_hover {
+	border:2px solid;
+	margin:-2px
+}
+.workload_hyperlink_shrink {
+	-webkit-transform:scale(.9125);
+	-moz-transform:scale(.9125);
+	-ms-transform:scale(.9125);
+	-o-transform:scale(.9125);
+	transform:scale(.9125)
+}
+.provisioning a {
+	background-color:#eaeaea!important
+}
+.provisioning .workload_icon {
+	color:#a6a6a6
+}
+.provisioning .workload_name {
+	display:none
+}
+.provisioning .provision_text {
+	display:block!important;
+	color:#0072c6
+}
+.provisioning>a {
+	cursor:default!important
+}
+.defaultWidthTile {
+	width:110px
+}

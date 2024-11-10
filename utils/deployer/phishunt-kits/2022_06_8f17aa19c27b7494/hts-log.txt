@@ -1,0 +1,30 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 08 Jun 2022 22:32:16 at https://fixmy-iopage.xyz/metawallet/metamask.php +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "it, en, *" https://fixmy-iopage.xyz/metawallet/metamask.php -O1 "C:\Mie pagine Web\meta83" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+22:32:27	Error: 	"Not Found" (404) at link https://metamask.io/metamask_files/favicon.png (from https://fixmy-iopage.xyz/metawallet/metamask.php)
+22:32:27	Error: 	"Not Found" (404) at link https://metamask.io/metamask_files/webclip.png (from https://fixmy-iopage.xyz/metawallet/metamask.php)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/about-map.svg (from https://fixmy-iopage.xyz/metawallet/metamask_files/metamask-staging-2.webflow.css)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/swaps-header2.png (from https://fixmy-iopage.xyz/metawallet/metamask_files/metamask-staging-2.webflow.css)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/Institutional-Illustration.png (from https://fixmy-iopage.xyz/metawallet/metamask_files/metamask-staging-2.webflow.css)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/custody-ill.png (from https://fixmy-iopage.xyz/metawallet/metamask_files/metamask-staging-2.webflow.css)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/quorum-gradient-2000.jpg (from https://fixmy-iopage.xyz/metawallet/metamask_files/metamask-staging-2.webflow.css)
+22:32:30	Warning: 	File not parsed, looks like binary: https://fixmy-iopage.xyz/metawallet/metamask_files/EuclidCircularB-Regular-WebXL.woff2
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/EuclidCircularB-Regular-WebXL.woff (from https://fixmy-iopage.xyz/metawallet/metamask_files/metamask-staging-2.webflow.css)
+22:32:30	Warning: 	File not parsed, looks like binary: https://fixmy-iopage.xyz/metawallet/metamask_files/EuclidCircularB-Bold-WebXL.woff2
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/EuclidCircularB-Bold-WebXL.woff (from https://fixmy-iopage.xyz/metawallet/metamask_files/metamask-staging-2.webflow.css)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/ec.js (from https://fixmy-iopage.xyz/metawallet/metamask_files/js)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/analytics.js (from https://fixmy-iopage.xyz/metawallet/metamask_files/js)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/recaptcha.js (from https://fixmy-iopage.xyz/metawallet/metamask_files/js)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/linkid.js (from https://fixmy-iopage.xyz/metawallet/metamask_files/js)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/gtm.js (from https://fixmy-iopage.xyz/metawallet/metamask_files/js)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/+JSON.stringify(e))}function $(e){C( (from https://fixmy-iopage.xyz/metawallet/metamask_files/jsonp)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/{{imagesRepository}}/{{imageUrl}} (from https://fixmy-iopage.xyz/metawallet/metamask_files/jsonp)
+22:32:30	Error: 	"Not Found" (404) at link https://fixmy-iopage.xyz/metawallet/metamask_files/{{iconsRepository}}/sprites_v1.png (from https://fixmy-iopage.xyz/metawallet/metamask_files/jsonp)
+
+HTTrack Website Copier/3.49-2 mirror complete in 14 seconds : 53 links scanned, 35 files written (3727941 bytes overall) [2318075 bytes received at 165576 bytes/sec], 2172077 bytes transferred using HTTP compression in 36 files, ratio 27%, 10.6 requests per connection
+(17 errors, 2 warnings, 0 messages)

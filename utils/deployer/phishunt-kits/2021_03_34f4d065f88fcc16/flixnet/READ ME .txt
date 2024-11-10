@@ -1,0 +1,9 @@
+To enable Antibots.pw you need to navigate to security folder, and then into index.php
+You need to purchase a antibot.pw plan and then go to developer tab on antibot.pw and find your api key
+Enter your api key in the security/index.php file
+
+
+All other controls can be found in controls.php
+
+For auto upload, please put your api key in controls.php
+if you leave the api key blank, the auto upload will be turned off

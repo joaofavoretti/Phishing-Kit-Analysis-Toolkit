@@ -1,0 +1,267 @@
+/**
+  * @version $Revision: 1.12.76.1 $
+  * @lastmodified $Date: 2016/09/13 11:58:20 $
+*/
+
+body {
+    background: white;
+    font-size: 10pt;
+    color: #000;
+    font-family: Helvetica, Arial;
+    width: 100%;
+    height: 100%
+}
+
+/**
+* Masque tous les boutons sur detail d'un compte par exemple
+#rightcol, #leftcol, #header, #footer, .CQedito, .noprint, .pagination, #main ul.liens, .listeComptes, .tabs{display: none;}
+*/
+
+#main .bloc,
+#rightcol .bloc {
+    border: none;
+}
+
+/*#page div{overflow: visible !important;float: none !important;}*/
+
+.ribCont {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#Rib.decoup .ribColTwo {
+    float: left;
+    margin: 40px 0 0 0;
+    width: 50%;
+}
+
+#Rib .ribColTwo {
+    float: left;
+    margin: 40px 0 0 0;
+    width: 48%;
+}
+
+.ribRaw {
+    clear: both;
+    width: 100%;
+}
+
+#page div.ribColOne,
+#page div.ribColTwo {
+    width: 48%;
+    float: left !important;
+}
+
+*/ #Rib .ribColOne {
+    margin: 40px 20px 0 0;
+    float: left;
+    width: 48%;
+}
+
+#Rib.single .ribColOne {
+    width: 600px;
+}
+
+#Rib .ribColTwo {
+    margin: 40px 0px 0 0;
+    float: left;
+    width: 48%;
+}
+
+#Rib.decoup .ribColOne {
+    margin: 40px 20px 0 0;
+    float: left;
+    width: 48%;
+}
+
+#Rib.decoup .ribColTwo {
+    float: left;
+    margin: 40px 0px 0 0;
+    width: 48%;
+}
+
+#Rib .ribRaw {
+    clear: both;
+}
+
+#Rib .ribRaw .ribColTwo {
+    margin: 0px 0px 30px 0 !important;
+    float: left;
+}
+
+#Rib .ribRaw .ribColOne {
+    margin: 0px 15px 0 0;
+    float: left;
+}
+
+#Rib .ribItem h2 {
+    background: url("skin/bkg-thead39.png") repeat-x scroll 0 0 #EEEEF0;
+    font-weight: bold;
+    font-size: 80%;
+    height: 39px;
+}
+
+#Rib .ribItem h2 span {
+    margin-top: 8px;
+}
+
+#Rib .ribItem h2 img {
+    float: left;
+    margin: 0 5px 0 0;
+}
+
+#main #Rib dt {
+    border: none;
+    clear: both;
+    line-height: 10px;
+}
+
+#main #Rib span {
+    display: inline;
+    padding: 5px 0 0;
+}
+
+#main #Rib span strong {
+    padding: 0;
+}
+
+#Rib .ribItem dl.first {
+    clear: left
+}
+
+#Rib .ribItem dl.first dt,
+#Rib .ribItem dl.second dt,
+#main #Rib .ribItem dl.last dt {
+    display: block;
+    width: 100%;
+    clear: right;
+    background: url("skin/bkg-thead_op.png") repeat-x scroll left center transparent;
+    color: #504D51;
+    font-weight: bold;
+    height: 15px;
+    font-size: 85%
+}
+
+#Rib .ribItem dl.first dt span.title {
+    float: left;
+    width: 65%;
+    border-right: 1px solid #EBEBED;
+    cursor: default;
+    padding: 5px 0 0;
+    vertical-align: top;
+}
+
+#Rib .ribItem dt span strong {
+    padding: 0;
+}
+
+#main #Rib .ribItem dl.first dd span {
+    display: inline-block;
+    padding: 3px;
+    text-align: center;
+    width: 90%
+}
+
+#Rib .ribItem dl.first dd.eta {
+    width: 23%;
+}
+
+#Rib .ribItem dl.first dd.gui {
+    width: 15%;
+}
+
+#Rib .ribItem dl.first dd.key {
+    width: 13%;
+}
+
+#Rib .ribItem dl.first dd.noc {
+    width: 23%;
+}
+
+#Rib .ribItem dl.first dd.wer {
+    width: 24.4%;
+}
+
+#Rib .ribItem dl.second dt {
+    background: url("../../img/q4x/bkg-thead_opgd.png") repeat-x scroll left top transparent;
+    color: #504D51;
+    font-weight: bold;
+    height: 35px;
+}
+
+#Rib .ribItem dl.second dt span.IBAN,
+#Rib .ribItem dl.second dt span.BIC {
+    width: 53%;
+    float: left;
+    font-size: 80%;
+    line-height: 8px;
+    padding: 0;
+}
+
+#Rib .ribItem dl.second dt span.BIC {
+    width: 46%;
+    float: left;
+}
+
+#Rib .ribItem dl.second dt span strong {
+    padding: 1px;
+    width: 16%;
+    float: left
+}
+
+#Rib .ribItem dl.second dt span p {
+    width: 81%;
+    float: left;
+    margin: 0;
+    padding: 1px;
+}
+
+*/ #Rib .ribItem dl.second dt {
+    background: url("../../img/q4x/bkg-thead_opgd.png") repeat-x scroll left top transparent;
+    color: #504D51;
+    font-weight: bold;
+    height: 40px;
+}
+
+#main #Rib .ribItem dl.second dd {
+    font-size: 80%;
+    margin-bottom: 5px;
+    border-top: 1px solid #A5A5A5;
+    border-bottom: 1px solid #A5A5A5;
+}
+
+#main #Rib .ribItem dl.second dd strong {
+    font-size: 98%;
+}
+
+#main .ribItem dl.second dd.sIBAN {
+    width: 9.5%;
+    float: left;
+    border-left: 1px solid #A5A5A5;
+    text-align: center;
+    padding: 0 0px
+}
+
+#main .ribItem dl.second dd.sBIC {
+    width: 23%;
+    float: left;
+    border-left: 1px solid #A5A5A5;
+    border-right: 1px solid #A5A5A5;
+    text-align: center;
+    padding: 0 0px;
+    font-size: 70%
+}
+
+#main .decoup .ribItem dl.second dd.sIBAN {
+    width: 40px !important;
+}
+
+#main .decoup .ribItem dl.second dd.sBIC {
+    width: 95px !important;
+    font-size: 50%
+}
+
+.threecol #main {
+    width: 95%;
+}

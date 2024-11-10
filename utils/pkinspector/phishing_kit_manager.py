@@ -50,7 +50,11 @@ class PhishingKit:
 class PhishingKitStateManager:
     def __init__(self, dir: str):
         self.dir = dir
+
         self.kits:List[PhishingKit] = self.loadKits()
+        for kit in self.kits:
+            kit.deployer = None
+
         self.currentProperties:List[str] = self._loadCurrentProperties(self.kits)
 
     def _loadCurrentProperties(self, kits:List[PhishingKit]) -> List[str]:

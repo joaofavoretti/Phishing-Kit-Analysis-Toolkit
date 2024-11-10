@@ -1,0 +1,2 @@
+define(["require","exports","external/react","external/classnames"],function(e,r,a,c){"use strict";Object.defineProperty(r,"__esModule",{value:!0}),r.LoginError=function(e){var r=c("c-card","c-card--error",e.className);return a.createElement("div",{className:r},e.message)}});
+//# sourceMappingURL=login_error.min.js-vflpPSu8C.map

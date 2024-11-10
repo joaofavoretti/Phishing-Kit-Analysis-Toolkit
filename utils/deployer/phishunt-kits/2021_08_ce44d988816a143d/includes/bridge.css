@@ -1,0 +1,133 @@
+/* ----------------------------- */
+
+/* == breakpoints                */
+
+/* ----------------------------- */
+
+/* ----------------------------- */
+
+/* == All colors             */
+
+/* ----------------------------- */
+
+/* ----------------------------- */
+
+/* == Grid variables             */
+
+/* ----------------------------- */
+
+/* ----------------------------- */
+
+/* == basic spacings             */
+
+/* ----------------------------- */
+
+/* ----------------------------- */
+
+/* == font stacks                */
+
+/* ----------------------------- */
+
+/* ----------------------------- */
+
+/* == font sizes                 */
+
+/* ----------------------------- */
+
+/* ----------------------------- */
+
+/* == Base variables             */
+
+/* ----------------------------- */
+
+body * {
+    font-family: inherit;
+}
+
+/*:focus {
+  outline: auto;
+}*/
+
+.legacy {
+    box-sizing: content-box;
+    font-size: 12.8px;
+    font-family: Arial;
+}
+
+#main .legacy .cmdcheque .liens li {
+    background-color: #E4E4E4;
+}
+
+#main .legacy .cmdcheque .liens li .btn_crt strong {
+    color: #000000;
+}
+
+.legacy .inforesume strong {
+    font-size: 26px;
+}
+
+#main .legacy .inforesume .help.img img {
+    margin: 0;
+}
+
+.legacy .account-list {
+    border-top: 1px solid #E4E4E4;
+}
+
+.legacy .account-list:after {
+    content: "";
+    display: table;
+    clear: both;
+    border-collapse: collapse;
+}
+
+.legacy .account-list__select:after {
+    content: "";
+    display: table;
+    clear: both;
+    border-collapse: collapse;
+}
+
+.legacy .account-list__select label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.legacy .account-list__select select {
+    float: left;
+}
+
+.legacy .account-list__select button {
+    float: left;
+    text-transform: uppercase;
+    padding: 7px;
+    background-color: #17479E;
+    color: #FFFFFF;
+    border: none;
+}
+
+.legacy .account-list__action {
+    margin-top: 10px;
+    float: right;
+}
+
+.legacy .account-list__action ul li {
+    display: inline-block;
+}
+
+.legacy .account-list__action ul li i {
+    margin-right: 5px;
+}
+
+.legacy .account-list__action ul li a {
+    text-decoration: underline;
+}
+
+.legacy .account-list__action ul li+li {
+    margin-left: 20px;
+}
+
+.button:focus,
+.alert__close:focus {
+    border: none !important;
+}

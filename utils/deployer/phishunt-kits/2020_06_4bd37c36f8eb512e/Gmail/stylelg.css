@@ -1,0 +1,232 @@
+
+*{
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-bottom:0px;
+}
+header, footer {display:block; background-color:black; height:10%;}
+
+#wrapper{
+margin-left:auto;
+margin-right:auto;
+width:500px;
+margin:0px auto;
+height:100%;
+}
+#list1{
+	background-image:url('https://ssl.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_112x36dp.png');
+	width:110px;
+	height:36px;
+	margin:0px auto;
+	margin-top:30px;
+	
+}
+#get3{
+	width:230px;
+	height:17px;
+	background-image:url('wlogostrip_230x17_1x.png');
+}
+  
+ #list2 h1{
+  font-weight: normal;
+  }
+  
+ #list2 h1{
+  font-size: 42px;
+  font-size:265%;
+  font-family:garamond;
+  margin-top:20px;
+    text-align:center;
+	color:#696969;
+ }
+#list3 h2{
+	  font-size:150%;
+  color:#2F4F4F;
+  font-family:garamond;
+  font-weight: normal;
+  text-align:center;
+    margin-top:20px;
+}
+#fom1{
+margin:0px auto;
+	background-color:#F5F5F5;
+	width:350px;
+	height:330px;
+	border-color: #f1f1f1;
+	margin-top:20px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius:6px;
+	border-radius: 2px;
+	border: 1px solid #f1f1f1;
+}
+#log{
+margin:0px auto;
+width:100px;
+height:95px;
+background-image:url('avatar_2x.png');
+margin-top:30px;
+-moz-border-radius:100px;
+-webkit-border-radius:100px;
+border-radius: 50%;
+margin-bottom:20px;
+}
+.in1{
+	margin:0px auto;
+	margin-top:2px;
+	height:50px;
+	display: inline;
+	padding:0px;
+	margin:0px;
+}
+.in1 input{
+height:40px;
+width:260px;
+margin:0px auto;
+font-size:15px;
+	margin-left:30px;
+}
+fieldset{
+border:0px;
+}
+
+#me{
+		color:#808080;
+}
+#get{
+	
+}
+#free{
+	
+}
+#but1{
+margin:0px auto;
+	height:40px;
+	width:260px;
+	background-color:#6495ED;
+	color:white;
+	border:0px;
+	margin-left:30px;
+	-moz-border-radius:1px; /* Firefox */
+	-webkit-border-radius: 1px; /* Safari, Chrome */
+	-khtml-border-radius: 1px; /* KHTML */
+	border-radius: 1px; /* CSS3 */
+	font-size:18px;
+	font-size:bolder;
+	font-family:arial;
+	margin-top:10px;
+}
+#but{
+	
+}
+
+#cb-got{
+	font-family:arial;
+	font-size:12px;
+	width:260px;
+		margin:0px auto;
+		margin-top:10px;
+}
+
+#got{
+	float:right;
+}
+#got a{
+	text-decoration:none;
+	color:#1E90FF;
+}
+#cant{
+ padding-left:20px;
+}
+#cant a{
+	text-decoration:none;
+	color:#3399FF;
+}
+#or{
+	width:20px;
+	background-color:white;
+	margin-left:120px;
+	color:#C0C0C0;
+}
+#new{
+	border-bottom:1px solid black;
+	border-top:1px solid #FDF5E6;
+	margin-left:20px;
+	padding-bottom:20px;
+	padding-top:20px;
+	border-color:#DCDCDC;
+}
+#create{
+	
+}
+#create{
+  background-color:#3366CC;
+  height:35px;
+	width:230px;
+	-moz-border-radius:3px; /* Firefox */
+	-webkit-border-radius: 3px; /* Safari, Chrome */
+	-khtml-border-radius: 3px; /* KHTML */
+	border-radius: 3px; /* CSS3 */
+	text-align:center;
+	padding-top:3px;
+	
+}
+#create a{
+	text-decoration:none;
+	text-align:center;
+	color:white;
+}
+#sign{
+	margin-left:20px;
+	text-align:center;
+	font-family:sans-serif;
+		font-size:12px;
+		margin-top:20px;
+}
+#sign a{
+		text-decoration:none;
+		font-family:sans-serif;
+		font-size:12px;
+		
+}
+#get{
+	text-align:center;
+		margin-top:20px;
+}
+#get a{
+	text-decoration:none;
+	color:#1E90FF;
+}
+#get a:hover{
+	text-decoration:underline;
+	color:#1E90FF;
+}
+
+#get2{
+	text-align:center;
+	margin-top:25px;
+	color:#808080;
+}
+#get3{
+	margin:0px auto;
+	margin-top:15px;
+	width:420px;
+	height:32px;
+	background-image:url('get3.png');
+}
+#footer{
+margin-top:50px;
+padding-top:10px;
+	font-size:10px;
+	height:35px;
+border-top: 1px solid #e5e5e5;
+color:gray;
+}
+#footer a{
+	text-decoration:none;
+	color:gray;
+	
+}
+#footer span{
+margin-left:30px;
+}

@@ -1,0 +1,1157 @@
+.leftimage {
+width:100px;
+height:200px;
+float:left;
+}
+
+.leftimage img{
+padding-top: 20px;
+}
+
+.rightimage{
+width:100px;
+height:200px;
+float:right;
+}
+
+.uldisc{
+color: #4C4C4C;
+float:left;
+}
+
+.uldisc li{
+list-style: disc inside none;
+}
+
+.onelinetext{
+clear:both;
+}
+
+.onelinetext span{
+font-size:14px;
+color: #4C4C4C;
+}
+
+.onelinetext span a{
+ 	color: #4C4C4C;
+    text-decoration: underline;
+}
+
+.ursula .buttomline05{
+ border-bottom: 1px solid #E5E5E5;
+ padding-bottom:5px;
+}
+
+.ursula .buttomline05 h3{
+font-size: 16px;
+}
+
+.ursula .leftimage02{
+float: left;
+height: 200px;
+width: 80px;
+}
+
+.ursula .rightimage02{
+float: right;
+height: 200px;
+width: 180px;
+}
+
+.ursula .overlaytextfont h3{
+font-size:16px;
+}
+
+.ursula .overlaytextfont p{
+font-size:13px;
+}
+
+.ursula .overlaytextfont01 h4{
+font-size:20px;
+}
+
+.ursula .overlaytextfont01 .paddindleft80{
+padding-left:80px;
+}
+
+.ursula .overlaybutton span.buttonInner,
+.ursula .overlaybutton span.buttonInner input {
+font-size:14px;
+}
+
+.ursula .memorableAnswer .row .noborderbottom{
+	border-bottom:none;
+}
+
+.ursula .verifySelect .customSelect .replaced,
+.ursula .verifySelect .customSelect .select-overlay{
+	width:300px;
+}
+
+.ursula .verifySelect .customSelect .select-overlay .value{
+	width:200px;
+}
+
+.ursula .question .left23 label{
+	left:23px;
+	padding-right: 22px;
+}
+
+.ursula .loginBoxes p.font28{
+	font-size:2.8em;
+}
+
+.ursula .loginBoxes .grid_16{
+	width:815px;
+	float:left;
+}
+
+.ursula .containerStyle17 h4.nobold{
+        font-weight: normal;
+		padding-top:10px;
+}
+
+
+.ursula .row .anotherLineText{
+	clear: left;
+	position: relative;
+	left: 243px;
+	padding-top:1px;
+}
+
+.ursula .containerStyle17 .labelText .col05 .customRadio label{
+	font-weight: normal;
+}
+
+.ursula .verifySelect .customSelect .select-overlay .value{
+	font-size:1.2em;
+}
+
+
+.ursula  .row .noPaddingTop {
+	padding-top:17px;
+}
+
+.ursula .containerStyle19  .alertBox .alertBoxInner h3.title,
+.ursula .containerStyle17  .alertBox .alertBoxInner h3.title{
+	border-bottom: none;
+}
+.ursula .containerStyle17 .customSelect .select-overlay .value
+{
+	font-size:1.4em;
+}
+.ursula .containerStyle17 .questionGroup h4.noMarginButtom{
+	margin-bottom:0;
+}
+.ursula .customSelect.nopaddingTop .forselect .select-overlay .inner{
+	 padding-top: 0;
+}
+
+.ursula .linkList01 li a.underline{
+	text-decoration: underline;
+}
+
+.ursula .linkList01 li.stolen a{
+	text-decoration:underline;
+}
+
+.ursula input:focus{
+	outline:none;
+}
+.ursula .listStyle002 li.selected a span.line2{
+	/*padding: 9px 22px 40px;*/
+}
+.ursula .question .rValidationMsg.RCCTooltipWidth,
+.ursula .question .dValidationMsg.RCCTooltipWidth
+{
+	width:185px;
+}
+.ursula .banner-small:focus{
+outline:1px solid !important
+}
+/* ----- Olivia position ----- */
+.ursula .banner-small{
+position:absolute; top:-57px;right:0px;
+}
+.ursula .logonContainer{
+	border: 1px solid #cccccc;
+	overflow:hidden;
+	margin: 3px 3px 10px 3px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+	width:1167px;
+}
+.ursula .logonContainer .block1{
+	padding: 18px 18px 0 18px;
+	overflow:hidden;
+	float:left;
+	background: #eeeeee;
+	width:739px;
+}
+
+.ursula .mainContainer  h2, .ursula .mainContainer  h3{
+	font-size: 1.6em;
+	margin-bottom:16px;
+}
+
+.ursula .logonContainer .logonDetails{
+	position: relative;
+	overflow:hidden;
+}
+
+.ursula .logonContainer .logonDetails img.lockPad{
+	position: absolute;
+	right: 6px; 
+	top: 6px;
+}
+
+.ursula .logonContainer .block1 input{
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) inset;
+    font-size: 1.4em;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 3px 0 10px;
+    width: 270px;
+	float: left;
+	margin-left:0;
+}
+
+
+.ursula .logonContainer .logonDetails ul li {
+	float: left;
+	display: inline;	
+}
+
+.ursula .logonContainer .logonDetails ul li a{
+	text-decoration: none;
+	font-size:12px;
+	border-right: 1px solid #333333;
+	padding: 0 10px;
+	line-height: 30px;
+}
+
+.ursula ul.options li{
+	float:left;
+	width: 326px;
+	margin-right: 20px;
+	display:block;
+}
+
+.ursula ul.options li img{
+	margin-bottom:16px;
+}
+
+.ursula ul.options li.normal{
+	padding: 12px 10px;
+}
+
+.ursula ul.options li.active{
+	background: #ffffff;
+	padding: 10px;
+	border: 2px solid #a3d963;
+	
+}
+
+.ursula ul.options li.normal h3, .ursula ul.options li.active h3{
+	padding-left: 24px;
+	padding-bottom:4px; 
+	margin-bottom:12px;
+	
+}
+
+.ursula ul.options li.active h3{
+	background: url("green-circle.png") no-repeat;
+}
+
+.ursula ul.options li.normal h3{
+	background: url("white-circle.png") no-repeat;
+}
+
+.ursula .logonContainer .logonDetails ul li a:hover{
+	text-decoration: underline;
+}
+
+.ursula .logonContainer .logonDetails ul li.last a{
+	border: none;
+}
+
+.ursula .logonContainer .block2{
+	background: #ffffff;
+	padding: 18px 18px 0 18px;
+	width:339px;
+	float:right;
+}
+
+ul.tickList li{
+	font-size:1.2em;
+	line-height: 18px;
+	margin-bottom:16px;
+	background: url("green-tick.png") no-repeat;
+	padding-left: 30px;
+	padding-bottom:2px;
+	display:block;
+}
+ul.crossList li{
+	font-size:1.2em;
+	line-height: 18px;
+	margin-bottom:16px;
+	background: url("dismiss-icon.png") no-repeat scroll 0% 40% transparent;
+	padding-left: 30px;
+	padding-bottom:2px;
+	display:block;
+}
+.margintop10px{
+margin-top: 10px;
+}
+.ursula .memorableAnswer .heading {
+    padding: 6px 19px 50px;
+}
+.ursula .memorableAnswer .heading h3 {
+	font-size: 2.4em;
+	color: #383a39;
+	line-height: 42px;
+	font-weight: normal;
+	float: left;
+}
+.ursula .memorableAnswer .heading img {
+	float: left;
+	margin-right: 16px;
+}
+.ursula .memorableAnswer .steps {
+	float: left;
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 56px;
+}
+.ursula .memorableAnswer .steps li {
+	width: 235px;
+	padding-right: 20px;
+	padding-left: 10px;
+	float: left;
+	text-align: center;
+	background: url("arr-right-large.gif") no-repeat right top;
+}
+.ursula .memorableAnswer .steps li.last  {
+	background: none;
+	padding-right: 0;
+}
+.ursula .memorableAnswer .steps li .number,
+.ursula .memorableAnswer .steps li p {
+	padding-top: 21px;
+}
+.ursula .memorableAnswer .steps li p {
+	text-align: left;
+	padding-bottom: 0;
+	color: #000;
+	font-size: 1.5em;
+	line-height: 1.35em;
+	float: left;
+	display: block;
+}
+.floatNone01{
+	float: none ! important;
+}
+.ursula .memorableAnswer .steps li .number {
+	font-size: 4.6em;
+	float: left;
+	font-weight: bold;
+	display: block;
+	width: 44px;
+	text-align: left;
+}
+.ursula .memorableAnswer-question .questionGroup {
+	padding-bottom: 20px;
+	padding-top: 0;
+}
+.ursula .memorableAnswer-question .question {
+	/* padding-bottom: 17px;*/
+}
+.ursula .memorableAnswer-question .textInput input {
+	width: 298px;
+}
+.ursula .memorableAnswer-question .question label {
+	font-size: 1.4em;
+	line-height: 18px;
+}
+.ursula .memorableAnswer-question .questionGroup .linkList01 {
+	padding-left: 245px;
+}
+.ursula .memorableAnswer-question .questionGroup .linkList01 li {
+	font-size: 1.4em;
+	padding-bottom: 9px;
+	padding-top: 10px;
+}
+.ursula .memorableAnswer.style1 .steps li p,
+.ursula .memorableAnswer.style1 .steps li .number {
+	padding-top: 6px;
+}
+.ursula .memorableAnswer-ext {
+	padding-bottom: 12px;
+}
+.ursula .memorableAnswer-ext h5{	
+	font-size: 1.6em;
+}
+.ursula .memorableAnswer-ext .heading {
+	padding-bottom: 56px;
+}
+.ursula .memorableAnswer-ext .steps li {
+	padding-left: 0;
+	padding-right: 37px;
+	width: 266px;
+	background: url("arr-right-large2.gif") no-repeat right 20px;
+}
+.ursula .memorableAnswer-ext .steps li p {
+	width: 226px;
+}
+.ursula .memorableAnswer-ext .steps li p,
+.ursula .memorableAnswer-ext .steps li .number {
+	padding-top: 58px;
+}
+.ursula .memorableAnswer-ext2 .heading {
+	padding-bottom: 46px;
+	padding-left: 20px;
+}
+.ursula .memorableAnswer-ext2 .heading h3 {
+	font-size: 1.6em;
+	padding-top: 15px;
+	font-weight: bold;
+}
+.ursula .memorableAnswer-ext2 .steps li {
+	padding-left: 0;
+	padding-right: 0;
+	width: 303px;
+	background: none;
+}
+.ursula .memorableAnswer-ext2 .steps li.first {
+	padding-right: 20px;
+}
+.ursula .memorableAnswer-ext2 .steps li.last {
+	padding-left: 20px;
+}
+.ursula .memorableAnswer-ext2 .steps li.first,
+.ursula .memorableAnswer-ext2 .steps li.last {
+	width: 264px;
+}
+.ursula .memorableAnswer-ext2 .steps li div {
+	padding: 0 46px;
+}
+.ursula .memorableAnswer-ext2 .steps li .number {
+	float: none;
+	padding-top: 0;
+	background: url("bg-memorableAnswer2-step.gif") no-repeat center center;
+	text-align: center;
+	width: 100%;
+	font-weight: normal;
+	color: #fff;
+	line-height: 30px;
+	margin-top: 4px;
+	font-size: 1.6em;
+}
+.ursula .memorableAnswer-ext2 .steps li p {
+	float: none;
+	padding-top: 5px;
+	text-align: center;
+	width: 100%;
+}
+.ursula .memorableAnswer-ext2 .steps li strong {
+	font-style: italic;
+}
+.ursula .memorableAnswer-ext2 .steps li p .code {
+	font-style: normal;
+	letter-spacing: 1px;
+}
+.ursula .memorableAnswer-ext2 .steps .stepItem {
+	padding: 10px 20px 0 46px;
+}
+.ursula .memorableAnswer-ext2 .steps .first .stepItem,
+.ursula .memorableAnswer-ext2 .steps .last .stepItem {
+	padding-left: 20px;
+	padding-right: 0;
+}
+.ursula .memorableAnswer-ext2 .steps .stepItem span {
+	font-size: 2em;
+	font-weight: bold;
+}
+.ursula .memorableAnswer-ext2 .steps .stepItem strong {
+	font-style: normal;
+}
+.ursula .memorableAnswer-ext2 .steps .stepItem p {
+	text-align: left;
+}
+
+.ursula .memorableAnswer-3col .steps {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+.ursula .memorableAnswer-3col .steps li {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-right: 20px;
+}
+.ursula .memorableAnswer-3col .steps li,
+.ursula .memorableAnswer-3col .steps li.first,
+.ursula .memorableAnswer-3col .steps li.last {
+	width: 346px;
+}
+.ursula .memorableAnswer-3col .steps li.first {
+	padding-right: 40px;
+	padding-left: 0;
+}
+.ursula .memorableAnswer-3col .steps li.last {
+	padding-right: 0;
+	padding-left: 40px;
+	margin-right: 0;
+}
+.ursula .memorableAnswer-3col .steps li .stepItem,
+.ursula .memorableAnswer-3col .steps li.first .stepItem,
+.ursula .memorableAnswer-3col .steps li.last .stepItem {
+	padding-left: 0;
+	padding-right: 0;
+}
+html .ursula .memorableAnswer-question .questionGroup .linkList02 {
+	padding-left: 270px;
+}
+html .ursula .memorableAnswer-question .questionGroup .linkList03 {
+	padding-left: 275px;
+}
+.ursula .memorableAnswer-question .questionGroup .linkList04 {
+          padding-left: 238px;
+}
+.ursula .memorableAnswer-question .questionGroup .linkList04 li {
+	font-size: 1.4em;
+	padding-bottom: 9px;
+}
+.ursula .memorableAnswer-question .question label.laberWidth20{
+	width:auto;
+}
+
+.ursula .memorableAnswer-ext.style1 .steps li{
+	padding-right:20px;
+}
+.infoText2 {
+	width: 300px;
+	overflow: hidden;
+	position: relative;
+	transition: max-height 1s ease;
+}
+.infoText2 .infoList {
+	padding: 8px 0px 0px;
+}
+.infoList {
+	display: block;
+	padding: 8px 9px;
+	list-style: none;
+	transition: bottom 1s ease;
+	position: relative;
+	bottom: 0;
+}
+.ursula .textInput.validationInput.noColour .dijitValidationTextBoxError .dijitInputContainer {
+    background: none;
+    //padding-right: 0;
+}
+.ursula .textInput.validationInput.noColour .dijitValidationTextBoxError.dijitFocused .dijitInputContainer {
+    border-color: #bcbec0;
+}
+.ursula .noColour .submitted.dijitTextBoxError {
+    border: 0 none;
+    left: 0;
+    top: 0;
+}
+
+.infoList li {
+	padding: 0 0 8px 0;
+	display: block;
+	padding-left: 25px;
+	font-size: 1.2em;
+	line-height: 13px;
+	min-height: 13px;
+	position: relative;
+	background: url("tick-pending.png") no-repeat left top transparent;
+}
+.infoList li.pending {
+	color: #000000;
+}
+.infoList li::after {
+	display: block;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 15px;
+	background: none no-repeat left top transparent;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+.infoList li.pending .onSuccess {
+	display: none;
+}
+.infoList li.pending .onSysError {
+	display: none;
+}
+
+.infoList li.pending1 .onError {
+	display: none;
+}
+
+.infoList li.pending1 .original {
+	display: none;
+}
+
+.infoList li.confirmed {
+	color: #767676;
+}
+.infoList li.confirmed.info {
+	color: #000000;
+}
+.infoList li.confirmed::after {
+	background: url("tick-confirmed.png") no-repeat left top transparent;
+	opacity: 1;
+}
+.dj_ie8 .infoList li.confirmed {
+	background: url("tick-confirmed.png") no-repeat left top transparent;
+}
+.infoList li.confirmed.info::after {
+	background-image: url("yellow_info_icon.png");
+}
+.dj_ie8 .infoList li.confirmed.info {
+	background-image: url("yellow_info_icon.png");
+}
+
+.dijitValidationTextBoxError + .infoText2 li.confirmed {
+    height: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    transition: all 1s ease 0s;
+}
+.dj_ie8 .dijitValidationTextBoxError + .infoText2 li.confirmed {
+    height: auto;
+    min-height: 0;
+    padding-bottom: 8px;
+}
+.dijitValidationTextBoxError.dijitValidationTextBoxFocused  + .infoText2 li.confirmed {
+	height: auto;
+	padding-bottom: 8px;
+}
+.dijitValidationTextBoxError + .infoText2 li.pending::after {
+	background: url("red-cross.png") no-repeat left top transparent;
+	opacity: 1;
+}
+.dj_ie8 .dijitValidationTextBoxError + .infoText2 li.pending {
+	background: url("red-cross.png") no-repeat left top transparent;
+}
+.dijitValidationTextBoxError + .infoText2 li.pending1::after {
+	background: url("red-cross.png") no-repeat left top transparent;
+	opacity: 1;
+}
+.dj_ie8 .dijitValidationTextBoxError + .infoText2 li.pending1 {
+	background: url("red-cross.png") no-repeat left top transparent;
+}
+.dijitValidationTextBoxError.dijitValidationTextBoxFocused  + .infoText2 li.pending::after {
+	background: none no-repeat left top transparent;
+	opacity: 0;
+}
+.dijitValidationTextBoxError.dijitValidationTextBoxFocused  + .infoText2 li.pending1::after {
+	background: none no-repeat left top transparent;
+	opacity: 0;
+}
+
+.dj_ie8 .dijitValidationTextBoxError.dijitValidationTextBoxFocused  + .infoText2 li.pending {
+	background: url("tick-pending.png") no-repeat left top transparent;
+}
+.infoList li.confirmed .original {
+	display: none;
+}
+
+.ursula .containerStyle17 .question + .question  h4{
+    padding-top: 10px;
+}
+.ursula .dijitValidationTextBox {
+position: relative;
+}
+.ursula .question table + .validationMsg1{
+float: left;
+}
+.ursula .col01 .customSelect.interact .validationMsg1 {
+background: transparent url("red-cross.png") no-repeat scroll left 6px;
+padding: 8px 0 8px 25px;
+width: 272px;
+color: #000000;
+}
+.ursula .question .validationMsg1 {
+border-radius: 4px;
+color: #db0011;
+display: none;
+font-size: 1.2em;
+padding: 5px 0;
+position: relative;
+max-width: 300px;
+}
+.ursula .question .validationMsg2 {
+border-radius: 4px;
+color: #db0011;
+display: none;
+font-size: 1.2em;
+padding: 0px 0px 0px 230px;
+position: relative;
+max-width: 300px;
+}
+
+.ursula .showMsg, .ursula .question .showMsg {
+display: block;
+}
+.ursula .hidden2 {
+    left: -9999px!important;
+    position: absolute!important;
+	visibility: hidden;
+}
+.ursula .loginBox {
+	padding-top: 27px;
+}
+.ursula .grid_8.loginBox {
+	border-right: 1px solid #e5e5e5;
+	border-bottom:none;
+	padding-top:0;
+	width:434px;
+}
+.ursula .loginBox .row {
+	padding-bottom: 16px;
+}
+.ursula .loginBox .rowwidth{
+	width:500px;	
+}
+.ursula .loginBoxes .grid_8 h3{
+	font-size:1.8em;
+}
+.ursula .loginBox h3{
+	border-bottom: 1px dotted #e5e5e5;
+	font-size: 1.8em;
+	/*margin-bottom: 16px; */
+}
+.ursula .loginBox label {
+    font-size: 1.6em;
+    /*font-weight: bold;*/
+}
+.ursula .grid_8.loginBox label {
+	font-size: 1.5em;
+	font-weight:bold;
+}
+.ursula .loginBox .textInput input {
+	font-size: 1.4em;
+	width: 192px;
+	height: 32px;
+	line-height: 32px;
+}
+.ursula .grid_8.loginBox .textInput input {
+	width: 185px;
+	height:32px;
+	margin-right:14px;
+}
+.ursula .loginBox .button,
+.ursula .loginBox .button .buttonInner,
+.ursula .loginBox .button .buttonInner input {
+	height: 50px;
+	line-height: 50px;
+}
+.ursula .loginBox .button {
+	background: url("loginbox-left.gif") no-repeat left top #9c0109;
+	margin-right:0;
+}
+.ursula .loginBoxes .loginBox .button{
+	background: url("default-left.gif") no-repeat scroll 0 0 #DB0011;
+	height:34px;
+	line-height:34px;
+	margin-right:0;
+}
+.ursula .loginBoxes .loginBox .buttonMargin{
+	margin-left:10px;
+}
+.ursula .loginBoxes .loginBox .button:hover{
+	background-position: 0 100%;
+}
+.ursula .loginBox .button .buttonInner {
+	background: url("loginbox.gif") no-repeat right top #9c0109;
+}
+.ursula .loginBoxes .loginBox .button .buttonInner {
+	background: url("default.gif") no-repeat scroll 100% 0 transparent;
+	height: 34px;
+	line-height:31px;
+}
+.ursula .loginBox .button .buttonInner input {
+	font-size: 2.1em;
+	padding: 0 32px 2px 14px;
+	line-height: 48px;
+	width: 136px;
+}
+.ursula .grid_8.loginBox .button .buttonInner input {
+	font-size: 1.5em;
+	padding: 0 13px 2px 0;
+    width: 100px;
+	line-height: 48px;
+	height: 33px;
+	line-height: 31px;
+}
+.ursula .loginBox .linkList01 {
+	float: left;
+	margin-top: 4px;
+}
+.ursula .grid_8.loginBox .linkList01 {
+	border-top:1px dotted #e5e5e5;
+	float: none;
+    padding-top: 16px;
+}
+.ursula .loginBox .linkList01 li {
+	float: left;
+	font-size: 1.4em;
+	margin-right: 30px;
+}
+.ursula .grid_8.loginBox .checkboxContainer {
+	float: none;
+}
+.ursula .loginBox .checkboxContainer {
+	padding-top: 1px;
+	float: left;
+}
+.ursula .loginBox .checkboxContainer label {
+	font-size: 1.4em;
+}
+.ursula .grid_8.loginBox .checkboxContainer label {
+	font-weight: normal;
+	font-size: 1.50em;
+}
+
+.ursula .loginBoxes .quickLinks{
+	width: 220px!important;
+	margin: 0;
+	min-height: 250px;
+	padding: 0;
+	padding-top: 28px;
+	padding-left: 20px;
+	padding-bottom: 28px;
+	border-left: 1px solid #e5e5e5;
+	padding-right: 20px;
+}
+.ursula .loginBoxes .containerStyle03{
+	padding-top: 28px;
+padding-bottom: 28px;
+text-align: center;
+margin-bottom: 10px;;
+}
+.ursula .loginBoxes .containerStyle03 h3{
+	font-size:2em;
+	display:inline-block;
+}
+.ursula .loginBoxes .quickLinks h3,
+.ursula .loginBoxes .containerStyle03 h3{
+	letter-spacing: -0.3px;
+	padding-bottom: 14px;
+}
+.ursula .loginBoxes .containerStyle03 .img{
+	float:none;
+	text-align:center;
+	margin-bottom:23px;
+}
+.ursula .loginBoxes .containerStyle03 .button{
+	display: inline-block;
+    float: none;
+    margin: 0 auto;
+}
+.ursula .loginBoxes .containerStyle04 h3{
+	font-size:1.8em;
+	margin-bottom:0;
+	padding-bottom: 4px;
+}
+.ursula .securityDetails .memorableAnswer .steps li{
+	width:370px;
+}
+
+.ursula .loginBoxes .grid_9.loginBox h3 {
+width: 342px!important;
+}
+
+.ursula .loginBox .question .textInput {
+	padding-left: 0;
+}
+
+.ursula .grid_9.loginBox .button .buttonInner input {
+font-size: 1.5em;
+padding: 0 0 2px 0;
+width: 92px;
+line-height: 48px;
+height: 33px;
+line-height: 31px;
+text-align: center;
+}
+
+.ursula .loginBoxes .quickLinks .listBullets01 {
+width: 196px;
+}
+
+.ursula .containerStyle08 .linkList01 li {
+float: left;
+font-size: 1.4em;
+margin-right: 30px;
+padding-bottom: 9px;
+width: 100%;
+}
+
+.ursula .loginBoxes{
+	margin-top:20px;
+}
+.row_cam10_01{
+	margin-top: 0px !important;
+}
+body .row.stepRow {
+    padding: 0 0 6px;
+}
+ul.stepTracker {
+	float: left;
+	margin-top: 24px;
+}
+ul.stepTracker li {
+	font-size: 1.2em;
+	padding-right: 25px;
+	float: left;
+	width: 17.4166em;
+	background: url("bg-stepTracker2-sprite.gif") no-repeat right top;
+	background-size: auto 300%;
+}
+ul.stepTracker li:last-child {
+    padding-right: 0;
+}
+
+ul.stepProgress li .progressNum {
+    color: #666666;
+    display: block;
+    float: left;
+    font-size: 116.666%;
+    font-weight: bold;
+    line-height: 28px;
+	min-width: 25px;
+    width: 1.8em;
+	background: url("dot-stepTracker.gif") no-repeat left center;
+	background-size: 100% auto;
+	text-align: center;
+	position: absolute;
+	left: 4px;
+	top: 1.08333em;
+}
+.dj_ie8 ul.stepProgress li .progressNum {
+    top: 13px;
+}
+ul.stepProgress li.selected .progressNum {
+	color: #4e5055;
+}
+ul.stepTracker li>a {
+    display: block;
+    line-height: 28px;
+    padding: 1.16666em 32px 1.08333em 6px;
+    text-align: center;
+    text-decoration: none;
+}
+.dj_ie8 ul.stepTracker li>a {
+    padding: 14px 32px 13px 6px;
+}
+ul.stepProgress li>a {
+	text-align: left;
+	padding-left: 3.5em;
+	padding-right: 0;
+	background-position: 14px center;
+	color: #666666;
+	position: relative;
+	pointer-events: none;
+   	cursor: default;
+}
+.dj_ie8 ul.stepProgress li>a {
+	padding-left: 42px;
+}
+ul.stepProgress li.lines3 a {
+    padding-top: 0.58333em;
+    padding-bottom: 0.5em;
+}
+.dj_ie8 ul.stepProgress li.lines4 a,
+.dj_ie8 ul.stepProgress li.lines3 a {
+    padding-top: 7px;
+    padding-bottom: 6px;
+}
+ul.stepProgress li.completed >a:hover,
+ul.stepProgress li.completed >a:focus,
+ul.stepProgress li.completed >a:active,
+ul.stepProgress li.selected >a:hover,
+ul.stepProgress li.selected >a:focus,
+ul.stepProgress li.selected >a:active {
+	text-decoration: underline;
+}
+ul.stepTracker li.lines7>a,
+ul.stepTracker li.lines6>a,
+ul.stepTracker li.lines5>a,
+ul.stepTracker li.lines4>a,
+ul.stepTracker li.lines3>a,
+ul.stepTracker li.lines2>a {
+    line-height: 14px;
+}
+ul.stepTracker li.first {
+	padding-left: 23px;
+	border-left: 1px solid #ddd;
+}
+ul.stepTracker li.last {
+	padding-right: 0;
+	border-right: 1px solid #ddd;
+	background-position: -2px top;
+}
+ul.stepTracker li>a>span {
+    margin-left: 4px;
+    margin-right: 8px;
+}
+ul.stepTracker li.completed>a  {
+}
+ul.stepProgress li.completed>a  .progressNum{
+	background-image: url("steptracker-disc-complete.png");
+	background-position: left center;
+	color: #ffffff;
+}
+ul.stepProgress li.completed .progressNum{
+	color: #ffffff;
+}
+ul.stepTracker li.beforeSelected {
+	background-position: right 50%;
+}
+ul.stepTracker li.selected {
+	background-position: right bottom;
+	color: #fff;
+	background-color: #4e5055;
+}
+ul.stepTracker li.selected>a {
+	color: #fff;
+}
+ul.stepProgress li.selected>a .progressNum{
+	background-image: url("steptracker-disc.png");
+	background-position: left center;
+	color: #000000;
+}
+ul.stepProgress li.selected .progressNum{
+	color: #000000;
+}
+ul.stepTracker li.selectedLast {
+	color: #fff;
+	background-position: -2px bottom;
+}
+
+ul.stepTracker.stepCount7 li {
+	width: 11.8333em;
+}
+ul.stepTracker.stepCount7 li.first {
+	padding-left: 3px;
+}
+ul.stepTracker.stepCount6 li { 
+	width: 11.08333em;
+}
+ul.stepTracker.stepCount6 li.first{
+    padding-left: 24px;
+}
+ul.stepTracker.stepCount5 li {
+    padding-left: 10px;
+    width: 13.25em;
+}
+ul.stepTracker.stepCount5 li.first {
+    padding-left: 9px;
+    width: 13.333em;
+}
+ul.stepTracker.stepCount4 li {
+	width: 17.75em;
+}
+ul.stepTracker.stepCount4 li.first {
+    padding-left: 15px;
+}
+ul.stepTracker.stepCount3 li {
+	width: 24.5em;
+}
+ul.stepTracker.stepCount3 li.first {
+	padding-left: 13px;
+}
+.ursula .textInput .valid {
+	border: 1px solid #7fc153;
+	background: url("icon_inputvalid.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+.ursula .textInput .invalid {
+	border: 1px solid #e23320;
+	background: url("icon_inputinvalid.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+/*.ursula .textInput .dijitValidationTextBox input.dijitInputInner {
+	border: 1px solid #7fc153;
+	background: url('images/validation/icon_inputvalid.png');
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+.ursula .textInput .dijitValidationTextBoxError input.dijitInputInner {
+	border: 1px solid #e23320;
+	background: url('images/validation/icon_inputinvalid.png');
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+.ursula .textInput .dijitTextBoxIncomplete input.dijitInputInner {
+	border: 1px solid rgb(224, 224, 224);
+	background: none;
+}*/
+
+
+.ursula .dijitTooltipContents {
+	font-size: 0.9em;
+	padding-right: 8px;
+	color: rgb(76, 76, 76);
+}
+
+.ursula .dijitSelectError {
+	border: 1px solid #e23320;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}
+/******add for error box issue*********/
+.ursula .textInput.validationInput .dijitValidationTextBox .dijitInputContainer{
+	border: 1px solid #7fc153;
+	background: url("icon_inputvalid.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+	padding-right: 29px;
+	padding-left: 1px;
+	padding-top: 1px;
+	padding-bottom: 3px;
+}
+
+.ursula .textInput.validationInput .dijitValidationTextBoxError .dijitInputContainer{
+	border: 1px solid #e23320;
+	background: url("icon_inputinvalid.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+	padding-right: 29px;
+	padding-left: 1px;
+	padding-top: 1px;
+	padding-bottom: 3px;
+}
+
+.ursula .textInput.validationInput .dijitTextBoxIncomplete .dijitInputContainer {
+	border: 1px solid #BCBEC0;
+	background: none;
+	padding-right: 29px;
+	padding-left: 1px;
+	padding-top: 1px;
+	padding-bottom: 3px;
+}
+
+.ursula .textInput.validationInput.isRightSec .dijitValidationTextBox .dijitInputContainer,
+.ursula .textInput.validationInput.isRightSec .dijitValidationTextBoxError .dijitInputContainer,
+.ursula .textInput.validationInput.isRightSec .dijitTextBoxIncomplete .dijitInputContainer{
+	margin-right: 14px;
+}   
+

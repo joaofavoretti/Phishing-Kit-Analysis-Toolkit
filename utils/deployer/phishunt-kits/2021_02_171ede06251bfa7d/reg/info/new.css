@@ -1,0 +1,933 @@
+.dashboard_ext {
+	background: none !important;
+}
+
+.navigateFunExt {
+
+	height: auto !important;
+}
+
+/*   Using GridX */
+/* .gridx {
+	width: 400px;
+    height: auto;
+}
+
+.actus .gridx  th{
+	background-position:0 -2024px;
+}
+.actus .gridx  th .gridxSortNode{
+	display: inline;
+}
+
+.gridx .gridxHeader table tr th.date
+ {
+	width: 80px;
+	background-position: 35px -2024px !important;
+	padding: 10px 5px;
+}
+
+
+.actus .gridx .gridxHeader{
+	overflow: hidden;
+	width: 550px;
+	font-family: HelveticaLTStd-Roman;
+}
+.gridx .gridxHeader table tr th.payee
+ {
+	width: 200px;
+	 background-position: 65px -2024px !important;
+}
+
+.gridx .gridxHeader table tr th.amount {
+	width: 95px;
+	text-align: right;
+	padding-right: 15px;
+	background-position: 104px -2024px !important;
+}
+
+.gridx .gridxHeader table tr th.balance{
+	width: 105px;
+	text-align: right;
+	padding-right: 15px;
+  	background-position: 113px -3057px !important;
+} */
+.addPadding {
+	padding-bottom: 10px !important;
+}
+
+.actus .panelWide .selectAccountReadOnly {
+	font-size: medium;
+	padding-left: 3.9cm;
+}
+
+.actus .panelNarrow .selectAccountReadOnly {
+	display: inline-block;
+	font-size: 12px;
+	position: relative;
+	left: 1px;
+}
+
+.actus .panelNarrow .selectAccountReadOnly.errorMsgDiv{
+	margin: 0 2px 6px 0;
+}
+
+.actus .panelNarrow .formSpacer .selectAccountReadOnly {
+	display: inline-block;
+	font-size: small;
+	position: relative;
+	left: 1px;
+}
+
+.formSpacer .selectAccountReadOnly {
+	display: inline-block;
+	font-size: medium;
+	position: relative;
+	left: 1px;
+	border: 1px solid #D2D2D2;
+	padding: 8px;
+	margin-bottom: 10px;
+}
+
+.actus .panelNarrow .selectAccountReadOnly span.titleSubDetails {
+	display: block;
+	color: #666;
+	padding: 0;
+	border: none;
+}
+
+.actus .panelNarrow .selectAccountReadOnly span.titleSubDetails span.text {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.selectPayeeReadOnly {
+	font-size: medium;
+	padding-left: 3.9cm;
+	margin: 11px 10px 0 0;
+}
+
+.selectQuickPayeeReadOnly {
+	font-size: 0.9em;
+	margin: 11px 10px 0 0;
+	padding-left: 1.9cm;
+}
+
+/* .actus .transactionDurationRange .datePicker {
+float: left;
+padding-right: 0;
+width:240px
+}
+ */
+/* .actus .transactionDurationRange .dateRangeTo {
+margin-top: 0;
+float: right;
+}
+ */
+.actus .searchTransactionType .formSpacer {
+	clear: both;
+	width: 100%;
+}
+
+.actus .searchTransactionsPanel .formPanel fieldset {
+	padding: 0 19px 17px;
+}
+
+.addrPaddingTop {
+	padding-top: 7px !important;
+}
+
+.ccyPaddingTop {
+	padding-top: 10px !important;
+	font-size: 1.3em !important;
+}
+
+.actus .selectDropDown span.title {
+	height: 1.2em;
+}
+
+.errorMsgDiv {
+	background-color: #FBE5E7;
+	border: 1px solid #D6D3D6;
+	width: auto;
+	display: inline-block;
+	padding: 10px 10px 10px 10px;
+	margin: 3px 10px 0 0;
+}
+
+.actus .moveMoney .dijitSelect.dijitSelectError {
+	height: 38px;
+	margin-bottom: 10px;
+}
+
+/* MOVE MONEY CSS END*/
+
+/* Styles for StackContainer */
+.dijitHidden { /* To hide unselected panes in StackContainer etc. */
+	display: none !important;
+}
+/* .dijitStackContainer-child {
+	children of TabContainer, StackContainer, and AccordionContainer shouldn't have borders
+	 * b/c a border is already there from the TabContainer/StackContainer/AccordionContainer itself.
+
+    border: none !important;
+} */
+/*sortable table*/
+.actus .sortabletable_ext {
+	max-height: 600px;
+	width: 575px;
+	border: 0;
+	border-spacing: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+/* Styles for StackContainer - END */
+.captureDetborder {
+	border-top: 1px solid #999;
+}
+
+.dijitContentPane_ext1 {
+	height: auto !important;
+}
+
+.actus .gridx { /* width: 540px; we need room for scrollbars, can be removed if scrollbars are to be hidden */
+	height: auto !important;
+	position: relative;
+	overflow: visible;
+}
+
+/*.actus .gridx .gridxMain{
+	position: relative;
+	width: 580px;
+}
+
+.actus .gridx .gridxBody{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+
+.actus .gridxVScroller {
+   	position: absolute;
+	top: 0px;
+	right: -16px !important;
+	overflow: hidden;
+	overflow-x: hidden;
+	border: none;
+	height: 100%;
+	outline: none;
+	width: 10px;
+}
+.gridx .gridxHeader table tr th.type
+ {
+ 	width: 50px;
+ 	text-align: center;
+	background-position: 40px -2024px !important;
+}
+
+.gridxMain{
+	height : 600px ;
+}
+.gridxColCaption{
+	display:inline;
+} */
+.countrySelection {
+	margin-right: 330px;
+	margin-top: 30px;
+}
+
+.contentPane_ {
+	padding: 25px 16px 17px !important;
+}
+
+.dijitContentPane_ext {
+	top: 0 !important;
+	padding: 0 !important;
+	height: auto !important;
+}
+
+.actus .formPanel .expandablePanel .megaComboBox_ext {
+	width: 319px !important;
+}
+
+.actus .formPanel .expandablePanel.cForm .dijitTextBox.long input.dijitInputInner {
+	width: 295px;
+}
+
+.actus .formPanel .expandablePanel.cForm .dijitTextBox input.dijitInputInner {
+	width: 255px;
+}
+
+.borderedTable_ext {
+	font-family: HelveticaLTStd-Roman;
+}
+
+/* .actus .panelInset .panelContent form
+{
+    padding: 10px;
+}
+ */
+.dijitInputInner_ext {
+	height: 35px;
+}
+
+.dijitTextBox_ext {
+	display: block !important;
+}
+
+.actus .formPanel .hdxTextBoxSelectFusion table.selectDropDown {
+	margin: 8px 0 0 5px
+}
+
+.btn_ext {
+	opacity: 1;
+	display: block;
+}
+
+.quickPayCss {
+	padding: 0px !important;
+	border: none !important
+}
+
+.actus .panelInset .panelContent .formPanelQuickTrans form {
+	padding: 0px !important;
+}
+
+.quickPayPadding {
+	padding: 10px 10px 17px !important;
+}
+
+.ajaxLoader { /* background-image: url('../../../../dojo/hdx/images/loaders/ajax-loader.gif'); */
+	/* Changed widget loading image to Spinner28Dark as suggested by DCE. [Ref: QC#2460] */
+	background-image: url("Spinner28Dark.gif");
+	background-repeat: no-repeat;
+	display: none;
+	height: 32px;
+	width: 32px;
+	position: relative;
+	left: 0px;
+	left: 10px;
+	vertical-align: middle;
+}
+
+.alwaysShow.ajaxLoader {
+	display: inline-block !important;
+}
+
+/* .actus span.flagIN,
+.actus a.flagIN {
+	background-image: url("../images/inLogo.png") !important;
+}
+
+.actus span.flagAE,
+.actus a.flagAE {
+	background-image: url("../images/aeLogo.png") !important;
+} */
+.main-content-wrapper h1 .logHeading {
+	display: block;
+	margin: 3px 0 0 0;
+	width: 450px !important;
+}
+
+a.cls_teaserTxt:link {
+	text-decoration: none;
+	COLOR: #000000;
+}
+
+a.cls_teaserTxt:hover {
+	text-decoration: underline;
+	COLOR: #c92d1c;
+}
+
+a.cls_teaserTxt:visited {
+	COLOR: #C00000;
+}
+
+.teaserTxt {
+	padding: 5px;
+}
+
+#fxOutput {
+	margin: 5px 0px 0px 10px
+}
+
+#fxOutput p {
+	height: 20px;
+}
+
+.swapButtonCss {
+	top: -2px !important
+}
+
+.datePlaceHolder {
+	font-size: 0.9em !important;
+}
+
+.addPayeeTextBoxPadding {
+	border: 1px solid #D2D2D2 !important;
+}
+
+/*Romoved this Rule for move money: Resize issue of grid container on payee list.
+  .editContent_ext .gridx
+  {
+ height: 988px !important;
+  } */
+.editContent_ext .gridx .gridxBody {
+	height: auto !important;
+}
+
+/* css override, used in RenameMultipleAccounts.html, added to fix IE issue*/
+.formPanel3 input[type="text"] {
+	height: 16px;
+	padding: 10px;
+}
+/* css override, used in RenameMultipleAccounts.html, Success box created.*/
+.actus .systemSuccess {
+	border: 1px solid #22A635;
+	padding: 18px 18px 18px 68px;
+	margin: 10px 0px 10px 0px;
+	font-size: 16px;
+	line-height: 5px;
+	background: url("valid-icon-1.gif") 10px 10px no-repeat;
+}
+
+.headingFont {
+	font-size: 1.167em !important;
+}
+
+.editContent_ext .gridxMain {
+	width: 530px !important;
+}
+
+.actus .payee-container .dijitTextBox .dijitInputInner {
+	width: 315px; /*we need the lable and the textbox to fit on the same line*/
+}
+
+.actus .payee-container .editContainer table.selectDropDown {
+	width: 305px; /*we need the lable and the dropdownlist (select) to fit on the same line*/
+}
+
+.actus .payee-container .editContent .dijitMegaComboBox input.dijitInputInner {
+	width: 225px; /*we need the lable and the Mega list to fit on the same line*/
+}
+
+.tabbedHeading .dijitTab {
+	padding: 15px 15px 3px !important;
+}
+
+div .errorMessage .hsbcMessage {
+	padding-left: 25px !important;
+}
+
+/*Tools and Utilties CSS Start */
+.paddingFxTable {
+	padding-left: 30px;
+	padding-bottom: 10px;
+}
+
+.paddingTrans {
+	padding-left: 175px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.paddingNotCash {
+	padding-left: 100px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.actus .systemSuccessAddEditDelete {
+	border: 1px solid #22A635;
+	/* padding: 10px 10px 10px 58px; */
+	margin: 10px 0px 10px 0px;
+	font-size: 0.9em;
+	line-height: 15px;
+	background: url("valid-icon-1.gif") 10px 10px no-repeat;
+	background-color: #FFFFFF;
+}
+/*temporary css for Payee list's items alignments, must be removed after the bp css integration*/
+.actus .payee-container .payeeName {
+	width: 180px;
+}
+
+.actus .payee-container td.gridxCell button {
+	margin: 0px 0px 0px 5px;
+}
+
+.actus .payee-container td.gridxCell button.deletePayee { /* padding : 11px 11px 11px 11px; */
+	/* update padding for delete button for Paye management page from MM*/
+
+}
+
+.actus .payee-container td.payeebuttons:focus {
+	outline: none;
+}
+
+/* css for Future Dated Screen*/
+.actus .futureDated-container td.gridxCell.from {
+	min-width: 130px;
+	width: 130px;
+}
+
+.actus .futureDated-container td.gridxCell.to {
+	min-width: 150px;
+	width: 60px;
+}
+
+.actus .futureDated-container  td.gridxCell.amount {
+	min-width: 50px;
+	width: 50px;
+}
+
+.actus .futureDated-container  td.gridxCell.futureDetails {
+	min-width: 80px;
+	width: 80px;
+}
+
+.actus .futureDated-container  td.gridxCell.futureDelete {
+	min-width: 32px;
+	width: 32px;
+}
+
+.actus .futureDated-container td {
+	padding: 2px 20px 7px 0 !important;
+}
+
+.errorQuickPay {
+	background-color: #FBE5E7;
+	border: 1px solid #D6D3D6;
+	display: inline-block;
+	padding: 10px 10px 10px 10px;
+	margin: 3px 10px 0 0;
+	width: 60%;
+}
+
+.actus .quickTransferResponse .successValueQuick {
+	font-weight: bold;
+	width: 153px;
+	line-height: 16px;
+	font-size: 1.1725em;
+	float: left;
+	margin-bottom: 20px;
+}
+
+/* .actus .transferDropdown{
+
+width : auto;
+
+} */
+.actus form.moveMoney .formSpacer ul {
+	clear: none;
+	padding: 0px;
+}
+
+.actus .dijitGryout,.actus .dijitGryout:hover,.actus .dijitGryout:focus {
+	background: #D2D2D2;
+	color: #666;
+}
+
+.currencyTypeStyle2 {
+	color: #FFFFFF;
+	display: inline-block;
+	font-size: 67.25%;
+	margin: 8px 0 0 6px;
+	/*  padding: 2px 1px 1px; */
+	width: auto;
+}
+
+.accountDetails { /* border-right: 1px solid #D2D2D2; */
+	color: #666666;
+	display: inline-block;
+	font-size: 75%;
+	padding-right: 10px;
+	width: auto;
+}
+
+.actus .dijitMenuPopup .dijitMenuTable span.title {
+	width: 100% !important;
+}
+
+/* .balance{
+	display: block;
+	 width: 100%;
+}
+ */
+.actus .moveMoney .formSet .selectDropDown .dijitInline {
+	width: auto !important;
+}
+
+.actus .border_ext {
+	border: 1px solid #D2D2D2;
+	border-top: 1px solid white;
+}
+/* Added for Transaction History Grid Layout */
+/* .actus .sortabletable table th.amount div.gridxSortNode,
+.actus .sortabletable table th.balance div.gridxSortNode {
+  float: right;
+  margin-right: -124px; }
+
+ .bold_ext
+{
+ font-weight: bold;
+}
+  Added for Transaction History Grid Layout
+  table {
+    border-collapse: inherit;
+}
+ */ /*Added for SCM page in footer */
+.scmTitle {
+	color: black !important;
+	background-color: white;
+}
+
+.bold_ext {
+	font-weight: bold;
+}
+
+.leadGeneration {
+	position: relative !important;
+	top: 165px !important;
+}
+
+.scmbanner {
+	height: 250px !important;
+	width: 270px !important;
+}
+
+.scmbanner2 {
+	height: 100px !important;
+	width: 475px !important;
+}
+
+.interactiveCampaign {
+	position: relative !important;
+	top: -10px !important;
+	right: -15px !important;
+}
+/*.carouselTwo .interactiveCampaign {
+	position: relative!important;
+	top: -112px!important;
+	right: -2px!important;
+}*/
+.singleAdd {
+	left: 440px !important;
+	top: 70px !important;
+	width: 400px;
+}
+
+.amountField {
+	width: 125px;
+}
+
+div.amountField .dijitInputInner {
+	width: 80px !important;
+}
+
+#firstCurrencyInput {
+	width: 80px !important;
+}
+
+#secondCurrencyInput {
+	width: 80px !important;
+}
+
+/* Added for Update Maturity */
+.transparent {
+	opacity: 0;
+	filter: alpha(opacity =   0);
+	background: transparent !important;
+}
+
+.fxSwapbtn {
+	background: url("btnSwap1.gif") no-repeat scroll 0 0 #CCCCCC;
+	height: 17px;
+	width: 25px;
+	background-size: 25px 17px;
+	border: 0;
+}
+.fxgtffSwapbtn {
+	background: url("btnSwap1.gif") no-repeat scroll 0 0 #CCCCCC;
+	height: 35px;
+	width: 34px;
+}
+.fxSwapGtffRevertbtn {
+	background: url("btnSwap2.gif") no-repeat scroll 0 0 #CCCCCC;
+	height: 35px;
+	width: 34px;
+}
+.fxSwapRevertbtn {
+	background: url("btnSwap2.gif") no-repeat scroll 0 0 #CCCCCC;
+	height: 17px;
+	width: 25px;
+	background-size: 25px 17px;
+	border: 0;
+}
+
+/* Open account */
+
+/* .actus .citizenship .dijitTextBox .dijitInputInner {
+	width: 319px;
+} */
+.actus .citizenship .dijitSelect.accountSelect {
+	overflow: hidden;
+}
+
+.actus .futureDatedPayments .formPanel .searchFiltersWrapper .externalLabel {
+	width: 148px !important;
+}
+
+.actus .currencyRange .currencyField .dijitTextBox .dijitInputContainer {
+	padding-left: 10px;
+}
+
+.actus .currencyRange .currencyField .dijitInputField .dijitPlaceHolder {
+	left: 10px;
+}
+
+.actus .productApply .selectDropDown.transferDropdown td.dijitButtonContents .dijitButtonText {
+	padding: 8px 12px;
+}
+
+.actus dl dd span.reasonSection {
+	cursor: text;
+	display: block;
+}
+
+.frontAlign {
+	top: -70px !important;
+	right: -673px !important;
+}
+
+.actus .bankSearchDialog .datatable td.payee {
+	font-family: "UniversNextW02-Regular", Arial, sans-serif;
+	max-width: none;
+	padding-right: 10px;
+}
+
+.mastHeadMargin {
+	margin-top: -15px !important;
+}
+
+/* Fix for 16305 - Mozila specific css*/
+@
+-moz-document url-prefix  () { .mastHeadMargin {
+	margin-top: 0px !important;
+}
+
+}
+.noWebkitTransition {
+	-webkit-appearance: none;
+}
+
+/* Fix for #18524 */
+.groupText {
+	font: 1em "UniversNextforHSBC-Bold", Arial, sans-serif !important;
+	color: #4c4c4c !important;
+}
+
+.itemText {
+	text-decoration: none !important;
+}
+
+.actus .creditCardHolderN .validationMessage {
+	width: 356px;
+}
+
+.actus .reviewAdditionalCreditPage .borderedContent .orderChequeBookDisclaimer {
+	width: 94%;
+	padding-bottom: 10px;
+	margin-left: 16px;
+	margin-right: 16px;
+	border-top: 1px solid #c6c6c6;
+	word-wrap: break-word;
+	font-family: "Univers-Next-W02-Bold", Arial, sans-serif !important;
+}
+
+.actus .reviewAdditionalCreditPage .borderedContent .orderChequeBookDisclaimer>h3 {
+	color: #666666;
+	font-family: "Univers-Next-W02-Bold", Arial, sans-serif;
+	font-size: 1.3em;
+	font-weight: bold;
+	padding: 10px 0;
+}
+
+.actus .reviewAdditionalCreditPage .orderChequeBookDisclaimer p {
+	font-size: 12px;
+	line-height: 1.3em;
+	color: #666666;
+}
+
+.opacity_1 {
+	opacity: 1 !important;
+	display: block !important;
+}
+
+.marginleftbanner {
+	margin-left: 20px !important;
+}
+
+.autoWidth {
+	width: auto !important;
+}
+
+/* CSS for LP  */
+div#lpButtonDiv{
+    	position: fixed;
+	top: 33%;
+	right: 0;
+	z-index: 900;
+}
+div#lpLightBox {
+    position: fixed;
+	width: 400px;
+    right: 0;
+   	top: 33%;
+	z-index: 999;
+    background-color: #f2f3f4;
+    padding: 20px;
+    border: 1px solid #d3d3d3;
+    box-shadow: 0 0 10px #999;
+    -webkit-box-shadow: 0 0 10px #999;
+    -moz-box-shadow: 0 0 10px #999;
+}
+div#lpLightBox > div {
+    	position: relative;
+    	background-color: #fff;
+    	padding: 20px;
+    	border: 1px solid #d2d2d2;
+}
+div#lpLightBox > div > p {
+	margin: 10px 0;
+}
+div.lpButtons {
+    	height: 34px;
+}
+div.lpButtons > a {
+    	background: url("lp_button_left.gif") no-repeat;
+    	padding-left: 3px;
+    	margin-left: 12px;
+    	text-decoration: none;
+    	color: #000;
+    	float: right;
+    	display: block;
+    	font-size: 90%;
+}
+div.lpButtons > a > span {
+    	background: url("lp_button_right.gif") no-repeat 100% 0%;
+    	padding: 10px;
+    	display: block;
+}
+div.lpButtons > a > span > span.lpStartChat {
+    	background: url("lp_red_speech_icon.gif") no-repeat 100% 50%;
+    	padding-right: 30px;
+}
+div.lpClose {
+    	position: absolute;
+    	top: 7px;
+    	right: 7px;
+}
+ .actus .startChatSection {
+    background: none repeat scroll 0 0 #F2F3F4;
+    box-shadow: 0 0 6px #888888;
+    float: right;
+    position: fixed;
+    right: 1px;
+    top: 33%;
+    width: 18%;
+    min-width: 242px;
+    padding: 20px;
+}
+ .actus .panelChat{
+ 	background: none repeat scroll 0 0 #FFFFFF;
+ 	border: 1px solid #D2D2D2;
+ 	padding: 6%;
+ 	overflow: hidden;
+ }
+  .actus .panelChat h3{
+ 	text-align:left;
+ 	padding-bottom:15px;
+ }
+ .actus .panelChat h3:first-child{
+
+ 	font-weight:bold;
+ }
+ .actus .panelChat .startChatBtn{
+  	background:#BF000F;
+  	width: 67%;
+  	float: right;
+  	overflow:hidden;
+
+ }
+ .actus .panelChat .startChatBtn .chatIcon{
+	background:url("icon-chat_32x32.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+ 	float: left;
+    height: 34px;
+    width: 30px;
+    margin-left:8px;
+    margin-top: 3px;
+}
+.actus .panelChat .startChatBtn .chatText{
+	width: 65%;
+	float:left;
+}
+.actus .panelChat .startChatBtn .chatText h3{
+	color: #FFFFFF;
+	font-size: 1.25em;
+	padding-top: 9px;
+	padding-top: 9px;
+	float: right;
+}
+
+.actus .liveChatSection{
+ 	float:right;
+ 	width:155px;
+  	height:35px;
+  	-ms-transform:rotate(270deg); /* IE 9 */
+  	-moz-transform:rotate(270deg); /* Firefox */
+  	-webkit-transform:rotate(270deg); /* Safari and Chrome */
+  	-o-transform:rotate(270deg); /* Opera */
+ 	background:#BF000F;
+	z-index:999;
+	cursor:pointer;
+ }
+.actus .liveChatSection .chatIcon{
+ 	background:url("icon-chat_32x32.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+ 	height: 31px;
+   	margin-right: 6px;
+    	width: 25px;
+    	float: right;
+    	-ms-transform:rotate(90deg); /* IE 9 */
+  	-moz-transform:rotate(90deg); /* Firefox */
+  	-webkit-transform:rotate(90deg); /* Safari and Chrome */
+  	-o-transform:rotate(90deg); /* Opera */
+ }
+ .actus .liveChatSection .chatText{
+ 	float: right;
+    	margin: 7px;
+    	width: 95px;
+ }
+ .actus .liveChatSection h3{
+ 	color: #FFFFFF;
+ }
+
+  /* Story 30 Additional Banners*/
+ .topBannerPadding {
+ 	padding-bottom: 16px;
+ }
+
+ .topBannerPaddingAdjust {
+ 	padding-bottom: 0px;
+ }
+ 
+/* New css for live Chat */
+
+.actus .startChatSection .startChatBtn {
+	cursor:pointer !important;
+}
+.actus .lpButtonDiv.liveChatSection {
+	cursor:pointer !important;
+}

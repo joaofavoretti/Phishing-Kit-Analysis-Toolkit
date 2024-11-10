@@ -1,0 +1,89 @@
+/* ***********************************************************************************************
+// *** BUTTON ************************************************************************************
+// **********************************************************************************************/
+
+#body[theme="osmp"] [control="button"] {
+    display: inline;
+    z-index: 1;
+    margin-right: 5px;
+    padding: 5px 15px;
+    border: 0;
+    cursor: pointer;
+    overflow: auto;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    background-color: #fc7d00;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fc7d00',endColorstr='#ce5600');
+    white-space: nowrap;
+    border-radius: 4px;
+    text-shadow: #a14300 1px 1px;
+    text-decoration: none;
+    background: #ce4c00;
+    background: -moz-linear-gradient(top,#ce4c00 0,#c94a00 50%,#b54300 52%,#a43d01 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#ce4c00),color-stop(50%,#c94a00),color-stop(52%,#b54300),color-stop(100%,#a43d01));
+    background: -webkit-linear-gradient(top,#ce4c00 0,#c94a00 50%,#b54300 52%,#a43d01 100%);
+    background: -o-linear-gradient(top,#ce4c00 0,#c94a00 50%,#b54300 52%,#a43d01 100%);
+    background: -ms-linear-gradient(top,#ce4c00 0,#c94a00 50%,#b54300 52%,#a43d01 100%);
+    background: linear-gradient(to bottom,#ce4c00 0,#c94a00 50%,#b54300 52%,#a43d01 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce4c00',endColorstr='#a43d01',GradientType=0);
+}
+
+#body[theme="osmp"][isMobile="true"] [control="button"] {
+	width: 100%;
+	margin: 0 0 10px 0;
+}
+
+#body[theme="osmp"] [control="button"][data-type="primary"] {
+    background: #5174b8;
+    background: -moz-linear-gradient(top,#5174b8 0,#3d62a3 50%,#335898 52%,#244a87 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#5174b8),color-stop(50%,#3d62a3),color-stop(52%,#335898),color-stop(100%,#244a87));
+    background: -webkit-linear-gradient(top,#5174b8 0,3d62a3 50%,#335898 52%,#244a87 100%);
+    background: -o-linear-gradient(top,#5174b8 0,#3d62a3 50%,#335898 52%,#244a87 100%);
+    background: -ms-linear-gradient(top,#5174b8 0,#3d62a3 50%,#335898 52%,#244a87 100%);
+    background: linear-gradient(to bottom,#5174b8 0,#3d62a3 50%,#335898 52%,#244a87 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5174b8',endColorstr='#244a87',GradientType=0);
+    text-shadow: none;
+}
+
+#body[theme="osmp"] [control="button"][data-type="primary"]:disabled {
+	background-color: #B2DFEE;
+	color: #f5f5f5;
+}
+
+#body[theme="osmp"] [control="button"][data-type="secondary"] {
+    text-shadow: #ccc 1px 1px;
+    background: #f1f1f1;
+    background: -moz-linear-gradient(top,#f1f1f1 0,#fceeee 50%,#f0e3e2 52%,#c7c7c8 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#f1f1f1),color-stop(50%,#fceeee),color-stop(52%,#f0e3e2),color-stop(100%,#c7c7c8));
+    background: -webkit-linear-gradient(top,#f1f1f1 0,#fceeee 50%,#f0e3e2 52%,#c7c7c8 100%);
+    background: -o-linear-gradient(top,#f1f1f1 0,#fceeee 50%,#f0e3e2 52%,#c7c7c8 100%);
+    background: -ms-linear-gradient(top,#f1f1f1 0,#fceeee 50%,#f0e3e2 52%,#c7c7c8 100%);
+    background: linear-gradient(to bottom,#f1f1f1 0,#fceeee 50%,#f0e3e2 52%,#c7c7c8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f1',endColorstr='#c7c7c8',GradientType=0);
+    color: #44464a;
+}
+
+#body[theme="osmp"] [control="button"][data-type="secondary"]:disabled {
+	background-color: #F5F5F5;
+	color: #BFC0BE;
+}
+
+#body[theme="osmp"] [control="button"].small {
+	height: 36px;
+	padding: 0 30px 0 30px;
+}
+
+
+
+/* ***********************************************************************************************
+// *** THE PRIVATE BANK **************************************************************************
+// **********************************************************************************************/
+
+#body[theme="osmp"][lob="tpb"] [control="button"][data-type="primary"] {
+	background-color: #5174B8;
+}
+
+#body[theme="osmp"][lob="tpb"] [control="button"][data-type="primary"]:disabled {
+	background-color: #B2DFEE;
+}

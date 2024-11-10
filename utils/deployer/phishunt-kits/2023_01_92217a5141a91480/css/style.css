@@ -1,0 +1,205 @@
+@font-face {
+    font-family: AtlasGrotesk;
+    src: url("../font/atlas.otf") format("opentype");
+}
+
+@font-face {
+    font-family: AtlasGrotesk;
+    font-weight: bold;
+    src: url("../font/atlasbold.ttf") format("opentype");
+}
+
+*{
+	font-family: "AtlasGrotesk","Open Sans",sans-serif;
+
+}
+
+a#top-left {
+    padding: 7px 16px;
+    border-color: #2895F1;
+    border: 1px solid;
+    color: #2895F1;
+    font-weight: 600;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+#nav {
+    padding: 12px 0px;
+}
+.mid-logo {
+	text-align: center;
+}
+
+a#top-right {
+    padding: 7px 16px;
+    color: #2895F1;
+    font-size: 14px;
+}
+
+.top-right{
+	text-align: right;
+}
+
+.main{
+	margin-top: 80px;
+	padding-top: 50px;
+}
+
+#sign-in {
+    float: left;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+
+#gmail {
+    background: #f7f7f7;
+    margin-bottom: 6px;
+    padding: 0px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #222;
+    border: 1px solid #DDD;
+}
+#yahoo {
+    background: #f7f7f7;
+    margin-bottom: 6px;
+    padding: 0px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #222;
+    border: 1px solid #DDD;
+}
+#aol {
+    background: #f7f7f7;
+    margin-bottom:6px;
+  padding: 0px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #222;
+     border: 1px solid #DDD
+}
+
+
+.col.s2.icon {
+    padding: 4px 10px;
+    margin: 0px;
+    background: #eee;
+    height: 40px;
+}
+
+#outlook {
+    background: #f7f7f7;
+    margin-bottom: 6px;
+     padding: 0px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #222;
+    border: 1px solid #DDD;
+}
+.login-text a {
+    color: #222;
+    font-weight: bold;
+}
+.modal {
+    width: 40% !important;
+}
+
+button:focus {
+    outline: none;
+    background-color: #0080e5;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #0080e5;
+    box-shadow: 0 1px 0 0 #26a69a;
+}
+
+form.col.s12 {
+    background: #f5f5f5;
+    padding: 40px 20px;
+    border: 1px dotted #ddd;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.login-button {
+    padding: 10px 20px;
+    background: #0080e5;
+    color: #FFF !important;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+    margin-right: auto;
+    display: block !important;
+    margin-left: auto;
+    margin-top: 0px;
+    width: 30%;
+    border-radius: 3px;
+    border: none;
+}
+
+ul.tabs {
+    display: none !important;
+}
+
+.recovery {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #f5f5f5;
+    padding: 35px;
+    border-radius: 5px;
+    margin-bottom: 35px;
+}
+
+.avatar {
+    -webkit-border-radius: 96px;
+    border-radius: 96px;
+    display: block;
+    height: 96px;
+    margin: 0 auto 10px;
+    width: 96px;
+}
+.recover-button {
+    width: 100%;
+    padding: 10px 0px;
+    border: 1px solid #3079ed;
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,0.1);
+    background-color: #4d90fe;;
+}
+
+h5{
+	font-family: 'Open Sans',arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #555;
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subtitle {
+	 font-family: 'Open Sans',arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #555;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 354px;
+}
+
+.reco {
+
+	display: block;
+    font-size: 15px;
+    font-family: arial,sans-serif;
+}

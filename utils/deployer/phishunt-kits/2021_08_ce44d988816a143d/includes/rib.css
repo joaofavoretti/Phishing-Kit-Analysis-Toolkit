@@ -1,0 +1,360 @@
+/**
+  * @version $Revision: 1.15.60.1 $
+  * @lastmodified $Date: 2016/09/13 11:58:19 $
+*/
+
+.ribCont {
+    width: 620px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/*specific Rib*/
+
+#Rib .ribColOne {
+    margin: 40px 20px 0 0;
+    float: left;
+    width: 48%;
+}
+
+#Rib.single .ribColOne {
+    width: 600px;
+}
+
+#Rib .ribColTwo {
+    margin: 40px 0px 0 0;
+    float: left;
+    width: 48%;
+}
+
+#Rib.decoup .ribColOne {
+    margin: 40px 20px 0 0;
+    float: left;
+    width: 300px;
+}
+
+#Rib.decoup .ribColTwo {
+    float: left;
+    margin: 40px 0px 0 0;
+    width: 300px;
+}
+
+#Rib .ribRaw {
+    clear: both;
+}
+
+#Rib .ribRaw.first .ribColTwo {
+    margin: 0px 0px 0 0;
+}
+
+#Rib .ribRaw.first .ribColOne {
+    margin: 0px 20px 0 0;
+}
+
+#Rib .ribItem {}
+
+#Rib .ribItem h2 {
+    background: #EEEEF0;
+    font-weight: bold;
+    font-size: 80%
+}
+
+#Rib .ribItem h2 span {
+    margin-top: 8px;
+}
+
+#Rib .ribItem h2 img {
+    float: left;
+    margin: 0 5px 0 0;
+}
+
+#main #Rib dt {
+    border: none;
+    clear: both;
+    line-height: 10px;
+}
+
+#main #Rib span {
+    display: inline;
+    padding: 0
+}
+
+#Rib .ribItem dl.first {
+    clear: left
+}
+
+#Rib .ribItem dl.first dt,
+#Rib .ribItem dl.second dt,
+#main #Rib .ribItem dl.last dt {
+    display: block;
+    width: 100%;
+    clear: right;
+    background: #ebebeb;
+    color: #504D51;
+    font-weight: bold;
+    height: 15px;
+    font-size: 85%
+}
+
+#Rib .ribItem dl.first dt span.title {
+    float: left;
+    width: 65%;
+    border-right: 1px solid #EBEBED;
+    cursor: default;
+    padding: 1px 0;
+    vertical-align: top;
+}
+
+#Rib .ribItem dl.first dt span.dom {
+    float: right;
+    width: 30%
+}
+
+#Rib .ribItem dl.first dd {
+    border: 1px solid #A5A5A5;
+    float: left;
+    font-size: 68%;
+    height: 50px
+}
+
+#main #Rib .ribItem dl.first dd span {
+    display: inline-block;
+    padding: 3px;
+    text-align: center;
+    width: 90%
+}
+
+#Rib .ribItem dl.first dd.eta {
+    width: 27%;
+}
+
+#Rib .ribItem dl.first dd.gui {
+    width: 15%;
+}
+
+#Rib .ribItem dl.first dd.key {
+    width: 12.4%;
+}
+
+#Rib .ribItem dl.first dd.noc {
+    width: 20%;
+}
+
+#Rib .ribItem dl.first dd.wer {
+    width: 23.3%;
+}
+
+#Rib .ribItem dl.first dd.eta,
+#Rib .ribItem dl.first dd.gui,
+#Rib .ribItem dl.first dd.noc,
+#Rib .ribItem dl.first dd.key {
+    border-right: none;
+}
+
+#Rib .ribItem dl.second dt {
+    background: url("../../img/q4x/bkg-thead_opgd.png") repeat-x scroll left top transparent;
+    color: #504D51;
+    font-weight: bold;
+    height: 35px;
+}
+
+#Rib .ribItem dl.second dt span.IBAN,
+#Rib .ribItem dl.second dt span.BIC {
+    width: 54%;
+    float: left;
+    font-size: 80%;
+    line-height: 8px;
+}
+
+#Rib .ribItem dl.second dt span.BIC {
+    width: 46%;
+    float: left;
+}
+
+#Rib .ribItem dl.second dt span strong {
+    padding: 1px;
+    width: 16%;
+    float: left
+}
+
+#Rib .ribItem dl.second dt span p {
+    width: 81%;
+    float: left;
+    margin: 0;
+    padding: 1px;
+}
+
+#Rib .ribItem dl.second dt {
+    background: url("../../img/q4x/bkg-thead_opgd.png") repeat-x scroll left top transparent;
+    color: #504D51;
+    font-weight: bold;
+    height: 35px;
+}
+
+#main #Rib .ribItem dl.second dd {
+    font-size: 80%;
+    margin-bottom: 5px
+}
+
+#main .ribItem dl.second dd.sIBAN {
+    width: 9.5%;
+    float: left;
+    border-left: 1px solid #A5A5A5;
+    text-align: center;
+    padding: 0 0px
+}
+
+#main .ribItem dl.second dd.sBIC {
+    width: 23%;
+    float: left;
+    border-left: 1px solid #A5A5A5;
+    border-right: 1px solid #A5A5A5;
+    text-align: center;
+    padding: 0 0px;
+    font-size: 70%
+}
+
+#main .decoup .ribItem dl.second dd.sIBAN {
+    width: 30px;
+}
+
+#main .decoup .ribItem dl.second dd.sBIC {
+    width: 81px;
+    font-size: 50%
+}
+
+#main #Rib .ribItem dl.last {
+    clear: both;
+    margin-top: 5px;
+    position: relative
+}
+
+#main #Rib .ribItem dl.last dt {
+    width: 100%;
+    padding-right: 2px
+}
+
+#main #Rib .ribItem dl.last dd {
+    border: 1px solid #A5A5A5;
+    width: 100%;
+    font-size: 95%;
+    line-height: 15px;
+}
+
+#main #Rib .ribItem dl.last dd strong {
+    display: block;
+    padding: 5px;
+    font-size: 75%
+}
+
+/*rib single*/
+
+#main #Rib.single .ribItem dl.second dd {
+    font-size: 80%;
+    margin-bottom: 0px
+}
+
+#main #Rib.single .ribItem dl.last dd {
+    border: none;
+    margin-left: 5%;
+}
+
+#main #Rib.single .ribItem dl.last dd strong {
+    padding-left: 0
+}
+
+#main #Rib.single .ribItem dl.first dt {
+    height: 18px
+}
+
+#main #Rib.single .ribItem dl.first dt span {
+    margin: 3px
+}
+
+#main #Rib.single .ribItem textarea {
+    margin: 2% 5% 5% 5%;
+    width: 90%
+}
+
+#Rib.single .ribItem dl.first dd {
+    width: 110px;
+}
+
+#Rib.single .ribItem dl.first dd.eta {
+    border-left: none
+}
+
+#Rib.single .ribItem dl.first dd.wer {
+    border-right: none;
+    width: 154px;
+}
+
+#Rib.single .ribItem dl.first dt span.dom {
+    float: right;
+    width: 150px
+}
+
+#Rib.single .ribItem dl.second {
+    margin-top: 0px
+}
+
+#main #Rib.single .ribItem dl.second span {
+    line-height: 11px
+}
+
+#main #Rib.single .ribItem dl.second span em {
+    font-weight: normal;
+    display: block
+}
+
+#main #Rib.single .ribItem dl.second span.IBAN {
+    font-size: 120%
+}
+
+#main #Rib.single .ribItem dl.second span.BIC {
+    font-size: 120%
+}
+
+#main #Rib.single .ribItem dl.second dd {
+    border: none;
+    border-right: 1px solid #A5A5A5
+}
+
+#main #Rib.single .ribItem dl.second dd.sBIC {
+    border: none;
+}
+
+#main #Rib.single .ribItem div.bloc {
+    margin-top: 30px
+}
+
+#main #Rib.single .ribItem dl.last {
+    margin-top: 0px;
+    width: 70%
+}
+
+#main #Rib.single .ribItem dl.last dt {
+    background: url("none") repeat-x scroll 0 0 transparent;
+    margin: 0;
+    padding: 0;
+    height: 10px;
+    position: relative
+}
+
+#main #Rib.single .ribItem dl.last dt span.title-level2 {
+    background: url("skin/bkg-form.png") repeat-x scroll 0 0 transparent;
+    color: #504D51;
+    font-size: 15px;
+    font-weight: bold;
+    height: 32px;
+    padding: 14px 0 0 18px;
+    display: block;
+    width: 581px;
+    position: relative
+}
+
+#main #Rib.single .ribItem dl.last dd {
+    position: relative;
+    clear: both;
+    margin-top: 50px
+}

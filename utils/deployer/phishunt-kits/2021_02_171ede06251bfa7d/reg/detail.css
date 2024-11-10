@@ -1,0 +1,267 @@
+.ursula .securityDetails {
+	padding-top: 2px;
+	/*padding-bottom: 20px;*/
+}
+.ursula .questionUpdate{
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+.ursula .securityDetails .welcome {
+	font-size: 1.8em;
+	font-weight: normal;
+	padding-bottom: 12px;
+	line-height: 28px;
+}
+.ursula .securityDetails .welcome strong {
+	font-weight: bold;
+}
+ 
+.ursula .securityDetails label span{
+	color: #db0011;
+}
+
+.ursula .securityDetails label .acCodePrefix {
+	color: rgb(78, 76, 76);
+}
+
+.ursula .securityDetails span.dotted{
+	float:left;
+	font-size: 20px;
+	padding: 0 15px 0 0;
+}
+
+.ursula a.linkUnderline.marginAdj{
+	clear:both;
+/*	padding-top:14px; */
+}
+
+.ursula .securityDetails  input.smallestInput{
+	background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 1.4em;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 6px 0 6px;
+    width: 27px;
+	border: 1px solid #ddd;
+	margin: 0 15px 12px 0;
+	float:left;
+	text-align: center;
+}
+.ursula .securityDetails input.smallestInput.active{
+	border: 2px solid #7fc153;
+	height: 28px;
+}
+
+.ursula .securityDetails input.smallestInput.SvalidationMsg{
+	border: 2px solid #DB0011;
+	height: 28px;
+}
+
+.ursula .securityDetails .boxLink{
+	background: #faf9d0 url("dot.gif") repeat-x left top;
+	padding: 20px 24px 19px;
+}
+.ursula .securityDetails .boxLink a {		
+	text-align: center;
+	display: block;
+	font-size: 1.4em;
+	text-decoration: none;
+	line-height: 18px;	
+	background: url("forward.gif") no-repeat scroll 96% 50% transparent;
+}
+.ursula .securityDetails .boxLink a:hover{
+	text-decoration: underline;
+}
+.ursula .securityDetails .borderbox {
+	border-top: 1px solid #dddddd; 
+	/*padding: 17px 0;
+	clear:both;
+	overflow:hidden;*/
+	/*margin-top:12px;*/
+}
+.ursula .securityDetails .borderbox .mandatoryText span {
+	margin-right: 4px;
+}
+
+.ursula .selectMemQuestion {
+	padding-top:2px;
+}
+
+.ursula .securityDetails .question {
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+/* .ursula .securityDetails .question {
+	padding-top: 10px;
+	padding-bottom: 0px;
+} */
+
+.ursula .securityDetails .question_2040 {
+	padding-top: 10px;
+	padding-bottom: 0px;
+}
+.ursula .securityDetails .question label,
+.ursula .securityDetails .question .label{
+	width: 224px;
+	padding-right: 10px;
+	padding-top: 9px;
+}
+.ursula .securityDetails .containerStyle17-ext01{
+	padding-top:15px;
+}
+.ursula .securityDetails .containerStyle17-ext01 .questionGroup{
+	/*padding-bottom: 35px;*/
+}
+
+.ursula .securityDetails .question label.notip {
+	padding-right: 30px !important;
+}
+
+.ursula .containerStyle17-ext01 .securityDetails .question .textInput input {
+	margin-bottom: 0;
+}
+
+.ursula .containerStyle01 .securityDetails .buttonRow {
+	/*padding-top: 34px;
+	padding-bottom: 0;*/
+}
+.ursula .containerStyle01 .securityDetails .buttonRow .right p {
+	font-size: 2em;
+}
+
+.ursula .securityDetails-ext01 p {
+	padding-bottom: 8px;
+}
+
+.ursula .securityDetails-ext02 .question {
+	padding-top: 0;
+}
+.ursula .containerStyle18 .securityDetails-ext02 .question label {
+	padding-right: 16px;
+	padding-top: 9px;
+	width: 224px;
+	text-align: right;
+	line-height: 20px;
+}
+.ursula .containerStyle18 .securityDetails-ext02 .textinputSection {
+	float: left;
+}
+.ursula .containerStyle18 .securityDetails-ext02 .question .textInput {
+	padding-top: 4px;
+	padding-left: 15px;
+}
+.ursula .containerStyle18 .securityDetails-ext02 .question .textInput input {
+	margin-bottom: 19px;
+}
+.ursula .securityDetails-ext02 .question .securityHeading,
+.ursula .containerStyle18 .securityDetails-ext02 .question .securityHeading {
+	float: none;
+	line-height: 18px;
+	padding-bottom: 18px;
+	width: auto;
+	text-align: left;
+	padding-top: 0;
+}
+
+.ursula .securityDetails-ext02 ul {
+	float: left;
+	width: 100%;
+}
+.ursula .containerStyle24 .questionGroup{
+	border-bottom:none;
+}
+.ursula .containerStyle24 p{
+	clear:both;
+}
+.ursula .containerStyle24 ul{
+	float: right;
+    width: 395px;
+}
+.ursula .containerStyle24 li{
+	margin-bottom:8px;
+	float: right;
+}
+.ursula .containerStyle17-ext01 .securityDetails-ext02 .linkList01{
+	margin-left:246px;
+	width:400px;
+	clear:both;
+}
+.ursula .securityDetails-ext02 li {
+	padding-top: 1px;
+	padding-bottom: 0px;
+}
+.ursula .containerStyle17-ext01 .securityDetails-ext02 .linkList01 li a{
+	text-decoration:underline;
+}
+.ursula .containerStyle23 .memorableAnswer .steps li p{
+	width:230px;
+}
+.ursula .containerStyle23 .memorableAnswer-question .question label{
+	background: url("lock-device.png") no-repeat center right;
+	padding-right:42px;
+	padding-bottom: 12px;
+}
+.ursula .containerStyle23 .memorableAnswer-question .question label.nobg{
+	background:none;
+	padding-right:0;
+	margin-left: 70px;
+}
+.ursula .containerStyle23 .memorableAnswer-question .questionGroup .linkList01{
+	padding-left:278px;
+}
+.ursula .containerStyle23 .questionGroup .linkList01 li{
+	text-decoration:underline;
+}
+.ursula .containerStyle23 .questionGroup .stolen a{
+	background: url("stolen-device.png") no-repeat center right;
+	padding-right:18px;
+	/*padding-bottom: 12px;*/
+}
+
+.ursula .securityDetails  input.mediumInput{
+	background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 1.4em;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 6px 0 6px;
+    width: 100px;
+	border: 1px solid #ddd;
+	margin: 0 15px 12px 0;
+	float:left;
+	text-align: center;
+}
+.ursula .securityDetails input.mediumInput.active{
+	border: 2px solid #7fc153;
+	height: 28px;
+}
+
+.ursula .securityDetails input.mediumInput.SvalidationMsg{
+	border: 2px solid #DB0011;
+	height: 28px;
+}
+.ursula .userlocked {
+	padding-top: 2px;
+	padding-bottom: 20px;
+}
+.ursula .secureKeyOverlayPopup.borderColm {
+	display: inline-block;
+	width: 269px;
+	padding-right: 20px;
+	text-align: center;
+}
+.activate.userlocked{
+	padding: 14px 20px 8px 130px;
+}
+.image-content{
+	display: inline-block;
+	width: 570px;
+	padding-left: 24px;
+	padding-top:20px
+}
+.activate.userlocked1{
+	padding: 7px 20px 8px 130px;
+	min-height: 90px;
+	background-image: url("icon-informative-xlarge.gif");
+	background-repeat: no-repeat;
+	background-position: 0 4px;
+}

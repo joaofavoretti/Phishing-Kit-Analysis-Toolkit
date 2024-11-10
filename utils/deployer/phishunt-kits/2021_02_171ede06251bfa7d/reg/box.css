@@ -1,0 +1,221 @@
+.ursula .alertBoxWrapper {
+	display: none;
+}
+.ursula .confirmAlertSecondary {
+	width: 100%;
+	position: relative;
+	padding-top: 20px;
+}
+.ursula .alertBox {
+	width: 100%;
+	position: relative;
+}
+.ursula .alertBox .alertBoxInner {
+	border: 3px solid #FFCBC9;
+	padding: 13px 20px 8px 117px;
+	min-height: 58px;
+	background: url("icon-error-large.gif") no-repeat scroll 30px 50% #FFF2F1;
+}
+.ursula .alertBox .alertBoxInnerData {
+	padding: 113px 20px 8px 44px;
+	min-height: 58px;
+}
+.ursula .alertBox .alertBoxInner:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.ursula .alertBox .alertBoxInner p {
+	color: #000;
+	padding-bottom: 5px;
+}
+.ursula .alertBox .alertBoxInner ul {
+	padding-bottom: 5px;
+}
+.ursula .alertBox .alertBoxInner li {
+	list-style: disc inside;
+	font-size: 1.4em;
+	line-height: 18px;
+}
+.ursula .alertBox .alertBoxInner h3.title {
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 22px;
+	padding-bottom: 0;
+}
+.ursula .alertBox .alertBoxInnerData h3.title {
+	font-size: 1.6em;
+	font-weight: bold;
+	line-height: 22px;
+	padding-bottom: 0;
+}
+.ursula .infoAlert .alertBoxInner{
+	background-image: url("icon-informative-large.gif");
+	background-color: #fffcf5;
+	border-color: #fff3d8;
+}
+.ursula .messageAlert .alertBoxInner{
+	background-image: url("additionalIcon-lrg.gif");
+	background-color: #f6f6f6;
+	border-color: #dbdbdb;
+}
+.ursula .confirmAlertSecondary .alertBoxInnerData {
+	background-color: #f9fcf7;
+	border-color: #e7f5e0;
+	padding-top: 20px;
+}
+.ursula .confirmAlert .alertBoxInner{
+	background-image: url("icon-confirmation-large.gif");
+	background-color: #f9fcf7;
+	border-color: #e7f5e0;
+}
+
+.ursula .alertBox .iconText {
+	color: #297500;
+    font-size: 1.1em;
+    left: 100px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 136px;
+    width: 160px;
+}
+
+.ursula .confirmation {
+	background: url("successful.gif") no-repeat scroll 0 0 transparent;
+    border: 1px solid #E3E3E3;
+    box-shadow: 0 0 4px #DDDDDD;
+    float: left;
+    height: auto;
+    margin-top: 17px;
+    padding: 0;
+    width: 938px;
+}
+.ursula .confirmation .alertBoxInner {
+	border: 0;
+	background: none;
+	padding: 30px 40px 20px 294px;
+	min-height: 118px;
+	_height: 118px;
+}
+.ursula .confirmation h3 {
+	font-size: 2.2em;
+	line-height: 30px;
+	margin: 0;
+	padding: 0;
+}
+.ursula .confirmation p {
+	color: #4C4C4C;
+	font-size: 1.6em;
+	line-height: 32px;
+	padding: 0;
+}
+.ursula .confirmation .alertBoxInner .expired {
+	color: #DB0011;
+	padding: 0 0 6px;
+}
+.ursula .timedAlert {
+	background: url("timed.gif") no-repeat scroll 0 50% transparent;
+} 
+.ursula .timedAlert .iconText {
+	color: #DB0011;
+}
+.ursula .timedAlert .iconTime {
+	color: #DB0011;
+	font-size: 3em;
+	left: 133px;
+	position: absolute;
+	text-align: center;
+	top: 57px;
+	width: 100px;
+}
+.ursula .timedAlert .iconTime strong {
+	font-size: 1.5em;
+}
+
+.ursula .infoAlert {
+	background: url("info.gif") no-repeat scroll 0 50% transparent;
+}
+.ursula .infoAlert h3 {
+	font-size: 2.1em;
+}
+.ursula .infoAlert h3.infoPadding {
+	padding: 14px 0;
+}
+.ursula .infoAlert .alertBoxInner p,
+.ursula .infoAlert .alertBoxInner li {
+	color: #585858;
+}
+.ursula .errorAlert {
+	background: url("error.gif") no-repeat scroll 0 50% transparent;
+}
+.ursula .errorAlert .iconText {
+	color: #DB0011;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.ursula .alertBox-ext01 .alertBoxInner {
+	padding-top: 18px;
+}
+
+.ursula .confirm .alertBoxInner {
+	padding: 13px 20px 8px 50px;
+	min-height: 110px;
+	background: url("dot-stepTracker-completed.gif") no-repeat scroll 15px 20% #ECF1DF;
+}
+
+
+.ursula .confirm .alertBoxInner p.title {
+    font-size: 1.6em;
+    font-weight: bold;
+    line-height: 22px;
+    padding-bottom: 0;
+    color:#33A000;
+    padding-top: 10px;
+    
+}
+.ursula .confirm .alertBoxInner p {
+	font-weight: bold;
+}
+
+.ursula .cancel .alertBoxInner {
+	padding: 13px 20px 8px 50px;
+	min-height: 125px;
+	background: url("icon-yellow.gif") no-repeat scroll 15px 20% #F8E8B8;
+}
+.ursula .cancel .alertBoxInner p.title {
+    font-size: 1.8em;
+    font-weight: bold;
+    line-height: 22px;
+    padding-bottom: 0;
+    padding-top: 10px;
+}
+.ursula .cancel .alertBoxInner p {
+	font-weight: bold;
+}
+.ursula a.colorRed{
+	color:red;
+}
+.alertBoxInner_htap_mt{
+	background-image: url("infoCircle.png") !important;
+	background-position: 17px 17px !important;
+	background-color: #fffcf5 !important;
+	border-color: #fff3d8 !important;
+	padding: 20px 47px 20px 137px !important;
+	min-height: 94px !important;
+}
+.ursula .daysAlert .daysLeft {
+	display: block;
+	font-size: 1.6em;
+	font-weight: bold;
+	left: 37px;
+	position: absolute;
+	text-align: center;
+	top: 40px;
+	width: 66px;
+}
+.strong_htap_mt{
+	font-size:40px !important;
+} 

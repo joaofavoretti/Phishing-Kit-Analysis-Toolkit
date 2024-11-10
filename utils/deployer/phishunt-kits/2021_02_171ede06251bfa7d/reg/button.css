@@ -1,0 +1,590 @@
+/* Primary Button */
+.ursula a.button,
+.ursula div.button {
+	margin-right: 10px;
+	position: inherit;
+}
+
+.ursula .right a.button,
+.ursula .right div.button {
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+.ursula .right a.btnRefresh {
+	margin-right: 20px;
+}
+
+.ursula a.primary {
+	background: url("default-left.gif") no-repeat scroll left top transparent;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+	float: left;
+	height: 33px;
+	padding-left: 6px;
+}
+
+.ursula a.primary .buttonInner {
+	background: url("default.gif") no-repeat scroll right top transparent;
+	color: #fff;
+	font-size: 1.5em;
+	line-height: 31px;
+	text-decoration: none;
+	display: block;
+	float: left;
+	height: 34px;
+	padding: 0 21px 0 12px;
+}
+
+.ursula a.secondaryBtn:hover,
+.ursula a.secondaryBtn:active,
+.ursula a.secondaryBtn:focus,
+.ursula a.secondaryBtnForward:hover,
+.ursula a.secondaryBtnForward:active {
+	text-decoration: underline;
+}
+
+.ursula a.secondaryBtn:hover .buttonInner,
+.ursula a.secondaryBtn:active .buttonInner,
+.ursula a.secondaryBtn:focus .buttonInner,
+.ursula a.secondaryBtnForward:hover .buttonInner,
+.ursula a.secondaryBtnForward:active .buttonInner,
+.ursula a.secondaryBtnForward:focus .buttonInner,
+.ursula a.secondary:hover .buttonInner,
+.ursula a.secondary:focus .buttonInner {
+	text-decoration: underline;
+}
+.ursula a.secondaryBtnForward:hover .buttonInner span.icon,
+.ursula a.secondaryBtnForward:active .buttonInner span.icon,
+.ursula a.secondaryBtnForward:focus .buttonInner span.icon {
+	background-image: url("primary-forward.gif");
+}
+
+.ursula a.secondaryBtnBack:hover .buttonInner span.icon,
+.ursula a.secondaryBtnBack:active .buttonInner span.icon,
+.ursula a.secondaryBtnBack:focus .buttonInner span.icon {
+	background-image: url("primary-back.gif");
+}
+
+.ursula a.primary:hover,
+.ursula a.primary:active,
+.ursula a.primary:focus {
+	text-decoration: underline;
+}
+
+.ursula a.primary:hover .buttonInner,
+.ursula a.primary:active .buttonInner,
+.ursula a.primary:focus .buttonInner {
+	text-decoration: underline;
+}
+
+.ursula a.primary:focus,
+.ursula a.primary:focus .buttonInner {
+	text-decoration: underline;
+}
+
+/* Secondary Button */
+.ursula a.secondary {
+	background: url("lightgrey-left.gif") no-repeat scroll left top transparent;
+	background-position: 0 0;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+	float: left;
+	height: 34px;
+	padding-left: 8px;
+}
+
+.ursula a.secondary .buttonInner {
+	background: url("lightgrey.gif") no-repeat scroll right top transparent;
+	color: #000;
+	font-family: "Univers 55", Arial;
+	font-size: 1.5em;
+	line-height: 31px;
+	text-decoration: none;
+	display: block;
+	float: left;
+	height: 34px;
+	padding: 0 21px 0 12px;
+}
+
+.ursula a.secondary:hover,
+.ursula a.secondary:hover .buttonInner,
+.ursula a.secondary:focus,
+.ursula a.secondary:focus .buttonInner {
+	text-decoration: underline;
+}
+
+.ursula a.secondary:active .buttonInner {
+	text-decoration: underline;
+}
+
+.ursula a.secondaryBtn:hover,
+.ursula a.secondaryBtn:hover .buttonInner,
+.ursula a.secondaryBtnBack:hover,
+.ursula a.secondaryBtnBack:hover .buttonInner,
+.ursula a.secondaryBtnForward:hover,
+.ursula a.secondaryBtnForward:hover .buttonInner {
+	text-decoration: underline;
+}
+
+/* print button */
+.ursula a.secondaryPrint .buttonInner {
+	padding-right: 5px;
+}
+.ursula a.secondaryPrint .icon {
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	display: block;
+	display: inline-block;
+	vertical-align: top;
+	margin: 2px 0 0 6px;
+	background: url("https://www.security.hsbc.co.uk/gsp/saas/Components/default/resources/script/libraries/hsbc/widget/themes/ursula/images/button/icon-print.png") no-repeat center center;
+}
+
+/* Tertiary button */
+.ursula a.tertiary {
+	background: url("darkgrey-left.gif") no-repeat scroll left top transparent;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+	float: left;
+	height: 33px;
+	padding-left: 5px;
+}
+
+.ursula a.tertiary .buttonInner {
+	background: url("darkgrey.gif") no-repeat scroll right top transparent;
+	color: #fff;
+	font-size: 1.5em;
+	line-height: 31px;
+	text-decoration: none;
+	display: block;
+	float: left;
+	height: 34px;
+	padding: 0 21px 0 12px;
+}
+
+.ursula a.tertiary:hover,
+.ursula a.tertiary:active,
+.ursula a.tertiary:focus {
+	text-decoration: underline;
+}
+.ursula a.tertiary:focus .buttonInner,
+.ursula a.tertiary:active .buttonInner,
+.ursula a.tertiary:hover .buttonInner {
+	text-decoration: underline;
+}
+/* Submit Button */
+.ursula a.submit {
+	background: url("darkgrey-left.gif") no-repeat scroll left top #fff;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+	float: left;
+	height: 30px;
+	padding-left: 4px;
+}
+
+.ursula a.submit .buttonInner {
+	background: url("darkgrey.gif") no-repeat scroll right top transparent;
+	color: #fff;
+	font-family: "Univers 55", Arial;
+	font-size: 1.4em;
+	line-height: 30px;
+	text-decoration: none;
+	display: block;
+	float: left;
+	height: 30px;
+	padding: 0 10px 0 6px;
+}
+
+.ursula a.submit:focus,
+.ursula a.submit:focus .buttonInner {
+	text-decoration: underline;
+}
+
+/* Forward Button */
+.ursula a.btnForward .icon {
+	background: url("forward.gif") no-repeat scroll 0 50% transparent;
+	display: block;
+	display: inline-block;
+	width: 5px;
+	height: 8px;
+	margin: 8px 1px 0 10px;
+}
+
+.ursula a.secondaryBtnForwardDisabled .icon {
+	background-image: url("forward-disabled.gif");
+	cursor: default;
+}
+
+.ursula a.primaryBtnForward .icon {
+	background: url("primary-forward-1.gif") no-repeat scroll 0 50% transparent;
+}
+.dj_ie7 .ursula a.btnForward .icon {
+	margin-top: 2px;
+	vertical-align: middle;
+}
+.ursula a.tertiaryBtnForward .icon {
+	background-image: url("tertiary-forward.gif");
+}
+
+/* Primary Submit Button */
+.ursula div.primary {
+	background: url("default-left.gif") no-repeat 0 0 rgba(255, 0, 0, 0);
+	display: block;
+	float: left;
+	height: 34px;
+	padding-left: 6px;
+}
+
+.ursula div.primary .buttonInner {
+	background: url("default.gif") no-repeat 100% 0;
+	font-weight: normal;
+	display: block;
+	float: left;
+	height: 34px;
+}
+
+.ursula div.primary .buttonInner input {
+	background: none;
+	color: #fff;
+	border: none;
+	font-size: 1.5em;
+	line-height: 31px;
+	cursor: pointer;
+	height: 34px;
+	margin-right: -9px;
+	padding: 0 18px 2px;
+	position: relative;
+	left: -9px;
+	overflow: visible;
+	top: 0;
+}
+
+.dj_ie9 .ursula div.primary .buttonInner input,
+.dj_opera .ursula div.primary .buttonInner input {
+	padding-bottom: 0;
+}
+
+.ursula div.primaryBtnForward .buttonInner input {
+	background: url("primary-forward-input.gif") no-repeat scroll 100% 12px transparent;
+	padding-right: 20px;
+}
+
+.ursula div.primary .buttonInner input:hover,
+.ursula div.primary .buttonInner input:focus {
+	color: #fff;
+	text-decoration: underline;
+}
+
+
+.ursula div.primary:hover,
+.ursula div.primary:focus {
+	/* background-position: 0 100%; */
+}
+
+.ursula div.primary:hover .buttonInner,
+.ursula div.primary:focus .buttonInner {
+	/* background-position: 100% 100%; */
+}
+
+.ursula div.primaryBtnDisabled {
+	background: url("default-left-disabled.gif") no-repeat scroll left top #aaa;
+	cursor: default;
+}
+
+.ursula div.primaryBtnDisabled .buttonInner {
+	background: url("default-disabled.gif") no-repeat scroll right top transparent;
+	cursor: default;
+	overflow-y: hidden;
+}
+
+/* Secondary Submit Button */
+.ursula div.secondary {
+	background: transparent url("lightgrey-left.gif") no-repeat 0 0;
+	display: block;
+	float: left;
+	height: 30px;
+	padding-left: 9px;
+}
+
+.ursula div.secondary .buttonInner {
+	background: url("lightgrey.gif") no-repeat 100% 0 #fff;
+	font-weight: normal;
+	display: block;
+	float: left;
+	height: 30px;
+}
+
+.ursula div.secondary .buttonInner input {
+	background: none;
+	color: #000;
+	border: none;
+	font-size: 1.4em;
+	line-height: 32px;
+	cursor: pointer;
+	height: 29px;
+	margin-right: -9px;
+	padding: 0 0 0 9px;
+	padding-right: 9px;
+	position: relative;
+	left: -9px;
+	overflow: visible;
+	top: 0;
+}
+
+.ursula div.secondaryBtnForward .buttonInner input {
+	font-size: 0.8em;
+	padding-right: 28px;
+	background: url("forward.gif") no-repeat scroll 85% 55% transparent;
+}
+
+.ursula div.secondaryBtnForward:hover .buttonInner {
+	text-decoration: none !important;
+}
+
+.ursula div.secondaryBtnDisabled .buttonInner input {
+	color: #ccc;
+	cursor: default;
+}
+
+.ursula div.secondary .buttonInner input:focus {
+	text-decoration: underline !important;
+}
+
+.ursula div.secondaryBtnDisabled,
+.ursula div.secondaryBtnDisabled:hover
+.ursula div.secondaryBtnDisabled:focus {
+	background-image: url("lightgrey-left-disabled.gif");
+	cursor: default;
+	text-decoration: none;
+}
+
+.ursula div.secondaryBtnDisabled .buttonInner,
+.ursula div.secondaryBtnDisabled:hover .buttonInner {
+	background-image: url("lightgrey-disabled.gif");
+	cursor: default;
+	color: #ccc;
+	text-decoration: none;
+}
+
+.ursula div.secondaryBtnDisabled:hover .buttonInner input {
+	text-decoration: none;
+	color: #ccc;
+	cursor: default;
+}
+
+.ursula div.secondaryBtnDisabled .buttonInner input:hover {
+	text-decoration:none !important;
+}
+
+/* Submit Button */
+.ursula div.submit {
+	background: transparent url("darkgrey-left.gif") no-repeat 0 0;
+	display: block;
+	float: left;
+	height: 30px;
+	padding-left: 9px;
+}
+.ursula div.submit .buttonInner {
+	background: url("darkgrey.gif") no-repeat 100% 0 #8e8f90;
+	font-weight: normal;
+	display: block;
+	float: left;
+	height: 30px;
+}
+
+.ursula div.submit .buttonInner input {
+	background: none;
+	color: #fff;
+	border: none;
+	font-size: 1.4em;
+	line-height: 32px;
+	text-decoration: none;
+	cursor: pointer;
+	height: 32px;
+	margin-right: -9px;
+	padding: 0 0 2px 9px;
+	padding-right: 9px;
+	position: relative;
+	left: -9px;
+	overflow: visible;
+	top: 0;
+}
+
+.ursula div.submitBtnDisabled .buttonInner {
+	background-color: transparent;
+}
+
+.ursula div.submitBtnDisabled .buttonInner input {
+	color: #ccc;
+	cursor: default;
+}
+
+.ursula div.submit .buttonInner input:focus {
+	text-decoration: underline;
+}
+
+.ursula div.submitBtnDisabled,
+.ursula div.submitBtnDisabled:hover {
+	background-image: url("lightgrey-left-disabled.gif");
+	cursor: default;
+	text-decoration: none;
+}
+
+.ursula div.submitBtnDisabled .buttonInner,
+.ursula div.submitBtnDisabled:hover .buttonInner {
+	background-image: url("lightgrey-disabled.gif");
+	cursor: default;
+	color: #ccc;
+	text-decoration: none;
+}
+
+.ursula div.submitBtnDisabled:hover .buttonInner input {
+	text-decoration: none;
+	color: #ccc;
+	cursor: default;
+}
+
+/***NORMAL BUTTON WITH ARROW***/
+
+.ursula a.normalIcon{
+	color: #333333;
+	display:table;
+	font-size: 1.4em;
+	text-decoration: none;
+}
+/*fixed ie <a> issue*/
+*+html .ursula a.normalIcon{
+	display:inline-block;
+}
+
+.ursula a:hover.normalIcon,
+.ursula a:focus.normalIcon {
+	text-decoration: underline;
+	color: #db0011;
+}
+
+.ursula a.normalIcon .icon {
+    background: url("forward.gif") no-repeat scroll 0 50% transparent;
+    display: inline-block;
+    height: 8px;
+    margin: 0 0 0 8px;
+    width: 5px;
+}
+.ursula a.doubleArrowIcon .icon{
+	background: url("double-arrow-down.gif") no-repeat scroll right 4px transparent;
+	display: inline-block;
+	padding-bottom: 14px;
+	padding-right: 15px;
+	line-height: 18px;
+	font-size: 1.4em;
+	color: #3B3B3B;
+	text-decoration: none;
+} 
+
+.ursula a.backIcon .icon {
+    background: url("backward.gif") no-repeat scroll 0 50% transparent;
+    margin: 0 8px 0 0;
+}
+.dj_ie7 .ursula a.normalIcon .icon{
+ height: 14px;
+}
+/***ARROW BUTTON WITH UP***/
+.ursula a.buttonArrow{
+	color: #333333;
+	display: block;
+	font-size:1.4em;
+	text-decoration: none;
+	margin-top: 6px;
+}
+
+.ursula a:hover.buttonArrow,
+.ursula a:focus.buttonArrow {
+	text-decoration: underline;
+	color: #db0011;
+}
+
+.ursula a.buttonArrow .icon {
+    background: url("double-arrow-down.gif") no-repeat scroll 0 50% transparent;
+    display: inline-block;
+    height: 9px;
+    width: 8px;
+	margin-left: 5px;
+}
+.ursula .showHideOpen .showHideTrigger.buttonArrow .icon {
+	background-image: url("double-arrow-up.gif");
+}
+.dj_ie7 .ursula a.buttonArrow .icon {
+	height: 15px;
+}
+
+/***for button  secondary***/
+.ursula div.secondary {
+    background: url("lightgrey-left.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 34px;
+    padding-left: 8px;
+}
+
+
+.ursula div.secondary .buttonInner {
+    background: url("lightgrey.gif") no-repeat scroll right top transparent;
+    display: block;
+    float: left;
+    font-weight: normal;
+    height: 34px;
+}
+
+
+.ursula div.secondary .buttonInner input {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.5em;
+    height: 34px;
+    left: -9px;
+    line-height: 31px;
+    margin-right: -9px;
+    overflow: visible;
+    padding: 0 18px 2px;
+    position: relative;
+    top: 0;
+}
+
+
+.ursula div.secondary:hover,
+.ursula div.secondary:hover .buttonInner,
+.ursula div.secondary:focus,
+.ursula div.secondary:focus .buttonInner {
+    text-decoration: underline;
+}
+
+.ursula div.secondaryBtn:hover,
+.ursula div.secondaryBtn:hover .buttonInner,
+.ursula div.secondaryBtnBack:hover,
+.ursula div.secondaryBtnBack:hover .buttonInner,
+.ursula div.secondaryBtnForward:hover,
+.ursula div.secondaryBtnForward:hover .buttonInner {
+	text-decoration: underline;
+}
+.ursula h4 a.normalIcon{
+	font-weight: normal;
+	padding-bottom: 10px;
+}
+.dj_chrome .ursula a.secondary {
+	background-size: 9px 100%;
+}
+.buttonUnderline:hover{
+	text-decoration: underline;
+}
+.ursula div.secondary .buttonInner input.buttonClose:hover{
+	text-decoration: underline;
+}
+/*** button component END ***/

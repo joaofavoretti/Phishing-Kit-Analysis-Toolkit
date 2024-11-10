@@ -1,0 +1,82 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, img, ins, kbd, q, samp, sub, sup, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video
+{
+	font-size:100%;
+	line-height:1;
+	font-family:Arial, Helvetica, sans-serif;
+	border:0;
+	margin:0;
+	outline:0;
+	padding:0;
+	text-align:left;
+	vertical-align:baseline;
+}
+a
+{
+	color:#000;
+}
+a:active,
+a:focus,
+button:active,
+button:focus,
+input[type="text"]:active,
+input[type="text"]:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus,
+input[type="image"]:active,
+input[type="image"]:focus
+{
+	outline:0;
+}
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary
+{ 
+	display:block;
+}
+ul, ol, li
+{
+	list-style:none;
+}
+blockquote
+{
+	quotes:none;
+}
+blockquote:before,
+blockquote:after
+{
+	content:'';
+	content:none;
+}
+table
+{
+	border-collapse:collapse;
+	border-spacing:0;
+	table-layout:fixed;
+}
+input,
+select,
+button
+{
+	vertical-align:middle;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:100%;
+	padding:0;
+	margin:0;
+	border:0;
+}
+strong
+{
+	font-weight:bold;
+}
+em
+{
+	font-style:italic;
+}
+sub
+{
+	vertical-align:text-bottom;
+}
+sup
+{
+	vertical-align:text-top;
+}

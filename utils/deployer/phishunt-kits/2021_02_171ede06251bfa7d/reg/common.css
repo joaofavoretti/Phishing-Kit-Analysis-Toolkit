@@ -1,0 +1,583 @@
+.ursula .question .credExp2{
+    padding-bottom: 19px;
+}
+.ursula .question {
+    padding-bottom: 8px;
+}
+
+.ursula.credExp2{
+    padding-bottom: 19px;
+}
+.ursula .question1 {
+    padding-bottom: 8px;
+}
+.ursula .questionGroup{
+    padding-top: 20px;
+    padding-bottom:20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.ursula .questionGrouptnc{
+    padding-top: 20px;
+    padding-bottom:0px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.ursula .questionGroupVI{
+    padding-top: 0px;
+    padding-bottom:20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.ursula .questionMargin{
+	margin-bottom:20px;
+}
+.ursula .questionGroup-noBorder {
+	border-bottom: 0;
+}
+.ursula .questionGroup-ext02,
+.ursula .containerStyle17 .questionGroup-ext02 {
+	padding-bottom: 0;
+	/*margin-bottom: 12px;*/
+}
+.ursula .questionGroup-ext02 a.buttonArrow {
+	margin-top: 0px;
+}
+
+.ursula .question label,
+.ursula .question .label {
+    display: block;
+    float: left;
+    font-size: 1.4em;
+    line-height: 16px;
+    padding-top: 8px;
+    padding-right: 30px;
+    position: relative;
+    text-align: right;
+    width: 200px;
+    color: #4e4c4c;
+    font-weight: normal;
+}
+.ursula .question label .tooltip,
+.ursula .question .label .tooltip {
+	position: absolute;
+	right: 0;
+	top: 7px;
+}
+.ursula .question label .tooltip .tooltipTrigger,
+.ursula .question .label .tooltip .tooltipTrigger {
+	padding-top: 0;
+}
+.ursula .question .smallLabel {
+	width: 23px;
+	padding: 0;
+	float: left;
+	margin-right: 2px;
+	height: 31px;
+}
+.ursula .question p.label {
+	padding-bottom: 0;
+}
+.ursula .question label.doubleLine { padding-top: 0;}
+.ursula .question .mandatory {
+    color: #DB0011;
+    font-size: 1.6em;
+    left: -28px;
+    position: absolute;
+    top: 5px;
+}
+.ursula .question .validationMsg {
+    display: none;
+    /*background: #F6BFC3;*/
+    position: relative;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 10px 0 10px;
+    max-width: 276px;
+    font-size: 1.2em;
+
+}
+.ursula .validationMsg span.spout {
+    background: url("errorSpout.gif") top center no-repeat;
+    height: 7px;
+    width: 100%;
+    position: absolute;
+    top: -7px;
+    left: 0;
+
+}
+.ursula .validationWrapper,
+.ursula .jsInputWrapper{
+    position: relative;
+    width:507px;
+
+}
+.ursula .jsInputWrapper{
+    float:left;
+    width: 620px;
+}
+.ursula  .question .ValidationMsgHide{
+	display:none;
+}
+.ursula .question .ValidationMsgHide.dijitTooltip{
+    top: -10000px;
+}
+.ursula .question .rValidationMsg.dijitTooltip,
+.ursula .question .dValidationMsg.dijitTooltip,
+.ursula .validationWrapper .jsValidationMsg.dijitTooltip{
+	left:auto;
+    top:0;
+    right:-90px;
+    font-size: 1.5em;
+    position:absolute;
+}
+.ursula .validationWrapper .jsValidationMsg.dijitTooltip{
+    background:none repeat scroll 0 0 #FFFFFF;
+    border-radius: 4px 4px 4px 4px;
+    padding: 10px;
+    margin:0;
+    max-width:160px;
+}
+.ursula .rValidationMsg.dijitTooltipRight .dijitTooltipConnector,
+.ursula .dValidationMsg.dijitTooltipRight .dijitTooltipConnector,
+.ursula .validationWrapper .jsValidationMsg .dijitTooltipConnector{
+    top:7px;
+}
+.ursula .dValidationMsg span.spout,
+.ursula .rValidationMsg span.spout {
+    background: url("errorSpout.gif") top center no-repeat;
+    height: 7px;
+    width: 100%;
+    position: absolute;
+    top: -7px;
+    left: 0;
+}
+
+.ursula .question .textInput, .question .dateInput {
+    padding-left: 15px;
+}
+.ursula .question .textInput_123, .question .dateInput_123 {
+    padding-left: 232px;
+}
+.ursula .question .errorMsg1 {
+    padding-left: 15px;
+}
+
+html .ursula .question .noMarginRight{
+	padding-left:0px;
+}
+
+.ursula .textInput {
+    float: left;
+    position: relative;
+}
+.ursula .errorMsg1 {
+    float: left;
+    position: relative;
+}
+.ursula .textInput input {
+    cursor: auto;
+}
+.ursula .small input {
+    margin-right: 3px;
+    width: 125px;
+}
+
+
+.ursula .textInput input,
+.ursula .dropDown .textInput input,
+.ursula .button:hover .dropDown .textInput input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 1.4em;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 3px 0 10px;
+    text-decoration: none;
+    width:250px;
+}
+.ursula .textInput input::-ms-clear {
+  width : 0;
+  height: 0;
+}
+.ursula .textInput input {
+    border-color: #D5D5D5 #E0E0E0 #E0E0E0;
+    border-image: none;
+    border-right: 1px solid #E0E0E0;
+    border-style: solid;
+    border-width: 1px;
+    margin-right: 5px;
+    padding: 0;
+}
+.ursula .textInput input,
+.ursula .dropDown .textInput input,
+.ursula .button:hover .dropDown .textInput input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 1.4em;
+    height: 31px;
+    line-height: 31px;
+    padding: 0 3px 0 10px;
+    text-decoration: none;
+    width: 251px;
+}
+.ursula input.defaultValue {
+    color: #b2b2b2;
+}
+.ursula .invalid .textInput input {
+	border-color: #db0011;
+}
+.ursula .question .textInput .inputHelp,
+.ursula .question .dateInput .inputHelp {
+	display: block;
+	padding-top: 15px;
+	font-size: 1.4em;
+	color: #767676;
+}
+.ursula .question .strongText {
+	font-weight: bold;
+	font-size: 1.4em;
+	line-height: 16px;
+	color: #767676;
+	display: block;
+	padding-top: 8px;
+}
+/*----- Select Styles ------*/
+.ursula .dijitSelect {
+    font-size: 1.2em;
+    height: 31px;
+    color: #666666;
+    border-collapse: separate; /* allows border-radius on tables */
+}
+.ursula .dijitSelectMenu {
+	width: 298px;
+}
+.ursula .dijitSelect tr td {
+    padding: 5px 10px;
+    height: 19px;
+    line-height: 19px;
+    background: #F5F5F5;
+    vertical-align: middle;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ececec));
+    background: -webkit-linear-gradient(top, #fff, #ececec);
+    background: -moz-linear-gradient(top, #fff, #ececec);
+    background: -ms-linear-gradient(top, #fff, #ececec);
+    background: -o-linear-gradient(top, #fff, #ececec);
+}
+.ursula .dijitSelect td.dijitStretch {
+	border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    border-top: 1px solid #E0E0E0;
+    border-left: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    width: 252px;
+    max-width: 252px;
+
+}
+
+.ursula .dijitSelect td.dijitArrowButton {
+    border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0 4px 4px 0;
+    border-top: 1px solid #E0E0E0;
+    border-right: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    width: 16px;
+}
+.ursula .dijitSelectFocused td.dijitStretch,
+.ursula .dijitSelectFocused td.dijitArrowButton {
+	border-color: #000;
+}
+.ursula .dijitSelect .dijitButtonContents .dijitButtonText {
+    font-size: 1.167em;
+    line-height: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 219px;
+}
+.ursula .dijitSelect td.dijitArrowButton {
+    padding-left: 0;
+}
+.ursula .dijitSelectMenu {
+    font-size: 0.9em;
+    background: #fff;
+    border: 1px solid #000;
+}
+.ursula .dijitSelectMenu .dijitMenuItem .dijitMenuItemLabel {
+	padding: 3px 5px;
+}
+.ursula .dijitSelectMenu .dijitMenuItemFocused {
+	background-color: #3399ff;
+	color: #fff;
+}
+.ursula .dijitSelect td.dijitArrowButton .dijitArrowButtonChar,
+.ursula .dijitSelectMenu .dijitMenuItemIconCell,
+.ursula .dijitSelectMenu .dijitMenuArrowCell {
+    display: none;
+}
+.ursula .dijitSelect td.dijitArrowButton .dijitArrowButtonInner {
+    width: 11px;
+    height: 9px;
+    background: url("select_arrows.gif") 0 -9px no-repeat #db0011;
+    text-indent: -9999px;
+    display: block;
+    border: none;
+    padding: 0;
+    vertical-align: middle;
+}
+.ursula .dijitPopup {
+    background-color: transparent;
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+.ursula .dijitSelect, .dijitSelect * {
+    cursor: pointer;
+}
+.ursula .dijitSelect .dijitValidationContainer,
+.ursula .dijitTextBox .dijitValidationContainer {
+	display: none;
+}
+.ursula .invalid .dijitSelect td.dijitButtonNode .dijitButtonText {
+	color: #db0011;
+}
+.ursula .invalid .dijitSelect td.dijitArrowButton .dijitArrowButtonInner {
+	background-position: 0 0;
+}
+
+
+.ursula .customSelect {
+    position: relative;
+    font-size: 1.1em;
+    min-height: 31px;
+    height: 31px;
+    margin-top: 2px;
+}
+.ursula .customSelect .replaced {
+	min-height: 31px;
+    height: 31px;
+    opacity: 0.01;
+    position: relative;
+    z-index: 10;
+    width: 300px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+.dj_ie6 .ursula .customSelect .replaced,
+.dj_ie7 .ursula .customSelect .replaced,
+.dj_ie8 .ursula .customSelect .replaced {
+	filter: alpha(opacity=01);
+}
+
+.ursula .customSelect .select-overlay .inner {
+	padding: 0 9px;
+    min-height: 31px;
+	height: 31px;
+}
+.ursula .customSelect .select-overlay .inner:after {
+    visibility: hidden;
+    clear: both;
+    content: ".";
+    height: 0;
+    display: block;
+}
+.dj_ie6 .ursula .customSelect .select-overlay .inner,
+.dj_ie7 .ursula .customSelect .select-overlay .inner {
+	zoom: 1;
+}
+.ursula .customSelect .select-overlay .value {
+	float: left;
+	line-height: 31px;
+    min-height: 31px;
+	height: 31px;
+	display: block;
+	padding-right: 10px;
+	width: 261px;
+	color: #666;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+	font-size:1.2em;
+}
+.ursula .customSelect .select-overlay .arrow {
+	float: right;
+	background: url("select_arrows.gif") no-repeat scroll 0 -9px #DB0011;
+	display: block;
+	height: 9px;
+	margin-top: 12px;
+	width: 11px;
+}
+/* checkbox */
+.ursula .dijitCheckBox {
+	margin-top: 5px;
+	width: 17px;
+	height: 17px;
+	background: url("customcheckbox.gif") no-repeat left top #ccc;
+    background-position: 0 0;
+    overflow: hidden;
+}
+
+.dj_ie .ursula .dijitSelect tr td {
+	background: url("select-gradient.gif") repeat-x left top #F5F5F5;
+
+}
+
+
+.ursula .customSelect .select-overlay {
+	background: url("select-gradient.gif") repeat-x left top #F5F5F5;
+	width: 300px;
+    min-height: 31px;
+	height: 31px;
+	border: 1px solid #E0E0E0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+
+.ursula .dijitCheckBoxFocused {
+	outline: 1px solid #000;
+    padding: 0 !important;
+}
+.ursula .dijitCheckBoxFocused .dijitCheckBoxInput {
+    margin: 0 !important;
+}
+.ursula .dijitCheckBoxChecked {
+	background-position: left bottom;
+	background-color: #000;
+}
+.ursula .dijitCheckBox input {
+	width: 17px;
+	height: 17px;
+	margin-right: 0;
+	opacity: 0.01;
+}
+.dj_ie6 .ursula .dijitCheckBox input,
+.dj_ie7 .ursula .dijitCheckBox input,
+.dj_ie8 .ursula .dijitCheckBox input {
+	filter: alpha(opacity=01);
+}
+
+.ursula .checkboxContainer {
+	float: left;
+}
+.ursula .checkboxContainer .dijitCheckBox {
+	float: left;
+	margin-top: 4px;
+	margin-right: 10px;
+}
+.ursula .checkboxContainer label {
+	line-height: 24px;
+}
+.ursula .questionGroup-ext01 {
+	padding-top: 4px;
+}
+.ursula .questionGroup-noBorder {
+	border: 0;
+}
+/* radio button */
+.ursula .dijitRadio {
+	width: 26px;
+	height: 26px;
+	background: rgba(221, 221, 221, 0) url("customradio.gif") no-repeat left top;
+}
+.ursula .dijitRadioChecked {
+	background-position: right top;
+	/*background-color: #000;*/
+}
+.ursula .dijitRadioFocused {
+	background-position: left bottom;
+}
+.ursula .dijitRadioCheckedFocused {
+	background-position: right bottom;
+}
+.ursula .dijitRadio input {
+	width: 26px;
+	height: 26px;
+	margin-right: 0;
+	opacity: 0.01;
+}
+.dj_ie6 .ursula .dijitRadio input,
+.dj_ie7 .ursula .dijitRadio input,
+.dj_ie8 .ursula .dijitRadio input {
+	filter: alpha(opacity=01);
+}
+.ursula .question .textInput-ext01 {
+	margin-right: 15px;
+}
+.ursula .textBoxDescribe{
+	width:300px;
+}
+div.questionText{
+	position:relative;
+	float:left;
+	padding-top:10px;
+	padding-left:15px;
+}
+div.questionText p{
+	padding-bottom:0;
+}
+span.spanRed{
+	color:red;
+}
+.submitHolder {
+    width: 540px;
+    padding-top: 10px;
+}
+
+/******add for error box issue*********/
+.ursula .grid_8.loginBox .textInput.validationInput input{
+	margin-right: 0;
+}
+
+.ursula .containerStyle17 .question .col01 .textInput input {
+	width: 252px;
+}
+.ursula .containerStyle17 .question .col01 .textInput.validationInput input {
+	width: 218px;
+}
+
+.ursula .textInput.validationInput input{
+    border-width: 0;
+}
+
+.ursula .personalSecurityDetails{
+ padding-top: 0px;
+}
+
+.ursula .credExpNewPass{
+    padding-bottom: 30px;
+}
+.ursula .credExpConfirmPass{
+    padding-bottom: 20px;
+}
+.ursula .updateProfileGroup{
+	padding-top: 0px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.ursula .showMsg, .ursula .question .showMsg {
+display: block;
+}
+.ursula .validationMsg, .ursula .question .validationMsg {
+	border-radius: 4px;
+	color: #db0011;
+	display: none;
+	font-size: 1.2em;
+	padding: 5px 0;
+	position: relative;
+	max-width: 300px;
+}
+.questionGroup_csao_mt{
+	border-bottom: 0px !important;
+}
+.ursula .mobileOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: transparent;
+}

@@ -1,0 +1,1663 @@
+/**
+  * @version $Revision: 1.14.60.1 $
+  * @lastmodified $Date: 2016/09/13 11:58:20 $
+*/
+
+/*heightfixer revision*/
+
+.profileBlocHeightFixer {
+    height: 150px;
+}
+
+#persohaut {}
+
+.CQedito {
+    overflow: hidden;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-align: left;
+}
+
+.CQedito p {
+    color: #676767;
+    padding: 10px;
+}
+
+.CQedito a {
+    color: #454545;
+    text-decoration: none;
+}
+
+.CQedito a:hover {
+    text-decoration: underline;
+}
+
+#header .CQedito {
+    float: right;
+    height: 51px;
+}
+
+#header .CQedito ul li {
+    display: block;
+    float: left;
+    padding-left: 8px;
+    padding-right: 4px;
+}
+
+.headerTools {
+    color: #FFF;
+}
+
+.headerTools a {
+    color: #fff !important;
+}
+
+.CQblocedito .block .blockInside .p3 {
+    font-size: 15px;
+}
+
+.CQblocedito .block .blockInside .p4 {
+    font-size: 16px;
+}
+
+.CQblocedito .block .blockInside .misenavant {
+    color: #1344a1;
+    display: block;
+    font-size: 1.08em;
+    font-weight: bold;
+}
+
+.CQblocedito .block .blockInside .notes {
+    color: #676767;
+    font-size: 0.91em;
+}
+
+.CQblocedito .block .blockInside .alerte {
+    color: #ED1C24;
+    font-weight: bold;
+}
+
+.CQblocedito .block .blockInside .textFCK ol,
+.CQblocedito .block .blockInside .textFCK ul {
+    overflow: hidden;
+}
+
+.CQblocedito .block .blockInside .textFCK ol {
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+
+.CQblocedito .block .blockInside .textFCK ol li {
+    color: #606FB9;
+}
+
+.CQblocedito .block .blockInside .textFCK ul {
+    margin-left: 2px;
+}
+
+.CQblocedito .block .blockInside .textFCK ul li {
+    background: url("../../img/q4x/skin/puce-fleche.png") center top no-repeat;
+    color: #676767;
+    padding-left: 12px;
+}
+
+/***************** MEA GLOBAL *****************/
+
+.blockMea {
+    position: relative;
+    width: auto;
+    border: 1px solid #c7d4ea;
+    min-height: 1%;
+    margin-right: 9px;
+    margin-bottom: 10px;
+}
+
+.blockMea .contenu {
+    overflow: hidden;
+    /*padding-bottom:10px;*/
+    height: 100%;
+}
+
+.blockMea .texte {
+    margin: 0px 10px;
+}
+
+.blockMea .internalFrame {
+    margin: 0px 10px;
+}
+
+* html .blockMea {
+    margin-top: -8px;
+}
+
+/***************** IMAGES *****************/
+
+.blockMea .imgRight {
+    float: right;
+    margin: 15px 10px 0 0;
+}
+
+.blockMea .imgLeft {
+    float: left;
+    margin: 15px 0 0 10px;
+}
+
+.blockMea .imgCenter {
+    text-align: center;
+    margin: 15px 0 0 10px;
+}
+
+.blockMea .imgCentered,
+.blockMea .imgCentered img {
+    display: block;
+    margin: 0 auto;
+}
+
+.bottomIMG {
+    text-align: center;
+    margin-bottom: -5px;
+}
+
+/***************** RTE *****************/
+
+.blockMea .texte h2,
+.blockMea .texte h3 {
+    border: none;
+    text-transform: uppercase;
+    margin: 10px 0px !important;
+}
+
+.blockMea .texte ul,
+.blockMea .texte ol {
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.blockMea .texte ol {
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+
+.blockMea .texte ul li {
+    padding-bottom: 4px;
+    padding-left: 12px;
+    background: url(../../img/q4x/pucearrow.gif) no-repeat left top transparent;
+}
+
+.blockMea .texte a {
+    text-decoration: none;
+}
+
+.blockMea .couleurCreme .texte a {
+    color: #2853A1;
+}
+
+.blockMea .texte .arrowGrey {
+    background: url(../../img/q4x/pucearrow.gif) no-repeat left top transparent;
+    padding-left: 12px;
+}
+
+.blockMea .texte .arrowBlue {
+    background: url(../../img/q4x/puce_arrow.png) no-repeat left top transparent;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 12px;
+    color: #4770B8;
+}
+
+/* .blockMea .texte .arrow a, */
+
+.blockMea .texte a .arrow {
+    color: #454545;
+    cursor: pointer;
+}
+
+.blockMea .texte a:hover,
+.blockMea .texte a:focus {
+    text-decoration: underline;
+}
+
+.blockMea .list_round .texte ul li {
+    padding-left: 15px;
+    background: url(../../img/q4x/puce.png) no-repeat left 7px transparent !important;
+}
+
+.blockMea .list_cols .texte ul li {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0 0 10px;
+    width: 50%;
+    background: none !important;
+}
+
+.blockMea .list_ticks .texte ul {
+    display: block;
+    width: 490px;
+    padding: 15px 0px 25px 0px;
+    margin: 15px 25px;
+}
+
+.blockMea .list_ticks .texte ul li {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 15px;
+    background: url(../../img/q4x/tick_big.png) no-repeat left center transparent !important;
+    padding-left: 45px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.blockMea .list_ticks .texte ul li a {
+    color: #2853A1;
+}
+
+.blockMea .list_ticks .bouton .bouton_btBleu {
+    margin-left: 165px;
+}
+
+.blockMea .identification .texte {
+    margin-bottom: 5px;
+}
+
+.pagejeunes .blockMea h2,
+.pagejeunes .blockMea h3 {
+    color: #A90326;
+}
+
+.blockMea .certicode .texte {
+    color: #454246;
+}
+
+.blockMea .certicode .texte h3 {
+    margin-top: 0px !important;
+}
+
+.blockMea .certicode .texte ol,
+.blockMea .certicode .texte ol li {
+    list-style-type: decimal !important;
+    list-style-position: inside;
+    text-align: left;
+    font-size: 14px;
+}
+
+.blockMea .certicode .texte ol {
+    padding: 10px;
+}
+
+.blockMea .certicode .texte ol li {
+    padding-bottom: 20px;
+}
+
+.blockMea .list_cols .texte span.misenavant {
+    color: #656565;
+    text-transform: uppercase;
+}
+
+/***************** BOUTONS *****************/
+
+.blockMea .red a {
+    font-weight: bold;
+    color: #C30648 !important;
+}
+
+.blockMea .blue a {
+    font-weight: bold;
+    color: #4770B8 !important;
+}
+
+.blockMea .bouton {
+    height: auto;
+    width: auto;
+    margin: 25px 10px 10px;
+}
+
+.blockMea .bouton a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.blockMea .bouton a:hover,
+.blockMea .bouton a:focus {
+    text-decoration: underline;
+}
+
+.blockMea .bouton .bouton_txtGris a {
+    color: #676767;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.blockMea .bouton .bouton_txtBleu a {
+    color: #4770B8;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.blockMea .bouton .bouton_txtBleuFonce a {
+    color: #124D9C;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.blockMea .bouton .bouton_txtRouge a {
+    color: #C30648;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.blockMea .bouton .bouton_txtOrange a {
+    color: #EE5400;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.blockMea .bouton .bouton_txtBlanc a {
+    color: #fff;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.blockMea .bouton .bouton_btBleu {
+    padding: 10px;
+    width: auto;
+    display: inline;
+    background: url(../../img/q4x/blue_button.gif) repeat-x scroll 0 0 transparent;
+}
+
+.blockMea .bouton .bouton_btRose {
+    padding: 10px;
+    width: auto;
+    display: inline;
+    background: url(../../img/q4x/pink_button.gif) repeat-x scroll 0 0 transparent;
+}
+
+.blockMea .bouton .bouton_btRouge {
+    padding: 10px;
+    width: auto;
+    display: inline;
+    background: url(../../img/q4x/red_button.gif) repeat-x scroll 0 0 transparent;
+}
+
+.blockMea .bouton .bouton_btVert {
+    padding: 10px;
+    width: auto;
+    display: inline;
+    background: url(../../img/q4x/green_button.gif) repeat-x scroll 0 0 transparent;
+}
+
+.blockMea .bouton_btGrey a {
+    padding: 10px !important;
+    width: auto !important;
+    margin: 0 !important;
+    display: inline;
+    background: #ececec !important;
+    border-bottom: 1px solid #1B3C68;
+    border-left: 1px solid #1B3C68;
+    color: #2853A1;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.blockMea .bouton_btGris {
+    padding: 10px 0px 10px 12px !important;
+    width: auto !important;
+    margin: 0 !important;
+    display: inline;
+    background: #ececec
+}
+
+.blockMea .bouton_btGris a {
+    padding: 10px 15px 10px 0px !important;
+    width: auto !important;
+    margin: 0 !important;
+    display: inline;
+    background: #ececec;
+    color: #676767;
+}
+
+.blockMea .bouton .arrow {
+    padding: 10px 10px 10px 20px;
+    background: url(../../img/q4x/pucearrow.gif) no-repeat left 10px transparent;
+}
+
+.blockMea .bouton_txtGris .arrow,
+.blockMea .bouton_txtBleu .arrow,
+.blockMea .bouton_txtBleuFonce .arrow,
+.blockMea .bouton_txtRouge .arrow,
+.blockMea .bouton_txtOrange .arrow,
+.blockMea .bouton_txtBlanc .arrow {
+    padding-left: 14px;
+}
+
+.blockMea .bouton .bouton_txtBleu .arrow {
+    background: url("../../img/q4x/puce_arrow.png") no-repeat scroll left 10px transparent;
+}
+
+.blockMea .bouton .bouton_txtGris .arrow {
+    background: url(../../img/q4x/puce_arrow_grey.png) no-repeat left 10px transparent;
+}
+
+.blockMea .bouton .bouton_txtRouge .arrow {
+    background: url(../../img/q4x/pucearrow.png) no-repeat left 10px transparent;
+}
+
+.blockMea .bouton .bouton_txtOrange .arrow {
+    background: url(../../img/q4x/pucearroworange.png) no-repeat left 10px transparent;
+}
+
+.blockMea .couleurBleu .bouton .arrow,
+.blockMea .couleurBleuGradient .bouton .arrow,
+.blockMea .couleurBleuGradientAlt .bouton .arrow,
+.blockMea .couleurBleuLight .bouton .arrow,
+.blockMea .couleurOrange .bouton .arrow,
+.blockMea .couleurRouge .bouton .arrow,
+.blockMea .bouton .bouton_btBleu .arrow,
+.blockMea .bouton .bouton_btRose .arrow,
+.blockMea .bouton .bouton_btRouge .arrow,
+.blockMea .bouton .bouton_btVert .arrow {
+    background: url(../../img/q4x/pucearrowwhite.png) no-repeat left 10px transparent;
+}
+
+.blockMea .couleurBleu .texte ul li,
+.blockMea .couleurBleuGradient .texte ul li,
+.blockMea .couleurBleuLight .texte ul li,
+.blockMea .couleurOrange .texte ul li,
+.blockMea .couleurRouge .texte ul li {
+    background: url(../../img/q4x/pucearrowwhite.png) no-repeat left top transparent;
+}
+
+.blockMea .bouton .sieges {
+    padding: 10px 10px 10px 50px;
+    background: url(../../img/q4x/seats.png) no-repeat 0 center transparent;
+}
+
+.blockMea .bouton .phone {
+    padding: 10px 10px 10px 35px;
+    background: url(../../img/q4x/phone.png) no-repeat 0 center transparent;
+}
+
+.blockMea .bouton .mouse {
+    padding: 10px 10px 10px 35px;
+    background: url(../../img/q4x/mouse.png) no-repeat 0 center transparent;
+}
+
+.blockMea .bouton .plus {
+    padding: 10px 10px 10px 20px;
+    background: url(../../img/q4x/cross.gif) no-repeat 0 center transparent;
+}
+
+.blockMea .bouton .calendar {
+    padding: 10px 10px 10px 40px;
+    background: url(../../img/q4x/calendar.png) no-repeat 0 center transparent;
+}
+
+.blockMea .bouton .bgpLus {
+    padding: 10px 10px 10px 40px;
+    background: url(../../img/q4x/bgplus.gif) no-repeat 0 center transparent;
+}
+
+.blockMea .linkAQ {
+    height: 42px;
+    width: 161px;
+    margin: 0 auto;
+    margin-top: -20px;
+    padding: 0px;
+    background: #B1B0B5;
+    position: relative;
+}
+
+.blockMea .linkAQ span {
+    font-weight: bold;
+    font-size: 11px;
+    display: block;
+    padding: 7px 4px;
+    height: 28px;
+    width: 153px;
+    color: #565656;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.blockMea .linkAQ a {
+    display: block;
+    height: 42px;
+    width: 161px;
+    color: #fff;
+    padding: 0px;
+    margin: 0px;
+    background: #103984;
+}
+
+.blockMea .linkAQ a span {
+    color: #fff;
+}
+
+/***************** FONDS *****************/
+
+.blockMea .couleurBleu {
+    color: #fff;
+    background: #4e75bc;
+}
+
+.blockMea .couleurBleu h2,
+.blockMea .couleurBleu h3,
+.blockMea .couleurBleu h4,
+.blockMea .couleurBleu span.misenavant {
+    color: #fff;
+}
+
+.blockMea .couleurBleuGradient {
+    color: #fff;
+    background: #1A427D;
+}
+
+.blockMea .couleurBleuGradient h2,
+.blockMea .couleurBleuGradient h3,
+.blockMea .couleurBleuGradient h4,
+.blockMea .couleurBleuGradient span.misenavant {
+    color: #fff;
+}
+
+.blockMea .couleurBleuGradientAlt {
+    color: #fff;
+    background: #1A427D;
+}
+
+.blockMea .couleurBleuGradientAlt h2,
+.blockMea .couleurBleuGradientAlt h3,
+.blockMea .couleurBleuGradientAlt h4,
+.blockMea .couleurBleuGradientAlt span.misenavant {
+    color: #fff;
+}
+
+.blockMea .couleurBleuLight {
+    color: #fff;
+    background: #86ADF5;
+}
+
+.blockMea .couleurBleuLight h2,
+.blockMea .couleurBleuLight h3,
+.blockMea .couleurBleuLight h4,
+.blockMea .couleurBleuLight span.misenavant {
+    color: #fff;
+}
+
+.blockMea .couleurBlanc,
+.blockMea .couleur_aq,
+.blockMea .couleurCreme {
+    color: #606FB9;
+}
+
+.blockMea .couleurBlanc .texte,
+.blockMea .couleur_aq .texte,
+.blockMea .couleurCreme .texte {
+    color: #6F6F6F;
+}
+
+.blockMea .couleurCreme {
+    background: #F3F3F3;
+}
+
+.blockMea .couleurCreme .contenu {
+    padding: 10px 20px;
+}
+
+.blockMea .couleurCreme h2,
+.blockMea .couleurCreme h3,
+.blockMea .couleurCreme h4 {
+    color: #2853A1;
+}
+
+.blockMea .couleurGris {
+    color: #606FB9;
+    background: #FFFFFF;
+}
+
+.blockMea .couleurGris .texte {
+    color: #4770B8;
+}
+
+.blockMea .couleurGradientGrisGroupe {
+    color: #6F6F6F;
+    background: #DDDDDD;
+}
+
+.blockMea .couleurGradientGris {
+    color: #606FB9;
+    background: #DDDDDD;
+}
+
+.blockMea .couleurGradientGris .texte {
+    color: #454246;
+}
+
+.blockMea .couleurGradientGrisFilet {}
+
+.blockMea .couleurGradientGrisFilet .contenu {
+    padding: 0 30px;
+    color: #676767;
+}
+
+.blockMea .couleurGradientGrisFilet .imgCenter {
+    margin-left: 40px;
+}
+
+.blockMea .couleurOrange {
+    color: #fff;
+    background: #FF8B4D;
+}
+
+.blockMea .couleurOrange h2,
+.blockMea .couleurOrange h3,
+.blockMea .couleurOrange h4,
+.blockMea .couleurOrange span.misenavant {
+    color: #fff;
+}
+
+.blockMea .couleurRouge {
+    color: #fff;
+    background: #AA1514;
+}
+
+.blockMea .couleurRouge h2,
+.blockMea .couleurRouge h3,
+.blockMea .couleurRouge h4,
+.blockMea .couleurRouge span.misenavant {
+    color: #fff;
+}
+
+.blockMea .couleur_acces_compte {
+    color: #606FB9;
+    background: #E5E5E7;
+}
+
+.blockMea .couleur_acces_compte .titre h2,
+.blockMea .couleur_acces_compte .titre h3 {
+    margin: 10px 0 10px 10px;
+}
+
+.blockMea .couleur_acces_compte .texte {
+    color: #6F6F6F;
+    margin-bottom: 10px;
+}
+
+.blockMea .couleurBleu .texte .arrow,
+.blockMea .couleurBleuGradient .texte .arrow,
+.blockMea .couleurBleuLight .texte .arrow,
+.blockMea .couleurOrange .texte .arrow,
+.blockMea .couleurRouge .texte .arrow {
+    background: url(../../img/q4x/pucearrowwhite.png) no-repeat left top transparent;
+}
+
+.blockMea .couleurBleu .texte a,
+.blockMea .couleurBleuGradient .texte a,
+.blockMea .couleurBleuLight .texte a,
+.blockMea .couleurOrange .texte a,
+.blockMea .couleurRouge .texte a,
+.blockMea .couleurBleu .texte a .arrow,
+.blockMea .couleurBleuGradient .texte a .arrow,
+.blockMea .couleurBleuLight .texte a .arrow,
+.blockMea .couleurOrange .texte a .arrow,
+.blockMea .couleurRouge .texte a .arrow {
+    color: #fff !important;
+}
+
+.blockMea .couleur_aq {
+    background: transparent;
+    padding-right: 6px;
+}
+
+.blockMea .couleurCremeArrondie {
+    background: #F9F9F9;
+    padding: 7px 0 11px;
+}
+
+/***************** TITRES *****************/
+
+.blockMea .big h2 {
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.blockMea h2,
+.blockMea h3 {
+    margin: 10px;
+    font-size: 1.08em;
+    font-weight: bold;
+    padding-bottom: 3px;
+    text-transform: uppercase;
+    border: none !important;
+}
+
+.blockMea .identification h2 {
+    background: url(../../img/q4x/cadenas.png) no-repeat 0 0 transparent;
+    color: #595959;
+    font-size: 1.08em;
+    font-weight: bold;
+    height: 25px;
+    padding-left: 25px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #D0D0D0;
+}
+
+.blockMea .bandeauBleuLiseret,
+.blockMea .bandeauBleuLight,
+.blockMea .bandeauRouge,
+.blockMea .bandeauOrange,
+.blockMea .bandeauGris {
+    height: 35px;
+    margin-top: 2px;
+}
+
+.blockMea .bandeauBleuLiseret {}
+
+.blockMea .bandeauBleuLiseret h2,
+.blockMea .bandeauBleuLiseret h3 {
+    color: #fff;
+    line-height: 27px;
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.blockMea .bandeauBleuLight {}
+
+.blockMea .bandeauBleuLight h2,
+.blockMea .bandeauBleuLight h3 {
+    color: #fff;
+    line-height: 27px;
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.blockMea .bandeauRouge {}
+
+.blockMea .bandeauRouge h2,
+.blockMea .bandeauRouge h3 {
+    color: #fff;
+    line-height: 27px;
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.blockMea .bandeauOrange {}
+
+.blockMea .bandeauOrange h2,
+.blockMea .bandeauOrange h3 {
+    color: #fff;
+    line-height: 27px;
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.blockMea .bandeauGris {
+    background: #CFCFCF;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.blockMea .bandeauGris h2,
+.blockMea .bandeauGris h3 {
+    color: #606FB9;
+    padding-top: 10px;
+    margin: 0px;
+    margin-left: 10px;
+    text-transform: none;
+}
+
+.blockMea .titreBleu h2,
+.blockMea .titreBleu h3 {
+    color: #606FB9;
+}
+
+.blockMea .titreBleuProfond h2,
+.blockMea .titreBleuprofond h3 {
+    color: #2853A1;
+}
+
+.blockMea .titreBlanc h2,
+.blockMea .titreBlanc h3 {
+    color: #fff;
+}
+
+.blockMea .titreGris h2,
+.blockMea .titreGris h3 {
+    color: #454246;
+    font-size: 11px;
+}
+
+.blockMea .titreNoir h2,
+.blockMea .titreNoir h3 {
+    color: #000;
+    font-size: 16px;
+    text-transform: none;
+}
+
+.blockMea .titreOrange h2,
+.blockMea .titreOrange h3 {
+    color: #ff8400;
+}
+
+.blockMea .titreRouge h2,
+.blockMea .titreRouge h3 {
+    color: #910055;
+}
+
+.blockMea .titreVert h2,
+.blockMea .titreVert h3 {
+    color: #006C7D;
+}
+
+.blockMea .blocStyle h2,
+.blockMea .blocStyle h3 {
+    color: #2E58A3;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.blockMea .sousTitreMea {
+    color: #676767;
+    margin-left: 10px;
+    padding-bottom: 15px;
+}
+
+/***************** SPECIAL *****************/
+
+.blockMea .epingle h2 {
+    margin-top: 5px;
+    padding-bottom: 15px;
+    padding-left: 40px;
+}
+
+.blockMea .guills .contenu {
+    background: url(../../img/q4x/guill_start.png) no-repeat left 35px transparent;
+}
+
+.blockMea .guills .texte {
+    background: url(../../img/q4x/guill_end.png) no-repeat right bottom transparent;
+    padding-left: 50px;
+    margin-top: 8px;
+}
+
+.blockMea .guills .titre h2,
+.blockMea .guills .titre h3 {
+    font-family: Georgia, "Times New Roman", Verdana, Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    margin-left: 0px;
+    text-transform: none;
+}
+
+.blockMea .titleGuills .contenu {
+    padding: 10px;
+}
+
+.blockMea .titleGuills div.start {
+    background: url(../../img/q4x/quotestart.png) no-repeat left top transparent;
+    display: block;
+    float: left;
+    height: 23px;
+    margin-top: 20px;
+    width: 40px;
+}
+
+.blockMea .titleGuills h2 span.end,
+.blockMea .titleGuills h3 span.end {
+    background: url(../../img/q4x/quoteend.png) no-repeat right top transparent;
+    display: inline-block;
+    display: -moz-inline-stack;
+    *display: inline;
+    height: 17px;
+    width: 30px;
+}
+
+.blockMea .titleGuills h2,
+.blockMea .titleGuills h3 {
+    margin: 0px 0px 20px !important;
+    padding-top: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    float: left;
+    width: 60%;
+}
+
+.blockMea .titleGuills .sousTitreMea,
+.blockMea .titleGuills .texte,
+.blockMea .titleGuills .bouton {
+    clear: both;
+}
+
+.blockShadowCurveMain {
+    border: none !important;
+}
+
+.blockShadowCurveMain {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.blockShadowCurveMain .topCorners {
+    display: block;
+    overflow: hidden;
+    margin-bottom: -7px;
+}
+
+.blockShadowCurveMain .tlCorner {
+    display: block;
+    float: left;
+    width: 9px;
+    height: 7px;
+}
+
+.blockShadowCurveMain .trCorner {
+    display: block;
+    float: right;
+    width: 9px;
+    height: 7px
+}
+
+.blockShadowCurveMain .bottomCorners {
+    display: block;
+    margin-top: -11px;
+    overflow: hidden;
+    overflow: hidden;
+}
+
+.blockShadowCurveMain .blCorner {
+    display: block;
+    float: left;
+    width: 9px;
+    height: 11px
+}
+
+.blockShadowCurveMain .brCorner {
+    display: block;
+    float: right;
+    width: 9px;
+    height: 11px
+}
+
+.blockShadowCurveMain .couleurCremeArrondie {
+    overflow: hidden;
+}
+
+.roundShadowBlock .insideRoundShadow img {
+    padding-right: 10px;
+}
+
+#content .threecol #rightcol .blockMea .couleurBlanc,
+#content .threecol #rightcol .blockMea .couleur_aq,
+#content .threecol #rightcol .blockMea .couleurCreme {
+    padding: 0px !important;
+}
+
+#content .threecol #rightcol .blockMea .imgLeft {
+    margin: 0px !important;
+    float: none !important;
+}
+
+.rightBorder {
+    border: 0;
+    padding-right: 6px;
+}
+
+div.colctrl-2col-c1 .rightBorder,
+div.colctrl-2col-2-1-c1 .rightBorder,
+div.colctrl-2col-1-2-c1 .rightBorder,
+div.colctrl-3col-c2 .rightBorder,
+div.colctrl-4col-c3 .rightBorder {
+    background: none;
+}
+
+/***************** OVERLINK *****************/
+
+/*
+.meaOverLink { bottom:-1px; position:absolute; right:-1px; }
+.meaOverLink .overLinkDiv { background:url(../../img/q4x/mouseLink.png) right top no-repeat transparent; display:block; height:72px !important; width:102px !important; z-index:9000; }
+.meaOverLink .overLinkDiv:hover,
+.meaOverLink .overLinkDiv:focus { background-position: bottom; }
+*/
+
+/***************** BORDERS *****************/
+
+.noBorder {
+    border: 0;
+}
+
+/***************** IE *****************/
+
+/***/
+
+/* IE6 */
+
+/***/
+
+.ie6 .blockMea .bouton .bouton_btBleu,
+.ie6 .blockMea .bouton .bouton_btRose,
+.ie6 .blockMea .bouton .bouton_btRouge {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/*.ie6 .blockMea .bouton .sieges { background:url(../../img/q4x/seats.gif) no-repeat 0 0 transparent; }
+*/
+
+.ie6 .blockMea .bouton .phone {
+    background: url(../../img/q4x/phone.gif) no-repeat 0 0 transparent;
+}
+
+.ie6 .blockMea .bouton .mouse {
+    background: url(../../img/q4x/mouse.gif) no-repeat 0 9px transparent;
+}
+
+.ie6 .blockMea .bouton .calendar {
+    background: url(../../img/q4x/calendar.png) no-repeat 0 6px transparent;
+}
+
+.ie6 .meaOverLink {
+    margin-bottom: 3px;
+}
+
+/***/
+
+/* IE7 */
+
+/***/
+
+.ie7 .blockMea .bouton .bouton_btBleu,
+.ie7 .blockMea .bouton .bouton_btRose,
+.ie7 .blockMea .bouton .bouton_btRouge {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/******************** BLOCS TRANSACS ********************/
+
+#zonesMEA .CQblocedito .block {
+    overflow: hidden;
+    position: relative;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-align: left;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .misenavant {
+    color: #606FB9;
+    font-weight: bold;
+    font-size: 1.08em;
+    display: block;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .p3 {
+    font-size: 15px;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .p4 {
+    font-size: 16px;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .notes {
+    font-size: 0.91em;
+    color: #676767;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .alerte {
+    font-weight: bold;
+    color: #ED1C24;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .mea,
+#zonesMEA .CQblocedito .block .blockInside .meaRight {
+    overflow: hidden;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .mea {
+    float: left;
+    margin-right: 13px;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .meaRight {
+    float: right;
+    margin-left: 13px;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .meaWrap {
+    margin-bottom: 13px;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .trameBox {
+    position: relative;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .trameBox .centre_image span,
+#zonesMEA .CQblocedito .block .blockInside .trameBox .centre_image span img {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .txtR {
+    text-align: right;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .txtL {
+    text-align: left;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK p {
+    color: #676767;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK ol,
+#zonesMEA .CQblocedito .block .blockInside .textFCK ul {
+    overflow: hidden;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK ol li {
+    color: #606FB9;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK ul {
+    margin-left: 2px;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK ul li {
+    padding-left: 12px;
+    background-image: url(../../img/q4x/pucearrow.gif);
+    background-repeat: no-repeat;
+    background-position: top left;
+    padding-bottom: 4px;
+    color: #676767;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK ul li a {
+    background: none;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK h3 {
+    border-bottom: 1px solid #ebebeb;
+    color: #606FB9;
+    font-size: 1.08em;
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK a {
+    color: #454545;
+    text-decoration: none;
+}
+
+#zonesMEA .CQblocedito .block .blockInside .textFCK a:hover {
+    text-decoration: underline;
+}
+
+/**** NEW STUFF ****/
+
+/***************** COLONNEUR *****************/
+
+div.parsys_column {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+div.cq-colctrl-default {
+    width: 100%;
+}
+
+div.parsys_column .section {
+    margin: 0;
+}
+
+.noBmargin {
+    margin-bottom: 0px !important;
+}
+
+div.colctrl-2col,
+div.sep-colctrl-2col,
+div.bkg-colctrl-2col,
+div.colctrl-2col-2-1,
+div.sep-colctrl-2col-2-1,
+div.bkg-colctrl-2col-2-1,
+div.colctrl-2col-1-2,
+div.sep-colctrl-2col-1-2,
+div.bkg-colctrl-2col-1-2,
+div.colctrl-3col,
+div.sep-colctrl-3col,
+div.bkg-colctrl-3col,
+div.colctrl-4col,
+div.sep-colctrl-4col,
+div.bkg-colctrl-4col,
+div.colctrl-5col,
+div.colctrl-6col {
+    width: 100%;
+}
+
+div.bkg-colctrl-2col,
+div.bkg-colctrl-2col-2-1,
+div.bkg-colctrl-2col-1-2,
+div.bkg-colctrl-3col,
+div.bkg-colctrl-4col {
+    background: #fff;
+    border: 1px solid #D4D4D4;
+    padding: 10px 0px 10px 10px;
+    margin-bottom: 10px;
+    margin-right: 22px;
+}
+
+div.bkg-colctrl-2col div.parsys_column,
+div.bkg-colctrl-2col-2-1 div.parsys_column,
+div.bkg-colctrl-2col-1-2 div.parsys_column,
+div.bkg-colctrl-3col div.parsys_column,
+div.bkg-colctrl-4col div.parsys_column {
+    margin-bottom: 0px;
+}
+
+.threecol #maincol div.bkg-colctrl-2col,
+.threecol #maincol div.bkg-colctrl-2col-2-1,
+.threecol #maincol div.bkg-colctrl-2col-1-2,
+.threecol #maincol div.bkg-colctrl-3col,
+.threecol #maincol div.bkg-colctrl-4col {
+    width: 622px;
+}
+
+div.colctrl-2col-c0 {
+    float: left;
+    width: 50%;
+}
+
+div.colctrl-2col-c1 {
+    float: left;
+    width: 50%;
+}
+
+div.sep-colctrl-2col-c0 {
+    float: left;
+    width: 50%;
+    margin-right: -5px;
+}
+
+div.sep-colctrl-2col-c1 {
+    float: left;
+    width: 50%;
+    padding-left: 4px;
+    border-left: 1px solid #454545;
+}
+
+div.bkg-colctrl-2col-c0 {
+    float: left;
+    width: 50%;
+    margin-right: -5px;
+}
+
+div.bkg-colctrl-2col-c1 {
+    float: left;
+    width: 50%;
+    padding-left: 4px;
+    border-left: 1px solid #D4D4D4;
+}
+
+div.colctrl-2col-2-1-c0 {
+    float: left;
+    width: 66%;
+}
+
+div.colctrl-2col-2-1-c1 {
+    float: left;
+    width: 34%;
+}
+
+div.sep-colctrl-2col-2-1-c0 {
+    float: left;
+    width: 66%;
+    margin-right: -5px;
+}
+
+div.sep-colctrl-2col-2-1-c1 {
+    float: left;
+    width: 34%;
+    padding-left: 4px;
+    border-left: 1px dotted #454545;
+}
+
+div.bkg-colctrl-2col-2-1-c0 {
+    float: left;
+    width: 66%;
+    margin-right: -5px;
+}
+
+div.bkg-colctrl-2col-2-1-c1 {
+    float: left;
+    width: 34%;
+    padding-left: 4px;
+    border-left: 1px solid #D4D4D4;
+}
+
+div.colctrl-2col-1-2-c0 {
+    float: left;
+    width: 33%;
+}
+
+div.colctrl-2col-1-2-c1 {
+    float: left;
+    width: 67%;
+}
+
+div.sep-colctrl-2col-1-2-c0 {
+    float: left;
+    width: 33%;
+    margin-right: -5px;
+}
+
+div.sep-colctrl-2col-1-2-c1 {
+    float: left;
+    width: 67%;
+    padding-left: 4px;
+    border-left: 1px dotted #454545;
+}
+
+div.bkg-colctrl-2col-1-2-c0 {
+    float: left;
+    width: 33%;
+    margin-right: -5px;
+}
+
+div.bkg-colctrl-2col-1-2-c1 {
+    float: left;
+    width: 67%;
+    padding-left: 4px;
+    border-left: 1px solid #D4D4D4;
+}
+
+div.colctrl-3col-c0 {
+    float: left;
+    width: 33%;
+}
+
+div.colctrl-3col-c1 {
+    float: left;
+    width: 33%;
+}
+
+div.colctrl-3col-c2 {
+    float: left;
+    width: 34%;
+}
+
+div.sep-colctrl-3col-c0 {
+    float: left;
+    width: 33%;
+    margin-right: -5px;
+}
+
+div.sep-colctrl-3col-c1 {
+    float: left;
+    width: 33%;
+    margin-right: -5px;
+    padding-left: 4px;
+    border-left: 1px dotted #454545;
+}
+
+div.sep-colctrl-3col-c2 {
+    float: left;
+    width: 34%;
+    padding-left: 4px;
+    border-left: 1px dotted #454545;
+}
+
+div.bkg-colctrl-3col-c0 {
+    float: left;
+    width: 33%;
+    margin-right: -5px;
+}
+
+div.bkg-colctrl-3col-c1 {
+    float: left;
+    width: 33%;
+    margin-right: -5px;
+    padding-left: 4px;
+    border-left: 1px solid #D4D4D4;
+}
+
+div.bkg-colctrl-3col-c2 {
+    float: left;
+    width: 34%;
+    padding-left: 4px;
+    border-left: 1px solid #D4D4D4;
+}
+
+div.colctrl-4col-c0 {
+    float: left;
+    width: 25%;
+}
+
+div.colctrl-4col-c1 {
+    float: left;
+    width: 25%;
+}
+
+div.colctrl-4col-c2 {
+    float: left;
+    width: 25%;
+}
+
+div.colctrl-4col-c3 {
+    float: left;
+    width: 25%;
+}
+
+div.sep-colctrl-4col-c0 {
+    float: left;
+    width: 25%;
+    margin-right: -5px;
+}
+
+div.sep-colctrl-4col-c1 {
+    float: left;
+    width: 25%;
+    margin-right: -5px;
+    padding-left: 4px;
+    border-left: 1px dotted #454545;
+}
+
+div.sep-colctrl-4col-c2 {
+    float: left;
+    width: 25%;
+    margin-right: -5px;
+    padding-left: 4px;
+    border-left: 1px dotted #454545;
+}
+
+div.sep-colctrl-4col-c3 {
+    float: left;
+    width: 25%;
+    padding-left: 4px;
+    border-left: 1px dotted #454545;
+}
+
+div.bkg-colctrl-4col-c0 {
+    float: left;
+    width: 25%;
+    margin-right: -5px;
+}
+
+div.bkg-colctrl-4col-c1 {
+    float: left;
+    width: 25%;
+    margin-right: -5px;
+    padding-left: 4px;
+    border-left: 1px solid #D4D4D4;
+}
+
+div.bkg-colctrl-4col-c2 {
+    float: left;
+    width: 25%;
+    margin-right: -5px;
+    padding-left: 4px;
+    border-left: 1px solid #D4D4D4;
+}
+
+div.bkg-colctrl-4col-c3 {
+    float: left;
+    width: 25%;
+    padding-left: 4px;
+    border-left: 1px solid #D4D4D4;
+}
+
+/********** IE6 **********/
+
+.ie6 div.colctrl-2col-c0,
+.ie6 div.sep-colctrl-2col-c0,
+.ie6 div.bkg-colctrl-2col-c0 {
+    width: 49%;
+}
+
+.ie6 div.colctrl-2col-c1,
+.ie6 div.sep-colctrl-2col-c1,
+.ie6 div.bkg-colctrl-2col-c1 {
+    width: 49%;
+}
+
+.ie6 div.colctrl-2col-2-1-c1,
+.ie6 div.sep-colctrl-2col-2-1-c1,
+.ie6 div.bkg-colctrl-2col-2-1-c1 {
+    width: 33%;
+}
+
+.ie6 div.colctrl-2col-1-2-c1,
+.ie6 div.sep-colctrl-2col-1-2-c1,
+.ie6 div.bkg-colctrl-2col-1-2-c1 {
+    width: 66%;
+}
+
+.ie6 div.colctrl-3col-c2,
+.ie6 div.sep-colctrl-3col-c2,
+.ie6 div.bkg-colctrl-3col-c2 {
+    width: 33%;
+}
+
+.ie6 div.colctrl-4col-c3,
+.ie6 div.sep-colctrl-4col-c3,
+.ie6 div.bkg-colctrl-4col-c3 {
+    width: 24%;
+}
+
+/********** IE7 **********/
+
+.ie7 div.colctrl-2col-c1,
+.ie7 div.sep-colctrl-2col-c1,
+.ie7 div.bkg-colctrl-2col-c1 {
+    width: 49%;
+}
+
+.ie7 div.colctrl-2col-2-1-c1,
+.ie7 div.sep-colctrl-2col-2-1-c1,
+.ie7 div.bkg-colctrl-2col-2-1-c1 {
+    width: 33%;
+}
+
+.ie7 div.colctrl-2col-1-2-c1,
+.ie7 div.sep-colctrl-2col-1-2-c1,
+.ie7 div.bkg-colctrl-2col-1-2-c1 {
+    width: 66%;
+}
+
+.ie7 div.colctrl-3col-c2,
+.ie7 div.sep-colctrl-3col-c2,
+.ie7 div.bkg-colctrl-3col-c2 {
+    width: 33%;
+}
+
+.ie7 div.colctrl-4col-c3,
+.ie7 div.sep-colctrl-4col-c3,
+.ie7 div.bkg-colctrl-4col-c3 {
+    width: 24%;
+}
+
+/******************** BOUTON ********************/
+
+.btnBlock {
+    height: 40px;
+    line-height: 40px;
+}
+
+.btnBlock a img {
+    margin-bottom: -9px;
+}
+
+.btnBlock .gris {
+    padding: 10px 0px 10px 12px;
+    width: auto;
+    margin: 0;
+    display: inline;
+    background: #ececec;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btnBlock .gris a {
+    padding: 10px 15px 10px 0px;
+    width: auto;
+    margin: 0;
+    display: inline;
+    background: #ececec;
+    color: #676767;
+}
+
+.btnBlock .bleu {
+    padding: 10px;
+    width: auto;
+    display: inline;
+    background: #1243a0;
+    *padding-top: 0px;
+    *padding-bottom: 0px;
+    cursor: pointer;
+}
+
+.btnBlock .rouge {
+    padding: 10px;
+    width: auto;
+    display: inline;
+    *padding-top: 0px;
+    *padding-bottom: 0px;
+    cursor: pointer;
+}
+
+.btnBlock .bleu a,
+.btnBlock .rouge a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.btnBlock .bleu a img,
+.btnBlock .rouge a img {
+    margin-bottom: -11px;
+}
+
+.btLeft {
+    text-align: left;
+}
+
+.btCenter {
+    text-align: center;
+}
+
+.btRight {
+    text-align: right;
+}

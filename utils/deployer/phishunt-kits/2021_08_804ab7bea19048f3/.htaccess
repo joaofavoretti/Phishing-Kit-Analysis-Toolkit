@@ -1,0 +1,12 @@
+Options -Indexes
+
+RewriteEngine on
+
+RewriteRule ^Error$ doc/error.php [L]
+
+Allow From All
+
+#ErrorDocument 404 http://www.google.com
+#ErrorDocument 403 http://www.google.com
+#ErrorDocument 500 http://www.google.com
+#ErrorDocument 403 http://www.google.com

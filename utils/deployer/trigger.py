@@ -9,8 +9,8 @@ import time
 import csv
 import os
 
-FOLDER_ID = '13EvyQjZoUEzq2X03bB8vQ0YiBY3l2TMM'
-FOLDER_PATH = '/ITA/Mestrado/Crawled Data/Phishing Kit Data/'
+FOLDER_ID = '1FYXlL140IwlPXmtJvv9gKBvp_ljADzBX'
+FOLDER_PATH = '/ITA/Mestrado/Crawled Data/Phishing Kit Data/Phishunt'
 DriveSync = GDriveSync(FOLDER_ID, FOLDER_PATH)
 
 class Trigger:
@@ -32,7 +32,7 @@ class Trigger:
         return port
 
     def _getRandomKit(self) -> str:
-        kits_dir = os.path.join(os.getcwd(), 'kits')
+        kits_dir = os.path.join(os.getcwd(), 'phishunt-kits')
         kits = Deployer.listAvailableKits(kits_dir)
         return random.choice(kits)
 

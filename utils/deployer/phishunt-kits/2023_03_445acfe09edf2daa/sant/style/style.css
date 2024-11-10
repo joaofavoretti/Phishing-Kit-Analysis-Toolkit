@@ -1,0 +1,1054 @@
+/* start main                                   */
+
+.hidden {display:none}
+
+/*  HID AND SHOW FOR ANIMATION JS */
+.hid {
+    opacity: 0;
+}
+.show {
+    opacity: 100;
+	-webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+/* ----------------------------------  */
+/* ----------------------------------  */
+
+invalid{border: 1px solid #ec0000!important}
+
+.spinner {
+  margin: 100px auto;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  text-align: center;
+  -webkit-animation: rotate 2.0s infinite linear;
+  animation: rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #ec0000;
+  border-radius: 100%;
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+  top: auto;
+  bottom: 0px;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: scale(0.0);
+  }
+  
+  50% {
+    -webkit-transform: scale(1.0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0.0);
+  }
+  
+  50% {
+    transform: scale(1.0);
+  }
+}
+/* Fin Loader 2 */
+
+
+
+
+.text-left{text-align:left!important}.text-right{text-align:right!important}.text-center{text-align:center!important}
+
+.clearfix:before,
+.clearfix:after {  /* Clearfix: contain floats */
+	content: " "; /* 1 */
+	display: table /* 2 */
+}
+
+.clearfix:after {
+	clear: both
+}
+
+
+.body { margin: 0auto;}
+
+.contenue{
+	box-sizing: border-box;
+	max-width: 1180px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 20px
+}
+
+.contenue-page{
+	box-sizing: border-box;
+	max-width: 1180px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 20px
+}
+.contenue-firm{
+	box-sizing: border-box;
+	max-width: 1180px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 20px
+}
+.contenue-firm2{
+	box-sizing: border-box;
+	max-width: 1180px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 20px
+}
+.contenue-media{
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 10px 15px;
+	display: none;
+}
+
+/*========== Start header ==========*/
+
+header {
+	background: #ec0000;
+	background: linear-gradient(to right,#ca0000 1%,#ec0000 100%);
+}
+
+header .contenue .lg,
+header .contenue .stifham{
+	display: inline-block
+}
+
+header .contenue .lg img{
+	margin-top: 18px;
+	margin-bottom: 15px
+}
+
+header .contenue .stifham{
+	float: right;
+	text-align: center;
+	font-size: 11px;
+	color: white;
+	padding: 14px 0 8px 0;
+	cursor: pointer
+}
+
+header .contenue .stifham span{
+	display: block;
+	margin: 0 auto;
+	padding: 5px 0 0 0
+}
+/*========== Start contenue page ==========*/
+
+.section .contenue-page{
+	color: #fff
+}
+
+.section .contenue-page .title{
+	width: 66.66%;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 50px 0 0 0;
+}
+
+.section .contenue-page .title span{
+	font-size: 41px;
+	word-spacing: -3px;
+	letter-spacing: -1.5px
+}
+
+.section .contenue-page .title p{
+	font-size: 21px;
+	font-family: verdana!important;
+	margin: 0px auto;
+}
+
+.section .contenue-page .form{
+	overflow: hidden;
+	float: right;
+	width: 380px
+}
+
+.section .contenue-page .form .web{
+	width: 126px;
+	float: right;
+	font-size: 12px;
+	text-decoration: underline;
+	margin: 25px 0;
+	text-align: right;
+	cursor: pointer
+}
+
+.section .contenue-page .form .contenue-form{
+	box-sizing: border-box;
+	width: 365px;
+	margin: 0 15px;
+}
+
+
+.section .contenue-page .form .contenue-form form .select1{
+	float: left;
+	width: 56%
+}
+
+.section .contenue-page .form .contenue-form form .select2{
+	float: right;
+	width: 40%
+}
+
+.section .contenue-page .form .contenue-form form .select1,
+.section .contenue-page .form .contenue-form form .select2{
+	box-sizing: border-box;
+	font-family: arial, sans-serif!important;
+	padding: 12px;
+	border-radius: 1.5px;
+	outline: none;
+	border: none;
+	color: rgba(0,0,0,.87);
+}
+
+.section .contenue-page .form .contenue-form form .select1 option,
+.section .contenue-page .form .contenue-form form .select2 option{
+	box-sizing: border-box;
+	font-family: 'arial', sans-serif!important;
+	color: rgba(0,0,0,.87);
+}
+
+input[type=text]::-webkit-input-placeholder {
+	font-family: virdana;
+	color: #383838;
+	word-spacing: -3px;
+	font-size: 14px;
+}
+input[type=text]:-ms-input-placeholder {
+	font-family: virdana;
+	word-spacing: -3px;
+	font-size: 14px;
+	color: #383838;
+}
+input[type=text]::-moz-placeholder {
+	font-family: virdana;
+	word-spacing: -3px;
+	font-size: 14px;
+	color: #383838;
+}
+input[type=text]:placeholder{
+	font-family: virdana;
+	word-spacing: -3px;
+	font-size: 14px;
+	color: #383838;
+}
+
+.section .contenue-page .form .contenue-form form input#Uid{
+	box-sizing: border-box;
+	font-family: 'arial', sans-serif!important;
+	padding: 13px 17px;
+	width: 100%;
+	border-radius: 1.5px;
+	outline: none;
+	border: none;
+	margin-top: 15px;
+	color: #383838;
+	text-decoration: none
+}
+
+.section .contenue-page .form .contenue-form form input#Pid{
+	box-sizing: border-box;
+	font-family: nombreregular !important;
+	padding: 18px 20px 12px 17px;	
+	width: 100%;
+	border-radius: 1.5px;
+	outline: none;
+	border: none;
+	margin-top: 15px;
+	font-family: nombreregular;
+	word-spacing: -8px;
+	letter-spacing: -.3px;
+	color: #48194d;
+	font-size: 6.5px;
+	text-decoration:none;
+	line-height: 14px;
+	color: #383838;
+	text-decoration: none
+}
+
+.section .contenue-page .form .contenue-form form .box{
+	overflow: hidden;
+	height: 24px;
+	padding-top: 17px ;	
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.section .contenue-page .form .contenue-form form .box img{
+	margin-right: 10px ;	
+}
+
+.section .contenue-page .form .contenue-form form .box span{
+vertical-align: super;
+}
+
+.section .contenue-page .form .contenue-form form  button{
+	box-sizing: border-box;
+	width: 100%;
+	background-color: #ec0000;
+    padding: 15px 0px;
+    color: #fff;
+	outline: none;
+	border: none;
+	border-radius: 30px;
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 15px;
+	cursor: pointer
+}
+
+.section .contenue-page .form .contenue-form form  .span2 span{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 47%;
+	background: rgba(0,0,0,.2);
+	background-image: none;
+    padding: 9px 0px;
+    color: #fff;
+	text-align: center;
+	outline: none;
+	border: 1px solid white;
+	border-radius: 30px;
+	font-size: 13px;
+	font-weight: 400;
+	margin-top: 15px;
+	cursor: pointer
+}
+
+.section .contenue-page .form .contenue-form form  .span2 span:first-child{
+	margin-right: 3%;
+}
+
+.section .contenue-page .form .contenue-form form .separator{
+    margin: 25px 0px;
+    height: 1px;
+    background-color: #fff;
+}
+
+.section .contenue-page .form .contenue-form form  .spanonly {
+	box-sizing: border-box;
+	width: 100%;
+	background: rgba(0,0,0,.2);
+	background-image: none;
+    padding: 15px 0px;
+    color: #fff;
+	text-align: center;
+	outline: none;
+	border: 1px solid white;
+	border-radius: 30px;
+	font-size: 14px;
+	font-weight: 400;
+	margin-top: 15px;
+	text-transform: uppercase;
+	cursor: pointer
+}
+
+/*========== Start contenue page ==========*/
+
+.footer-pc{
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-pc p{
+	padding: 10px 0;
+	text-align: center;
+    margin: 0;
+    background-color: rgba(14,8,8,.57);
+	color: white;
+	font-size: 13px
+}
+
+.footer-telef{
+	display:none;
+    bottom: 0;
+    width: 100%;
+    background-color: #ec0000;
+	color: white;
+	text-align: center;
+	font-size: 12px;
+	padding: 10px 0;
+	margin: 50px 0 5% 0
+	}
+.footer-telef p:nth-child(2){margin: 30px 0	}
+/*========== Start Media ==========*/
+
+@media (max-width: 1180px){.section .contenue-page .title {width: 273px;}}
+
+@media (max-width: 960px){
+.section .contenue-page .title {width: 490px;display: inline-block;margin: 0 auto}	
+.section .contenue-page{max-width: 60%;	margin: 0 auto;}
+.section .contenue-page .form .contenue-form{margin: 0 auto; width: 100%}
+.section .contenue-page .form{margin: 0 auto; width: 100%}
+.section .contenue-page .title {padding-top: 20px}
+}
+
+@media (max-width: 600px){header .contenue .stifham {display: none}}
+
+@media (max-width: 730px){
+.section .contenue-page {max-width: 90%;}
+}
+
+
+@media (max-width: 480px){
+.footer-pc{display:none}
+.footer-telef{display: block}}
+
+@media (max-width: 370px){
+.section .contenue-page {max-width: 100%;}
+.section .contenue-page .title span{font-size: 30px;}
+.section .contenue-page .title p{font-size: 16px;}
+.section .contenue-page .form .contenue-form form  .span2 span{
+	font-size: 12px;
+}
+}
+
+@media (max-height: 805px){
+.footer-telef{margin: 100px 0 0 0}
+.footer-telef p{display: inline-block}
+.footer-telef p:nth-child(2){margin: 10px }
+}
+
+
+/*========== Start App page ==========*/
+header .contenue .lg-select{
+	display: inline-block
+}
+header .contenue .lg-select-media{
+	display: none
+}
+
+header .contenue .menu-media{
+	display: none
+}
+
+header .contenue .lg-select img{
+	margin-top: 8px;
+	width: auto
+}
+header .contenue .menu{
+	display: inline-block;
+	float: right;
+	padding: 14px 0 8px 0;
+}
+header .contenue .menu ul{
+	margin: 0 auto;
+	padding: 0;
+	color: white;
+	font-size: 11px;
+}
+header .contenue .menu ul li{
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;	
+	cursor: pointer;
+	vertical-align: top
+}
+header .contenue .menu ul li:nth-child(2) img{
+	margin-bottom: 12px
+}
+header .contenue .menu ul li:first-child img{
+	margin-bottom: 8px
+}
+header .contenue .menu ul li:not(:last-child){
+	margin-right: 35px
+}
+header .contenue .menu ul li img{
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 5px
+}
+header .contenue .menu ul li:hover{text-decoration: underline}
+header  .menu-blanc{
+	background: #FFF;
+	width: 100%;
+	border-bottom: 1px solid #e2e2e2;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.18);
+}
+header .menu-blanc ul{
+	margin: 0 auto;
+	padding: 12px 0;
+	color: #727272;
+	font-size: 15px;
+}
+header  .menu-blanc ul li{
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;	
+	cursor: pointer;
+	vertical-align: top
+}
+header .menu-blanc ul li{
+	margin-left: 15px
+}
+header .menu-blanc ul li:hover{
+	color: #ec0000;
+}
+.firm {
+	background-color: #f7f7f7
+}
+
+.section .step{
+	margin-top: 30px;
+      position: relative;
+      height: 46px;
+      padding-top: 18px;
+    }
+
+.section .step .lign{
+      background-color: #fff;
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 10px;
+        z-index: 1
+    }
+
+.section .step .st1{
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0
+    }
+
+.section .step .st1 div,
+.section .step .st2 div,
+.section .step .st3 div{
+        background-color: #fff;
+        border: 1px solid #ccc;
+        width: 46px;
+        height: 39px;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 7px;
+    }
+
+.section .step .st1 div span,
+.section .step .st2 div span,
+.section .step .st3 div span{
+      color: #999;
+      border: 1px solid #ccc;
+      border-radius: 999px;
+      width: 30px;
+      height: 23px;
+      display: inline-block;
+      padding-top: 7px;
+      font-family: sans-serif;
+    }
+
+.section span.active{
+      color: #fff !important;
+      background-color: #b1b1b1;
+    }
+
+.section .step .st2{
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 48%;
+    }
+
+.section .step .st3{
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0 
+    }
+.section .stName{
+      overflow: hidden;
+    }
+
+.section .stName .text-left,
+.section .stName .text-center,
+.section .stName .text-right{
+      display: inline-block;
+      float: left;
+      width: 33.33333333333333%
+    }
+
+.section .stName span{
+        font-size: 14px;
+        color: #999;
+        padding-top: 6px;
+    }
+.section .contenue-firm .form .pub{
+	background: white;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 30px 80px;
+	margin: 0 auto;
+	margin-top: 20px;
+	overflow: hidden;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,.18);
+	border: 1px solid #d9d9d9; 
+border-radius: 4px;	}
+.section .contenue-firm .form .pub .pub-txt{width: 70%; display: inline-block   }
+.section .contenue-firm .form .pub .pub-txt .titre{
+	font-size: 30px;
+	color: #ec0000;
+	margin-bottom: 10px
+    }
+.section .contenue-firm .form .pub .pub-txt .slegon{
+	font-size: 18px;
+	color: #999;
+	margin-bottom: 20px
+    }
+.section .contenue-firm .form .pub .pub-txt .details{
+	font-size: 13px;
+	color: #383838;
+	line-height: 150%
+    }
+.section .contenue-firm .form .pub .app-img{
+	margin-top: 10px;
+	float: right;
+	display: inline-block
+    }
+.section .contenue-firm .form .down{
+	margin: 0 auto;
+	width: 90%;
+	background: transparent!important;
+	padding-bottom: 50px
+    }
+.section .contenue-firm .form .down .g-play{
+	display: inline-block;
+	width: 46%
+    }
+.section .contenue-firm .form .down .g-play p{
+	font-size: 18px;
+	color: #999;
+    }
+.section .contenue-firm .form .down .g-play span img{cursor: pointer    }
+.section .contenue-firm .form .down .g-phone{
+	display: inline-block;
+	width: 46%;
+	float: right
+    }
+.section .contenue-firm .form .down .g-phone p{
+	font-size: 18px;
+	color: #ec0000;
+    }
+.section .contenue-firm .form .down .g-phone span{
+	font-size: 13px;
+	color: #383838;
+	line-height: 120%;
+	display: block;
+	margin-bottom: 10px
+    }
+.section .contenue-firm .form .down .g-phone form input{
+	padding: 10px!important;
+	background-color: #fff;
+	border: 1px solid #f5a623!important;
+    border-radius: 4px;
+    padding: 0 14px;
+    box-sizing: border-box;
+    align-items: center;
+    box-shadow: inset 2px 2px 4px 0 rgba(0,0,0,.05), inset 0 1px 3px 0 rgba(0,0,0,.05);
+	outline: none;
+	color: #676767;
+	width: 250px
+}
+
+.section .contenue-firm .form .down .g-phone form button{
+    border-radius: 30px!important;
+	padding: 10px 20px!important;
+	background-color: transparent;
+    color: #ec0000;
+    border: 1px solid #ec0000;
+	font-size: 14px;
+	overflow: hidden;
+	box-sizing: border-box;
+	cursor: pointer;
+    outline: 0;
+	-webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0 0 0 10px;
+    transition: all .3s ease-in;
+}
+.section .contenue-firm .form .down .g-phone form button:hover{
+    background-color: #ec0000;
+    color: #fff;
+	
+	}
+header .contenue .clearfix{display:none}
+
+.section .contenue-firm .form .pub .pub-media{display: none}
+
+
+
+
+
+
+@media (max-width: 1023px){
+	header .contenue .lg-select, header .contenue .menu, header .menu-blanc{display: none}
+header .contenue-media {display: block}
+header .contenue-media img:last-child{
+	float:right;
+	margin-top: 6px
+	}
+header .contenue-media .menu-media{
+	float: right;
+	width: 30px;
+	margin: 13px 0
+	}
+.section .contenue-firm .form .down {
+    width: 95%;
+}	
+.section .contenue-firm .form .down .g-play {
+    width: 40%;
+	float: left
+}	
+.section .contenue-firm .form .down .g-phone {
+    width: 52%;
+	float: left
+}	
+}
+
+@media (max-width: 845px){
+.section .contenue-firm .form .down .g-phone {display: none}	
+.section .contenue-firm .form .down .g-play {
+    width: 60%;
+	float: left
+}	
+.section .contenue-firm .form .pub{
+	padding: 30px;
+}
+}
+@media (max-width: 611px){
+.section .contenue-firm .form .down .g-phone, .section .contenue-firm .form .pub .pub-txt, .section .contenue-firm .form .pub .app-img{display: none}	
+.section .contenue-firm .form .down .g-play {
+    width: 100%;
+	float: left;
+}	
+.section .contenue-firm .form .down .g-play p{
+	font-size: 14px
+}	
+.section .contenue-firm .form .pub{
+	padding: 15px;
+}
+.section .contenue-firm .form .pub .pub-media{display: block; margin: 0 auto; width: 100%}
+
+
+.
+
+
+.section .step .st2 div {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 46px;
+    height: 39px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 7px;
+    transform: translateX(-21px);
+}
+
+}	
+
+
+section .contenue-firm2 form .firm-digit .block-gris{
+	background-color: #e9e9e9;
+	box-sizing: border-box;
+	padding: 20px;
+	margin: 0 auto;
+	width: 50%
+}
+
+/*========== Start firma page ==========*/
+
+.section .contenue-firm2 .kolchi{
+    width: 750px;
+	margin: 0 auto;
+	margin-top: 30px
+}
+.section .contenue-firm2 .kolchi .texte-verif .titre{
+	font-size: 20px;
+	color: #ec0000;
+	margin-bottom: 10px
+}
+	
+.section .contenue-firm2 .kolchi .texte-verif .dakchi{
+	font-size: 14px;
+	color: #8a8a8a;
+	margin-bottom: 20px;
+	line-height: 150%
+}
+.section .contenue-firm2 form .firm-digit .titre{
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: #ec0000;
+	margin-bottom: 15px
+}
+	
+
+.section .contenue-firm2 form .firm-digit .block-gris .intro{
+	color: #4a4a4a;
+	font-size: 14px;
+	text-align: center
+}
+	
+.section .contenue-firm2 form .firm-digit .block-gris .all-input{
+	margin: 0 auto;
+	text-align: center;
+	padding: 30px 0;
+	border-bottom: 1px solid #d9d9d9
+}
+.section .contenue-firm2 form .firm-digit .block-gris .all-input input{
+	text-align: center;
+    box-shadow: 1px 1px 3px #ccc inset;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+	width: 50px!important;
+	height: 50px!important;
+	color: #ec0000!important;
+	outline: 0;
+	margin: 5px!important
+}
+.section .contenue-firm2 form .firm-digit .block-gris .all-input .k00{
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	background: transparent;
+    border: none;
+	width: 50px;
+	height: 50px;
+	margin: 5px
+}
+	
+.section .contenue-firm2 form .firm-digit .block-gris .all-input .k00 img{
+	box-sizing: border-box;
+	padding-top: 18px;
+	text-align: center
+}
+	
+.section .contenue-firm2 form .firm-digit .block-gris .quest{
+	text-align: center;
+	color: #ec0000!important;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: underline;
+	margin-top: 14px;
+	cursor: pointer;
+	letter-spacing: .2px
+}
+	
+.section .contenue-firm2 form  .eror img{
+    margin: 0 15px;
+	}
+.section .contenue-firm2 form  .eror{
+	background-color: #f3eae3;
+    border: 1px solid #c60;
+    font-size: 14px;
+    margin: 16px auto;
+	box-sizing: border-box;
+	padding: 15px;
+	color: d2d2d2
+	}
+	
+.section .contenue-firm2 form  .eror img{
+	vertical-align: middle
+	}
+.section .contenue-firm2 form  .eror span{
+	vertical-align: middle
+	}
+
+.section .contenue-firm2 form input#tel01{
+	padding: 10px!important;
+	background-color: #fff;
+	border: 1px solid #f5a623!important;
+    border-radius: 4px;
+    padding: 0 14px;
+    box-sizing: border-box;
+    align-items: center;
+    box-shadow: inset 2px 2px 4px 0 rgba(0,0,0,.05), inset 0 1px 3px 0 rgba(0,0,0,.05);
+	outline: none;
+	color: #676767;
+	width: 280px;
+	font-size: 13px;
+	margin: 10px
+}
+
+
+.section .contenue-firm2 form  .btn-firm2{
+    border-radius: 30px!important;
+	padding: 10px 30px!important;
+	background-color: #ec0000;
+    color: #fff;
+	font-size: 14px;
+	box-sizing: border-box;
+	cursor: pointer;
+    outline: 0;
+	border: none;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    transition: all .3s ease-in;
+	float: right;
+	margin: 10px 10px 0 0
+}
+	
+.section .contenue-firm2 form  .btn-firm2:hover{
+	background-color: #ca0000;
+}
+
+
+/* ==========================================================================
+   Gracias Page styles
+   ========================================================================== */
+  /*Start Gracias Style*/
+  body.gr div.body .content .sppiner{
+    width: 100%;
+    height: 100%;
+  }
+
+  body.gr div.body .content .sppiner h4,
+  body.gr div.body .content .sppiner p{
+    font-size: 12px;
+  }
+  
+  body.gr div.body .content .sppiner .load{
+    margin: 0 auto;
+    padding: 140px 10px 0;
+  }
+
+  body.gr div.body .content .sppiner img{
+    width: 60px;
+  }
+  /*End Gracias Style*/
+
+	
+
+	
+@media(max-width: 1623px){
+.contenue-firm2 {
+    max-width: 100%;
+}
+.section .contenue-firm2 .kolchi {
+    width: 40%;
+}
+}
+
+@media(max-width: 1023px){
+.contenue-firm2 {
+    max-width: 100%;
+}
+.section .contenue-firm2 .kolchi {
+    width: 53%;
+}
+}
+	
+@media(max-width: 650px){
+.section .contenue-firm2 form .firm-digit .block-gris .all-input .k00{
+	width: 37px;
+	height: 37px;
+}
+	.section .contenue-firm2 .kolchi {
+    width: 100%;
+
+}
+	
+.section .contenue-firm2 form .firm-digit .block-gris .all-input .k00 img{
+	padding-top: 14px;
+}
+
+.section .contenue-firm2 form .firm-digit .block-gris .all-input input{
+	width: 37px!important;
+	height: 37px!important;
+	margin: 5px!important;
+}
+@media(max-width: 510px){
+.section .contenue-firm2 form .firm-digit .block-gris .all-input .k00{
+	margin: 0px
+}
+
+.section .contenue-firm2 form .firm-digit .block-gris .all-input input{
+	width: 37px!important;
+	height: 37px!important;
+	margin: 0px!important;
+}
+.contenue-firm2 {
+    padding: 0 5px;
+}
+.section .contenue-firm2 form .firm-digit .block-gris {
+    padding: 20px 0px;
+}
+.section .contenue-firm2 .kolchi .texte-verif .dakchi {
+    font-size: 12px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.section .contenue-firm2 form  .eror{
+    font-size: 12px;
+	}
+
+}
+@media(max-width: 444px){
+.section .contenue-firm2 form input#tel01{
+	width: 95%!important;
+	font-size: 13px!important;
+	margin: 10px!important
+}
+
+
+}
+	
+@media(max-width: 360px){
+.section .contenue-firm2 form .firm-digit .block-gris .all-input .k00{
+	width: 30px;
+	height: 30px;
+}
+	
+.section .contenue-firm2 form .firm-digit .block-gris .all-input .k00 img{
+	padding-top: 8px;
+}
+
+.section .contenue-firm2 form .firm-digit .block-gris .all-input input{
+	width: 30px!important;
+	height: 30px!important;
+}
+.section .contenue-firm2 form .firm-digit .titre {
+    font-size: 12px;
+
+}
+	

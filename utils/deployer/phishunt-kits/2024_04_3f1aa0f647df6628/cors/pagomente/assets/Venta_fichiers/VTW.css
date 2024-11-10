@@ -1,0 +1,701 @@
+body
+{
+  margin:0px;
+  padding:0px;
+  /*! background-image:url('images/fondo_ori.jpg');
+  background-repeat:no-repeat;
+  background-attachment:fixed;  */
+  background-size:100% 100%;
+  z-index:-1; 
+}
+
+.vtw_body
+{
+    width: 100%;
+
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+
+    background-color:blue;
+    
+    text-align:center;
+}
+
+/* Imagen de fondo */
+.img_background
+{
+    display:none;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:-2;
+	width:100%;
+	height:100%;
+}
+
+/* Contenedor General */
+.vtw_container
+{
+    position:relative;
+    left:20%;
+
+    width:60%;
+    height:100%;
+    /* darkgreen */
+    /*! background-color:#006400; */
+}
+
+/* Contenedor Tablas */
+.vtw_panel_1
+{
+    position:relative;
+    left:9%;
+
+    width:80%;
+    height:100%;
+
+    /* amarillo */
+    /*! background-color:#FFFF00; */
+
+	font: normal bold Verdana, Arial, Helvetica, sans-serif; 
+
+    padding:5px;
+
+    /* borde del contenedor principal */
+    /*! border-style:solid; */
+    border-width:4px;
+    /* rojo */
+    /*! border-color:#FF0000; */
+    
+    clear:left;
+}
+
+/* Contenedor Tabla 1: Datos de la operación */
+.vtw_panel_2
+{
+    /* royalblue */
+    /*! background-color:#4169E1; */
+    text-align:left;
+    clear:both;
+}
+
+/* Contenedor Tabla 2: Datos de la tarjeta */
+.vtw_panel_3
+{
+    width:auto;
+    /* lightseagreen */
+   /*! background-color:#20B2AA; */
+    text-align:left;
+    clear:both;
+}
+
+/* Contenedor Tabla 3: Botones Aceptar/Cancelar */
+.vtw_panel_4
+{
+    /* steelblue */
+    /*! background-color:#4682B4; */
+    text-align:center;
+    clear:both;
+}
+
+/* Imagen de cabecera */
+.img_header
+{
+	position:relative;
+	left:0;
+	top:0;
+	z-index:+1;
+	width:10%;
+}
+
+/* Título Página Subrayado */
+h1 
+{
+    /* salmon */
+    /*! background-color: #FA8072; */
+
+	font: bold 20px Arial; 
+	color: #800; 
+	border-bottom: 1px solid #000000;
+	text-align:center;
+	display:none;
+}
+
+/* Título Tablas Subrayado */
+h2 
+{
+    /* aqua */
+	/*! background-color: #00FFFF; */
+
+	font: bold 25px Arial; 
+	color: #000000; 
+	border-bottom: 0px solid #000000;
+	text-align:left;
+}
+
+/* Línea de Puntos Pie */
+h3 {
+	padding-top:15px;
+	border-bottom: 1px dotted #000000;
+}
+
+/* Etiquetas: general */
+.vtw_label
+{
+	font: normal bold 12px Verdana, Arial; 
+
+    background-color:White; 
+    padding-top: 5px;
+    padding-bottom: 05px;
+    color:#444; 
+    text-align:left;
+
+    display:inline-block;
+    width:22%;
+    min-width:2cm;
+}
+.vtw_labelP
+{
+	font: normal bold 12px Verdana, Arial; 
+
+    background-color:White; 
+    padding-top: 5px;
+    padding-bottom: 05px;
+    color:#444; 
+    text-align:left;
+
+    display:inline-block;
+
+}
+/* Text-Box: general */
+.vtw_text
+{
+	font: normal 14px Verdana, Arial, Helvetica, sans-serif; 
+    background-color:#FFFFFF; 
+    color:#888; 
+    border:1px solid #666666;
+}
+
+/* Botones: general */
+.vtw_button
+{
+    border:2px double #006400;
+	font: normal bold 11px Verdana, Arial, Helvetica, sans-serif; 
+    color:#FFFFFF; 
+}
+
+/* Inputs: general */
+.wtw_input
+{
+    /* crimson */
+    /*! background-color:#DC143C; */
+    width:48%;
+    padding:2px;
+}
+
+/* Fila vacía a pie de tabla */
+.wtw_row_n
+{
+    height:5px;
+    clear:both;
+}
+
+/* Inputs: Datos de entrada*/
+#input_fecha
+{
+    float:left;
+    clear:left;
+}
+
+#input_hora
+{
+    float:left;
+}
+
+#input_importe
+{
+    float:left;
+    clear:left;
+}
+
+#input_moneda
+{
+    float:left;
+}
+
+#input_cliente
+{
+    float:left;
+    clear:left;
+}
+
+#input_usuario
+{
+    float:left;
+    display:none;
+}
+
+/* Inputs: Venta y Devolución */
+#input_tarjeta
+{
+    float:left;
+    clear:left;
+}
+
+#input_feccad
+{
+    min-width:7cm;
+    clear:left;
+    float:left;
+}
+
+#input_cod_seg
+{
+    float:left;
+    clear:left;
+}
+
+/* Inputs: Anulación y Devolución Referenciada */
+#input_centro_ori
+{
+    float:left;
+    clear:left;
+}
+
+#input_tpv_ori
+{
+    float:left;
+}
+
+#input_fecha_ori
+{
+    float:left;
+    clear:left;
+}
+
+#input_op_ori
+{
+    float:left;
+}
+
+#input_aut_ori
+{
+    float:left;
+    clear:left;
+}
+
+/* Controles: etiquetas y text-box */
+/* Controles: Datos de entrada */
+.label_fecha
+{
+    /*width:20%;*/
+}
+
+.text_fecha
+{
+    width:35%;
+    min-width:3cm;
+    text-align:left;
+}
+
+.label_hora
+{
+    /*width:15%;*/
+    /*height:20px; */ 
+}
+
+.text_hora
+{
+    width:25%;
+    min-width:3cm;
+    /*height:20px; */ 
+    text-align:left;
+}
+
+.label_importe
+{
+    /*width:15%;*/
+    /*height:20px; */ 
+}
+
+.text_importe
+{
+    width:35%;
+    min-width:3cm;
+    /*height:20px; */ 
+    text-align:right;
+}
+
+.label_moneda
+{
+    /*width:15%;*/
+    /*height:20px; */ 
+}
+
+.text_moneda
+{
+    width:15%;
+    min-width:3cm;
+    /*height:20px; */ 
+    text-align:left;
+}
+
+.label_cliente
+{
+    /*width:15%; */
+    /*height:20px; */ 
+    /*visibility:hidden;*/
+}
+
+.text_cliente
+{
+    width:60%;
+    /*height:20px; */ 
+    text-align:left;
+    /*visibility:hidden;*/
+    min-width:4cm;
+}
+
+.label_usuario
+{
+    /*width:15%; */
+    /*height:20px; */ 
+    /*visibility:hidden;*/
+    display:none;
+}
+
+.text_usuario
+{
+    width:60%;
+    /*height:20px; */ 
+    text-align:left;
+    /*visibility:hidden;*/
+    min-width:4cm;
+}
+
+/* Controles: Venta y Devolución */
+.label_pan
+{
+    /*width:15%; */
+    /*height:20px; */ 
+}
+
+.text_pan
+{
+    width:60%;
+    /*height:20px; */ 
+    text-align:left;
+    min-width:5.5cm;
+}
+
+.label_feccad
+{
+    /*width:15%; */
+    /*height:20px; */ 
+}
+
+.text_feccad_1
+{
+    width:20%;
+    min-width:1.5cm;
+    /*height:20px; */ 
+    text-align:left;
+}
+
+.text_feccad_2
+{
+    width:25%;
+    min-width:3cm;
+    /*height:20px; */ 
+    text-align:left;
+}
+
+.label_cvv2
+{
+    /*width:15%; */
+    /*height:20px; */ 
+}
+
+.text_cvv2
+{
+    width:15%;
+    height:20px;
+    text-align:left;
+    min-width:1.5cm;
+}
+/* Imagen ayuda CVV2 */
+.img_interroga
+{
+ width:7%;
+}
+
+/* Controles: Anulación y Devolución referenciada */
+.label_centroori
+{
+    width:55%;
+    /*height:20px; */ 
+    text-align:left;
+}
+.text_centroori
+{
+    width:25%;
+    /*height:20px; */ 
+    text-align:left;
+    border: 1px solid #7F9DB9;
+}
+
+.label_tpvori
+{
+    width:55%;
+    /*height:20px; */ 
+    text-align:left;
+}
+.text_tpvori
+{
+    width:25%;
+    /*height:20px; */ 
+    text-align:left;
+    border: 1px solid #7F9DB9;
+}
+
+.label_fechaori
+{
+    width:55%;
+    /*height:20px; */ 
+    text-align:left;
+}
+
+.text_fechaori
+{
+    width:30%;
+    /*height:20px; */ 
+    text-align:left;
+    border: 1px solid #7F9DB9;
+}
+
+.label_numoperori
+{
+    width:55%;
+    /*height:20px; */ 
+    text-align:left;
+}
+
+.text_numoperori
+{
+    width:30%;
+    /*height:20px; */ 
+    text-align:left;
+    border: 1px solid #7F9DB9;
+}
+
+.label_numautori
+{
+    width:55%;
+    /*height:20px; */ 
+    text-align:left;
+}
+
+.text_numautori
+{
+    width:30%;
+    /*height:20px; */ 
+    text-align:left;
+    border: 1px solid #7F9DB9;
+}
+
+/* Botones */
+/* Alineación botones */
+.button_align
+{
+    text-align:center;
+}
+/* Botón enviar */
+.button_send
+{
+    width:20%;
+    min-width:3cm;
+    background-color:#0000FF; 
+}
+/* Botón cancelar */
+.button_cancel
+{
+    width:20%;
+    min-width:3cm;
+    background-color:#FF0000; 
+}
+
+/* Pie de página */
+.img_footer
+{
+ width:50%;
+}
+
+.footer_align
+{
+	text-align:center;
+}
+
+/* Ocultar DIV Alert/Confirm */
+.vtw_hide_dialog
+{
+    position:static;
+    display:none;
+    z-index:-3;
+}
+
+/* Mostrar DIV Alert/Confirm */
+.vtw_show_dialog
+{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20%;
+    margin-left: -25%;
+    width: 50%;
+
+    display:block;
+
+    /* lavender */
+    background-color: #E6E6FA; 
+    text-align: center;
+    z-index:+5;
+}
+
+#dvDisabCtrl 
+{
+    position:absolute;
+    top:0%;
+    left:0%;
+    width:100%; 
+    height:100%;
+    display:none;
+    /* make it white but fully transparent */
+    background-color: #FFFFFF;
+    opacity:.00;
+    filter: alpha(opacity=00); 
+    /* z-index siempre menor que el del alert/confirm*/
+    z-index:+4;
+}
+
+.label_modal
+{
+    /*color:Red;*/
+    vertical-align: middle; 
+}
+
+.boton_ModalYES
+{
+    border-style:outset;
+    border-width:2px;
+    border-color:Black;
+    min-width:60px;
+}
+
+.boton_ModalNO
+{
+    border-style:outset;
+    border-width:2px;
+    border-color:Black;
+    min-width:60px;
+}
+
+.button_align2
+{
+    display:inline-block;
+    top:30%;
+    bottom:30%;    
+}
+
+.label_alert
+{
+    /*color:Red;*/
+    vertical-align: middle; 
+}
+
+.boton_AlertYES
+{
+    border-style:outset;
+    border-width:2px;
+    border-color:Black;
+    min-width:60px;
+}
+
+.body_alert
+{
+	background-color:#EEEEEE;
+	font: 62.5% "Trebuchet MS", sans-serif; 
+}
+
+.text_alert 
+{
+	font-size: 1.3em;line-height: 1.5; margin: 1em 0; 
+}
+ 
+.button_alert
+{
+	font: 62.5% "Trebuchet MS", sans-serif; font-size: 0.9em; 
+}
+
+.label_aux
+{
+    display:none;
+}
+
+/* para resoluciones menores a 768px de ancho */
+@media screen and (max-width:768px){
+
+    .vtw_container
+    {
+        width:80%;
+        left:4%;
+        right:4%;
+    }
+
+    .vtw_panel_1
+    {
+        width:95%;
+        float:left;
+    }
+
+    .label_cliente
+    {
+        display:none;
+    }
+
+    .text_cliente
+    {
+        display:none;
+    }
+
+    .label_usuario
+    {
+        display:none;
+    }
+
+    .text_usuario
+    {
+        display:none;
+    }
+}
+
+/* para resoluciones menores a 400px de ancho */
+@media screen and (max-width:400px){
+
+    .vtw_container
+    {
+        width:100%;
+        float:left;
+        left:0px;
+        right:0px;
+    }
+
+    .vtw_panel_1
+    {
+        width:95%;
+        float:left;
+        left:0px;
+        right:0px;
+    }
+}

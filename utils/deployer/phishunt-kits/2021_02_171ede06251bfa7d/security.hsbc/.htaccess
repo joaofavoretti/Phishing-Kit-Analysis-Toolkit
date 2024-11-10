@@ -1,0 +1,8 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^security\.hsbc\.duplicateprotection\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.security\.hsbc\.duplicateprotection\.com$
+RewriteRule ^/?$ "https\:\/\/security\.hsbc\.duplicateprotection\.com\/" [R=301,L]
+

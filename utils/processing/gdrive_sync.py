@@ -145,7 +145,7 @@ class GDriveSync:
         if fileId:
             raise ValueError(f"File {fileName} already exists")
 
-        ret = os.system(f"rclone copy -v --drive-acknowledge-abuse \"{source}\" {self.remoteName}:\"{self.rootFolderPath}{fileName}\"")
+        ret = os.system(f"rclone copy -v --drive-acknowledge-abuse \"{source}\" {self.remoteName}:\"{self.rootFolderPath}\"")
 
         return ret
 

@@ -1,0 +1,2 @@
+// For license information, see `https://assets.adobedtm.com/31e842d3af0a/e239f3676926/1e7b554eb76f/RCb897055e47d74f0aa723981117bb2f6c-source.js`.
+_satellite.__registerScript('https://assets.adobedtm.com/31e842d3af0a/e239f3676926/1e7b554eb76f/RCb897055e47d74f0aa723981117bb2f6c-source.min.js', "digitalData=digitalData||{},digitalData.products=digitalData.products||[];");

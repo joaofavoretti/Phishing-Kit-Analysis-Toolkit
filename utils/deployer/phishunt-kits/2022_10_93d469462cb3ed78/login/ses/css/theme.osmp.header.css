@@ -1,0 +1,92 @@
+#body[theme=osmp] [control=header] {
+    display: block;
+    background-color: transparent;
+    height: 115px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    border-bottom-color: #dfdfdf;
+    border-bottom-style: solid;
+}
+
+#body[theme=osmp] [control=header] div[theme=osmp]{
+    display: block;
+    max-width: 970px;
+    position: relative;
+    margin: 0 auto;
+    height: 115px;
+}
+
+#body[theme=osmp] [control=header] div[theme=osmp] a{
+    font-family: Verdana;
+    font-size: 12px;
+    color: #666666;
+    text-decoration: none;
+}
+
+#body[theme=osmp] [control=header] div[theme=osmp] a:hover{
+    color: #5174b8;
+    text-decoration: underline;
+}
+
+#body[theme=osmp] [control=header] #brand {
+    position: absolute;
+    top: 32px;
+    left: 10px;
+    display: block;
+}
+
+#body[theme=osmp] [control=header] #headerTools {
+    position: absolute;
+    top: 77px;
+    right: 0;
+    bottom: 16px;
+    display: block;
+}
+
+#body[theme=osmp] [control=header] #headerTools ul {
+    list-style: none;
+    list-style-image: none;
+    padding: 0 0 0 10px;
+    margin: 0 0 20px 10px;
+    text-align: right;
+}
+
+#body[theme=osmp] [control=header] #headerTools ul li {
+    list-style-type: none;
+    display: inline;
+    padding: 0 5px;
+    margin: 0 auto .5em auto;
+    line-height: 1.4em;
+}
+
+#body[theme=osmp] [control=header][isMobile=true] {
+    height: 42px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    border-bottom-color: transparent;
+    border-bottom-style: none;
+}
+
+#body[theme=osmp] [control=header][isMobile=true] div[theme=osmp] {
+    display: block;
+    background-color: #BB0826;
+    height: 42px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    max-width: inherit;
+}
+#body[theme=osmp] [control=header][isMobile=true] div[theme=osmp] .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#body[theme=osmp] [control=header][isMobile=true] div[theme=osmp] img {
+    width: 150px;
+    height: 13px;
+    margin: auto;
+    vertical-align: middle;
+}
+

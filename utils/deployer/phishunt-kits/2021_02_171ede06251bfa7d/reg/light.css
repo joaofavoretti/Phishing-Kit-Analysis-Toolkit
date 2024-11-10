@@ -1,0 +1,318 @@
+.ursula .overlay {
+    position:fixed;
+    top:0;
+    left:0;
+    background:url("overlay-bg.png") repeat 0 0;
+    z-index: 100;
+    padding: 30px 0;
+}
+.ursula .lightbox {
+   	width: 950px;
+    position:fixed;
+    top:0;
+    left:0;
+    background: #fff;
+    z-index: 105;
+    margin: 30px 0;
+}
+
+.ursula .abs .lightbox {
+    position:absolute;
+}
+
+.ursula .lightbox .lightboxInner1 {
+    padding:30px;
+}
+.ursula .alertLightbox,
+.ursula .lightboxContent,
+.ursula .keySection {
+	font-size: 62.5%;
+}
+.ursula .lightbox .close {
+	background: url("closemodal_window.png") no-repeat scroll left top transparent;
+	cursor: pointer;
+	position: absolute;
+	/*height: 52px;
+	right: -35px;
+	top: -25px;
+	width: 60px;*/
+	height: 105px;
+	right: -45px;
+	top: -45px;
+	width: 104px;
+	text-indent: -9999px;
+	z-index: 2;
+	color: transparent;
+}
+.ursula .lightbox .close:hover,
+.ursula .lightbox .close:active,
+.ursula .lightbox .close:focus {
+	background-image: url("closemodal_window_focus.png");
+}
+
+.ursula .alertLightboxInner {
+	min-height: 82px;
+}
+.ursula .success .alertLightboxInner {
+	padding-top: 1px;
+	padding-left: 117px;
+	background: url("icon-succes-lrg.png") no-repeat left top;
+}
+.ursula .info .alertLightboxInner {
+	padding-top: 1px;
+	padding-left: 117px;
+	background: url("icon-info-lrg.png") no-repeat left top;
+}
+.ursula .alert .alertLightboxInner {
+	padding-top: 1px;
+	padding-left: 117px;
+	background: url("icon-alert-lrg.png") no-repeat left top;
+}
+.ursula .info .alertLightboxInner:after {
+    visibility: hidden;
+    clear: both;
+    content: ".";
+    height: 0;
+    display: block;
+}
+.ursula .info .alertLightboxInner {
+    min-height: 1%;
+}
+.dj_ie6 .ursula .info .alertLightboxInner {
+	height: 1%;
+}
+.ursula .alertLightbox p {
+	color: #000;
+	font-size: 1.8em;
+	line-height: 24px;
+	padding-bottom: 12px;
+}
+.ursula .alertLightbox p.alertLightboxHeading,
+.ursula .keySection .keySection-header
+ {
+	font-weight: bold;
+	font-size: 2.5em;
+	line-height: 32px;
+	padding-bottom: 6px;
+}
+.ursula .listBullets01 {
+	padding-bottom: 10px;
+}
+.ursula .listBullets01_mt li {
+	background: url("bg-bullet01.gif") no-repeat left 8px !important;
+	padding-left: 15px !important;
+	line-height: 20px !important;
+	font-size: 1.3em !important;
+	position: relative;
+	left: 20px !important;
+	color: #4c4c4c !important;
+}
+.ursula .alertLightbox li {
+	font-size: 1.8em;
+	line-height: 24px;
+	color: #000;
+}
+.ursula .appBox{
+	padding: 8px 20px 8px 100px;
+	min-height: 58px;
+	background-image: url("app-logo.gif");
+	background-repeat:no-repeat;
+	background-position:0 0;
+	border-bottom: 1px solid #d0d0d0;
+}
+.ursula .appBox .appBoxHeading{
+	font-size: 2em;
+	line-height: 1.2em;
+}
+.ursula .appBox p{
+	font-size:1.5em;
+}
+.ursula .appBox .grid_14{
+	padding-right:0;
+	width:687px;
+}
+.ursula .appBox ul li{
+	display:inline;
+	margin-right:9px;
+}
+.ursula .faqs{
+	padding-bottom:20px;
+	padding-top: 17px;
+}
+
+.ursula .lightbox .innerPage {
+	width:auto;
+	padding:0;
+}
+.ursula .lightbox .innerPage.secure .listStyle02.eightItemList li {
+	width:107px;
+	min-width: 107px;
+}
+
+.ursula .lightbox .innerPage.secure .listStyle02.eightItemList .listStyle02inner{
+	pointer-events : none;
+}
+
+.ursula .lightbox .innerPage.secure .apply {
+	width:275px;
+}
+.ursula .lightbox .innerPage.secure .apply2,
+.ursula .lightbox .innerPage.secure .apply3 {
+	width:260px;
+}
+.ursula .lightbox .innerPage.secure .grid12 {
+	width:435px;
+}
+.ursula .lightbox .innerPage.secure .grid12-cc-a {
+	width:420px !important;
+}
+.ursula .lightbox .lightboxInner1:after {
+    visibility: hidden;
+    clear: both;
+    content: ".";
+    height: 0;
+    display: block;
+}
+.ursula .lightbox .lightboxInner1 {
+    min-height: 1%;
+    overflow-y: auto;
+    -ms-overflow-style : auto; 
+}
+
+.ursula .keySection .keySection-headerBg{
+	background: #f8f8f8;
+	padding: 30px 30px 22px 30px;
+	margin: -30px -30px 22px -30px;
+}
+
+.ursula .keySection p{
+	padding-bottom: 9px;
+}
+.ursula .keyTable{
+	width: 100%;
+}
+.ursula .keyTable td:first-child,
+.ursula .keyTable th:first-child{
+	text-align: left;
+}
+.ursula .keyTable td,
+.ursula .keyTable th{
+	padding: 18px 20px;	
+	border-bottom: 1px solid #d2d2d2;
+	text-align: center;
+	font-size: 1.2em;	
+	vertical-align: middle;
+}
+.ursula .keyTable th{
+	font-weight: normal;
+}
+.ursula .keyTable .topBorder{
+	border-top: 1px solid #d2d2d2;
+}
+.ursula .keyTable .keyTable-headerBg th{
+	background-color: #f8f8f8;
+	vertical-align: bottom;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+.ursula .keyTable th .keyTable-title{
+	display: block;
+	text-align: center;
+	margin-top: 14px;
+}
+.ursula .keySection .keyPanel{
+	overflow: hidden;
+}
+.ursula .keySection .keyPanel-col01,
+.ursula .keySection .keyPanel-col02{
+	float: left;
+	margin-right: 28px;
+}
+.ursula .keySection .keyPanel-col01{
+	width: 400px;
+	border-right: 1px solid #d2d2d2;
+	padding-right: 28px;
+}
+.ursula .keySection .keyPanel-col01 img.left,
+.ursula .keySection .keyPanel-col02-1 img.left,
+.ursula .keySection .keyPanel-col02-2 img.left
+{
+	margin-right: 20px;
+}
+
+.ursula .keySection .keyPanel-app-list li{
+	float: left;
+	padding-right: 18px;
+	margin-right: 18px;
+}
+.ursula .keySection .keyPanel-app-list li:first-child{
+	border-right: 1px solid #d2d2d2;
+}
+.ursula .keySection .header,
+.ursula .keySection .code{
+	color: #000;
+	font-weight: bold;
+}
+.ursula .keySection .header{		
+	font-size: 1.6em;
+}
+.ursula .keySection .code{
+	font-size: 3em;
+	padding-bottom: 8px;
+}
+.ursula .keySection .keyPanel-col02-1,
+.ursula .keySection .keyPanel-col02-2{
+	float: left;
+}
+.ursula .keySection .keyPanel-col02-1{
+	width: 300px;
+	margin-right: 40px;
+}
+.ursula .keySection .keyPanel-col02-2{
+	width: 480px;
+}
+.ursula .keySection .keySection-declaration label{
+	width: auto;
+	margin-left: 8px;
+}
+.ursula .keySection .keySection-declaration{
+	overflow: hidden;
+	border-top: 1px solid #d2d2d2;
+	padding-top: 28px;
+}
+
+.ursula .lightboxOverflow {
+overflow-x: auto;
+}
+.info_text_mt{
+	font-weight: normal !important;
+	font-size: 16px !important;
+}
+.alertLightboxHeading_csao_mt{
+	font-size: 16px !important;
+}
+.alertLightboxInner_csao_mt{
+	padding-top: 1px;
+	padding-left: 117px;
+	background: url("icon-info-lrg.png") no-repeat left top;
+}
+.keyTablecommon01{
+	width:257px;
+} 
+.ursula .lightbox .innerPage.secure .reverse_apply3 {
+	border-right: 1px solid #d8d8d8;
+	padding-right: 20px;
+	height: 280px;
+}
+
+.ursula .lightbox .innerPage.secure .reverse_apply2 {
+	margin: 0;
+	border-left: 0;
+	border-right: 0;
+	padding: 0 20px;
+}
+.ursula .lightbox .innerPage.secure .reverse_apply1 {
+	padding-left: 20px;
+	border-left: 1px solid #d8d8d8;
+	height: 280px;
+}
