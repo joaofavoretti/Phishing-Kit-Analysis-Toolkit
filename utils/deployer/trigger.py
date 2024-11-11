@@ -11,8 +11,8 @@ import time
 import csv
 import os
 
-FOLDER_ID = '1FYXlL140IwlPXmtJvv9gKBvp_ljADzBX'
-FOLDER_PATH = '/ITA/Mestrado/Crawled Data/Phishing Kit Data/Phishunt'
+FOLDER_ID = '1xvxErMwqxhk1twSPfA1wNWhY3Vhn6bVu'
+FOLDER_PATH = '/ITA/Mestrado/Crawled Data/Phishing Kit Data/Benign'
 DriveSync = GDriveSync(FOLDER_ID, FOLDER_PATH)
 
 class Trigger:
@@ -34,7 +34,7 @@ class Trigger:
         return port
 
     def _getRandomKit(self) -> str:
-        kits_dir = os.path.join(os.getcwd(), 'phishunt-kits')
+        kits_dir = os.path.join(os.getcwd(), 'kits')
         kits = Deployer.listAvailableKits(kits_dir)
         return random.choice(kits)
 
@@ -103,11 +103,11 @@ if __name__ == '__main__':
 
         print(f'[time.ctime()] Deploying batch {i+1}/{deployment_count}', end='             \r')
 
-        trigger.deployBatch()
-        trigger.exportDeployedUrls('urls.txt')
-        trigger.exportDeployedInfo('info.csv')
+        # trigger.deployBatch()
+        # trigger.exportDeployedUrls('urls.txt')
+        # trigger.exportDeployedInfo('info.csv')
         trigger.analise('urls.txt', './out')
-        trigger.stop()
+        # trigger.stop()
 
     print()
 
