@@ -13,6 +13,7 @@ import os
 DEFAULT_DIRECTORIES = [
     '/archive/files/phishunt-phishing-kits/',
     '/home/joao/my/repos/zphisher/zphisher-phishing-kits/',
+    '/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/deployer/phishunt-kits/',
 ]
 
 class SearchDirectoryScreen(Screen):

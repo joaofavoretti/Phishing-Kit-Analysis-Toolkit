@@ -12,7 +12,7 @@ from textual.widgets.selection_list import Selection
 
 from phishing_kit_manager import PhishingKit, PhishingKitStateManager
 from deployer import Deployer
-from typing import List
+from typing import List, Dict
 import os
 
 class Browser(OptionList):
@@ -41,6 +41,32 @@ class Browser(OptionList):
 class NoDetails(Static):
     def compose(self) -> ComposeResult:
         yield Label("No details available")
+
+class PropertyDetails(Static):
+    DEFAULT_CSS = """
+        PropertyDetails {
+            margin-left: 4;
+        }
+
+        Label {
+            text-style: bold;
+        }
+    """
+
+    def __init__(self, properties: Dict):
+        super().__init__()
+        self.properties = properties
+
+    def compose(self) -> ComposeResult:
+        i = 0
+        for property, value in self.properties.items():
+            if isinstance(value, bool):
+                yield SelectionList[int](*[(property, i, value)])
+                i += 1
+            elif isinstance(value, dict):
+                yield Label()
+                yield Label(property)
+                yield PropertyDetails(value)
 
 class Details(Static):
     DEFAULT_CSS = """
@@ -73,11 +99,7 @@ class Details(Static):
 
     deployed:reactive[bool] = reactive(False, recompose=True)
 
-    properties:reactive[List[tuple]] = reactive([
-        ("Static Page", 0, False),
-        ("Client Side Redirection", 1, False),
-        ("Server Side Redirection", 2, False),
-    ], recompose=True)
+    properties: reactive[Dict] = reactive({}, recompose=True)
 
     def __init__(self, kitpath: str, stateManager:PhishingKitStateManager, **kwargs):
         super().__init__(**kwargs)
@@ -90,10 +112,7 @@ class Details(Static):
         self.url = self.stateManager.getURL(self.kit)
         self.deployed = self.stateManager.isDeployed(self.kit)
         _properties = self.stateManager.getProperties(self.kit)
-        self.properties = self._parseProperties(_properties)
-
-    def _parseProperties(self, properties):
-        return [(property.replace('_', ' '), i, value) for i, (property, value) in enumerate(properties.items())]
+        self.properties = _properties
 
     @on(Button.Pressed)
     def handleButtonPressed(self, event: Button.Pressed) -> None:
@@ -108,17 +127,10 @@ class Details(Static):
             self.url = self.stateManager.getURL(self.kit)
             self.deployed = self.stateManager.isDeployed(self.kit) 
 
-    @on(Input.Submitted)
-    def handleInputSubmitted(self, event: Input.Submitted) -> None:
-        new_property = event.value
-        self.stateManager.addProperty(new_property)
-        _properties = self.stateManager.getProperties(self.kit)
-        self.properties = self._parseProperties(_properties)
-
     @on(SelectionList.SelectionToggled)
     def handleSelectionToggled(self, event: SelectionList.SelectionToggled) -> None:
-        _property = self.properties[event.selection_index]
-        self.stateManager.toggleProperty(self.kit, _property[0])
+        _property_name = str(event.selection_list.get_option_at_index(event.selection_index).prompt)
+        self.stateManager.toggleProperty(self.kit, _property_name)
 
     def compose(self) -> ComposeResult:
         with Horizontal(classes="header"):
@@ -140,18 +152,21 @@ class Details(Static):
         yield Rule()
 
         if self.deployed:
-            with Horizontal():
-                yield Label("URL: ")
-                with Horizontal(classes="url"):
-                    yield Link(
-                        self.url,
-                        url=self.url,
-                    )
+            yield Label("URL: ")
+
+            for folder, link in self.url.items():
+                with Horizontal():
+                    yield Label(os.path.basename(folder))
+                    with Horizontal(classes="url"):
+                        yield Link(
+                            link,
+                            url=link,
+                        )
 
             yield Rule()
 
-        yield Input(placeholder="Enter new property")
-        yield SelectionList[int](*self.properties)
+        with VerticalScroll():
+            yield PropertyDetails(self.properties)
 
 class PhishingKitsScreen(Screen):
     CSS = """

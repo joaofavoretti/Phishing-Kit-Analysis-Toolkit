@@ -1,0 +1,67 @@
+{
+    "General": {
+        "Was Analyzed": false,
+        "Uses JavaScript Libraries": false,
+        "Has Own JavaScript": false,
+        "Is Deployable": false,
+        "Related to Microsoft Products": false,
+        "Uses IPFS": false,
+        "Uses CDN": false,
+        "403 Forbidden": false,
+        "500 Internal Server Error": false,
+        "302 Redirect to Other Domain": false
+    },
+    "Client Side Cloaking": {
+        "Different Types of Redirection": {
+            "window.location.href": false,
+            "window.open()": false,
+            "navigation.navigate()": false,
+            "window.location.replace()": false,
+            "window.location.assign()": false,
+            "form.submit()": false
+        },
+        "Bot Detection Fingerprinting + Redirection": {
+            "navigator.userAgent": false,
+            "navigator.platform": false,
+            "navigator.vendor": false,
+            "window.webdriver or navigator.webdriver": false,
+            "navigator.languages": false,
+            "navigator.plugins": false,
+            "navigator.mimeTypes": false,
+            "__phantomas, _phantom, __nightmare, __puppeteer": false,
+            "_selenium or _awesomium": false,
+            "mouse events: mousemove, mousedown, mouseup": false,
+            "pointer events: pointermove, pointerdown, pointerup": false
+        },
+        "VM Detection": {
+            "CPU Count": false,
+            "GPU Renderer": false,
+            "Device Memory: navigator.deviceMemory": false,
+            "Hardware Concurrency: navigator.hardwareConcurrency": false,
+            "Screen Resolution: screen.width, screen.height": false,
+            "Screen Color Depth: screen.colorDepth": false
+        },
+        "Bot Access Countermeasures": {
+            "Pop-up": false,
+            "Button to Procceed": false,
+            "Time Delay to Render": false,
+            "Captchas": false,
+            "Randomized Content": false
+        }
+    },
+    "Server Side Cloaking": {
+        "Cloaking with": {
+            ".htaccess": false,
+            "PHP Code": false
+        },
+        "Bot Detection Features": {
+            "Cookies": false,
+            "Referrer": false,
+            "User Agent": false
+        },
+        "Analyst Detection Features": {
+            "Request Repeatition Information": false,
+            "IP Information": false
+        }
+    }
+}
