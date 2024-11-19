@@ -5,9 +5,11 @@
         "Has Own JavaScript": false,
         "Is Deployable": false,
         "Related to Microsoft Products": false,
+        "MITM Phishing": false,
         "Uses IPFS": false,
         "Uses CDN": false,
         "403 Forbidden": false,
+        "404 Not Found": false,
         "500 Internal Server Error": false,
         "302 Redirect to Other Domain": false
     },
