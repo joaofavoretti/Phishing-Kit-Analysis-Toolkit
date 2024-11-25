@@ -79,7 +79,10 @@ class Deployer:
 
             Will return ['root/folder1', 'root/folder2', 'root/folder3/folderA']
         """
-        if all([os.path.isdir(os.path.join(rootDir, file)) for file in os.listdir(rootDir)]):
+        if not os.path.isdir(rootDir):
+            return []
+
+        if all([os.path.isdir(os.path.join(rootDir, file)) for file in os.listdir(rootDir) if not file.startswith('.')]):
             results = [self._getDeployableFolders(os.path.join(rootDir, file)) for file in os.listdir(rootDir)]
             return [item for sublist in results for item in sublist]
         
@@ -93,10 +96,10 @@ class Deployer:
         port = self._getFreePort(self.basePort)
 
         p = self.docker.run(
-            'php:8.2-apache',
+            'my-php-apache-image',
             detach=True,
             workdir='/home',
-            volumes=[(folder, '/var/www/html', 'ro'), (self.php_config, '/usr/local/etc/php', 'ro')],
+            volumes=[(folder, '/var/www/html', 'rw'), (self.php_config, '/usr/local/etc/php', 'ro')],
             publish=[(port, '80')],
         )
 
@@ -104,7 +107,14 @@ class Deployer:
 
         assert folder not in self.deployments, f"Well... I thought this would never occur"
 
-        self.deployments[folder] = {
+        self.docker.execute(p, ['chown', '-R', 'www-data:www-data', '/var/www/html'])
+
+        folder_name = folder
+        i = 1
+        while folder_name in self.deployments:
+            folder_name = f'{folder}_{i}'
+
+        self.deployments[folder_name] = {
             'p': p,
             'port': port,
             'addr': f'http://{self.addr}:{port}/'

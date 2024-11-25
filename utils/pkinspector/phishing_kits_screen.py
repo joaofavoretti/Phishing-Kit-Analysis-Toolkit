@@ -27,6 +27,7 @@ class Browser(OptionList):
         option_list = event.option_list
         option = option_list.get_option_at_index(index)
         kit = str(option.prompt)
+        kit = kit.split("|")[1]
         kitpath = os.path.join(self.directory, kit)
         self.post_message(self.Selected(kitpath))
 
@@ -36,6 +37,7 @@ class Browser(OptionList):
 
     def on_mount(self) -> None:
         kits = sorted(os.listdir(self.directory))
+        kits = [f'{i:03}|{kit}' for i, kit in enumerate(kits)]
         self.add_options(kits)
 
 class NoDetails(Static):
@@ -173,7 +175,7 @@ class PhishingKitsScreen(Screen):
         Browser {
             height: 1fr;
             dock: left;
-            width: 30;
+            width: 40;
         }
 
         NoDetails {
@@ -195,6 +197,10 @@ class PhishingKitsScreen(Screen):
         }
     """
 
+    BINDINGS = [
+        ("s", "save", "Save"),
+    ]
+
     kitpath:reactive[str|None] = reactive(None)
 
     def __init__(self, directory):
@@ -205,6 +211,10 @@ class PhishingKitsScreen(Screen):
     @on(Browser.Selected)
     def handleSelected(self, event: Browser.Selected) -> None:
         self.kitpath = event.kitpath
+
+    def action_save(self) -> None:
+        log.info("Saving kits")
+        self.stateManager.saveKits()
     
     async def watch_kitpath(self, kitpath: str|None) -> None:
         main = self.query_one("#main")
@@ -226,3 +236,4 @@ class PhishingKitsScreen(Screen):
             yield Browser(self.directory)
             yield NoDetails(id="main")
 
+        yield Footer()
