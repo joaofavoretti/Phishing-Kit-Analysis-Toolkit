@@ -13,6 +13,21 @@
         "500 Internal Server Error": false,
         "302 Redirect to Other Domain": false
     },
+    "Server Side Cloaking": {
+        "Cloaking with": {
+            ".htaccess": false,
+            "PHP Code": false
+        },
+        "Bot Detection Features": {
+            "Cookies": false,
+            "Referrer": false,
+            "User Agent": false
+        },
+        "Analyst Detection Features": {
+            "Request Repeatition Information": false,
+            "IP Information": false
+        }
+    },
     "Client Side Cloaking": {
         "Different Types of Redirection": {
             "window.location.href": false,
@@ -49,21 +64,6 @@
             "Time Delay to Render": false,
             "Captchas": false,
             "Randomized Content": false
-        }
-    },
-    "Server Side Cloaking": {
-        "Cloaking with": {
-            ".htaccess": false,
-            "PHP Code": false
-        },
-        "Bot Detection Features": {
-            "Cookies": false,
-            "Referrer": false,
-            "User Agent": false
-        },
-        "Analyst Detection Features": {
-            "Request Repeatition Information": false,
-            "IP Information": false
         }
     }
 }

@@ -8,7 +8,7 @@ import time
 import os
 
 class Deployer:
-    def __init__(self, kit:str, base_port:int = 8080, kits_dir:str = os.path.join(os.getcwd(), 'kits'), php_config:str = os.path.join(os.getcwd(), 'config/php')):
+    def __init__(self, kit:str, base_port:int = 8081, kits_dir:str = os.path.join(os.getcwd(), 'kits'), php_config:str = os.path.join(os.getcwd(), 'config/php')):
 
         self.kits_dir = kits_dir
         self.php_config = php_config
@@ -123,7 +123,7 @@ class Deployer:
     def deploy(self):
         self.docker = DockerClient()
 
-        for folder in self._getDeployableFolders(self.kitRootPath):
+        for folder in sorted(self._getDeployableFolders(self.kitRootPath)):
             self._deployFolder(folder)
 
     def getAddr(self) -> Dict[str,str]:

