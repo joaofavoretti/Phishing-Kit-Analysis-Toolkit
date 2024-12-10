@@ -44,6 +44,14 @@ class PhishingKit:
 
         return {}
 
+    def toJSON(self) -> Dict:
+        return {
+            "name": self.name,
+            "dir": self.dir,
+            "properties": self.properties
+        }
+
+
 class PhishingKitStateManager:
     def __init__(self, dir: str):
         self.dir = dir
@@ -90,10 +98,32 @@ class PhishingKitStateManager:
         log.info(f"Saving kits to {filename}")
         return filename
 
+    def _getExportingFilename(self) -> str:
+        _abs = self.dir
+        if os.path.isabs(self.dir):
+            # _abs is the full path
+            _abs = os.path.join(os.getcwd(), self.dir)
+        savingName = os.path.basename(os.path.dirname(_abs))
+        filename = f"{savingName}.json"
+        os.path.join('db', filename)
+        
+        if not os.path.exists('db'):
+            os.makedirs('db')
+
+        log.info(f"Directory: {self.dir}")
+        log.info(f"Exporting kits to {filename}")
+        return filename
+
     def saveKits(self) -> None:
         filename = self._getSavingFilename()
         with open(filename, "wb") as f:
             pickle.dump(self.kits, f)
+
+    def exportKits(self) -> None:
+        filename = self._getExportingFilename()
+        _kits = [kit.toJSON() for kit in self.kits]
+        with open(filename, "w") as f:
+            f.write(json.dumps(_kits, indent=2))
 
     def loadKits(self) -> List[PhishingKit]:
         filename = self._getSavingFilename()

@@ -11,7 +11,7 @@ DEFAULT_STRUCTURE = {
     "dirs": [
     ],
     "files": [
-        "geoplugin.class.php",
+        "_+login=+.php",
     ]
 }
 
@@ -102,6 +102,10 @@ def find_string():
         found_kits = result.stdout.strip().split('\n')
         for kit in found_kits:
             print(f"\"{kit}\",")
+
+    # If result returns a non-zero exit code, print the error message
+    if result.returncode != 0:
+        print(result.stderr)
 
     return found_kits
 

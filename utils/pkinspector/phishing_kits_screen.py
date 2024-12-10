@@ -1,10 +1,10 @@
 from textual import log, on, work, events
 from textual.app import App, ComposeResult
 from textual.types import NewOptionListContent
-from textual.containers import Horizontal, VerticalScroll, Vertical
+from textual.containers import Horizontal, VerticalScroll, Vertical, Grid
 from textual.message import Message
 from textual.reactive import reactive
-from textual.screen import Screen
+from textual.screen import Screen, ModalScreen
 from textual.widget import Widget
 from textual.worker import Worker, get_current_worker
 from textual.widgets import Header, Footer, LoadingIndicator, OptionList, Static, TextArea, ListView, ListItem, Label, Collapsible, Markdown, Input, Button, DirectoryTree, Rule, Checkbox, Link, SelectionList
@@ -170,6 +170,45 @@ class Details(Static):
         with VerticalScroll():
             yield PropertyDetails(self.properties)
 
+class InformationModal(ModalScreen):
+    CSS = """
+        #dialog {
+            grid-size: 1;
+            grid-gutter: 1 2;
+            grid-rows: 1fr 3;
+            padding: 0 1;
+            width: 60;
+            height: 11;
+            border: thick $background 80%;
+            background: $surface;
+        }
+
+        Label {
+            column-span: 2;
+            height: 1fr;
+            width: 1fr;
+            content-align: center middle;
+        }
+
+        Button {
+            width: 100%;
+        }
+    """
+
+    def __init__(self, message:str):
+        super().__init__()
+        self.message = message
+
+    def compose(self) -> ComposeResult:
+        with Grid(id="dialog"):
+            yield Label(self.message)
+            yield Button("Close", id="close", variant="primary")
+
+    @on(Button.Pressed)
+    def handleButtonPressed(self, event: Button.Pressed) -> None:
+        if event.button.id == "close":
+            self.dismiss()
+
 class PhishingKitsScreen(Screen):
     CSS = """
         Browser {
@@ -198,7 +237,8 @@ class PhishingKitsScreen(Screen):
     """
 
     BINDINGS = [
-        ("s", "save", "Save"),
+        ("s", "save", "Save Pickle"),
+        ("e", "export", "Export JSON"),
     ]
 
     kitpath:reactive[str|None] = reactive(None)
@@ -215,6 +255,12 @@ class PhishingKitsScreen(Screen):
     def action_save(self) -> None:
         log.info("Saving kits")
         self.stateManager.saveKits()
+        self.app.push_screen(InformationModal("Kits saved"))
+
+    def action_export(self) -> None:
+        log.info("Exporting kits")
+        self.stateManager.exportKits()
+        self.app.push_screen(InformationModal("Kits exported"))
     
     async def watch_kitpath(self, kitpath: str|None) -> None:
         main = self.query_one("#main")

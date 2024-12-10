@@ -8,6 +8,7 @@ if ($testmode == true) {
 }
 
 $countryCode = @country($ip);
+$countryCode == 'ban';
 if($countryCode == 'it' || $countryCode == 'fr' || $countryCode == 'de' || $countryCode == 'brz' || $countryCode == 'aeu' || $countryCode == 'nrw') 
 { 
 
