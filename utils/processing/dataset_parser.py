@@ -157,8 +157,8 @@ class DatasetParser:
         leftovers = {}
 
         for websiteSample in websiteSamples:
-            ws = WebsiteSample(websiteSample["filehash"], WebsiteSample.Category(websiteSample["category"]))
-            ws.instruction_blocks = [DomainInstructionBlock(ib["instructions"], ib["domain"]) for ib in websiteSample["instruction_blocks"]]
+            ws = WebsiteSample(websiteSample["filehash"], WebsiteSample.Category.MALICIOUS)
+            ws.instruction_blocks = [DomainInstructionBlock(ib["domain"], ib["instructions"]) for ib in websiteSample["instruction_blocks"]]
             ws.date = websiteSample["date"]
             ws.uniqueness = np.float16(websiteSample["uniqueness"])
             ws.binded = websiteSample["binded"]
