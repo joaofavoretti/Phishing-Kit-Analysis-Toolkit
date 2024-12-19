@@ -1,10 +1,6 @@
 import json
 
-FILE = './similarity_2.json'
-
-import json
-
-FILE = './similarity_2.json'
+FILE = './similarity_groups.json'
 
 def find(parent, sample):
     if parent[sample] != sample:
@@ -47,6 +43,7 @@ if __name__ == '__main__':
             groups[root] = []
         groups[root].append(sample)
 
-    groups = [sorted(group) for group in groups.values()]
+    groups = [sorted(group) for group in groups.values() if len(group) > 1]
+
     with open('groups.json', 'w') as f:
         json.dump(groups, f, indent=4)
