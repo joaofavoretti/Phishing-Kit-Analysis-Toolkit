@@ -2,3 +2,14 @@ InformationModal {
 	align: center middle;
 }
 
+Input#search {
+	width: 39;
+	margin-right: 0;
+}
+
+Button#clear {
+	margin-left: 0;
+	min-width: 5;
+	width: 5;
+}
+

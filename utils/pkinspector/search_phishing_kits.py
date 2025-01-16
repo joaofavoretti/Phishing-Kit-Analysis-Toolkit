@@ -11,7 +11,7 @@ DEFAULT_STRUCTURE = {
     "dirs": [
     ],
     "files": [
-        "_+login=+.php",
+        "CONTROLS.php",
     ]
 }
 

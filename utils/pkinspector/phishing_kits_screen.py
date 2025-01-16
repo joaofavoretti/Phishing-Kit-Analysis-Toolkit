@@ -1,7 +1,7 @@
 from textual import log, on, work, events
 from textual.app import App, ComposeResult
 from textual.types import NewOptionListContent
-from textual.containers import Horizontal, VerticalScroll, Vertical, Grid
+from textual.containers import Horizontal, VerticalScroll, Vertical, Grid, Container
 from textual.message import Message
 from textual.reactive import reactive
 from textual.screen import Screen, ModalScreen
@@ -10,16 +10,43 @@ from textual.worker import Worker, get_current_worker
 from textual.widgets import Header, Footer, LoadingIndicator, OptionList, Static, TextArea, ListView, ListItem, Label, Collapsible, Markdown, Input, Button, DirectoryTree, Rule, Checkbox, Link, SelectionList
 from textual.widgets.selection_list import Selection
 
-from phishing_kit_manager import PhishingKit, PhishingKitStateManager
+from phishing_kit_manager import PhishingKit, PhishingKitStateManager, NotificationData
 from deployer import Deployer
 from typing import List, Dict
 import os
 
-class Browser(OptionList):
+class Browser(Static):
+
+    kits: List[str] = []
+    filtered_kits: List[str] = []
+    deployed_kits: List[str] = []
+
     class Selected(Message):
         def __init__(self, kitpath: str):
             super().__init__()
             self.kitpath = kitpath
+
+    def __init__(self, directory: str, stateManager: PhishingKitStateManager) -> None:
+        super().__init__()
+        self.directory = directory
+        self.stateManager = stateManager
+        self.stateManager.subscribe(self.handleStateManagerChange())
+
+    def handleStateManagerChange(self):
+        def wrapper(data: NotificationData):
+            if data.type == NotificationData.DEPLOY:
+                kit_name = data.message
+                self.deployed_kits.append(kit_name)
+                self.deployed_kits = self.deployed_kits
+            elif data.type == NotificationData.STOP:
+                kit_name = data.message
+                self.deployed_kits.remove(kit_name)
+                self.deployed_kits = self.deployed_kits
+
+            query = self.query_one("Input").value
+            self.handleQuery(query) 
+
+        return wrapper
 
     @on(OptionList.OptionSelected)
     def handleSelected(self, event: OptionList.OptionSelected) -> None:
@@ -31,14 +58,47 @@ class Browser(OptionList):
         kitpath = os.path.join(self.directory, kit)
         self.post_message(self.Selected(kitpath))
 
-    def __init__(self, directory: str) -> None:
-        super().__init__()
-        self.directory = directory
+    @on(Button.Pressed)
+    def handleButtonPressed(self, event: Button.Pressed) -> None:
+        if event.button.id == "clear":
+            self.query_one("Input").value = ""
+            self.handleQuery("")
+    
+    def handleQuery(self, query):
+        if query == "<On>":
+            self.filtered_kits = [kit for kit in self.kits if kit.split('|')[1] in self.deployed_kits]
+            self.refresh_option_list()
+            return
+
+        self.filtered_kits = [kit for kit in self.kits if query.lower() in kit.lower()]
+        self.refresh_option_list()
+
+    def key_enter(self) -> None:
+        query = self.query_one("Input").value
+        self.handleQuery(query) 
 
     def on_mount(self) -> None:
         kits = sorted(os.listdir(self.directory))
         kits = [f'{i:03}|{kit}' for i, kit in enumerate(kits)]
-        self.add_options(kits)
+        self.kits = kits
+        self.filtered_kits = kits
+        self.refresh_option_list()
+
+    def refresh_option_list(self) -> None:
+        def is_deployed(kit):
+            return kit.split("|")[1] in self.deployed_kits
+
+        formated_kits = [f'(On) {kit}' if is_deployed(kit) else kit for kit in self.filtered_kits]
+        self.query_one("OptionList").remove()
+        self.query_one("Container").mount(OptionList(*formated_kits))
+
+    def compose(self) -> ComposeResult:
+        with Horizontal():
+            yield Input(placeholder="Search kits (<On> for deployed)", id="search")
+            yield Button("X", id="clear", variant="error")
+        with Container(id="kits-list-container"):
+            yield OptionList(*self.filtered_kits, id="kits-list")
+
 
 class NoDetails(Static):
     def compose(self) -> ComposeResult:
@@ -214,7 +274,7 @@ class PhishingKitsScreen(Screen):
         Browser {
             height: 1fr;
             dock: left;
-            width: 40;
+            width: 45;
         }
 
         NoDetails {
@@ -279,7 +339,7 @@ class PhishingKitsScreen(Screen):
 
     def compose(self) -> ComposeResult:
         with Horizontal():
-            yield Browser(self.directory)
+            yield Browser(self.directory, self.stateManager)
             yield NoDetails(id="main")
 
         yield Footer()

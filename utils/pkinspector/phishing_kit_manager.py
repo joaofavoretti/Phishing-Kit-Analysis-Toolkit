@@ -1,5 +1,5 @@
 from textual import log
-from typing import List, Dict
+from typing import List, Dict, Callable
 from deployer import Deployer
 import pickle
 import json
@@ -9,6 +9,14 @@ DEFAULT_PROPERTIES_FILE = 'default_properties.json'
 
 KitName = str
 Properties = Dict
+
+class NotificationData:
+    DEPLOY = "deploy"
+    STOP = "stop"
+
+    def __init__(self, type, message):
+        self.type = type
+        self.message = message
 
 class PhishingKit:
     def __init__(self, name:KitName, dir:str, properties:Properties):
@@ -55,12 +63,21 @@ class PhishingKit:
 class PhishingKitStateManager:
     def __init__(self, dir: str):
         self.dir = dir
+        self.listeners:List[Callable] = []
 
         self.kits:List[PhishingKit] = self.loadKits()
         for kit in self.kits:
             kit.deployer = None
 
         # self.verifyKits(self.kit , self.currentProperties)
+
+    def subscribe(self, handler) -> None:
+        self.listeners.append(handler)
+
+    def notify(self, data) -> None:
+        log.info("Notifying listeners")
+        for listenerHandler in self.listeners:
+            listenerHandler(data)
 
     def _loadCurrentProperties(self) -> Dict:
         with open(DEFAULT_PROPERTIES_FILE, 'r') as f:
@@ -154,6 +171,7 @@ class PhishingKitStateManager:
 
         if not kit.isDeployed():
             kit.deploy()
+            self.notify(NotificationData(NotificationData.DEPLOY, name))
 
     def isDeployed(self, name:KitName) -> bool:
         kit = self._getPhishingKit(name)
@@ -167,6 +185,7 @@ class PhishingKitStateManager:
         
         if kit.isDeployed():
             kit.stop()
+            self.notify(NotificationData(NotificationData.STOP, name))
 
     def stopAll(self) -> None:
         for kit in self.kits:
