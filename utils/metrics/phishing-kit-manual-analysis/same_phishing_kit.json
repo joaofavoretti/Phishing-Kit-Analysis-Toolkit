@@ -1,0 +1,482 @@
+[
+    {
+        "description": "Amazon. XBALTI mazon letter project",
+        "kits": [
+            "2020_05_3324279b62ae4021",
+            "2020_06_23aa8bf035b943d5",
+            "2020_07_3297e8aab70f9009",
+            "2020_07_8dbb96a2bd9c97ec",
+            "2020_07_b8ca580e61e13104",
+            "2020_08_3bed6f729f89c932",
+            "2020_08_5555b0d0de8536b8",
+            "2020_10_e87623720117e2f9",
+            "2020_11_b2f517b092a7e463",
+            "2020_12_068f6d7850c35d7d",
+            "2021_01_e84b98cfb261f590",
+            "2021_02_d6a7cb82416b61a3",
+            "2021_09_6877fc4ba6306a7a",
+            "2021_12_c2823e3a5a98b3ef",
+            "2022_01_206adc591da20f17",
+            "2022_01_58ce2f9a339af60a",
+            "2022_01_823b69dd2431c15b",
+            "2022_01_e46999f129316df5",
+            "2022_01_eb26847b73040570",
+            "2022_05_faba3136fe97d045",
+            "2022_06_2c371628ea8d83bf",
+            "2022_07_3003487de9b69ec0",
+            "2022_07_eb35830667ed7c34",
+            "2022_08_f835767a856543cb"
+        ]
+    },
+    {
+        "despcription": "Chase. home inline.php index.php proxy.php",
+        "kits": [
+            "2021_11_efbc3cc1615eeecd"
+        ]
+    },
+    {
+        "despcription": "Wells Fargo. Version 1. need1 need2 need3 need4 [need11]",
+        "kits": [
+            "2020_05_059fcc31cf099017",
+            "2020_06_ac81579d5d83acf0",
+            "2020_06_cbcbb666feaef642",
+            "2020_06_dc0cf7b2af29911f",
+            "2020_07_dacb8927a94f0586",
+            "2020_10_a33c81f28f1e9172",
+            "2021_01_b101dde14d07844d",
+            "2021_02_7585dd4d8186c912"
+        ]
+    },
+    {
+        "despcription": "Wells Fargo. Version 2. next1 next2 logger get_ip",
+        "kits": [
+            "2022_05_b1b2b9d59c1731cd"
+        ]
+    },
+    {
+        "despcription": "Wells Fargo. card.php logon.php logon2.php",
+        "kits": [
+            "2020_11_a0c66c96c1335b37"
+        ]
+    },
+    {
+        "despcription": "Wells Fargo. anti-admin geoplugin.class.php grabber.php sserrem.php sys00mi1.php",
+        "kits": [
+            "2021_09_78bce396347f4fd3"
+        ]
+    },
+    {
+        "despcription": "Wells Fargo. Sign On to View Your Accounts. wells_fargo admin.php adminpanel.php index.php",
+        "kits": [
+            "2020_10_9827d4ec33c383d8"
+        ]
+    },
+    {
+        "description:": "Office 365. Login.  i.php, results.txt",
+        "kits": [
+            "2020_05_10f6e8632a65e299",
+            "2021_01_a072433af5feffce",
+            "2021_03_efb46f5f6ce55476"
+        ]
+    },
+    {
+        "description": "Office 365. Sign In Select your email provider. Office365.php eror.php",
+        "kits": [
+            "2021_01_c1fb3038ddb8ceef",
+            "2021_04_21e3c47735511f7b",
+            "2021_04_751db6e5b4b2d692",
+            "2021_09_ac097afc71bdc97b"
+        ]
+    },
+    {
+        "description": "Bank of America. next1 next2 next3",
+        "kits": [
+            "2020_05_c682d75d0dce55a8",
+            "2020_06_1321a28cb2bfe9e9",
+            "2020_06_382263df0c36c320",
+            "2020_06_cc448cccb5e88a48",
+            "2020_08_285cbf3dd15dd660",
+            "2020_08_403d9c4eabb535b9"
+        ]
+    },
+    {
+        "description": "Bank of America. blocker.php delete.php index.php",
+        "kits": [
+            "2021_03_6e2ffa70878c9949"
+        ]
+    },
+    {
+        "description": "Bank of America. antirobot.php antispider.php blocker.php bt.php",
+        "kits": [
+            "2020_07_779953acf92ee620",
+            "2020_08_e7c591aad221f08c"
+        ]
+    },
+    {
+        "description": "Bank of America. admin assets core logs auth.php email.php index.php invalid.php login.php login1.php",
+        "kits": [
+            "2022_06_bd05224ce1f59111"
+        ]
+    },
+    {
+        "description": "Netflix. need1 need2 need3",
+        "kits": [
+            "2020_09_8f999ced04388242"
+        ]
+    },
+    {
+        "description": "Netflix. anti app netflixcode.php",
+        "kits": [
+            "2023_03_0ae6e47cbb9dc355"
+        ]
+    },
+    {
+        "description": "Netflix. Captcha. bots page_settings index.php load.php",
+        "kits": [
+            "2024_01_71e90484df1ccad6"
+        ]
+    },
+    {
+        "description": "Netflix. actions assets prevents config.php index.php",
+        "kits": [
+            "2023_07_9c0574f89e35f2bd",
+            "2023_08_0c2b9cb984faf028",
+            "2023_08_d2ce3038e827c97e",
+            "2023_08_d9f4904b39e29bb0",
+            "2023_08_ef9e6f40a4e0a378"
+        ]
+    },
+    {
+        "description": "Daum. Chinese Page",
+        "kits": [
+            "2021_12_aeff9f19ee1fa123"
+        ]
+    },
+    {
+        "description": "Paypal. egg1 egg2 egg3",
+        "kits": [
+            "2020_08_6ef882643f166c6d",
+            "2020_08_784bce52ad980906"
+        ]
+    },
+    {
+        "description": "Paypal. loading-cc.php loading-sms.php",
+        "kits": [
+            "2022_01_e670d15004918a08",
+            "2022_04_4ffbc6fe919735c9"
+        ]
+    },
+    {
+        "description": "Paypal. new index.php ips.html log.txt",
+        "kits": [
+            "2020_07_6d2760c5169cfcf1",
+            "2021_04_f2d195ad6731a4d8"
+        ]
+    },
+    {
+        "description": "Paypal. doci.php pr001.php pr002.php pr003.php",
+        "kits": [
+            "2021_04_24ac1d3079a48ad5"
+        ]
+    },
+    {
+        "description": "Google Docs. To view your document, select your email provider. gmail.php phone.php verification.php",
+        "kits": [
+            "2020_05_4c276b1fa10cb103",
+            "2021_11_1d2652e7a3d1932e",
+            "2022_01_34429bb3ab50f1ea",
+            "2022_01_569156b45e4a2843"
+        ]
+    },
+    {
+        "despcription": "OneDrive. Verify Your Identity. files imgs charge.php index.php",
+        "kits": [
+            "2021_01_1fb3eb4932dbd0a0"
+        ]
+    },
+    {
+        "despcription": "OneDrive. Verify Your Identity. antibot.php email.php index.php next.php",
+        "kits": [
+            "2022_08_07e7e73db3107040"
+        ]
+    },
+    {
+        "despcription": "OneDrive. Verify Your Identity. 1bebo.php 1sera.php buss.html",
+        "kits": [
+            "2023_10_16ceb489e574d767"
+        ]
+    },
+    {
+        "description": "OneDrive. OneDrive for Business. This document is secure, please login",
+        "kits": [
+            "2020_06_252013e1d957b1bf"
+        ]
+    },
+    {
+        "description": "OneDrive. Version 1. To read the document, please choose your. aol.php microsoft.php office.php",
+        "kits": [
+            "2020_05_52ac7ee30fe637e9",
+            "2020_05_f2c5d15d4b8c522d",
+            "2020_06_85849dd9a935354b",
+            "2021_01_4aba59b617815fc0",
+            "2021_01_f36386a8d18eb0dc",
+            "2021_03_87b059850a929e3c",
+            "2022_01_e0fc39b803a0e98d",
+            "2022_02_bb595af156336a5d",
+            "2023_03_08b384b097bb8409",
+            "2023_03_6df773ac97650484"
+        ]
+    },
+    {
+        "description": "OneDrive. Version 2. Login with Office 365. login-option.php",
+        "kits": [
+            "2020_06_167c5572e0c71ae0",
+            "2020_07_41e4c9f1160f89ee"
+        ]
+    },
+    {
+        "description": "Microsoft. One Drive dashboard listen to voicemail. block_detectors.php scss",
+        "kits": [
+            "2021_06_2e154d811b06b495"
+        ]
+    },
+    {
+        "description": "Microsoft. Login. class.phpmailer.php ppsecure.php process.php",
+        "kits": [
+            "2020_08_98bb55feb7acf3ba"
+        ]
+    },
+    {
+        "description": "Microsoft. Login. connectidl.php",
+        "kits": [
+            "2022_01_addf5aaba143740c"
+        ]
+    },
+    {
+        "description": "Microsoft. Login. asset hello.php index.php",
+        "kits": [
+            "2020_05_a0b84ba54601e2b3",
+            "2021_01_a4fb5d9d3eb9ce3c",
+            "2021_01_fb5017ac87ae9caf"
+        ]
+    },
+    {
+        "description": "Microsoft. Login. success password.php",
+        "kits": [
+            "2020_05_a68337133d599355",
+            "2020_07_afecad4ade2eb677"
+        ]
+    },
+    {
+        "description": "Microsoft. Login. images prevents email.php index.html next.php",
+        "kits": [
+            "2023_04_8297f3ef17a0757c"
+        ]
+    },
+    {
+        "description": "Microsoft. Login. login_files addhere.php",
+        "kits": [
+            "2023_05_44290d1707b9194a"
+        ]
+    },
+    {
+        "description": "Microsoft. Login. Fail.php Finish.php Login.php Password.php CONTROLS.php",
+        "kits": [
+            "2020_10_fdf281e9738b4049"
+        ]
+    },
+    {
+        "description": "Microsoft. FUNC Home Home_confirmation Next blocker.php index.php",
+        "kits": [
+            "2022_01_75c4ae3266ba8766"
+        ]
+    },
+    {
+        "description": "Microsoft. You signed out of your account, please login again. index.php login.php",
+        "kits": [
+            "2020_07_13ac31a2a698139c",
+            "2020_08_6641ab0234ce288b",
+            "2020_12_9dc5caba5a6d952c"
+        ]
+    },
+    {
+        "description": "Microsoft. Welcome to Office. anti-bots.php index.php index2.php index3.php index4.php send.php send2.php send3.php",
+        "kits": [
+            "2021_08_162b5b2b676c7410"
+        ]
+    },
+    {
+        "description": "Dropbox. Select your email provider. Validation folder",
+        "kits": [
+            "2020_05_eb79f7c5e16fdddc"
+        ]
+    },
+    {
+        "description": "Dropbox. Version 1. You can now sign in to dropbox with your email. css img index.php phone.php remail.php",
+        "kits": [
+            "2020_05_3d61bea5469927c4"
+        ]
+    },
+    {
+        "description": "Dropbox. Version 2. You can now sign in to dropbox with your email. css img go.php index.php phone.php",
+        "kits": [
+            "2023_01_92217a5141a91480"
+        ]
+    },
+    {
+        "description": "Dropbox. To view the shared document, you are required to Login. ssl finish.php gen_validatorv4.js",
+        "kits": [
+            "2020_05_89d60b6cd18c531f",
+            "2020_07_454d7979022ee60b"
+        ]
+    },
+    {
+        "description": "Dropbox. Put your creative energy to work. Gmail index_files files.php index.html",
+        "kits": [
+            "2020_06_4bd37c36f8eb512e"
+        ]
+    },
+    {
+        "description": "Dropbox. Sign in your email. Drop_files",
+        "kits": [
+            "2023_01_48b7f6729e1bf9d7",
+            "2023_03_380f6ea20aa05348",
+            "2023_04_cc51dc41cfb3f4c4"
+        ]
+    },
+    {
+        "description": "Dropbox. Sign in your email. ab.php antibots1.php antibots2.php",
+        "kits": [
+            "2020_05_d99f57f2660aee42"
+        ]
+    },
+    {
+        "description": "Dropbox. Select your email provider. AOL.html finish.php GMA-VALIDATE.html GMA.html",
+        "kits": [
+            "2021_02_821ed20aa859cd00"
+        ]
+    },
+    {
+        "description": "Dropbox. The shared document is secured, login required. site blocker.php delete.php index.php",
+        "kits": [
+            "2021_03_a1e16b324057e686"
+        ]
+    },
+    {
+        "description": "Dropbox. Now, you can sign in to dropbox with your email. asset index.html process.php",
+        "kits": [
+            "2021_08_f8cb0efe741afafb"
+        ]
+    },
+    {
+        "description": "Dropbox. The shared document is secured, login required. asset index.php process.php",
+        "kits": [
+            "2022_03_04e6ff441e6f67ae"
+        ]
+    },
+    {
+        "description": "Linkedin. Login Welcome Back. block_detectors.php hello.php",
+        "kits": [
+            "2020_06_04f219f01a9b61e0",
+            "2020_06_b95913e5c8cb8447",
+            "2020_10_d05b1835a23020e6",
+            "2020_10_fd6d936277132493",
+            "2020_11_8fd10cd2a2ab47a5",
+            "2020_12_0c1b57dc26e9bd2f",
+            "2020_12_6b105284cc479cec",
+            "2021_01_63be8cdf62037a7f",
+            "2021_01_9a83143fab7baefe",
+            "2021_03_4962fb6b7d2c7988",
+            "2021_04_37af47b717f88920",
+            "2021_04_d6843fa9154a3582",
+            "2021_06_8d2b986bbf7b41af",
+            "2021_06_965c6bd7e58cd783",
+            "2021_06_ec84b4cb3150012b",
+            "2021_07_5f52515243ea501e",
+            "2021_09_fb530340cb9f6818",
+            "2022_02_abc12057445ddbdc",
+            "2022_06_4edeb38c6b756de9"
+        ]
+    },
+    {
+        "description": "Linkedin. Logoless page. log SignIn. browser.php index.php os.php",
+        "kits": [
+            "2020_07_28785cbf1b101c26",
+            "2021_03_52eadd2316e069ff"
+        ]
+    },
+    {
+        "description": "Linkedin. Logoless page. index.html index2.html login.php login2.php",
+        "kits": [
+            "2020_10_f42d945ad5476791"
+        ]
+    },
+    {
+        "description": "Linkedin. Logoless page. Email_error.htm finish.htm index.php linkd.php linked.php",
+        "kits": [
+            "2020_07_5bec83dee9da8dd8",
+            "2020_07_5e00f60acf79eb97",
+            "2021_07_1ac90ab078976440"
+        ]
+    },
+    {
+        "description": "Itau. ~ robots.txt",
+        "kits": [
+            "2020_06_4d85394b45424499",
+            "2020_07_3e497ce89d11ed1d"
+        ]
+    },
+    {
+        "description": "Santander. Version 1. authorize_country.php",
+        "kits": [
+            "2020_07_8d9b2121b9547d7d"
+        ]
+    },
+    {
+        "description": "Santander. Version 2. authorize_country.php",
+        "kits": [
+            "2022_05_e6dfdf7a08852202",
+            "2022_06_a77b432a218079e6"
+        ]
+    },
+    {
+        "description": "USPS.com. index.php index2.php index3.php index4.php index5.php",
+        "kits": [
+            "2022_02_39db16b60c67c5ef"
+        ]
+    },
+    {
+        "description": "Correos. cors index.php",
+        "kits": [
+            "2024_04_3f1aa0f647df6628"
+        ]
+    },
+    {
+        "description": "Box. CONTROLS.php Other.php Yahoo.php Finish.php",
+        "kits": [
+            "2020_06_9642b8b5ff1af09a"
+        ]
+    },
+    {
+        "description": "Gov.uk . app index.php inline.php",
+        "kits": [
+            "2020_10_c763ac0c307704d1"
+        ]
+    },
+    {
+        "description": "Scotiabank. files includes CONTROLS.php login.php next.php processing.php",
+        "kits": [
+            "2024_02_c6126f4b433122b8"
+        ]
+    },
+    {
+        "description": "Yahoo. Login. images index.php login.php result.php thankyou.html",
+        "kits": [
+            "2021_06_08e5bf1eabe9c4ba"
+        ]
+    },
+    {
+        "description": "",
+        "kits": []
+    }
+]

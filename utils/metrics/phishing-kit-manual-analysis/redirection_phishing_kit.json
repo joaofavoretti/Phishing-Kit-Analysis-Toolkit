@@ -1,0 +1,43 @@
+[
+    {
+        "link": "mediapart.fr",
+        "kits": [
+            "2022_11_b745e52493cd5357",
+            "2022_12_bbd4ae2ff2f38f45"
+        ]
+    },
+    {
+        "link": "www.bancosantander.es/aviso-legal",
+        "kits": [
+            "2020_12_9cc3f47ca084e2d6"
+        ]
+    },
+    {
+        "link": "2m.ma/ar",
+        "kits": [
+            "2021_04_e15390795bca3287",
+            "2022_02_186170b13e031f8f",
+            "2022_04_a2c2864e0e9feac1"
+        ]
+    },
+    {
+        "link": "3m.ma/ar",
+        "kits": [
+            "2022_07_63f1ed349a156798",
+            "2022_07_9de43fa59119b37a",
+            "2022_07_dae723abe83143e6",
+        ]
+    },
+    {
+        "link": "guiminer.co.technology",
+        "kits": [
+            "2021_10_485ac4d0e5d05b3f"
+        ]
+    },
+    {
+        "link": "Random",
+        "kits": [
+            "2021_08_ce44d988816a143d"
+        ]
+    }
+]
