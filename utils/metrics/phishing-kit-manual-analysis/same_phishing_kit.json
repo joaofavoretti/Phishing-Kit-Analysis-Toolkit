@@ -72,6 +72,14 @@
         ]
     },
     {
+        "despcription": "Wells Fargo. Sign On to View Your Accounts. style system _+loin=+.php Myaccount.php",
+        "kits": [
+            "2023_09_4c94383a22667d02",
+            "2023_09_4e08e9df66d4a9e2",
+            "2023_10_45cf09569acd6020"
+        ]
+    },
+    {
         "description:": "Office 365. Login.  i.php, results.txt",
         "kits": [
             "2020_05_10f6e8632a65e299",
@@ -86,6 +94,21 @@
             "2021_04_21e3c47735511f7b",
             "2021_04_751db6e5b4b2d692",
             "2021_09_ac097afc71bdc97b"
+        ]
+    },
+    {
+        "description": "Office 365. Select your email provider. css images video email.php index.html",
+        "kits": [
+            "2021_01_c1fb3038ddb8ceef",
+            "2021_04_21e3c47735511f7b",
+            "2021_04_751db6e5b4b2d692",
+            "2021_09_ac097afc71bdc97b"
+        ]
+    },
+    {
+        "description": "Office 365. Account_Invoice.pdf. acessal acessgm accessms email.php index.html next.php",
+        "kits": [
+            "2021_11_0080a612686f4e2f",
         ]
     },
     {
@@ -119,6 +142,18 @@
         ]
     },
     {
+        "description": "Bank of America. files images att.php atts.php challengevdl.php signOnV2Screen.php",
+        "kits": [
+            "2020_08_36c6a29674187242"
+        ]
+    },
+    {
+        "description": "Bank of America. home blocker.php index.php",
+        "kits": [
+            "2020_08_ed12fb8b4a380280"
+        ]
+    },
+    {
         "description": "Netflix. need1 need2 need3",
         "kits": [
             "2020_09_8f999ced04388242"
@@ -144,6 +179,12 @@
             "2023_08_d2ce3038e827c97e",
             "2023_08_d9f4904b39e29bb0",
             "2023_08_ef9e6f40a4e0a378"
+        ]
+    },
+    {
+        "description": "Netflix. Login blocker.php delete.php index.php",
+        "kits": [
+            "2021_03_7e8666f9f442b26f"
         ]
     },
     {
@@ -306,6 +347,83 @@
         ]
     },
     {
+        "description": "Microsoft. Login. common index.php mail.php",
+        "kits": [
+            "2020_10_1dba2c8fed60a6b8",
+            "2020_10_68bea4ca1e222e05"
+        ]
+    },
+    {
+        "description": "Microsoft. OneDrive Dashboard. css images index.php next-gmail.php next.php",
+        "kits": [
+            "2020_12_33b98e5ac86be619",
+        ]
+    },
+    {
+        "description": "Microsoft. Login Logoless. images email.php index.html next.php",
+        "kits": [
+            "2021_06_97b17cc917409949",
+            "2021_07_f2863a7e449daa18",
+            "2021_09_df7af9a9de14a13b",
+        ]
+    },
+    {
+        "description": "Microsoft. Login. images email.php index.html next.php",
+        "kits": [
+            "2021_08_92bad45b3d1a7c97",
+            "2021_08_9a596a76cf1c5f95",
+            "2021_12_c251a5c0ad4757e2",
+            "2022_01_81f4329e7d66e2fa",
+        ]
+    },
+    {
+        "description": "Microsoft. Login. css images 1.html index.php next.php",
+        "kits": [
+            "2021_07_73b17cc1582eaac0",
+            "2021_08_c953ba0498af6043",
+        ]
+    },
+    {
+        "description": "Microsoft. Login. index.html next.php",
+        "kits": [
+            "2021_09_8881e6d6064ff0df",
+        ]
+    },
+    {
+        "description": "Microsoft. Login. email.php index.php next.php",
+        "kits": [
+            "2021_11_69857a204e6764e4",
+        ]
+    },
+    {
+        "description": "Microsoft. Because your accessing sensitive info you need to verify your Account. css images email.php index.html next.php",
+        "kits": [
+            "2021_08_57ac8f8c2167febf",
+            "2021_12_265f56e6c6b9980b",
+            "2021_12_be1b325d0e9113e4",
+        ]
+    },
+    {
+        "description": "Microsoft. Blured Background Word Document. css images email.php index.html next.php [.error.htm]",
+        "kits": [
+            "2022_01_07d6ca4a46da6689",
+            "2022_01_1e367dd6d01c9e59",
+            "2022_01_53f13dc976aac7fe",
+            "2022_01_626ccafb81e6b8e8",
+            "2022_01_7b0451015c4d190f",
+            "2022_01_b02b63cec4319d13",
+            "2022_01_e05c348252577e3a",
+            "2022_01_e429022537bae017",
+            "2022_02_6b379ebe8c65486c",
+        ]
+    },
+    {
+        "description": "Outlook. Sorry, something went wrong. Click bellow to play the message. css images email.php index.html login.html next.php",
+        "kits": [
+            "2021_02_85f27d075802abd3",
+        ]
+    },
+    {
         "description": "Dropbox. Select your email provider. Validation folder",
         "kits": [
             "2020_05_eb79f7c5e16fdddc"
@@ -375,6 +493,12 @@
         ]
     },
     {
+        "description": "Dropbox. Now you can sign in to dropbox with your email. check_leave.php delete_function.php destroy_session.php",
+        "kits": [
+            "2022_01_73754b3f497f8642"
+        ]
+    },
+    {
         "description": "Linkedin. Login Welcome Back. block_detectors.php hello.php",
         "kits": [
             "2020_06_04f219f01a9b61e0",
@@ -396,6 +520,20 @@
             "2021_09_fb530340cb9f6818",
             "2022_02_abc12057445ddbdc",
             "2022_06_4edeb38c6b756de9"
+        ]
+    },
+    {
+        "description": "Linkedin. Login Welcome Back. css images email.php index.html next.php",
+        "kits": [
+            "2020_11_4797be2b58792a6f",
+            "2020_11_662f4f4c6420b242",
+        ]
+    },
+    {
+        "description": "Linkedin. Login Page. blocker.php delete.php index.php",
+        "kits": [
+            "2020_07_a5d10e46001963eb",
+            "2021_02_f946df1a8fc9650c"
         ]
     },
     {
@@ -470,13 +608,107 @@
         ]
     },
     {
-        "description": "Yahoo. Login. images index.php login.php result.php thankyou.html",
+        "description": "Yahoo. Login. Validation blocker.php index.php",
+        "kits": [
+            "2021_03_2f199c53b95dcbe2"
+        ]
+    },
+    {
+        "description": "Desjardins. images index.php login.php result.php thankyou.html",
         "kits": [
             "2021_06_08e5bf1eabe9c4ba"
         ]
     },
     {
-        "description": "",
-        "kits": []
+        "description": "HSBC UK. admin cgi-bin control.php country.php idv.Log.php idv.Logout.php",
+        "kits": [
+            "2020_10_23c728714bc5bf94",
+            "2021_02_171ede06251bfa7d",
+            "2021_02_3a66cd9976007fc0",
+            "2021_02_3cf6fe632887f900",
+            "2021_02_4ea6126d8d1310dc",
+            "2021_02_55530bee989525d6",
+            "2021_02_5f7a0bb2bf59cb11",
+            "2021_02_6f83410c5a33c4b9",
+            "2021_02_74fd37d54939f0ce",
+            "2021_02_a45d95b825654292",
+            "2021_02_dd84ef4dba6dea06",
+            "2021_03_57c7502c2bf28e4b",
+            "2021_03_b50c0f815b4b962f",
+            "2021_03_eb484f90974c161e"
+        ]
+    },
+    {
+        "description": "Facebook. email.php index.php",
+        "kits": [
+            "2020_10_8d6618681c771840",
+            "2020_12_58a39b7eee0709de",
+            "2023_03_62be4080faa2f719"
+        ]
+    },
+    {
+        "description": "Facebook. index.html x.php",
+        "kits": [
+            "2021_11_29464a0aeca3bfd0",
+            "2022_12_618609566e184322",
+            "2022_12_dc468af746d430a7"
+        ]
+    },
+    {
+        "description": "Facebook. css images email.php index.html next.php",
+        "kits": [
+            "2020_12_f340640dee70af08",
+        ]
+    },
+    {
+        "kits": [
+            "2022_02_6c68defc61fdc2fa",
+            "2022_02_ee72e80089e36d3a",
+            "2022_03_3af0876b54a75243",
+            "2022_04_03840cd8f06f5908",
+            "2022_04_3b491fbd7400126b",
+            "2022_04_518b5467bd42f3e7",
+            "2022_04_a85b2471c1b9cf8c",
+            "2022_05_885c892daae9a14c",
+            "2022_05_894af455f4ef6437",
+            "2022_06_1a54af952f85ba60",
+            "2022_06_cb51ae5fd2034798",
+            "2022_07_4e4a0fe6a20896a0",
+            "2022_08_0522a04ab02e4fb3",
+            "2022_08_34ac209786bf4bd1",
+            "2022_08_589953f682a97f22",
+            "2022_08_597bedd276cc6773",
+            "2022_08_a82e5cd920432d33",
+            "2022_08_bb38d72d777bcfbe",
+            "2022_08_bc6ad58acaf06c7a",
+            "2022_08_c3635bdc70a38d20",
+            "2022_08_e4d4d375738b9c02",
+            "2022_09_afd5ee0614d8ed81",
+            "2022_10_535c8e1ade23e461",
+            "2022_12_3a9c98d58f931971",
+            "2023_01_8eda71ba81807f2b",
+            "2023_02_07384eaf53e3f80d",
+            "2023_02_4b15c5635f24e6e3",
+            "2023_03_225ff4475bc2988e",
+            "2023_03_8eb0038b0d5d9b44",
+            "2023_03_9cea285f8fb41af0",
+            "2023_04_8297f3ef17a0757c",
+            "2023_04_f42a6353f56b7340",
+            "2023_05_a45bf766731031b3",
+            "2023_05_befd0553d8d69866",
+            "2023_05_da061ac812de3926",
+            "2023_06_e041993ade5fd3be",
+            "2023_06_f3fbf84e0c259791",
+            "2023_07_31a6c39dbcfec85b",
+            "2023_07_88aa64d01508fca6",
+            "2023_09_685d0c13aaa518e0",
+            "2024_02_93c629d8fe6e763d",
+            "2024_02_cdcde0f569edf7e5",
+            "2024_02_f8b2b14623698f2a",
+            "2024_04_2f6f9fdf1f10e3f3",
+            "2024_06_776a2e219b067b44",
+            "2024_07_0c369a69923d2001",
+            "2024_07_d20fd30919d2fe1d"
+        ]
     }
 ]
