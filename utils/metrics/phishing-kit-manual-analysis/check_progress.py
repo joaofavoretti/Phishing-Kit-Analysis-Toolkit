@@ -18,4 +18,4 @@ if __name__ == '__main__':
         for kit in entry["kits"]:
             processed_entries.add(kit)
 
-    print(f'Processed: {len(processed_entries)}/{len(total_entries)}')
+    print(f'Processed: {len(processed_entries)}/{len(total_entries)} ({len(total_entries) - len(processed_entries)} remaining)')

@@ -2,17 +2,25 @@ import json
 
 PROPS_FILE = '/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/pkinspector/phishunt-phishing-kits.json'
 INFO_FILE = 'similar_phishing_kits.json'
+ANOTHER_FILTER = 'same_phishing_kit.json'
 OUT_FILE = 'similar_phishing_kits_filtered.json'
 
 if __name__ == '__main__':
 
-    with open(PROPS_FILE, 'r') as props_f, open(INFO_FILE, 'r') as info_f:
+    with open(PROPS_FILE, 'r') as props_f, open(INFO_FILE, 'r') as info_f, open(ANOTHER_FILTER, 'r') as seen_f:
         props = json.load(props_f)
         info = json.load(info_f)
+        seen = json.load(seen_f)
 
     props_parsed = {}
     for prop in props:
         props_parsed[prop['name']] = prop["properties"]
+
+    seen_kits = set()
+    for entry in seen:
+        kits = entry['kits']
+        for kit in kits:
+            seen_kits.add(kit)
 
     out_info = {}
     i = 1
@@ -21,6 +29,10 @@ if __name__ == '__main__':
         kits_filtered = []
         for kit in kits:
             if kit not in props_parsed:
+                continue
+
+            # If you want a raw list, then comment the following two lines
+            if kit in seen_kits:
                 continue
 
             general = props_parsed[kit]['General']
