@@ -63,6 +63,9 @@ class Browser(Static):
         if event.button.id == "clear":
             self.query_one("Input").value = ""
             self.handleQuery("")
+        elif event.button.id == "online":
+            self.query_one("Input").value = "<On>"
+            self.handleQuery("<On>")
     
     def handleQuery(self, query):
         if query == "<On>":
@@ -95,6 +98,7 @@ class Browser(Static):
     def compose(self) -> ComposeResult:
         with Horizontal():
             yield Input(placeholder="Search kits (<On> for deployed)", id="search")
+            yield Button("⭘", id="online", variant="success")
             yield Button("X", id="clear", variant="error")
         with Container(id="kits-list-container"):
             yield OptionList(*self.filtered_kits, id="kits-list")

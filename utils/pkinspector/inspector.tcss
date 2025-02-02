@@ -3,12 +3,19 @@ InformationModal {
 }
 
 Input#search {
-	width: 39;
+	width: 33;
 	margin-right: 0;
 }
 
 Button#clear {
 	margin-left: 0;
+	min-width: 5;
+	width: 5;
+}
+
+Button#online {
+	margin-left: 0;
+	margin-right: 1;
 	min-width: 5;
 	width: 5;
 }
