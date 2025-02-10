@@ -22,15 +22,21 @@ def for_each_log_file(logs_dir, func, debug=True):
 
         orig_dir = os.getcwd()
         for i, log in enumerate(os.listdir(logs_dir)):
-            log_path = os.path.join(logs_dir)
+            log_path = os.path.join(logs_dir, log)
             if debug:
                 print(f"({i + 1}) Extracting {log_path}", end="                                               \r")
             os.chdir(logs_dir)
-            filehash = log[:-7] # To account for the .tar.gz extension
+            filename = log.split('.')[0]
 
             # Extract
             tmp_dir = mkdtemp()
-            os.system(f"tar -xzf {log} -C {tmp_dir}")
+
+            if log.endswith(".tar.gz"):
+                os.system(f"tar -xzf {log} -C {tmp_dir}")
+            elif log.endswith(".zip"):
+                os.system(f"unzip {log} -d {tmp_dir}")
+            else:
+                raise ValueError(f"Unknown file type {log}")
 
             filepaths = []
 
@@ -51,7 +57,7 @@ def for_each_log_file(logs_dir, func, debug=True):
                     filepath = os.path.join(root, file)
                     filepaths.append(filepath)
             if nof_logs > 1:
-                func(filepaths, filehash, *args, **kwargs)
+                func(filepaths, filename, *args, **kwargs)
 
             # Deconstruct
             shutil.rmtree(tmp_dir)
