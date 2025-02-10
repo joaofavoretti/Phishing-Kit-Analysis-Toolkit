@@ -53,13 +53,13 @@
         ]
     },
     {
-        "despcription": "Chase. home inline.php index.php proxy.php",
+        "description": "Chase. home inline.php index.php proxy.php",
         "kits": [
             "2021_11_efbc3cc1615eeecd"
         ]
     },
     {
-        "despcription": "Wells Fargo. Version 1. need1 need2 need3 need4 [need11]",
+        "description": "Wells Fargo. Version 1. need1 need2 need3 need4 [need11]",
         "kits": [
             "2020_05_059fcc31cf099017",
             "2020_06_ac81579d5d83acf0",
@@ -72,37 +72,37 @@
         ]
     },
     {
-        "despcription": "Wells Fargo. Version 2. next1 next2 logger get_ip",
+        "description": "Wells Fargo. Version 2. next1 next2 logger get_ip",
         "kits": [
             "2022_05_b1b2b9d59c1731cd"
         ]
     },
     {
-        "despcription": "Wells Fargo. card.php logon.php logon2.php",
+        "description": "Wells Fargo. card.php logon.php logon2.php",
         "kits": [
             "2020_11_a0c66c96c1335b37"
         ]
     },
     {
-        "despcription": "Wells Fargo. anti-admin geoplugin.class.php grabber.php sserrem.php sys00mi1.php",
+        "description": "Wells Fargo. anti-admin geoplugin.class.php grabber.php sserrem.php sys00mi1.php",
         "kits": [
             "2021_09_78bce396347f4fd3"
         ]
     },
     {
-        "despcription": "Wells Fargo. Sign On to View Your Accounts. wells_fargo admin.php adminpanel.php index.php",
+        "description": "Wells Fargo. Sign On to View Your Accounts. wells_fargo admin.php adminpanel.php index.php",
         "kits": [
             "2020_10_9827d4ec33c383d8"
         ]
     },
     {
-        "despcription": "Wells Fargo. Version 1. Sign On to View Your Accounts. style system index.php login.php Myaccount.php",
+        "description": "Wells Fargo. Version 1. Sign On to View Your Accounts. style system index.php login.php Myaccount.php",
         "kits": [
             "2021_10_eb4a457c1aef765e"
         ]
     },
     {
-        "despcription": "Wells Fargo. Version 2. Sign On to View Your Accounts. style system _+login=+.php Myaccount.php",
+        "description": "Wells Fargo. Version 2. Sign On to View Your Accounts. style system _+login=+.php Myaccount.php",
         "kits": [
             "2023_09_4c94383a22667d02",
             "2023_09_4e08e9df66d4a9e2",
@@ -110,26 +110,26 @@
         ]
     },
     {
-        "despcription": "Wells Fargo. Sign On to View Your Accounts. admin home index.php",
+        "description": "Wells Fargo. Sign On to View Your Accounts. admin home index.php",
         "kits": [
             "2021_01_c685a299368b8cf9"
         ]
     },
     {
-        "despcription": "Wells Fargo. View Your Accounts. css images detail.html em.html email.php index.html next.php",
+        "description": "Wells Fargo. View Your Accounts. css images detail.html em.html email.php index.html next.php",
         "kits": [
             "2022_04_518b5467bd42f3e7"
         ]
     },
     {
-        "despcription": "Wells Fargo. Login. do.php do2.php identity.php index.htm index.php verify.php",
+        "description": "Wells Fargo. Login. do.php do2.php identity.php index.htm index.php verify.php",
         "kits": [
             "2020_11_67cd835ce9ee5d68",
             "2021_11_e0f93d437360dbd8"
         ]
     },
     {
-        "despcription": "Wells Fargo. Security Issue. home session antibot.php index.php",
+        "description": "Wells Fargo. Security Issue. home session antibot.php index.php",
         "kits": [
             "2021_09_0ecd8a60d14c7e1a",
             "2021_09_50be8de56983756c",
@@ -138,7 +138,7 @@
         ]
     },
     {
-        "despcription": "Wells Fargo. Login. adminpanel results Update bt.php index.php",
+        "description": "Wells Fargo. Login. adminpanel results Update bt.php index.php",
         "kits": [
             "2021_12_2b485eeaab15306d"
         ]
@@ -408,32 +408,32 @@
         ]
     },
     {
-        "despcription": "Google Drive. To view Shared Docs, Your are required to sign in with... cgi-bin images index.html post.php",
+        "description": "Google Drive. To view Shared Docs, Your are required to sign in with... cgi-bin images index.html post.php",
         "kits": [
             "2020_11_8123daa77153359c",
             "2021_04_53ca52db75f8be63"
         ]
     },
     {
-        "despcription": "OneDrive. Verify Your Identity. files imgs charge.php index.php",
+        "description": "OneDrive. Verify Your Identity. files imgs charge.php index.php",
         "kits": [
             "2021_01_1fb3eb4932dbd0a0"
         ]
     },
     {
-        "despcription": "OneDrive. Verify Your Identity. antibot.php email.php index.php next.php",
+        "description": "OneDrive. Verify Your Identity. antibot.php email.php index.php next.php",
         "kits": [
             "2022_08_07e7e73db3107040"
         ]
     },
     {
-        "despcription": "OneDrive. Verify Your Identity. 1bebo.php 1sera.php buss.html",
+        "description": "OneDrive. Verify Your Identity. 1bebo.php 1sera.php buss.html",
         "kits": [
             "2023_10_16ceb489e574d767"
         ]
     },
     {
-        "despcription": "OneDrive. Verify Your Identity. 1.html 1.png email.php index.php next.php",
+        "description": "OneDrive. Verify Your Identity. 1.html 1.png email.php index.php next.php",
         "kits": [
             "2023_02_07384eaf53e3f80d",
             "2023_04_f42a6353f56b7340",
@@ -442,19 +442,19 @@
         ]
     },
     {
-        "despcription": "OneDrive. Verify Your Identity. cass images 1.html email.php index.php next.php MRKH.pdf",
+        "description": "OneDrive. Verify Your Identity. cass images 1.html email.php index.php next.php MRKH.pdf",
         "kits": [
             "2023_07_31a6c39dbcfec85b"
         ]
     },
     {
-        "despcription": "OneDrive. Verify Your Identity. 1.html email.php index.php next.php",
+        "description": "OneDrive. Verify Your Identity. 1.html email.php index.php next.php",
         "kits": [
             "2024_02_cdcde0f569edf7e5"
         ]
     },
     {
-        "despcription": "OneDrive. Verify Your Identity. css files img script indax.php index.php login2.php verification.php verificationAttempt.php",
+        "description": "OneDrive. Verify Your Identity. css files img script indax.php index.php login2.php verification.php verificationAttempt.php",
         "kits": [
             "2020_07_59376b11acc33cf2"
         ]
