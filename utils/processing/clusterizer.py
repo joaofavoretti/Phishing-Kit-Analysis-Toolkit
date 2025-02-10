@@ -65,6 +65,12 @@ class Clusterizer:
         Algorithm.OPTICS: "_optics_fit",
     }
 
+    ALGORITHM_PARAMETERS = {
+            Algorithm.DBSCAN: {
+                "eps": 0.5,
+            },
+    }
+
     class RepresentantStrategy(Enum):
         # The representant strategy will, for each sample, select a representant
         #  vector from the sample. The representant vector will be the vector
@@ -161,19 +167,71 @@ class Clusterizer:
         RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY: StrategyMetric.PRECOMPUTED
     }
 
+    REPRESENTANT_STRATEGY_PARAMETERS = {
+        RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY: {
+            "alpha": 0.3,
+            "dbscan_eps": 0.5,
+        }
+    }
+
     def __init__(self,
                  alg: Algorithm,
+                 algParameters: Dict,
                  mode: DatasetEmbedding.TransformMode,
                  strategy: RepresentantStrategy,
+                 strategyParameters: Dict,
                  ):
         
         assert isinstance(alg, Clusterizer.Algorithm), f"Expected {Clusterizer.Algorithm}, got {type(alg)}"
         assert isinstance(mode, DatasetEmbedding.TransformMode), f"Expected {DatasetEmbedding.TransformMode}, got {type(mode)}"
         assert isinstance(strategy, Clusterizer.RepresentantStrategy), f"Expected {Clusterizer.RepresentantStrategy}, got {type(strategy)}"
+        assert isinstance(algParameters, dict), f"Expected {dict}, got {type(algParameters)}"
+        assert isinstance(strategyParameters, dict), f"Expected {dict}, got {type(strategyParameters)}"
 
-        self.alg = alg
+        self.alg = alg 
+        self.algParameters = self._parseAlgorithmParameters(alg, algParameters)
+
         self.mode = mode
+
         self.strategy = strategy
+        self.strategyParameters = self._parseStrategyParameters(strategy, strategyParameters)
+
+    # TODO: Returning Dict is bothering me, I would like to set somethign with predefined parameters
+    def _parseAlgorithmParameters(self, alg: Algorithm, config: Dict) -> Dict:
+        ret:Dict = {}
+
+        if alg not in Clusterizer.ALGORITHM_PARAMETERS:
+            return ret
+
+        for key in Clusterizer.ALGORITHM_PARAMETERS[alg]:
+            ret[key] = Clusterizer.ALGORITHM_PARAMETERS[alg][key]
+
+            # Override it
+            if key in config:
+                ret[key] = config[key]
+
+        return ret
+
+    def _parseStrategyParameters(self, strategy: RepresentantStrategy, config: Dict) -> Dict:
+        ret:Dict = {}
+
+        if strategy not in Clusterizer.REPRESENTANT_STRATEGY_PARAMETERS:
+            return ret
+
+        for key in Clusterizer.REPRESENTANT_STRATEGY_PARAMETERS[strategy]:
+            ret[key] = Clusterizer.REPRESENTANT_STRATEGY_PARAMETERS[strategy][key]
+
+            # Override it
+            if key in config:
+                ret[key] = config[key]
+
+        return ret
+
+    def setStrategyParameters(self, strategy: RepresentantStrategy, config: Dict):
+        self.strategyParameters = self._parseStrategyParameters(strategy, config)
+
+    def setAlgorithmParameters(self, alg: Algorithm, config: Dict):
+        self.algParameters = self._parseAlgorithmParameters(alg, config)
    
     def _weighting_sigmoid_function(self, x: np.ndarray) -> np.ndarray:
         k = 10
@@ -211,7 +269,7 @@ class Clusterizer:
         """Calculate the exponential decay weight for a given position."""
         return np.float16(np.exp(-alpha * i))
 
-    def _weighted_decay_levenshtein_distance(self, s1: np.ndarray, s2: np.ndarray) -> np.ndarray:
+    def _weighted_decay_levenshtein_distance(self, s1: np.ndarray, s2: np.ndarray, alpha: float = 0.3) -> np.ndarray:
         """
         This is a variation of the Levenshtein Distance where the cost of 
         edits decreases as the position in the sequence increases. The idea is 
@@ -226,15 +284,15 @@ class Clusterizer:
         
         # Initialize the matrix with position-based weights
         for i in range(1, n + 1):
-            dp[i][0] = dp[i-1][0] + self._exponential_decay_weight(i-1)
+            dp[i][0] = dp[i-1][0] + self._exponential_decay_weight(i-1, alpha = alpha)
         for j in range(1, m + 1):
-            dp[0][j] = dp[0][j-1] + self._exponential_decay_weight(j-1)
+            dp[0][j] = dp[0][j-1] + self._exponential_decay_weight(j-1, alpha = alpha)
 
         # Fill in the matrix using weighted costs for insertions, deletions, and substitutions
         for i in range(1, n + 1):
             for j in range(1, m + 1):
                 cost = 0 if s1[i-1] == s2[j-1] else 1
-                weight = self._exponential_decay_weight(max(i-1, j-1))
+                weight = self._exponential_decay_weight(max(i-1, j-1), alpha = alpha)
                 dp[i][j] = min(dp[i-1][j] + weight,            # Deletion
                                dp[i][j-1] + weight,            # Insertion
                                dp[i-1][j-1] + cost * weight)   # Substitution
@@ -243,7 +301,7 @@ class Clusterizer:
         weighted_distance = dp[n][m]
         
         # Normalize the weighted distance
-        max_weighted_distance = sum(self._exponential_decay_weight(i) for i in range(max(n, m)))
+        max_weighted_distance = sum(self._exponential_decay_weight(i, alpha = alpha) for i in range(max(n, m)))
         normalized_distance = weighted_distance / max_weighted_distance
         
         return normalized_distance
@@ -362,7 +420,7 @@ class Clusterizer:
         flatten_X = np.array(flatten_X)
 
         print(f"[{time.ctime()}] Calculating the clusters")
-        model = DBSCAN(eps=0.5, min_samples=1, n_jobs=-1)
+        model = DBSCAN(eps=self.strategyParameters["dbscan_eps"], min_samples=1, n_jobs=-1)
         model.fit(flatten_X)
         labels = model.labels_
 
@@ -385,7 +443,7 @@ class Clusterizer:
         for i in range(n_samples):
             print(f"Calculating distance {i}/{n_samples}", end="                  \r")
             for j in range(i + 1, n_samples):
-                distance = self._weighted_decay_levenshtein_distance(y[i], y[j])
+                distance = self._weighted_decay_levenshtein_distance(y[i], y[j], alpha=self.strategyParameters["alpha"])
 
                 if distance == 0.0:
                     distance = 0.0001
@@ -741,6 +799,9 @@ class Clusterizer:
         assert isinstance(filePath, str), f"Expected {str}, got {type(filePath)}"
 
         self.dataset.saveJson(filePath)
+
+    def getClusters(self) -> Dict[str, List[str]]:
+        return self.dataset.getClusters()
         
 
 MALICIOUS_LOGFILES_DIR = [
@@ -755,7 +816,7 @@ BENIGN_LOGFILES_DIR = [
 OUT_DIR = "."
 
 if __name__ == '__main__':
-    dataset = DatasetParser(dbPath='./dpdb/', lookup='./data2.json')
+    dataset = DatasetParser(dbPath='./dpdb/', lookup=None)
     dataset.fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
     # dataset.fit(BENIGN_LOGFILES_DIR, WebsiteSample.Category.UNLABELED)
 
@@ -767,13 +828,24 @@ if __name__ == '__main__':
 
         return False
 
-    dataset.preprocess(_filterOut)
+    dataset.preprocess(_filterOut) 
 
-    cluster = Clusterizer(Clusterizer.Algorithm.DBSCAN, DatasetEmbedding.TransformMode.SBERT, Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY)
+    cluster = Clusterizer(
+        Clusterizer.Algorithm.DBSCAN, 
+        {
+            "eps": 0.2,
+        },
+        DatasetEmbedding.TransformMode.SBERT,
+        Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY,
+        {
+            "alpha": 0.1,
+            "dbscan_eps": 0.2,
+        }
+    )
     cluster.fit(dataset)
 
-    print("Saving vectors")
-    cluster.save(OUT_DIR)
+    # print("Saving vectors")
+    # cluster.save(OUT_DIR)
     print("Saving the data.json")
-    cluster.exportJson(f'{OUT_DIR}/data3.json')
+    cluster.exportJson(f'{OUT_DIR}/data2.json')
 

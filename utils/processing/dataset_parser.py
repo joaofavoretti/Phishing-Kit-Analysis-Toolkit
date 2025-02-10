@@ -644,6 +644,35 @@ class DatasetParser:
         return _leftWebsiteSamples
 
 
+    def getClusters(self) -> Dict[str, List[str]]:
+        clusters = {}
+
+        # Loading the workbench data
+        for websiteSamples in self.websiteSamples.values():
+            for websiteSample in websiteSamples:
+                if websiteSample.cluster is None:
+                    continue
+
+                if websiteSample.cluster not in clusters:
+                    clusters[websiteSample.cluster] = []
+
+                clusters[websiteSample.cluster].append(websiteSample.filehash)
+
+        # Loading the saved data
+        _leftWebsitSamples = self._joinLeftovers()
+        for websiteSample in _leftWebsitSamples:
+            if websiteSample.cluster is None:
+                continue
+
+            if websiteSample.cluster not in clusters:
+                clusters[websiteSample.cluster] = []
+
+            clusters[websiteSample.cluster].append(websiteSample.filehash) 
+
+        return clusters
+
+        
+
     def saveJson(self, filePath:path_t):
         assert isinstance(filePath, path_t), "The file path should be a string"
         assert filePath.endswith(".json"), "The file path should end with .json"
