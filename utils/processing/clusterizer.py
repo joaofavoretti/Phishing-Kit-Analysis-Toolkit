@@ -806,19 +806,22 @@ class Clusterizer:
 
 MALICIOUS_LOGFILES_DIR = [
     # "/archive/files/eval-phishing-pages/out/tmp-phishtank/"
-    "/archive/files/eval-phishing-pages/out/phishtank/"
+    # "/archive/files/eval-phishing-pages/out/phishtank/"
+    # '/home/joaof/clustering-phishing-kit/utils/processing/ZPhisher/out/',
+    '/home/joaof/clustering-phishing-kit/utils/pkdeployer/out_filter/'
 ]
 
 BENIGN_LOGFILES_DIR = [
-    "/home/joao/my/ita/mestrado/clustering-phishing-kit/experiments/same-urls/exp3/out"
+    # "/home/joao/my/ita/mestrado/clustering-phishing-kit/experiments/same-urls/exp3/out"
+    # '/home/joaof/clustering-phishing-kit/utils/deployer/out/'
 ]
 
-OUT_DIR = "."
+OUT_DIR = "/home/joaof/clustering-phishing-kit/utils/pkdeployer/cluster-out-filter/"
 
 if __name__ == '__main__':
     dataset = DatasetParser(dbPath='./dpdb/', lookup=None)
     dataset.fit(MALICIOUS_LOGFILES_DIR, WebsiteSample.Category.MALICIOUS)
-    # dataset.fit(BENIGN_LOGFILES_DIR, WebsiteSample.Category.UNLABELED)
+    # dataset.fit(BENIGN_LOGFILES_DIR, WebsiteSample.Category.BENIGN)
 
     def _filterOut(ib: DomainInstructionBlock):
         BLACKLISTED_DOMAINS = ["", "about:blank", "chrome://headless/headless_command.html", "chrome://headless/headless_command.js", "?"]
@@ -847,5 +850,5 @@ if __name__ == '__main__':
     # print("Saving vectors")
     # cluster.save(OUT_DIR)
     print("Saving the data.json")
-    cluster.exportJson(f'{OUT_DIR}/data2.json')
+    cluster.exportJson(f'{OUT_DIR}/data.json')
 

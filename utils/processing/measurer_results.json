@@ -1,0 +1,2546 @@
+[
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.2,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2767412087850264,
+            "nmi": 0.8486016324418918,
+            "fms": 0.39930944326292256,
+            "hcv": {
+                "homogeneity": 0.7494536376740374,
+                "completeness": 0.977982564517672,
+                "v-measure": 0.8486016324418918
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.0,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.1
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.3
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.7,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.9,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.5
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 1.5,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.32648105189163745,
+            "nmi": 0.8352917113398138,
+            "fms": 0.4359239522432746,
+            "hcv": {
+                "homogeneity": 0.7315264256510431,
+                "completeness": 0.9733606001943342,
+                "v-measure": 0.8352917113398138
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.1,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.15771053554817946,
+            "nmi": 0.8128588892764099,
+            "fms": 0.3039794267586306,
+            "hcv": {
+                "homogeneity": 0.6940506521814312,
+                "completeness": 0.9807434699490619,
+                "v-measure": 0.8128588892764099
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.1
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.5
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 0.9
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 1.3
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    },
+    {
+        "configuration": {
+            "alg": "DBSCAN",
+            "algParameters": {
+                "eps": 0.9
+            },
+            "mode": "SBERT",
+            "strategy": "PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY",
+            "strategyParameters": {
+                "alpha": 0.3,
+                "dbscan_eps": 2.0
+            }
+        },
+        "metrics": {
+            "ari": 0.2718963934618915,
+            "nmi": 0.8468365705942223,
+            "fms": 0.39555911685934786,
+            "hcv": {
+                "homogeneity": 0.746750053028398,
+                "completeness": 0.9779046123967224,
+                "v-measure": 0.8468365705942223
+            }
+        }
+    }
+]

@@ -7,6 +7,7 @@ from clusterizer import Clusterizer
 from datetime import datetime
 from dateutil import parser
 import numpy as np
+import itertools
 import pickle
 import shutil
 import json
@@ -14,7 +15,7 @@ import time
 import os
 import re
 
-GROUND_TRUTH_FILE = "/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/metrics/phishing-kit-manual-analysis/same_phishing_kit.json"
+GROUND_TRUTH_FILE = "/home/joaof/clustering-phishing-kit/utils/metrics/phishing-kit-manual-analysis/same_phishing_kit_formatted.json"
 
 class ClusterizerConfiguration:
     def __init__(self, alg: Clusterizer.Algorithm, algParameters: Dict[str, Union[str, int, float]], mode: DatasetEmbedding.TransformMode, strategy: Clusterizer.RepresentantStrategy, strategyParameters: Dict[str, Union[str, int, float]]):
@@ -23,6 +24,33 @@ class ClusterizerConfiguration:
         self.mode = mode
         self.strategy = strategy
         self.strategyParameters = strategyParameters
+
+    def __str__(self):
+        return f"Configuration: {self.__dict__}"
+
+class ClusterizerConfigurations:
+    def __init__(self, algs: List[Clusterizer.Algorithm], algParameters: Dict[str, List[Union[str, int, float]]], modes: List[DatasetEmbedding.TransformMode], strategies: List[Clusterizer.RepresentantStrategy], strategyParameters: Dict[str, List[Union[str, int, float]]]):
+        self.algs = algs
+        self.algParameters = algParameters
+        self.modes = modes
+        self.strategies = strategies
+        self.strategyParameters = strategyParameters
+
+    def _getDictCombinations(self, d: Dict[str, List[Union[str, int, float]]]) -> Dict[str, Union[str, int, float]]:
+        keys = d.keys()
+        combinations = itertools.product(*d.values())
+        return [dict(zip(keys, combination)) for combination in combinations]
+
+    def getCombinations(self) -> List[ClusterizerConfiguration]:
+        combinations = []
+        for alg, mode, strategy in itertools.product(self.algs, self.modes, self.strategies):
+            algParameters = self._getDictCombinations(self.algParameters[alg])
+            strategyParameters = self._getDictCombinations(self.strategyParameters[strategy])
+
+            for algParameter, strategyParameter in itertools.product(algParameters, strategyParameters):
+                combinations.append(ClusterizerConfiguration(alg, algParameter, mode, strategy, strategyParameter))
+        
+        return combinations
 
 class Measurer:
     def __init__(self, configurations: List[ClusterizerConfiguration], dataset: DatasetParser, groundTruthPath: str):
@@ -42,9 +70,9 @@ class Measurer:
 
         return sorted(samplesNames)
 
-    def _getClusterizerResultSamplesNames(self, clusterizerResult) -> List[str]:
+    def _getClusterizerResultSamplesNames(self, clusterizerResult:Dict[str, List[str]]) -> List[str]:
         samplesNames:List[str] = []
-        for cluster in clusterizerResult:
+        for cluster in clusterizerResult.values():
             samplesNames += cluster
 
         assert len(samplesNames) == len(set(samplesNames)), "There are duplicated samples in the clusterizer result."
@@ -108,7 +136,13 @@ class Measurer:
 
     def _writeOutput(self, outputFilepath:str, configuration:ClusterizerConfiguration, ari, nmi, fms, hcv):
         data = {
-            "configuration": configuration.__dict__,
+            "configuration": {
+                "alg": configuration.alg.name,
+                "algParameters": configuration.algParameters,
+                "mode": configuration.mode.name,
+                "strategy": configuration.strategy.name,
+                "strategyParameters": configuration.strategyParameters
+            },
             "metrics": {
                 "ari": ari,
                 "nmi": nmi,
@@ -126,6 +160,8 @@ class Measurer:
                 results = json.load(f)
         except FileNotFoundError:
             results = []
+        except json.JSONDecodeError:
+            results = []
 
         results.append(data)
 
@@ -134,12 +170,16 @@ class Measurer:
 
     def measure(self, outputFilepath:Union[str,None]=None):
         for configuration in self.configurations:
+            print(f'[{time.ctime()}] Measuring configuration: {configuration.__dict__}')
             clusterizer = Clusterizer(configuration.alg, configuration.algParameters, configuration.mode, configuration.strategy, configuration.strategyParameters)
+            print(f'[{time.ctime()}] Fitting clusterizer...')
             clusterizer.fit(self.dataset)
             clusterizerResult = clusterizer.getClusters()
 
+            print(f'[{time.ctime()}] Getting Metrics...')
             ari, nmi, fms, hcv = self._getMetrics(clusterizerResult)
 
+            print(f'[{time.ctime()}] Writting results...')
             if outputFilepath:
                 self._writeOutput(outputFilepath, configuration, ari, nmi, fms, hcv)
             else:
@@ -148,7 +188,7 @@ class Measurer:
         return
 
 if __name__ == '__main__':
-    LOG_FILES_DIR = ["/archive/files/eval-phishing-pages/out/phishtank/"]
+    LOG_FILES_DIR = ["/home/joaof/clustering-phishing-kit/utils/pkdeployer/out_filter"]
     dataset = DatasetParser(dbPath='./dpdb/', lookup=None)
     dataset.fit(LOG_FILES_DIR, WebsiteSample.Category.UNLABELED)
     def _filterOut(ib: DomainInstructionBlock):
@@ -160,20 +200,24 @@ if __name__ == '__main__':
         return False
     dataset.preprocess(_filterOut) 
 
-    clusterizerConfiguration = ClusterizerConfiguration(
-        alg=Clusterizer.Algorithm.DBSCAN,
+    clusterizerConfigurations = ClusterizerConfigurations(
+        algs=[Clusterizer.Algorithm.DBSCAN],
         algParameters={
-            "eps": 0.5,
+            Clusterizer.Algorithm.DBSCAN: {
+                "eps": [0.1, 0.3, 0.5, 0.9, 1.3, 2.0],
+            }
         },
-        mode=DatasetEmbedding.TransformMode.SBERT,
-        strategy=Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY,
+        modes=[DatasetEmbedding.TransformMode.SBERT],
+        strategies=[Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY],
         strategyParameters={
-            "alpha": 0.3,
-            "dbscan_eps": 0.5,
+            Clusterizer.RepresentantStrategy.PRECLUSTER_SEQUENCE_LEVENSHTEIN_DECAY: {
+                "alpha": [0.1, 0.3, 0.7, 0.9, 1.5],
+                "dbscan_eps": [0.1, 0.3, 0.5, 0.9, 1.3, 2.0],
+            }
         }
     )
 
-    measurer = Measurer([clusterizerConfiguration], dataset, GROUND_TRUTH_FILE)
+    measurer = Measurer(clusterizerConfigurations.getCombinations(), dataset, GROUND_TRUTH_FILE)
 
     measurer.measure("./measurer_results.json")
 
