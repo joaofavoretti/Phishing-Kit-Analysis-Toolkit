@@ -1,5 +1,0 @@
-<?
-
-$to = "michealnurlen@yandex.com";
-
-?>

@@ -1,9 +1,0 @@
-[22-Oct-2021 12:17:29 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
-[22-Oct-2021 12:17:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
-[22-Oct-2021 12:17:47 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
-[22-Oct-2021 12:21:41 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
-[22-Oct-2021 12:26:15 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
-[22-Oct-2021 12:26:24 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
-[22-Oct-2021 12:27:10 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
-[22-Oct-2021 12:27:15 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
-[22-Oct-2021 12:27:29 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/busshelters/public_html/home/login/functions.php on line 3
