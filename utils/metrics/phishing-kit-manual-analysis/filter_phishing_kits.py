@@ -2,7 +2,7 @@ import json
 
 PROPS_FILE = '/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/pkinspector/phishunt-phishing-kits.json'
 INFO_FILE = 'similar_phishing_kits.json'
-ANOTHER_FILTER = 'same_phishing_kit.json'
+ANOTHER_FILTER = 'redirection_phishing_kit.json'
 OUT_FILE = 'similar_phishing_kits_filtered.json'
 
 if __name__ == '__main__':
@@ -47,9 +47,8 @@ if __name__ == '__main__':
                 continue
 
             if '302 Redirect to Other Domain' in general and general['302 Redirect to Other Domain'] == True:
-                continue
+                kits_filtered.append(kit)
 
-            kits_filtered.append(kit)
 
         if len(kits_filtered) > 0:
             out_info[i] = entry
