@@ -155,7 +155,7 @@ class LogParser:
             return None
 
     def _format_set(self, ident, obj, key, value):
-        return f"SET-{obj}.{key}"
+        return f"SET-{obj}.{key}={value}"
 
     def _parse_call(self, line):
         try:
@@ -182,7 +182,7 @@ class LogParser:
             return None
 
     def _format_call(self, ident, method, obj, params):
-        return f"CALL-{obj}.{method}"
+        return f"CALL-{obj}.{method}({params})"
 
     def _parse_execute(self, line):
         try:
@@ -377,6 +377,29 @@ class LogParser:
 
         return parsed_instruction_blocks
 
+    def extract_instruction_sequence(self) -> List[str]:
+        sequence: List[str] = []
+
+        with open(self.filename, 'r') as f:
+            instructions = f.readlines()
+
+            for instruction in instructions:
+                inst_type = self._instruction_type(instruction)
+                if inst_type is None: continue
+
+                inst_parser = getattr(self, self.INSTRUCTION_PARSER_MAP[inst_type])
+                parser_ret = inst_parser(instruction)
+                if parser_ret is None: continue
+                parser_ret['type'] = inst_type.name
+
+                if inst_type in OPERATIONS_SET:
+                    inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[inst_type])
+                    formatter_ret = inst_formatter(**{k: v for k, v in parser_ret.items() if k != 'type'})
+                    if formatter_ret is not None:
+                        sequence.append(formatter_ret)
+                    
+        return sequence
+
 
 MALICIOUS_LOGFILES_DIR = [
     "/archive/files/eval-phishing-pages/out/phishtank"
@@ -386,11 +409,13 @@ BENIGN_LOGFILES_DIR = []
 
 
 if __name__ == "__main__":
+    # parser = LogParser("../samples/sample-1.log")
+    # blocks = parser.extract_instruction_blocks()
+    # parsed_instruction_blocks = parser.parse_instruction_blocks(blocks)
 
-    parser = LogParser("../samples/sample-1.log")
-    blocks = parser.extract_instruction_blocks()
-
-    parsed_instruction_blocks = parser.parse_instruction_blocks(blocks)
-
+    parser = LogParser("/home/joao/my/ita/mestrado/clustering-phishing-kit/reproduction/rods-with-laser-beams/fingerprintjs-demo.log")
+    sequence = parser.extract_instruction_sequence()
+    with open("/home/joao/my/ita/mestrado/clustering-phishing-kit/reproduction/rods-with-laser-beams/fingerprintjs-demo-sequence.txt", 'w') as f:
+        f.write('\n'.join(sequence))
 
 
