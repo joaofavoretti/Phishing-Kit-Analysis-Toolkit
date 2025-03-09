@@ -176,6 +176,9 @@ class DatasetParser:
 
         return leftovers
 
+    def getAmountOfSamples(self) -> int:
+        return sum([len(samples) for samples in self.websiteSamples.values()] + [len(self.leftovers)])
+
     def getDatasetHash(self):
         """
         Return a hash of the dataset based on all the hashes from
