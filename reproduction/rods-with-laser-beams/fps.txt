@@ -1,0 +1,10 @@
+Window.ApplePayError
+Window.CSSPrimitiveValue
+Counter
+Navigator.vendor
+Windwo.RGBColor
+
+
+CanvasRenderingContext2D.fillStyle
+CanvasRenderingContext2D.font
+CanvasRenderingContext2D.fillText
