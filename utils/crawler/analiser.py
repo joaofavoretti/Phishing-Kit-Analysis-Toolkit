@@ -43,7 +43,7 @@ def analyze_urls(urls: list, output_dir: str):
         try:
            docker.execute(
                 cast(ValidContainer, p),
-                f"timeout --preserve-status 60s /opt/chromium.org/chromium/chrome --no-sandbox --user-agent="{USER_AGENT_STRING}" --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage {url}".split(" "),
+                f"timeout --preserve-status 60s /opt/chromium.org/chromium/chrome --no-sandbox --user-agent=\"{USER_AGENT_STRING}\" --headless --screenshot --user-data-dir=/tmp --disable-dev-shm-usage {url}".split(" "),
                 workdir="/home/node/files")
         except DockerException as e:
             logging.error(f"Error while running VV8: {e}")
