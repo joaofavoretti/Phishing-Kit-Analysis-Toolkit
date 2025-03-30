@@ -76,35 +76,43 @@ class LogParser:
     }
 
     def __init__(self, filename):
+        assert self._valid_filename(filename), f"File {filename} does not exist"
+
         self.filename = filename
+        self.name = os.path.basename(filename)
+
+        self.instructions = self._read_instructions(filename)
         
-        if not self._valid_filename(filename):
-            raise Exception(f"File {self.filename} does not exist")
 
     def __str__(self):
         res = f"LogParser({self.filename})\n"
 
-        with open(self.filename, 'r') as f:
-            instructions = f.readlines()
-            for instruction in instructions:
-                
-                inst_type = self._instruction_type(instruction)
-                if inst_type is None:
-                    continue
+        for instruction in self.getInstructions():
+            
+            inst_type = self._instruction_type(instruction)
+            if inst_type is None:
+                continue
 
-                inst_parser = getattr(self, self.INSTRUCTION_PARSER_MAP[inst_type])
-                
-                ret = inst_parser(instruction)
+            inst_parser = getattr(self, self.INSTRUCTION_PARSER_MAP[inst_type])
+            
+            ret = inst_parser(instruction)
 
-                if ret is None:
-                    continue
+            if ret is None:
+                continue
 
-                res += f"{inst_type}: {ret}\n"
+            res += f"{inst_type}: {ret}\n"
     
         return res
 
     def _valid_filename(self, filename):
         return filename.endswith('.log') and os.path.exists(filename)
+
+    def _read_instructions(self, filename):
+        with open(filename, 'r') as f:
+            return f.readlines()
+
+    def getInstructions(self):
+        return self.instructions
 
     def _instruction_type(self, instruction) -> Union[InstructionType, None]:
         inst_type_letter = instruction[0]
@@ -201,6 +209,7 @@ class LogParser:
             return None
 
     def _format_execute(self, ident):
+        # return f'EXECUTE-{ident}'
         return None
 
     def _parse_load(self, line):
@@ -230,7 +239,7 @@ class LogParser:
             return None
 
     def _format_load(self, ident, source, domain, code):
-        return None
+        return f'LOAD-{ident}-{source}'
 
     def _parse_domain(self, line):
         try:
@@ -254,7 +263,7 @@ class LogParser:
             return None
 
     def _format_domain(self, url, domain, secret):
-        return None
+        return f'SWITCH-{url}'
 
     def extract_instruction_blocks(self) -> Dict:
         """
@@ -269,49 +278,47 @@ class LogParser:
 
         last_executed_domain = None
 
-        with open(self.filename, 'r') as f:
-            instructions = f.readlines()
 
-            for instruction in instructions:
-                inst_type = self._instruction_type(instruction)
-                if inst_type is None:
-                    continue
+        for instruction in self.getInstructions():
+            inst_type = self._instruction_type(instruction)
+            if inst_type is None:
+                continue
 
-                inst_parser = getattr(self, self.INSTRUCTION_PARSER_MAP[inst_type])
-                ret = inst_parser(instruction)
+            inst_parser = getattr(self, self.INSTRUCTION_PARSER_MAP[inst_type])
+            ret = inst_parser(instruction)
 
-                if ret is None:
-                    continue
+            if ret is None:
+                continue
 
-                ret['type'] = inst_type.name
+            ret['type'] = inst_type.name
 
-                if inst_type == InstructionType.LOAD:
-                    # TODO: Choose the way of getting the instruction sequences
-                    # domains[ret['ident']] = ret['domain']
-                    domains[ret['ident']] = ret['source']
-                    continue
+            if inst_type == InstructionType.LOAD:
+                # TODO: Choose the way of getting the instruction sequences
+                # domains[ret['ident']] = ret['domain']
+                domains[ret['ident']] = ret['source']
+                continue
 
-                if inst_type == InstructionType.EXECUTE:
-                    last_executed_domain = domains[ret['ident']]
-                    
-                    if last_executed_domain not in blocks:
-                        blocks[last_executed_domain] = [[]]
-                    else:
-                        if len(blocks[last_executed_domain][-1]) > 0:
-                            blocks[last_executed_domain].append([])
+            if inst_type == InstructionType.EXECUTE:
+                last_executed_domain = domains[ret['ident']]
+                
+                if last_executed_domain not in blocks:
+                    blocks[last_executed_domain] = [[]]
+                else:
+                    if len(blocks[last_executed_domain][-1]) > 0:
+                        blocks[last_executed_domain].append([])
 
-                    continue
+                continue
 
-                if inst_type in OPERATIONS_SET:
-                    
-                    # Filtering all the GET instruction that happen because of CALL instructions
-                    if inst_type == InstructionType.CALL and len(blocks[last_executed_domain][-1]) > 0:
-                        last_ret = blocks[last_executed_domain][-1][-1]
-                        if last_ret['type'] == InstructionType.GET.name:
-                            if last_ret['obj'] == ret['obj'] and last_ret['key'] == ret['method']:
-                                blocks[last_executed_domain][-1].pop()
+            if inst_type in OPERATIONS_SET:
+                
+                # Filtering all the GET instruction that happen because of CALL instructions
+                if inst_type == InstructionType.CALL and len(blocks[last_executed_domain][-1]) > 0:
+                    last_ret = blocks[last_executed_domain][-1][-1]
+                    if last_ret['type'] == InstructionType.GET.name:
+                        if last_ret['obj'] == ret['obj'] and last_ret['key'] == ret['method']:
+                            blocks[last_executed_domain][-1].pop()
 
-                    blocks[last_executed_domain][-1].append(ret)
+                blocks[last_executed_domain][-1].append(ret)
                     
         return blocks
 
@@ -380,23 +387,23 @@ class LogParser:
     def extract_instruction_sequence(self) -> List[str]:
         sequence: List[str] = []
 
-        with open(self.filename, 'r') as f:
-            instructions = f.readlines()
+        for instruction in self.getInstructions():
+            inst_type = self._instruction_type(instruction)
+            if inst_type is None: continue
 
-            for instruction in instructions:
-                inst_type = self._instruction_type(instruction)
-                if inst_type is None: continue
+            # if inst_type == InstructionType.DOMAIN:
+            #     print(instruction)
 
-                inst_parser = getattr(self, self.INSTRUCTION_PARSER_MAP[inst_type])
-                parser_ret = inst_parser(instruction)
-                if parser_ret is None: continue
-                parser_ret['type'] = inst_type.name
+            inst_parser = getattr(self, self.INSTRUCTION_PARSER_MAP[inst_type])
+            parser_ret = inst_parser(instruction)
+            if parser_ret is None: continue
+            parser_ret['type'] = inst_type.name
 
-                if inst_type in OPERATIONS_SET:
-                    inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[inst_type])
-                    formatter_ret = inst_formatter(**{k: v for k, v in parser_ret.items() if k != 'type'})
-                    if formatter_ret is not None:
-                        sequence.append(formatter_ret)
+            # if inst_type in OPERATIONS_SET:
+            inst_formatter = getattr(self, self.INSTRUCTION_FORMATTER_MAP[inst_type])
+            formatter_ret = inst_formatter(**{k: v for k, v in parser_ret.items() if k != 'type'})
+            if formatter_ret is not None:
+                sequence.append(formatter_ret)
                     
         return sequence
 
@@ -413,9 +420,10 @@ if __name__ == "__main__":
     # blocks = parser.extract_instruction_blocks()
     # parsed_instruction_blocks = parser.parse_instruction_blocks(blocks)
 
-    parser = LogParser("/home/joao/my/ita/mestrado/clustering-phishing-kit/reproduction/rods-with-laser-beams/fingerprintjs-demo.log")
+    # parser = LogParser("/home/joao/my/ita/mestrado/clustering-phishing-kit/reproduction/rods-with-laser-beams/fingerprintjs-demo.log")
+    parser = LogParser("/home/joao/my/ita/mestrado/clustering-phishing-kit/utils/samples/sample-4.log")
     sequence = parser.extract_instruction_sequence()
-    with open("/home/joao/my/ita/mestrado/clustering-phishing-kit/reproduction/rods-with-laser-beams/fingerprintjs-demo-sequence.txt", 'w') as f:
-        f.write('\n'.join(sequence))
-
+    for s in sequence:
+        if s.startswith("CALL"):
+            print(s)
 

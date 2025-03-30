@@ -1,0 +1,7 @@
+GET-Window.webdriver
+GET-Window.chrome
+GET-Navigator.webdriver
+GET-Navigator.userAgent
+GET-Navigator.plugins
+GET-Navigator.languages
+GET-Navigator.platform
