@@ -1,6 +1,7 @@
 from remote_parser import RemoteParser, date_t, path_t
 from sample_parser import SampleParser
 from urllib.parse import urlparse
+import tldextract
 import logging
 import csv
 import os
@@ -37,11 +38,11 @@ if not os.path.exists(RESULT_PHISHING_KIT):
 
 
 # Store the whitelist in a set
-domainWhiteList = set()
+domainWhitelist = set()
 with open(DOMAIN_WHITELIST_PATH, 'r') as f:
     reader = csv.reader(f)
     for row in reader:
-        domainWhiteList.add(row[1])
+        domainWhitelist.add(row[1])
 
 # Store the fingerprint wordlist in a set
 fingerprintWordList = []
@@ -61,7 +62,27 @@ class RemoteParserHandlers:
         print(folderPath)
 
     @staticmethod
-    def checkBenignExecutionSequence(samplePath: path_t, date: date_t):
+    def checkAnyBenignDomainUsage(samplePath: path_t, date: date_t):
+        try:
+            sample = SampleParser(samplePath)
+        except:
+            return
+        
+        for log in sample.getLogs():
+            urlsUsed = log.extract_instruction_blocks().keys()
+            
+            for url in urlsUsed:
+                p = urlparse(url)
+                domainInfo = tldextract.extract(url)
+                domain = f"{domainInfo.domain}.{domainInfo.suffix}"
+
+                if domain in domainWhitelist and p.path == '/':
+                    with open(RESULT_EXECUTION_SEQUENCE, 'a') as f:
+                        writer = csv.writer(f)
+                        writer.writerow([date, sample.name, sample.directory, url])
+
+    @staticmethod
+    def checkPossibleBenignRedirection(samplePath: path_t, date: date_t):
         try:
             sample = SampleParser(samplePath)
         except:
@@ -73,12 +94,12 @@ class RemoteParserHandlers:
             for url in urlsUsed:
                 p = urlparse(url)
                 domain = p.netloc
-                path = p.path
-                if domain in domainWhiteList and p.path == '/':
+                domain = domain.replace('www.', '')
+
+                if domain in domainWhitelist and p.path == '/':
                     with open(RESULT_EXECUTION_SEQUENCE, 'a') as f:
                         writer = csv.writer(f)
                         writer.writerow([date, sample.name, sample.directory, url])
-                        return
 
     @staticmethod
     def checkFingerprintUsage(samplePath: path_t, date: date_t):
@@ -111,14 +132,14 @@ class RemoteParserHandlers:
 
 if __name__ == '__main__':
 
-    parser = RemoteParser(minDate="2025-01-01", maxDate="2025-03-01", tmpDir='/archive/tmp/tmp.Wt6YunKLtq/')
+    parser = RemoteParser(minDate="2024-09-25", maxDate="2024-09-25", tmpDir='/archive/tmp/tmp.Wt6YunKLtq/')
 
     parser.addCondition(RemoteParserHandlers.checkDate)
 
     parser.addGroupStep(RemoteParserHandlers.printDownloadedFolder)
 
-    parser.addSampleStep(RemoteParserHandlers.checkBenignExecutionSequence)
-    parser.addSampleStep(RemoteParserHandlers.checkFingerprintUsage)
-    parser.addSampleStep(RemoteParserHandlers.checkPhishingKit)
+    parser.addSampleStep(RemoteParserHandlers.checkPossibleBenignRedirection)
+    # parser.addSampleStep(RemoteParserHandlers.checkFingerprintUsage)
+    # parser.addSampleStep(RemoteParserHandlers.checkPhishingKit)
 
     parser.run()
