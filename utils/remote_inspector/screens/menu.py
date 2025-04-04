@@ -36,6 +36,9 @@ class MenuScreen(Screen):
         yield Header()
         yield Footer()
         with Center():
-            yield Input(value="2024-09-25-11-phishstats", id="directory", placeholder="Directory")
-            yield Input(value="033227850ebde674", id="name", placeholder="Sample Name")
+            # For debug purposes
+            # yield Input(value="2024-09-25-11-phishstats", id="directory", placeholder="Directory")
+            # yield Input(value="033227850ebde674", id="name", placeholder="Sample Name")
+            yield Input(id="directory", placeholder="Directory")
+            yield Input(id="name", placeholder="Sample Name")
             yield Button(label="Inspect")

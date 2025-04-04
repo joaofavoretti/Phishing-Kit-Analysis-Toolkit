@@ -1,5 +1,4 @@
-
-from textual import log, on, work
+from textual import log, on, work, events
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, VerticalScroll, Vertical
 from textual.message import Message
@@ -17,6 +16,7 @@ import hashlib
 class SampleDisplayScreen(Screen):
     BINDINGS = [
             ("q", "quit", "Quit Inspection"),
+            ("n", "next", "Next Occurence"),
     ]
 
     class Quit(Message):
@@ -27,12 +27,33 @@ class SampleDisplayScreen(Screen):
         super().__init__()
         self.sample = sample
 
-    @on(Input.Changed)
-    def handleInputChanged(self, message: Input.Changed) -> None:
-        id = message.input.id.split("-")[1]
-        textArea = self.query_one(f"#log-{id}", TextArea)
-        currentCursor = textArea.cursor_location
-        textArea.move_cursor((50, currentCursor[1]), center=True)
+    def searchText(self, text: str) -> None:
+        id = self.query_one(TabbedContent).active
+        textArea = self.query_one(f"#{id}", TabPane).query_one(TextArea)
+        cursorRow, cursorCol = textArea.cursor_location
+        textAreaContent = textArea.text
+        textAreaContent = textAreaContent.split("\n")
+        # Find the next occurence of the text
+        for i in range(cursorRow + 1, len(textAreaContent)):
+            idx = textAreaContent[i].find(text)
+            if idx != -1:
+                # Move the cursor to the next occurence
+                textArea.move_cursor((i, idx), center=True)
+                break
+        else:
+            # If not found, move the cursor to the first occurence
+            for i in range(0, cursorRow):
+                if textAreaContent[i].find(text) != -1:
+                    # Move the cursor to the next occurence
+                    textArea.move_cursor((i, textAreaContent[i].find(text)), center=True)
+                    break
+
+    def action_next(self) -> None:
+        id = self.query_one(TabbedContent).active
+        input = self.query_one(f"#{id}", TabPane).query_one(Input)
+        text = input.value
+        self.searchText(text)
+
 
     def compose(self) -> ComposeResult:
         """Compose app with tabbed content."""
