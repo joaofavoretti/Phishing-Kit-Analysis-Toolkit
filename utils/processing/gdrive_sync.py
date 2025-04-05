@@ -125,6 +125,23 @@ class GDriveSync:
 
         os.system(f"rclone copy -v --drive-acknowledge-abuse {self.remoteName}:\"{self.rootFolderPath}{folderName}\" \"{folderPath}\"")
 
+    def downloadSample(self, folderName, sampleName, destination = os.getcwd()):
+        folderId = self._getEntryId(self.rootFolderId, folderName)
+    
+        if not folderId:
+            raise ValueError(f"Folder {folderName} not found")
+
+        sampleName = f"{sampleName}.tar.gz" if not sampleName.endswith(".tar.gz") else sampleName
+        fileId = self._getEntryId(folderId, sampleName)
+
+        if not fileId:
+            raise ValueError(f"File {sampleName} not found")
+
+        if not os.path.exists(destination):
+            os.makedirs(destination)
+
+        os.system(f"rclone copy -v --drive-acknowledge-abuse {self.remoteName}:\"{self.rootFolderPath}{folderName}/{sampleName}\" \"{destination}\"")
+
     def uploadFolder(self, source) -> int:
         folderName = os.path.basename(source)
 
